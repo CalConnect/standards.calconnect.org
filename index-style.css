@@ -295,11 +295,15 @@ h1#content {
 
 h2 {
   font-size: 1.3em;
-  font-weight: 400; }
+  font-weight: 400;
+  margin-top: 0.2em;
+}
 
 h3 {
   font-size: 1.1em;
-  font-weight: 400; }
+  font-weight: 400;
+  margin-top: 0.2em;
+}
 
 /*
   span[id^="toc"]:after {
@@ -660,12 +664,14 @@ p {
     4.4 Copyright
 */
 .copyright {
-  padding: 1em;
-  font-size: 0.8em;
-  text-align: left; }
+  /*font-size: 0.8em;*/
+  text-align: left;
+  margin: 0 3em 0 6em;
+}
 
 .copyright .name, .copyright .address {
-  color: #485094; }
+  color: #485094;
+}
 
 /*
     5.0 Other styles
@@ -769,14 +775,9 @@ body.container {
   display: inline-block;
 }
 
-.doc-identifier{
-/*    padding-top: 10px;*/
-    padding-right: 0.5em;
-    font-size: 1.1em;
-}
-
 .doc-type-wrap {
-  padding-top: 5px;
+  padding-top: 3px;
+  margin-left: 1em;
 }
 
 .doc-type {
@@ -864,12 +865,13 @@ body.container {
 .doc-dates {
   padding-top: 5px;
   display: inline-block;
+  margin-left: 0.5em;
 }
 
-.doc-published:before {
+.doc-dates:before {
   content: "("
 }
-.doc-published:after {
+.doc-dates:after {
   content: ")"
 }
 
@@ -914,11 +916,6 @@ main {
   display: none;
 }
 
-h2, h3 {
-  padding-top: 5px;
-  margin-top: 0;
-  font-size: 1.2em;
-}
 
 #topbar-inner{background-color:#424242;font-size:0.8em;
 height: 30px;

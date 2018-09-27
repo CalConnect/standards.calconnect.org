@@ -6,8 +6,9 @@ rvm:
 before_script:
 - bundle
 script:
-#- bundle exec rake test:production && rake build:production
-- mkdir -p _site && cp *.html *.css _site
+- bundle exec relaton-yaml-xml -R csd index.yaml
+- bundle exec relaton-xml-html index.xml index-style.css csd
+- mkdir -p _site && mv index.html _site/ && mv csd _site/
 install:
 - pip install --user awscli
 deploy:
