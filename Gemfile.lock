@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/riboseinc/relaton-cli
+  revision: adad8d3f7c6158aaff2b3f2d7ec5d0e31f82f771
+  specs:
+    relaton-cli (0.1.2)
+      liquid
+      relaton (~> 0.2.4)
+      uuidtools
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -27,6 +36,7 @@ GEM
       iso-bib-item (~> 0.3.0)
     isoics (0.1.7)
     json (2.1.0)
+    liquid (4.0.0)
     mini_portile2 (2.3.0)
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
@@ -38,9 +48,6 @@ GEM
       ietfbib (~> 0.4.1)
       iso-bib-item (~> 0.3.0)
       isobib (~> 0.3.1)
-    relaton-cli (0.1.1)
-      relaton (~> 0.2.4)
-      uuidtools
     ruby_deep_clone (0.8.0)
     uuidtools (2.1.5)
 
@@ -48,7 +55,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  relaton-cli
+  relaton-cli!
 
 BUNDLED WITH
    1.16.2
