@@ -877,15 +877,19 @@ $docstage-colors-list:(
 }
 
 .doc-info.working-draft {
-  color: #1BB5A5;
+  color: #2D7393;
 }
 
 .doc-info.committee-draft {
-  color: #0DAB76;
+  color: #2A6B7C;
+}
+
+.doc-info.draft-standard {
+  color: #1C7F7A;
 }
 
 .doc-info.published {
-  color: #139A43;
+  color: #069E2D;
 }
 
 .doc-info.withdrawn {
