@@ -888,6 +888,10 @@ $docstage-colors-list:(
   color: #1C7F7A;
 }
 
+.doc-info.final-draft {
+  color: #53C170;
+}
+
 .doc-info.published {
   color: #069E2D;
 }
