@@ -790,6 +790,45 @@ body.container {
     text-transform: uppercase;
 }
 
+
+/* TODO: Convert this file to SCSS and use the following code */
+
+
+/*
+$doctype-colors-list:(
+  standard: #0AC442,
+  governance: #540D6E,
+  guide: #D183C9,
+  specification: #65AFFF,
+  report: #3A405A,
+  amendment: #F26430,
+  corrigendum: #C84630,
+  administrative: #BFAE48,
+  advisory: #33658A
+);
+
+@each $key,$val in $doctype-colors-list{
+  .doc-type.#{$key} {
+    background-color: #{$val};
+  }
+}
+
+$docstage-colors-list:(
+  proposal: #39A0ED,
+  working-draft: #1BB5A5,
+  committee-draft: #0DAB76,
+  published: #139A43,
+  withdrawn: #004E64,
+  cancelled: #2E382E,
+);
+
+@each $key,$val in $docstage-colors-list{
+  .doc-info.#{$key} {
+    color: #{$val};
+  }
+}
+*/
+
 .doc-type.standard {
   background-color: #0AC442;
 }
@@ -822,6 +861,9 @@ body.container {
   background-color: #BFAE48;
 }
 
+.doc-type.advisory {
+  background-color: #33658A;
+}
 
 .doc-stage {
   text-transform: uppercase;

@@ -1,2 +1,6 @@
+
+[source,sh]
+----
 bundle exec relaton-yaml-xml -R csd index.yaml
 bundle exec relaton-xml-html index.xml templates/index-style.css templates
+----
