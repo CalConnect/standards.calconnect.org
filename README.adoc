@@ -13,11 +13,19 @@ https://www.calendarstandards.org site.
 [source,sh]
 ----
 # generates index.html
-make clean all
+make dist-clean
+make all
 ----
+
+== Steps
+
+TODO:...
 
 == Structure
 
-There are two types of documents published
+There are two types of entries here, pure Relaton entries (bibliographic entries)
+and real CSD document entries.
+
+TODO:
 
 == Editing
