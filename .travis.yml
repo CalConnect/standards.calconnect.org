@@ -6,8 +6,7 @@ rvm:
 before_script:
 - bundle
 script:
-- bundle exec relaton-yaml-xml -R csd index.yaml
-- bundle exec relaton-xml-html index.xml templates/index-style.css templates
+- make
 - mkdir -p _site && mv index.html _site/ && mv csd _site/
 install:
 - pip install --user awscli
