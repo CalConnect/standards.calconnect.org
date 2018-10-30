@@ -1,6 +1,23 @@
+= CalConnect Standards Registry
+
+The CalConnect Standards Registry is used to publish
+CalConnect deliverables, including its Standards and
+other public documents.
+
+This repository provides all necessary information for the
+https://www.calendarstandards.org site.
+
+
+== Building the index
 
 [source,sh]
 ----
-bundle exec relaton-yaml-xml -R csd index.yaml
-bundle exec relaton-xml-html index.xml templates/index-style.css templates
+# generates index.html
+make clean all
 ----
+
+== Structure
+
+There are two types of documents published
+
+== Editing

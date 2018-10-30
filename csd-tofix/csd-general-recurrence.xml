@@ -1,0 +1,1238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<csd-standard xmlns="https://www.calconnect.org/standards/csd">
+<bibdata type="standard">
+  <title language="en" format="plain">Date and time — General recurrence representation</title>
+  <docidentifier>18012</docidentifier>
+  <contributor>
+    <role type="author"/>
+    <organization>
+      <name>CalConnect</name>
+    </organization>
+  </contributor>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>CalConnect</name>
+    </organization>
+  </contributor>
+  <language>en</language>
+  <script>Latn</script>
+  <status format="plain">working-draft</status>
+  <copyright>
+    <from>2018</from>
+    <owner>
+      <organization>
+        <name>CalConnect</name>
+      </organization>
+    </owner>
+  </copyright>
+  <editorialgroup>
+    <technical-committee>VCARD, CALENDAR</technical-committee>
+  </editorialgroup>
+</bibdata><version>
+  <edition>1</edition>
+  <revision-date>2018-09-10T00:00:00Z</revision-date>
+  
+</version>
+<termdocsource bibitemid="CC18011"/><preface><foreword obligation="informative"><title>Foreword</title><p id="_832287db-da23-44ce-9a4a-dc3e7fdb499b">The Calendaring and Scheduling Consortium ("CalConnect") is global non-profit
+organization with the aim to facilitate interoperability of technologies across
+user-centric systems and applications.</p>
+<p id="_db3bc9d0-5f94-4c37-8e1d-a0c4e94348d3">CalConnect works closely with liaison partners including international
+organizations such as ISO, OASIS and M3AAWG.</p>
+<p id="_33429ef5-1cd2-49f4-b16a-90bee8563538">The procedures used to develop this document and those intended for its further
+maintenance are described in the CalConnect Directives.</p>
+<p id="_4fc914db-2d20-46cd-a376-5610e8f123a5">In particular the different approval criteria needed for the different types of
+CalConnect documents should be noted. This document was drafted in accordance with the
+editorial rules of the CalConnect Directives.</p>
+<p id="_f41e649b-2f72-42e6-be1e-32b10bdda0c5">Attention is drawn to the possibility that some of the elements of this
+document may be the subject of patent rights. CalConnect shall not be held responsible
+for identifying any or all such patent rights. Details of any patent rights
+identified during the development of the document will be in the Introduction
+and/or on the CalConnect list of patent declarations received (see
+www.calconnect.com/patents).</p>
+<p id="_4aa0eeae-31b4-4740-a2a4-9aa9e7f62bf9">Any trade name used in this document is information given for the convenience
+of users and does not constitute an endorsement.</p>
+<p id="_44254846-0fb9-4ba7-ae0b-dccb791384b8">This document was prepared by Technical Committee <em>VCARD, CALENDAR</em>.</p></foreword><introduction id="introduction" obligation="informative"><title>Introduction</title><p id="_0ff6f00c-240a-4232-868c-26e6fb621b93">The iCalendar standard (<eref type="inline" bibitemid="RFC5545" citeas="RFC 5545"/>) has defined the de-facto standard
+for specifying recurring time intervals.</p>
+<p id="_fc70d7e4-c699-4423-8057-f6d15f0fb09e">However, its syntax is tightly bound to the syntax and assumptions
+of <eref type="inline" bibitemid="RFC5545" citeas="RFC 5545"/>, requiring a data model representation that assumes
+a hierarchy of properties, parameters and data types that are not
+necessarily provided in other date and time representations,
+such as the International Standard for date and time representation,
+<eref type="inline" bibitemid="ISO8601" citeas="ISO 8601:2004"/>.</p>
+<p id="_012e52a8-9449-44c1-baaf-b5f21583ce35"><eref type="inline" bibitemid="RFC5545" citeas="RFC 5545"/> also relies on a number of indirect data inheritance
+rules that are not clearly specified and therefore not easily
+reproduced in other representations outside of iCalendar.</p>
+<p id="_62184d40-93de-4c74-900b-8b7f168c4abb">This document describes a method to specify recurring time intervals
+with repeat rules in representation in line with those of the time
+scale components and date and time representations described in
+<eref type="inline" bibitemid="ISO8601" citeas="ISO 8601:2004"/>.</p></introduction></preface><sections>
+
+<clause id="scope" obligation="normative"><title>Scope</title><p id="_e0fcb62f-d502-4f57-8a62-f6aa2e68bc67">The purpose of this document is to provide a generalized representation
+of selection rules and recurring time intervals with repeat rules
+in line with those of the time scale components and date and time
+representations described in <eref type="inline" bibitemid="ISO8601-1" citeas="ISO 8601-1:--"/>.</p>
+<p id="_4974b6ba-ea05-41e4-9aac-3e29fc125332">Representations in this document describe a superset of recurrence
+rules to "RECUR" rules in <eref type="inline" bibitemid="RFC5545" citeas="RFC 5545"/>, but aims to maintain
+compatibility with it inasmuch possible.</p>
+<p id="_3b707abf-521f-4fc8-bff5-84d8f74a537c">This document only supports date elements from the Gregorian calendar and
+times from the 24-hour clock.</p>
+<p id="_507e3347-30da-4174-8b54-a6753b150729">Date and time format representations described in this document
+utilizes numbers, alphabets and symbols defined in <eref type="inline" bibitemid="ISOIEC646" citeas="ISO/IEC 646"/>.
+These representations are meant to be both human recognizable and
+machine readable. Character encoding of the representations is
+not covered in this document.</p></clause>
+
+<clause id="tda" obligation="normative"><title>Terms and definitions</title><terms id="_terms_and_definitions" obligation="normative"><title>Terms and definitions</title><term id="term-repeat-rule">
+  <preferred>repeat rule</preferred>
+  <definition><p id="_672303d9-66d7-4652-9452-f50dd0d68c6a">consists of a set of eligible time intervals (<xref target="term-eti"/>) and
+selection rules (<xref target="term-sel-rule"/>) that allows computation of a set of
+matching instants (<xref target="term-matching-instants"/>)</p></definition>
+</term>
+<term id="term-sel-rule">
+  <preferred>selection rule</preferred>
+  <definition><p id="_54e055a1-3c32-4de7-bf77-1cdb74b6098c">rule specifying restrictions on the value of a <em>time scale component</em>
+(<eref type="inline" bibitemid="ISO8601-1" citeas="ISO 8601-1:--"><locality type="clause"><referenceFrom>3.1.3.9</referenceFrom></locality></eref>)</p></definition>
+</term>
+<term id="term-repeat-cycle">
+  <preferred>repeat cycle</preferred>
+  <definition><p id="_3054a941-3649-49b5-a0e6-ed80c6005986">set of repeating <em>instants</em> (<eref type="inline" bibitemid="ISO8601-1" citeas="ISO 8601-1:--"><locality type="clause"><referenceFrom>3.1.1.2</referenceFrom></locality></eref>), calculated by
+a specified start instant and specified <em>duration</em>
+(<eref type="inline" bibitemid="ISO8601-1" citeas="ISO 8601-1:--"><locality type="clause"><referenceFrom>3.1.1.6</referenceFrom></locality></eref>) gap between the repeating instants</p></definition>
+</term>
+<term id="term-eti">
+  <preferred>eligible time interval</preferred>
+  <definition><p id="_4cc5dd43-5c76-46d4-bf19-9f0b55481f63"><em>time interval</em> (<eref type="inline" bibitemid="ISO8601-1" citeas="ISO 8601-1:--"><locality type="clause"><referenceFrom>3.1.1.3</referenceFrom></locality></eref>) eligible for matching
+using <em>selection rules</em> (<xref target="term-sel-rule"/>)</p></definition>
+</term>
+<term id="term-matching-instants">
+  <preferred>matching instants</preferred>
+  <definition><p id="_e3ec1b2d-bd84-46ab-b9ce-6f2db54c144e">set of <em>instants</em> (<eref type="inline" bibitemid="ISO8601-1" citeas="ISO 8601-1:--"/>), computed by a <em>repeating rule</em>
+(<xref target="term-repeat-rule"/>), that belongs within <em>eligible time intervals</em>
+(<xref target="term-eti"/>) and fulfills criteria set by specified <em>selection rules</em>
+(<xref target="term-sel-rule"/>)</p></definition>
+</term>
+<term id="term-movable-day"><preferred>movable day</preferred><definition><p id="_fbb7f82a-47e5-4bf7-a6ce-ed0df402cb44">repeatedly occurring day in a calendar that is represented by criteria set by one or more <em>selection rules</em> (<xref target="term-sel-rule"/>), but does not always resolve to a fixed calendar day in every <em>repeating cycle</em> (<xref target="term-repeat-cycle"/>)</p></definition>
+
+
+
+<termnote id="_053f67bc-d2b1-4dda-a680-1367eee715db">
+  <p id="_dafe7da2-9136-4d1c-9512-f90de3321fc6">The selection of this term pays homage to the phrase "movable feast" used in some calendars to indicate the rule-based determination of annual events.</p>
+</termnote><termexample id="_650eee92-2b35-4cde-94c6-13b758cfe0cf">
+  <p id="_d71497d3-d4e3-432a-a142-1899fb36c9dc">Thanksgiving Day in the U.S. and Canada, are considered movable days, set to the fourth Thursday in November and the second Monday in October, respectively.</p>
+</termexample><termexample id="_12f90b6b-b7e0-405c-8400-948fbf19c2f7">
+  <p id="_472c461f-17c3-437f-b648-b4695862c889">First Day of Summer (sumardagurinn fyrsti) in Iceland is considered a movable day, set to the first Thursday after April 18th.</p>
+</termexample><termexample id="_5d6c3086-2727-4246-aa6d-749fdb4e7d4a">
+  <p id="_2bb6754b-3ebc-4f74-b12d-25afb96797b3">Father’s Day is celebrated on the third Sunday in June in North America and is considered a movable day.</p>
+</termexample></term></terms>
+<definitions id="symbols"><term id="symbols-general">
+  <preferred>General</preferred>
+  <definition><p id="_e5fd3889-b72d-4195-be37-5bf04f905161">Representations specified in this document make use of symbols given in <eref type="inline" bibitemid="CC18011" citeas="CC 18011:--"/> and the following.</p></definition>
+</term>
+<term id="symbols-composite">
+  <preferred>Composite component symbols</preferred>
+  <dl id="_f065b25c-02b5-4c97-b0d7-28e6cbd6a353">
+  <dt>selection</dt>
+  <dd>
+    <p id="_037269df-044c-4fb9-b5b6-fda86c1b569c">representation for a set of selection rules as determined in <xref target="selection-general"/></p>
+  </dd>
+</dl>
+</term>
+<term id="symbols-inplace"><preferred>Symbols used in place of digits or signs</preferred><p id="_bba4070f-4b6c-41b9-8800-0ad605cd9dac">These symbols are used to represent characters in the date and time
+representations. They are used in representations only, and are
+replaced by one or more characters, as described, in expressions:</p>
+<dl id="_5d37e5e4-cbed-4bd8-b123-f5190ef2b02c">
+  <dt>n</dt>
+  <dd>
+    <p id="_fbb52033-12ec-4fef-a0ee-6302c9f0a2dc">a positive integer or value, may be left absent to signify an unbounded value</p>
+  </dd>
+  <dt>i</dt>
+  <dd>
+    <p id="_c6991c47-f371-463d-9297-5774206d9af4">a positive integer</p>
+  </dd>
+  <dt>!</dt>
+  <dd>
+    <p id="_4bf0d16d-23c0-48dc-b184-7dc11ef1cf86">indicates that the token following this symbol is optional (may be omitted)</p>
+  </dd>
+</dl></term>
+<term id="symbols-designator"><preferred>Designator symbols</preferred><p id="_0279dcd6-1f59-4ba1-b28a-224b132f9f18">These symbols are used to represent designators in the date and time expressions:</p>
+<dl id="_45ecaacc-ee07-4e6d-a109-ee3416a8ff4f">
+  <dt>"R"</dt>
+  <dd>
+    <p id="_cb07dc64-3d2e-491e-a465-99701820fada">the recurring time interval designator, represented by the character "R"</p>
+  </dd>
+  <dt>"I"</dt>
+  <dd>
+    <p id="_63eec008-9ad1-4010-b518-a2b05b1f225a">the instance designator, represented by the character "I", indicates that a specific instance is to be selected within the time scale component</p>
+  </dd>
+  <dt>"F"</dt>
+  <dd>
+    <p id="_5b7ab4d7-376f-4d7f-8063-940786bff0a4">the frequency designator, represented by the character "F", preceding the component which represents the frequency part of a repeating rule</p>
+  </dd>
+  <dt>"L"</dt>
+  <dd>
+    <p id="_2c6d83e1-4f1e-4cae-8225-3b986fc46f25">the selection prefix designator, represented by the character "L", preceding the component which represents the selection part of a repeating rule until encountering the corresponding suffix designator.</p>
+  </dd>
+  <dt>"N"</dt>
+  <dd>
+    <p id="_0ae737d7-b3f1-4e05-8cb5-1c177647f498">the selection suffix designator, represented by the character "N", following the component which represents the selection part of a repeating rule from the corresponding prefix designator.</p>
+  </dd>
+  <dt>"<em>x</em>"</dt>
+  <dd>
+    <p id="_ee57e653-e553-468f-92af-4c66f0e7c46f">the representation of any character "<em>x</em>" as according to the textual representation of "<em>x</em>" in the <eref type="inline" bibitemid="ISOIEC646" citeas="ISO/IEC 646"/> repertoire</p>
+  </dd>
+</dl>
+<termnote id="_d8cda94a-f7b9-44fb-ae69-cf767b1d8fac">
+  <p id="_2e9de88e-be70-408d-8271-56f1cc4b3566">The choice of "L" and "N" for the selection designators is due to
+the fact that the word "selection" contains both "L" and "N" in the
+correct order.</p>
+</termnote></term>
+<term id="symbols-separator"><preferred>Separator symbols</preferred><p id="_8cd70711-a021-46d2-a15e-708b93ca8d68">In date and time expressions and date and time representations, the following characters are used as separators.</p>
+<dl id="_e1506f11-f572-4044-82a1-69105c536b18">
+  <dt>"/" (solidus)</dt>
+  <dd>
+    <p id="_6524c06b-f13d-4abc-babe-0b03daf49141">the "/" solidus character separates start and end times in the representation of a time interval, as well as the symbol 'R' from the remainder of a recurring time interval representation. A solidus may be replaced with a double hyphen ["--"] by mutual agreement of the communicating partners.</p>
+  </dd>
+  <dt>"." (period) and "," (comma)</dt>
+  <dd>
+    <p id="_db5a1bc5-59bf-4876-81a3-4dbed1d9c4f6">the "." period and "," comma characters are decimal signs used to separate the integer part from the decimal fraction of a number.</p>
+  </dd>
+</dl></term></definitions></clause>
+<clause id="integer-ops" obligation="normative"><title>Set notation</title><clause id="_general" obligation="normative">
+  <title>General</title>
+  <p id="_36aa700d-60b0-4802-94e6-61c3754b5d1d">A set is considered to be an orderless collection of elements.</p>
+</clause>
+<clause id="integer-set" obligation="normative"><title>Integer set</title><p id="_68a4588f-9eee-4cca-816b-db73fb82678d">Curly braces enclosing a set of integers (with no specified order and
+separated by commas and zero or more spaces) are used to mean "allmembers of the set".</p>
+<p id="_ff4560ce-0941-41f7-acae-81c99b7f7398">Empty spaces ([" "]) after or before the element divider ([","])
+within a set expression
+are considered superfluous and only allowed for better readability.
+The evaluation of a set expression should always omit such empty
+spaces.</p>
+<sourcecode id="_86c3f11b-8e15-4165-a383-04cd562103be">intset = ["{"][intexpr-1][","][intexpr-2][","] ... [intexpr-n]["}"]</sourcecode>
+<p id="_2eba2021-33d4-4d75-99fa-7321ed5ce7f6">Where,</p>
+<ul id="_36814e40-1214-4b5e-8597-8a395d8e8c92">
+  <li>
+    <p id="_90994baf-742b-46ad-ae11-5386d75a5e98"><tt>intexpr-i</tt> is <tt>[i]</tt> (a positive integer) or <tt>[!]["-"][i]</tt> (a negative integer)</p>
+  </li>
+</ul>
+<example id="_6f28158c-bc9c-41f0-bbd4-5e2ddb679a53">
+  <p id="_aef50735-dab5-4c7f-9312-284d947ef658"><tt>{1, 3, 5}</tt> is a set of integers 1, 3 and 5.</p>
+</example>
+<example id="_fbc92055-fbd1-4b90-ad31-d4635db0b744">
+  <p id="_7598bac8-af25-4502-b87c-35fc44c90030"><tt>{-3, -6, 9}</tt> is a set of integers -3, -6 and 9.</p>
+</example></clause>
+<clause id="_date_and_time_expression_set" obligation="normative"><title>Date and time expression set</title><p id="_80f949ea-1480-475a-9cc3-81d3010ddbd7">The notation form specified in <xref target="integer-set"/> also applies to
+a set of date and time expressions.</p>
+<sourcecode id="_9f63867c-4d65-447f-bac8-736b8795b481">exprset = ["{"][expr-1][","][expr-2][","] ... [expr-n]["}"]</sourcecode>
+<p id="_eae35fa2-081f-4314-8272-014bc396f2b1">Where,</p>
+<ul id="_b1d564ca-5523-41fa-addf-b82a1e2f07fb">
+  <li>
+    <p id="_ec416ebe-35ff-47a5-aa01-cc92730a84f4"><tt>[expr-i]</tt> is a valid date and time expression</p>
+  </li>
+</ul>
+<example id="_95ec278e-990c-4041-a425-bab33d59bea6">
+  <p id="_1dd6689a-06a5-4cbf-b8df-9b12df4b8890"><tt>{1K,3K,5K}</tt> is a set that contains the expressions for Monday, Wednesday and Friday.</p>
+</example></clause>
+<clause id="int-expand" obligation="normative"><title>Integer set expansion for date and time expressions</title><p id="_306839fc-c7e6-4f3a-a692-7edb7df09560">An integer set [intset] can replace a time component value [i] in a
+representation as long as the resulting expression is valid.</p>
+<sourcecode id="_1619fb04-8572-400a-8e3c-5ae6c1b73123">intexpand = [intset][symbol(c)]</sourcecode>
+<p id="_f9cbd0e8-50a1-443d-b4f8-a126c64edded">Where,</p>
+<ul id="_80b926c6-2dc6-44eb-92d3-7ce49200a043">
+  <li>
+    <p id="_0d8d79ff-0710-44c6-a6e1-a5872851dadc"><tt>[symbol(c)]</tt> is the designated symbol for the time scale component.</p>
+  </li>
+</ul>
+<example id="_a29a3c42-4dc7-4daf-bc74-2e22aa1a8f03">
+  <p id="_561416a7-30c5-4ecd-acf0-98400d905af9">If <tt>c</tt> is the timescale component "month", <tt>[symbol(month)]</tt> is the symbol for the calendar month time scale component — the designated symbol <tt>["M"]</tt>.</p>
+</example>
+<example id="_cc103b60-410c-45e2-8ec1-09d6f2fb0369">
+  <p id="_097d3a3b-0c79-483e-a059-cb09971fac1c"><tt>{1,2,3}K</tt> is a set that expands to <tt>{1K,2K,3K}</tt>, which contains the expressions to specify Monday, Wednesday and Friday.</p>
+</example>
+<example id="_6752e7d4-8539-4f24-9319-034109e9e1b4">
+  <p id="_153b217a-810f-4139-84ee-26076417e27b"><tt>2018YGP2M{1,3,5}I</tt> expresses a shorter form of the set representation of
+<tt>{ 2018Y1M1D/2018Y2M28D, 2018Y5M1D/2018Y6M30D, 2018Y9M1D/2018Y10M31D }</tt>
+that uses time intervals from <eref type="inline" bibitemid="CC18011" citeas="CC 18011:--"/>.</p>
+</example></clause>
+<clause id="expr-expand" obligation="normative"><title>Expression set expansion for date and time expressions</title><p id="_c657a80a-0f0b-4ac1-a7de-73260489dc7a">An expression set [exprset] can be expanded with another date and time
+expression as long as the resulting expression is valid.</p>
+<sourcecode id="_6236783b-4058-4396-b543-8baa3a8ae618">exprexpand = [exprset][expr]</sourcecode>
+<p id="_ee58a7fa-ac25-45ce-a10e-281e1e1da8b1">Where,</p>
+<ul id="_2237c617-5fad-4dcf-8793-6efcbf1e96c9">
+  <li>
+    <p id="_9682039f-49aa-4910-99a1-26a94223c869"><tt>[expr]</tt> is a date time expression, such that when conjoined with individual
+elements of <tt>[exprset]</tt> the resulting expanded set of date and time expressions
+remain valid.</p>
+  </li>
+</ul>
+<example id="_08d10ca6-87f4-4a37-9b20-b4416a089928">
+  <p id="_5b0de398-c2ca-4e82-963a-fd1400c3fe7c"><tt>{2018Y3M,2019Y2M}1D</tt> is a set that expands to <tt>{2018Y3M1D,2019Y2M1D}</tt>, which contains the date expressions for year 2018 March 1st and year 2019 February 1st.</p>
+</example>
+<example id="_9e29425d-8028-484d-be6c-7f58cb9c8ad6">
+  <p id="_d5cddd88-a9cd-4773-b41c-c5dfc30a311f"><tt>{1778Y3M,1889Y2M}{10,20}D</tt> utilizes the syntax of <xref target="int-expand"/> and <xref target="expr-expand"/>, where the set expands to <tt>{1778Y3M10D,1889Y2M10D,1778Y3M20D,1889Y2M20D}</tt>. Since the order of elements are not specified within a set, the expression is equivalent to <tt>{1778Y3M10D,1778Y3M20D,1889Y2M10D,1889Y2M20D}</tt>.</p>
+</example></clause></clause>
+<clause id="selection" obligation="normative"><title>Selection of date and time</title><clause id="selection-general" obligation="normative"><title>General</title><p id="_62bd04df-efc6-485c-87b5-0090eac7f1af">A time scale component can be replaced with selection rules to specify
+matching criteria of certain time scale unit values. This clause builds
+upon the "explicit" syntax of time scale components specified in
+<eref type="inline" bibitemid="CC18011" citeas="CC 18011:--"/>.</p>
+<p id="_86c94c59-5513-4571-8d7f-a9b362da3b04">[selection] may include zero or more selection rules.</p>
+<sourcecode id="_13790691-007a-4a07-b1d1-53572fbe512d">selection = ["L"][selection-rule-1]...[selection-rule-n]["N"]</sourcecode>
+<p id="_ed0849c8-1136-40a8-a9e7-f3812ba92f25">Where,</p>
+<ul id="_3dfed45b-b651-4188-8926-b5f4303ad370">
+  <li>
+    <p id="_330bd97e-e9ff-4a39-9df0-69f15622bef1">["L"] is the selection prefix designator;</p>
+  </li>
+  <li>
+    <p id="_680d36fb-cd01-454b-8769-b82710510107">["N"] is the selection suffix designator;</p>
+  </li>
+  <li>
+    <p id="_67e1db87-8ca2-497d-9f3b-a63146ce9d80">between the selection prefix and suffix designator, there can be multiple
+[selection-rule-n] selection rules, which are defined in this
+clause.</p>
+  </li>
+</ul>
+<p id="_8d860e84-8c5b-46b4-8b09-0cfc241add84">A selection expression describes either:</p>
+<ul id="_60059435-8bcc-4f24-bee9-1df62282f39b">
+  <li>
+    <p id="_ab5c73e3-b28d-4565-a196-98430a2c707d">a set of time scale components, which may be continuous or disjoint on a time scale;</p>
+  </li>
+  <li>
+    <p id="_c9cf1ad9-bcad-4d52-a8f8-8fd85100ca12">a single instance of a time scale component, when the instance component (<tt>["I"]</tt>) is invoked.</p>
+  </li>
+</ul>
+<example id="_5af8492a-557f-4b71-8566-461cb49fe9ed">
+  <p id="_998f60be-97a8-4dba-9c0b-1caf5959a53f"><tt>L{1,3,5}KN</tt>, "Mondays, Wednesdays and Fridays", describes a set of
+disjoint calendar days (all three calendar days are not adjacent to each other).</p>
+</example>
+<example id="_c6c72c6d-8ec1-40d8-b8e8-d982d0536ebc">
+  <p id="_d728e309-91f8-4667-a3fa-bd842f96ab27"><tt>L{1,2}MN</tt>, "Januarys and Februarys", describes a set of
+calendar months that are continuous on one side (January is next to February),
+but disjoint on the other, when placed on the time scale (March to December are
+excluded from this expression).</p>
+</example>
+<example id="_52a4a8b5-1a11-4e6f-96df-a750f7fcf3d3">
+  <p id="_0b838b69-984c-4a5c-98d6-36b41a001b5d"><tt>L1K1IN</tt>, "the first Monday", describes a single calendar day.</p>
+</example>
+<p id="_9ea66023-4b88-4383-ae0b-a9e1c8464c68">NOTE:
+Selection rules specified in this clause are a superset to those of the
+"RECUR" syntax specified in <eref type="inline" bibitemid="RFC5545" citeas="RFC 5545"/>;
+while it is possible to translate certain selection rules specified in this
+document to that syntax, exceptions and limitations are noted within context
+of the rules specified below.</p></clause>
+<clause id="selection-rules" obligation="normative"><title>Selection rules</title><clause id="selection-months" obligation="normative"><title>Selection of calendar month of year</title><p id="_6d95e6ce-ae8c-407b-9fee-6cc50e684c20">This selection rule specifies a set of calendar months of the calendar year.</p>
+<p id="_0fef3e0b-a1bf-4253-9da2-4a158057e5a0">Representation:</p>
+<sourcecode id="_42a0211f-7373-4bd2-9408-25fb0877bad7">monthSR = [monthE]</sourcecode>
+<p id="_2f6ff95c-35b0-4501-b974-e3dd9f2fa430">Valid values are [1] to [12], corresponding to the ordinal number of the calendar month.</p>
+<example id="_50e87aa2-9ab6-4518-817d-a666ae62e4d3">
+  <p id="_d78ca201-bb27-4378-9e2b-52f4164681af"><tt>3M</tt> represents the third calendar month of the calendar year, i.e. March.</p>
+</example>
+<example id="_986dfa29-4672-4471-a6bb-0714c8d56017">
+  <p id="_310bee91-2ca8-40eb-b531-ab626ff17866"><tt>12M</tt> represents the twelfth calendar month of year, i.e. December.</p>
+</example></clause>
+<clause id="selection-weeks" obligation="normative"><title>Selection of calendar week of year</title><p id="_de790aca-5e39-4070-99b9-a2cb6a90e008">This selection rule specifies a set of ordinals specifying calendar weeks of the calendar year. Since the calendar week of year component has a changeable bound, negative values of week are allowed for specifying the week of year number in reverse.</p>
+<p id="_1f6eea1b-c806-4371-a0b5-1908f93823d8">Representation:</p>
+<sourcecode id="_172b7e2d-58c5-47f3-b5e2-d939201de1ca">weekSR = [weekE]</sourcecode>
+<p id="_bb318470-12b8-43b1-b18a-dd371fac7685">Valid values are [1] to [53] and [-53] to [-1]. This corresponds to the
+number of calendar weeks of a year according to week numbering as
+defined in <eref type="inline" bibitemid="ISO8601-1" citeas="ISO 8601-1:--"/>.</p>
+<example id="_ccd19bb4-b79d-4d1a-8021-5108e1e0f4da">
+  <p id="_b29d0c6b-6bf4-4b09-9196-45824e994c7c">The tenth week of the calendar year is represented by the expression '10W'.</p>
+</example>
+<example id="_6702da2a-334d-4e64-aac1-108b7d8b453a">
+  <p id="_3d68c6cf-7fc8-4ce3-9a7e-1a8f623700dc">The second last week of the calendar year is represented by the expression '-2W'.</p>
+</example>
+<note id="_cf451fc9-641c-4f66-b47b-120cc93aaf51">
+  <p id="_0d8e8a22-38d3-4b0a-875f-0c654923a9d4">Week 53 can only occur when Thursday is January 1 or if it is a
+leap calendar year and Wednesday is January 1, in accordance with
+<eref type="inline" bibitemid="ISO8601-1" citeas="ISO 8601-1:--"><locality type="clause"><referenceFrom>4.2.2</referenceFrom></locality></eref>.</p>
+</note>
+<note id="_a9bbf131-ccd9-4a09-96b2-73092643f96e">
+  <p id="_b9d0dabd-5337-46cc-a361-6981086caa0c">Refer to <eref type="inline" bibitemid="CC18011" citeas="CC 18011:--"><locality type="clause"><referenceFrom>6.7</referenceFrom></locality></eref> for negative values of weeks.</p>
+</note>
+<note id="_eba2e97d-89ca-43dd-91d5-99521d3bfe37">
+  <p id="_d4286886-2921-4d4d-b964-50c424e1b31f">Definitions of the calendar week and the week number are provided
+in <eref type="inline" bibitemid="ISO8601-1" citeas="ISO 8601-1:--"/>.</p>
+</note>
+<note id="_6da122f9-d37d-47af-b0ce-a5c4566133c4">
+  <p id="_9c524a8d-9bf9-4ed5-9bd7-3cc294f970d0"><eref type="inline" bibitemid="RFC5545" citeas="RFC 5545"/> specifies that this rule should only be present when the frequency of the repeat rule is set to yearly (<xref target="eligible-time-intervals-year"/>).</p>
+</note></clause>
+<clause id="selection-month-days" obligation="normative"><title>Selection of calendar day of month</title><p id="_e4597f69-f6c4-46b1-a17b-4a92fe963b55">This selection rule specifies a set of days of the calendar month. Since the calendar day of month has a changeable bound, negative values of calendar day of month are allowed for specifying the day of month ordinal number in reverse.</p>
+<p id="_e224b3b3-a3fb-416c-9641-4716d9b4adc7">Representation:</p>
+<sourcecode id="_993b78ff-daf9-436c-8608-7e75ad0c010d">daySR = [dayE]</sourcecode>
+<p id="_0f1b1bf9-b0b7-4625-8582-f7655371a904">Valid values are [1] to [31] and [-31] to [-1]. This corresponds to the
+maximum number of calendar days of a calendar month.</p>
+<example id="_f08a18c9-d912-440d-a890-047b086f0619">
+  <p id="_c52af493-ea3f-4577-b739-e7bcda39cdd4"><tt>18D</tt> represents the eighteenth calendar day of the calendar month.</p>
+</example>
+<example id="_ed746be9-0ad3-433a-8891-d53c7bc4d33e">
+  <p id="_bcca1e1e-11ba-457c-b24d-0f11eb86c19d"><tt>-10D</tt> represents the tenth to the last calendar day of the calendar
+month.</p>
+</example>
+<note id="_56a300cc-32f0-4df1-bb2c-c274efcbffe5">
+  <p id="_92889114-bb66-4c1d-857d-95ed5187a8df"><eref type="inline" bibitemid="RFC5545" citeas="RFC 5545"/> does not allow this selection rule when the frequency
+part is set to weekly (<xref target="eligible-time-intervals-week"/>).</p>
+</note></clause>
+<clause id="selection-week-days" obligation="normative"><title>Selection of week days</title><p id="_ebcd5d35-3b77-4295-bc5a-2bea2c500d7f">This selection rule specifies a set of days of the week.</p>
+<p id="_66ff5390-589c-4019-b107-a8ff8a6ad89d">Representation:</p>
+<sourcecode id="_b6e93979-0c92-4d1a-bb4b-5789db420dba">daykSR = [daykE]</sourcecode>
+<p id="_9c524d69-f53e-4b80-808c-05e09468269a">Valid values are [1] to [7].</p>
+<example id="_61384b0b-b3a8-4276-b72f-1fffa7fc7203">
+  <p id="_637552ea-c793-48e2-aa17-e8db15bab742">Within a monthly context, "1K" represents all Mondays within the calendar
+month.</p>
+</example>
+<example id="_ac688734-7529-4b2c-aadd-9f3d7011bef9">
+  <p id="_de27098e-b8b4-4c7e-b026-e0b321ca1ea6">In a yearly context, <tt>5K</tt> represents all Fridays in the calendar year.</p>
+</example></clause>
+<clause id="selection-ordinal-days" obligation="normative"><title>Selection of ordinal days in calendar year</title><p id="_8a8bc2f9-dbfa-427a-bbfa-894294bf4494">This selection rule specifies a set of ordinal days of the calendar
+year, and should only be specified when the interval of the repeat rule
+is set to yearly (<xref target="eligible-time-intervals-year"/>), monthly
+(<xref target="eligible-time-intervals-month"/>) or daily
+(<xref target="eligible-time-intervals-day"/>).</p>
+<p id="_e88d6927-9b18-45aa-9189-bd031e81aa55">Since the number of days in a calendar year has a changeable bound, negative values of calendar day of year are allowed for specifying the day of year ordinal number in reverse.</p>
+<p id="_7d68af27-0d63-49b8-9807-791c98bc6384">Representation:</p>
+<sourcecode id="_fe9bb7b7-84f3-4dfe-b105-5882e5dd59ae">dayoSR = [dayoE(m)]</sourcecode>
+<p id="_faadfa2f-957e-4e39-beb6-5581296fd293">Valid values are [1] to [366] and [–366] to [-1].<note id="_0069c7da-471c-46ac-8345-05c7f9758d4c">
+  <p id="_575046c7-a9bc-4ed2-88c2-6272e528d8f9">The values of [366] and [-366] are used to match a calendar leap year</p>
+</note></p>
+
+<example id="_37d3a26b-271b-446c-a9d4-ba81af90364f">
+  <p id="_26d0c124-7b7a-4f81-88a3-932bfbe13331"><tt>-1O</tt> represents the last day of the calendar year (December 31st).</p>
+</example>
+<example id="_e8acbf10-a30c-415e-abf4-4f686108d5fe">
+  <p id="_f2c62884-f40e-4acc-b9fb-af2f819046f6"><tt>-306O</tt> represents the 306th to the last day of the calendar year (March 1st of a normal year).</p>
+</example></clause>
+<clause id="selection-hours" obligation="normative"><title>Selection of hours</title><p id="_73b8b29a-4f58-408d-912c-aca86f1b9afe">This selection rule specifies a set of hours of the calendar day.</p>
+<p id="_2ad7d69a-d9b6-41ec-b32c-877c3efe4aec">Representation:</p>
+<sourcecode id="_42b84638-d7b5-426b-b53a-de40eebc3d6d">hourSR = [hourE]</sourcecode>
+<p id="_aac18288-c41b-42d1-afa6-5cbc983c3411">Valid values are [0] to [23].</p>
+<example id="_fc381d00-5328-4704-b25a-15468b8f647f">
+  <p id="_b1b0a77b-ff4b-430e-8f9b-9951422b12d9">'23H' represents the 23rd (last) hour of day.</p>
+</example>
+<example id="_6c477c93-8cb0-4e5d-8c00-1df3cb66d390">
+  <p id="_81358124-678a-4fdb-97d8-0001d228b44b">'0H' represents the beginning hour of day.</p>
+</example></clause>
+<clause id="selection-minutes" obligation="normative"><title>Selection of minutes</title><p id="_8ef47348-6d89-4d93-a01a-c5462c2aaff4">This selection rule specifies a set of minutes within an hour.</p>
+<p id="_5e2a4576-2573-4713-a488-5b394c67d1c8">Representation:</p>
+<sourcecode id="_1e78dea5-b001-4b13-8f96-9c3c9c2333e2">minSR = [minE]</sourcecode>
+<p id="_f10a1db2-398d-45c9-b5ca-ddd05ee90083">Valid values are [0] to [59].</p>
+<example id="_a2aca7ac-0992-4d53-ae5e-3c666fd3fbdf">
+  <p id="_2426796f-c7f9-4cd4-88ee-d3f6cff9ca05"><tt>59M</tt> represents the 59th minute of an hour.</p>
+</example>
+<example id="_9a677e63-c332-4dc9-9065-2a0e664d602f">
+  <p id="_03e31309-087c-417f-b753-d4a12fffe39e"><tt>3M</tt> represents the third minute of an hour.</p>
+</example></clause>
+<clause id="selection-seconds" obligation="normative"><title>Selection of seconds</title><p id="_4b71b0ad-450f-41e1-83a3-529a5bdabb41">This selection rule specifies a set of seconds within a minute.</p>
+<p id="_2dc8e91c-bcd1-4d14-9b69-24132c8fce34">Representation:</p>
+<sourcecode id="_f445ded9-03b9-43a5-b1ae-dabf0022388a">secSR = [secE]</sourcecode>
+<p id="_3c03a863-67ba-4271-8e52-1d30ae40703f">Valid values are [0] to [60].</p>
+<example id="_a2b980c4-2d66-4dc4-84a9-b38083cf4c43">
+  <p id="_5e40f8ae-960c-4c21-9d2e-90c392f79ae9"><tt>30S</tt> represents the 30th second of the clock hour.</p>
+</example>
+<example id="_4e7f812c-7bd0-4539-b9f0-fd06f73017a0">
+  <p id="_e286c223-9e2f-4d98-89a1-fb61aa5b4c7a"><tt>60S</tt> represents a leap second.</p>
+</example>
+<note id="_9cd40d70-be49-4896-94e3-70d64eecc848">
+  <p id="_11fcd8dd-ccd9-4d33-a139-4496e8ace3ee">The value of [60] is used to match a leap second of the calendar year.</p>
+</note>
+<note id="_ed0319eb-6a6c-4199-bac3-4051caf0c785">
+  <p id="_04fbfff9-f436-46ad-8b32-c8213d1e8bd5">The value of [60] should be changed to [59] when converting such
+rule that to the <eref type="inline" bibitemid="RFC5545" citeas="RFC 5545"/> <tt>BYSECOND</tt> since it does not support a
+value of [60].</p>
+</note></clause>
+<clause id="selection-position" obligation="normative"><title>Selection of position</title><p id="_c2030363-94e4-4c05-a3d9-2a12ac01cdbb">The position rule, if present, should be applied last, and only when
+there is at least one selection rule preceding it. It selects a set of
+occurrence that is a subset of the occurrences already selected (by the
+selection rules preceding it).</p>
+<p id="_baf11f9c-bb49-4d63-8bb9-899e51bcde5b">Representation:</p>
+<sourcecode id="_e4c1952b-cd65-4e03-ba4b-991ff4bf0f83">positionSR = [position]["`I`"]</sourcecode>
+<p id="_4466b6c3-01f4-4d63-93fa-a894d69e9891">Where,</p>
+<ul id="_62f148ee-4ba8-43df-8c0b-e6ecc71810cc">
+  <li>
+    <p id="_742a70b4-c607-4ed3-84bb-b240530fe3b1">[position] is a positive or negative integer, <tt>[!]["-"][i]</tt>.</p>
+  </li>
+</ul>
+<p id="_b540eca8-ecd5-48fd-a0af-a2ea4235dea2">When used in conjunction with a set of occurrences, [position]
+identifies the i-th occurrence amongst the set of occurrences.</p>
+<p id="_6beafa2e-4bd9-454b-91c7-556f08a021cf">Specifically, position numbers within a set of occurrences is considered to
+start with [1] (the first occurrence of the set of occurrences),
+and [-1] represents the first occurrence when counted backwards.</p>
+<example id="_6081c29b-d86f-4f47-bc50-b52bc536712f">
+  <p id="_e5959f2f-4e64-4a29-82fe-4b3c32e5a385">"The last work day of calendar months" can be represented by the
+repeating rule <tt>L{1,2,3,4,5}K-1IN</tt> (using notation specified in
+<xref target="integer-ops"/>)</p>
+</example>
+<example id="_91d87aff-5cbc-471b-842b-ea5f149151eb">
+  <p id="_e849dd54-3904-41c5-8b7b-a893e0b6824f">"The first Monday of the calendar year" can be represented as the selection rule <tt>L{1..7}O1K1IN</tt>. <tt>{1..7}O</tt> represents the first seven days of the calendar year, <tt>1K</tt> represents Monday, <tt>1I</tt> represents the first instance.</p>
+</example>
+<example id="_abe03dd4-ec38-4fb6-b399-cbf6c3834e24">
+  <p id="_9b3b3e45-b771-44e9-88ae-c80a97baeafb">"The second Monday of the calendar year" can be represented as the selection rule <tt>L{1..14}O1K2IN</tt></p>
+</example>
+<p id="_a913a735-ce94-411f-adbb-c077bad1540b">Valid values for [position] are bound to the time scale components
+in the context. The integer value [0] is not allowed.</p>
+<example id="_fd0effa7-ac22-491f-9451-d79b2bb7c8e6">
+  <p id="_a2e2bdcc-e22b-4760-8551-ba11379464cf">In a monthly context, the expression <tt>L{1,2,3}D100IN</tt> is invalid
+because in a single calendar month, days that can match the calendar
+day of month numbers 1, 2 and 3 are only 3, therefore the position
+of 100 cannot be selected.</p>
+</example>
+<example id="_29cbd43d-6dbc-42f5-a1f6-8d166472d107">
+  <p id="_3de7fff7-fc50-4eca-886b-b0b9e2fd6416">In a monthly context, the expression 'L2K2IN9D' refers to the
+ninth day following the second Tuesday.</p>
+</example></clause></clause>
+<clause id="_selection_with_duration" obligation="normative"><title>Selection with duration</title><p id="_9cc72c45-0844-48eb-a545-46402f54153b">This selection rule allows extending the previous selection rule
+with a duration.</p>
+<p id="_2d3436ae-8ebf-4b9b-b447-d089042144fd">Representation:</p>
+<sourcecode id="_36c758c0-5914-4833-ab39-460cc175eded">durSR = [selection-component]["/"][duration]</sourcecode>
+<p id="_e8b9af01-07ce-4334-8624-29b323aca7ed">Where,</p>
+<ul id="_eabd01af-e12b-402c-bede-228cd5a521dc">
+  <li>
+    <p id="_47bdc502-acdc-4e43-82ea-24139438e096">[selection-component] are selection components defined in this
+clause;</p>
+  </li>
+  <li>
+    <p id="_f3a02039-26c7-4c25-8a04-e610bcd411c7">[duration] is a valid duration.</p>
+  </li>
+</ul>
+<example id="_5d19d689-d410-4ee9-8359-54dfb4d9d040">
+  <p id="_cb5de6ec-3b0a-4f67-8a85-405f340de355">'LL1K{1,3}IN/P5DN' expresses the selection of a set of time
+intervals starting on the first and third Mondays, each of
+a duration of 5-days long.</p>
+</example>
+<example id="_e1d6cd7d-7c25-46af-b094-ae9d3fca0aaf">
+  <p id="_85daa86b-0151-49c4-8c42-38c510ad3ede">'LLL2K2IN/P9DN4K2IN' expresses the selection of "the second Thursday following the second Tuesday", through selecting the "9-day blocks starting at the second Tuesday, then select the second Thursday in the 9-day blocks".</p>
+</example>
+<note id="_04b55c9a-3640-4ddb-b94c-e5f35169d5b3">
+  <p id="_bd30be4b-cc1b-4710-80f1-2708c894408d">[selection-component]["/"][duration] is by itself a valid
+time interval.</p>
+</note></clause>
+<clause id="selection-representations" obligation="normative"><title>Application within representations</title><clause id="_general_2" obligation="normative"><title>General</title><p id="_9f14d781-b0be-43c8-b215-ea407ed44d2e">Selection rules may be used with any date and time representation in explicit form. This representation is especially useful for describing movable days.</p>
+<example id="_5cbb59dc-04d2-46b7-9dd5-4ea5136d364c">
+  <p id="_f3d406e3-a5d9-46bc-bddb-ad4878e38bb1"><tt>2018Y3ML1KN1I</tt> is a valid date expression that refers to the date
+year 2018, first Monday of March.</p>
+</example>
+<example id="_1c74f1ac-6847-4411-8bde-f6fe95216115">
+  <p id="_2d56b6b1-af24-48e8-9cd4-eccf60316c6f"><tt>2018Y9MTLT8H20MN3I</tt> is a valid date and time expression that
+refers to the date year 2018, September, the third instance of 08:20
+(which is September 3rd, 08:20).</p>
+</example>
+<example id="_1218cd24-f899-402a-abf9-f94f83f380bd">
+  <p id="_98ef0899-92b1-466a-b173-d95078ed0d25"><tt>{2018,2019,2020,2021,2022}YL2M29DN1I</tt> is a valid date expression that
+selects the February 29 leap day. It matches the first instance of
+the date February 29th in the years 2018 to 2022.</p>
+</example>
+<example id="_7183f060-0a3e-4727-8b56-751e44fb3292">
+  <p id="_ebcd0937-96e1-4452-b6c6-b00cc6061c65">'L5M7K2IN' represents "the second Sunday of May". When placed in a yearly context, the date falls on the International Mother’s Day.</p>
+</example>
+<example id="_e9c74c2f-0327-431a-b749-b63072a0ecb1">
+  <p id="_7c9e8591-0701-4af4-8f10-077b2db00f79">'L11M4K4INT17HZ-05H' represents the date "8:00:00 p.m. of the fourth Thursday in November, in UTC-05:00". When placed in a yearly context, it represents 8:00:00 p.m. falling on the U.S. Thanksgiving Day.</p>
+</example>
+<example id="_1153deee-3bd7-4b1e-947d-c3d52586277a">
+  <p id="_599c10a6-3a7e-4f5e-b539-9bd6b40b62a5">'L4M{19,20,21,22,23,24,25,26}D4K1IN' represents the first Thursday after April 18th. When placed in a yearly context, the date falls on the First Day of Summer (sumardagurinn fyrsti) in Iceland.</p>
+</example></clause>
+<clause id="_context_set_by_selection" obligation="normative"><title>Context set by selection</title><p id="_74b286d2-73a4-4fe1-8704-91d4e6d90941">A selection expression can be used to describe a single date or a set of time intervals.
+In a date and time representation, time scale components can be
+placed after a selection to point within selected results.</p>
+<p id="_772245d4-0e9e-4236-be92-9e76d692842e">When a selection expression describes a single date, the subsequent components apply within
+the date.</p>
+<example id="_49defd8b-18ff-496e-afff-818853fb1494">
+  <p id="_c8ce4d09-bbc2-4d25-a546-0224e156c5d8">'2018YL1K1IN' is an expression for a specific calendar day. An
+expression with time scale components immediately after, such as '2018YL1K1INT10H0M0S',
+represents a specific date and time.</p>
+</example>
+<p id="_49cc0782-6c8a-45b8-9853-2eb5c029160a">When a selection expression describes a set of time intervals,
+the subsequent components apply to all elements of the set.</p>
+<example id="_14d50eca-fdce-44b2-9d4e-e3b9983ffb75">
+  <p id="_363a28bd-8684-4357-a524-ac2e27c9c9ce">'2018YL{1,2,5}KN' is an expression for a time interval set. An
+expression with time scale components immediately after,
+such as '2018YL{1,2,5}KNT10H0M0S', describe a time interval set
+'{ 2018Y1M1DT10H0M0S, 2018Y1M2DT10H0M0S, 2018Y1M5DT10H0M0S,
+2018Y1M8DT10H0M0S, 2018Y1M9DT10H0M0S, 2018Y1M10DT10H0M0S …​ }'</p>
+</example></clause>
+<clause id="_within_time_intervals" obligation="normative"><title>Within time intervals</title><p id="_5bf6478f-53a7-491c-a5eb-c814ae1f009c">A selection expression can be used to describe a time interval start or end.</p>
+<example id="_f25f53de-3ef3-496b-9327-450d3fab3494">
+  <p id="_94b5b128-2646-4e53-a606-a818c0431b0f">'2018Y9ML1K1IN/P5D', with the expression contain selection describing a single date,
+represents the time interval "first Monday in September to 5 days later".</p>
+</example>
+<example id="_dd62a305-d29d-4d4a-8803-860141921c63">
+  <p id="_ce72338b-17c3-4803-ad69-c6c53628f21d">'2018Y9ML{1,3}K1IN/P5D', with the expression contain selection describing a time interval set,
+represents the "first and third Monday in September, to 5 days later". The
+expression is identical to the set expression '{ 2018Y9ML1K1IN/P5D, 2018Y9ML3K1IN/P5D }'.</p>
+</example></clause></clause></clause>
+<clause id="recurrence" obligation="normative"><title>Recurring time intervals with repeat rules</title><clause id="_general_3" obligation="normative"><title>General</title><p id="_d510e213-732d-4887-bdd6-6bd3083cc477">This clause extends <eref type="inline" bibitemid="ISO8601-1" citeas="ISO 8601-1:--"><locality type="clause"><referenceFrom>5.4</referenceFrom></locality></eref> "Recurring Time Interval",
+by adding a rule part that defines the repeat pattern. The rule part is
+appended to the recurring time interval structure.</p>
+<p id="_44179750-9714-4aea-b360-f2fd99944b5c">It describes a generic repeat rule representation that is a superset to, but mostly
+interchangeable with, the <tt>RECUR</tt> syntax specified in IETF <eref type="inline" bibitemid="RFC5545" citeas="RFC 5545"/>.
+This feature makes use of representations defined in <xref target="selection"/>.</p></clause>
+<clause id="_method_of_specification" obligation="normative"><title>Method of specification</title><p id="_d41b52b1-4feb-4463-8f2d-27bad837c20c">A recurring time interval is represented as follows:</p>
+<ul id="_082c252c-2cff-4d81-bd30-b4c2daa9ec82">
+  <li>
+    <p id="_1f379abf-e648-459d-916f-7c694ff743a5">Optionally, a number of occurrences. If absent, the number of
+occurrences is unbounded. Each occurrence is called an "event".</p>
+  </li>
+  <li>
+    <p id="_f1c42cb6-eb34-4a56-8157-b53d1bd717e8">A time interval, as specified in <eref type="inline" bibitemid="CC18011" citeas="CC 18011:--"><locality type="clause"><referenceFrom>6.6</referenceFrom></locality></eref>.</p>
+  </li>
+  <li>
+    <p id="_7d6728e6-c7ad-430e-8b6b-4f3a0d4947cd">A repeat rule.</p>
+  </li>
+</ul></clause>
+<clause id="recurrence-repeat-rule" obligation="normative"><title>Repeat rule</title><clause id="_general_4" obligation="normative"><title>General</title><p id="_93eae2c2-81ad-4650-a96f-952ccc3cc990">A repeat rule identifies a set of matching instants according to
+specification of a repeating cycle used together with selection rules.</p>
+<sourcecode id="_92647669-dd35-408e-bd3f-4fe3d34bb895">repeat-rule = ["F"][eligible-time-intervals][selection]</sourcecode>
+<p id="_428c2c43-b907-4029-8c1b-caf3ab5c11da">Where,</p>
+<ul id="_6ec136be-47c1-4be1-ac47-8515a16ad34e">
+  <li>
+    <p id="_d23cc0d1-1e94-4279-84c9-a565c439c468">the frequency designator ["F"] precedes the identification of a series
+of repeating time intervals ("repeating intervals");</p>
+  </li>
+  <li>
+    <p id="_f18c9432-80b7-453d-9061-9ef116733d4e">[selection] is specified in <xref target="selection"/>.</p>
+  </li>
+</ul>
+<p id="_3e2b083f-9d12-4590-8ab9-a45403815d1b">Within each repeating interval, one sub-interval is distinguished, called an
+"eligible time interval".</p></clause>
+<clause id="eti" obligation="normative"><title>Eligible time intervals</title><p id="_d54f02ec-c01b-4b74-8c62-e762f116f4d5">Within each eligible time interval is one or more occurrences, as determined by [selection-rules], which are optional. If <tt>[selection-rules]</tt> is omitted, there is a single occurrence at the end of the eligible time interval.</p>
+<p id="_afa03ccd-5081-472a-a0a3-41215394cbc6"><tt>[eligible-time-intervals]</tt> in the repeat rule above is one of the following:</p>
+<ol id="_bd20e143-170b-4f1c-986b-5e95d16722db" type="arabic">
+  <li id="eligible-time-intervals-year">
+    <p id="_c3c1f61a-46d2-4455-aa12-fc8c81bd5e3e">Time interval of one or more years:	<tt>[yearE]</tt></p>
+  </li>
+  <li id="eligible-time-intervals-month">
+    <p id="_b14bdfbb-b040-4f05-ba15-55c61485ef3b">Time interval of one or more months:	<tt>[monthE]</tt></p>
+  </li>
+  <li id="eligible-time-intervals-week">
+    <p id="_fda433e3-b8e5-46f1-91c1-b022f8363901">Time interval of one or more weeks: 	<tt>[weekE]</tt></p>
+  </li>
+  <li id="eligible-time-intervals-day">
+    <p id="_ef8de6cf-5423-44e2-a2fd-a30b196ad6ec">Time interval of one or more days: 	<tt>[dayE]</tt></p>
+  </li>
+  <li>
+    <p id="_ee846a82-4d4b-4e26-bd3c-5b96cd381079">Time interval of one or more hours: 	<tt>[hourE]</tt></p>
+  </li>
+  <li>
+    <p id="_89d5bd62-4080-4aa2-8e8e-11eb6b7ca58a">Time interval of one or more minutes:	<tt>[minE]</tt></p>
+  </li>
+  <li>
+    <p id="_1f84c007-632a-4d57-95db-8930afec3581">Time interval of one or seconds:		<tt>[secE]</tt></p>
+    <ul id="_b6335015-bbee-46c3-8b9f-063081e6c4e6">
+  <li>
+    <p id="_2582abfd-4298-4a49-9d52-d3eef8e48396">The duration of each repeating interval is the value of
+[eligible-time-intervals].</p>
+    <example id="_7d4d4bdc-dda4-40bb-9e01-9af4639e95fb">
+  <p id="_e7929397-04a2-49e8-ad25-e100711229d1">If the value of [eligible-time-intervals] is <tt>8Y</tt>, the length of each
+repeating time interval is 8 years.</p>
+</example>
+  </li>
+  <li>
+    <p id="_5912dfe8-c1e6-4ac7-a0d3-a5f85f593846">The duration of each eligible time interval is one-unit of the chosen
+time scale component in which the duration of [eligible-time-intervals]
+is expressed.</p>
+    <example id="_690f92bd-8cc6-4204-ba68-c756e4532020">
+  <p id="_5364fe32-016e-4f01-a648-d0590b3d08b5">If the value of [eligible-time-intervals] is <tt>8Y</tt>, then the time scale
+component is year, and each eligible interval is of length 1
+year.</p>
+</example>
+  </li>
+  <li>
+    <p id="_f3bd90d3-d8a8-4862-b706-cd0d258c4b86">Each eligible time interval begins x-1 units of the selected time
+scale component following the beginning of its repeating interval,
+where x is the coefficient of the unit.</p>
+    <example id="_9dc3a502-bc2b-416f-8e3d-33c5b5579d9a">
+  <p id="_0db1f50c-60ef-4e10-8c5f-272d9f8e4573">If the value of [eligible-time-intervals] is <tt>8Y</tt>, the eligible time
+interval is the 7th year within the 8-year repeating interval.</p>
+</example>
+  </li>
+</ul>
+  </li>
+</ol>
+<p id="_39f19435-892a-4321-8cf8-4971f8c1d000">These properties together determine an exact set of eligible time intervals.</p>
+<example id="_4082e227-739a-48d2-9034-7349ecf8eec4">
+  <p id="_faea0d2b-a3f4-4371-8e4b-56e94de9f309">In the eligibility part, the expression <tt>F2Y</tt> places the eligible time
+intervals as the second year of each 2-year repeating interval.</p>
+</example>
+<example id="_c7970e56-6045-4f7e-ba51-25550953ef9d">
+  <p id="_9d917277-f383-4fc6-81c2-8eb44b5c48a8">In the eligibility part, the expression <tt>F8D</tt> places the eligible time
+intervals as the 8th day of each 8-day interval.</p>
+</example></clause>
+<clause id="_selection_part_and_selection_rules" obligation="normative"><title>Selection part and selection rules</title><p id="_9e7dd822-f08c-419a-b521-2ed18f4bc734">The selection part provides a list of one or more selection rules,
+which specify conditions of matching one or more instants within a set
+of time intervals.
+Representations for possible selection rules are specified in <xref target="selection"/>.</p>
+<p id="_019ba30a-7822-46b0-bff9-d5b5ede0a4d3">When used with a set of eligible time intervals, the selection part
+identifies a set of instants within the eligible time intervals that
+match the selection rules.  Each instant marks the beginning of an
+occurrence (a recurring interval).</p></clause></clause>
+<clause id="_complete_representation" obligation="normative"><title>Complete representation</title><p id="_3eab627d-9bce-49dc-bad8-904a06560936">A complete representation of a recurring time interval with repeat
+rules, shall be in accordance with <xref target="selection"/> and <xref target="recurrence-repeat-rule"/>,
+combining any time interval representation as defined in
+<eref type="inline" bibitemid="CC18011" citeas="CC 18011:--"/> and in <eref type="inline" bibitemid="ISO8601-1" citeas="ISO 8601-1:--"><locality type="clause"><referenceFrom>5.4.3</referenceFrom></locality></eref>, with the repeat rule:</p>
+<sourcecode id="_65b02188-c28e-4154-a4be-01f09c542f53">["R"][i]["/"][time-interval]["/"][repeat-rule]</sourcecode>
+<p id="_1dc41e7a-db0b-4b19-b16d-bc73eec56435">Where,</p>
+<ul id="_350fb222-fff6-4357-8089-e5faaf5644fb">
+  <li>
+    <p id="_181b0854-054f-496c-9248-009e87c1a364">["R"] is the recurring time interval designator;</p>
+  </li>
+  <li>
+    <p id="_181b8186-4d47-479c-8004-0fa5f41272e4">[i] is the number of recurrences (optional);</p>
+  </li>
+  <li>
+    <p id="_9c9927ae-4706-40c0-a642-5f876214cfb3">[time-interval] is a valid time interval;</p>
+  </li>
+  <li>
+    <p id="_e42faa9b-a185-477a-a2cd-9824db387c5a">[repeat-rule] is a repeat rule defined in <xref target="recurrence-repeat-rule"/>.</p>
+  </li>
+</ul>
+<p id="_7c68899a-c9c3-41bf-984a-1ce2fc5049af">The following examples all show a recurring interval of 12 occurrences,
+each of 90 minutes duration.  The first occurrence begins September 29,
+2015 at 2pm. The second occurrence begins two weeks later, and so on.</p>
+<example id="_0be6984b-cc1a-498f-946f-4c0fde2d4680">
+  <p id="_5bc36b8d-3f29-4e4b-978d-5999a910c991"><tt>R12/20150929T140000/20150929T153000/F2W</tt>, interval in implied form, specified by start and end</p>
+</example>
+<example id="_0a1e059d-93c3-4d51-9555-1e3a2b0fb632">
+  <p id="_efbc4395-3253-4c61-bfa5-3d2aca0b3a1b"><tt>R12/20150929T140000/P1H30M0S/F2W</tt>, interval in implied form, specified by start and duration</p>
+</example>
+<example id="_7c64d6d9-96fb-4136-8981-b50e15d7e63e">
+  <p id="_7a39f23d-46f6-4281-b7ce-34892be42a04"><tt>R12/P2H30M0S/20150929T153000/F2W</tt>, interval in implied form, specified by duration and end</p>
+</example>
+<example id="_258a0fe0-8839-4860-89fb-a31dc544a33c">
+  <p id="_bbdee9c2-f308-44a0-b148-a179b4e0243e"><tt>R12/2015‑09‑29T14:00:00/2015‑09‑29T15:30:00/F2W</tt>, interval in extended form, specified by start and end</p>
+</example>
+<example id="_bdca15f1-caac-496c-a4fe-6d34783582b1">
+  <p id="_666adc45-dd40-44cf-82e9-b753f6378963"><tt>R12/2015‑09‑29T14:00:00/P1H30M0S/F2W</tt>, interval in extended form, specified by start and duration</p>
+</example>
+<example id="_e494fbc8-58cb-4696-9258-1d1b712bd028">
+  <p id="_302d3818-310a-453d-8b5e-0c62191cb3f6"><tt>R12/P1H30M0S/2015‑09‑29T15:30:00/F2W</tt>, interval in extended form, specified by duration and end</p>
+</example>
+<example id="_e90e6b4d-81de-45b8-a593-a3f9bc34f784">
+  <p id="_493c70b6-c7d6-45a1-87fa-a4a7d2fc85b5"><tt>R12/2015Y9M29DT14H0M0S/2015Y9M29DT15H30M00S/F2W</tt>, interval in explicit form, specified by start and end</p>
+</example>
+<example id="_1bedfb09-790f-44e5-9892-5144e7c3ee67">
+  <p id="_4b406048-c88f-4c2e-86d3-9cf5f0f848d6"><tt>R12/2015Y9M29DT14H0M0S/P1H30M0S/F2W</tt>, interval in explicit form, specified by start and duration</p>
+</example>
+<example id="_f7d9b770-9096-4fae-8191-f3092c1c177c">
+  <p id="_abffa849-604a-4f33-a9b3-b70894903625"><tt>R12/P1H30M0S/2015Y9M29DT15H30M00S/F2W</tt>, interval in explicit form, specified by start and duration</p>
+</example></clause>
+<clause id="_representations_other_than_complete" obligation="normative">
+  <title>Representations other than complete</title>
+  <p id="_4bb4fb2d-7627-4932-accd-bf0d5efaf587">A representation other than complete of a recurring time interval with repeat rule shall be an expression in accordance with <xref target="selection"/> and <xref target="recurrence-repeat-rule"/>, where the time interval is represented in accordance with <eref type="inline" bibitemid="ISO8601-1" citeas="ISO 8601-1:--"><locality type="clause"><referenceFrom>4.4.5</referenceFrom></locality></eref>.</p>
+</clause>
+<clause id="_evaluation_of_a_repeat_rule" obligation="normative"><title>Evaluation of a repeat rule</title><clause id="_general_5" obligation="normative"><title>General</title><p id="_ad9f72de-56bc-4b2b-a374-bed2391062f4">A repeat rule specifies a set of occurrences where each occurrence is a time interval.</p>
+<p id="_86af5d03-bd8b-480b-a8ba-2ff1c0a7e4e5">The occurrences resulting from a repeat rule are calculated as follows:</p>
+<ul id="_08b1cbb6-81bb-4391-bdb9-f5142d82033a">
+  <li>
+    <p id="_c8f4b7a6-d36e-4e78-9f04-9d3e9f92b7e8">determine the eligible time intervals;</p>
+  </li>
+  <li>
+    <p id="_d2b7a217-c0b1-4bfc-8073-b1185456e5d7">apply all selection rules to the eligible time intervals; and</p>
+  </li>
+  <li>
+    <p id="_499c1270-55fc-4014-965e-c0c46d0ae7b0">obtain the resulting occurrences.</p>
+  </li>
+</ul>
+<p id="_5ee02e53-4dbd-4eeb-84a1-84bee87f9872">A detailed explanation of interactions between eligible time intervals and the selection part is provided in <xref target="annexa"/>.</p>
+<p id="_c85c3609-fc54-4052-b0bb-8aebcfa4b650">Evaluation compatibility with <eref type="inline" bibitemid="RFC5545" citeas="RFC 5545"/> is discussed in <xref target="annexb"/>.</p>
+<example id="_fb6f088f-7d1a-42fe-9e2e-6b0bec262f30">
+  <p id="_fb035ad7-0c3f-462f-9df7-ea62a23c777e">The expression 'R/2018-08-08/P1D/F1YL{3,8}M8DN', means "for every year, select the calendar months 3 (March) and 8 (August), calendar day 8, for an occurrence of 1 day duration". The resulting occurrences are therefore { '2018-08-08/2018-08-09', '2019-03-08/2019-03-09', '2019-08-08/2019-08-09', … }.</p>
+</example>
+<example id="_fed87c0e-9aff-497f-a180-5a6ca732eee2">
+  <p id="_19a2f9a0-b3b7-40cd-8f1b-1cacb119a363">The expression 'R/2018-08-01T10:20:00/PT10M/F1ML{1,10}DT10H20M0SN',  means that "for every month, select the calendar days 1 and 10, time 10:20:00, for an occurrence of 10 minutes duration". The resulting occurrences are therefore { '2018-08-01T10:20:00/2018-08-01T10:30:00', '2018-09-01T10:20:00/2018-09-01T10:30:00',, … }.</p>
+</example>
+<example id="_ec8eeca5-62d6-4602-878e-a6060d292510">
+  <p id="_7af7ae27-79c4-4c47-b9a9-356f51f2ba28">The expression 'R/2018-09-01/P1D/F1YL9M3K1IN', means "for every year, select the first Wednesday in September for an occurrence of 1 day duration". The resulting occurrences are therefore { '2018-09-05/2018-08-06', '2019-09-04/2019-09-05', '2020-09-02/2020-09-02', … }.</p>
+</example></clause>
+<clause id="_time_scale_unit_precision" obligation="normative"><title>Time scale unit precision</title><p id="_42f0f44c-deb2-4b9a-b905-294e156c5410">The resulting occurrences of a repeat rule shall have a time scale unit resolution equal to the lowest order time scale unit specified in the repeat rule.</p>
+<example id="_b2d799b7-5ef9-45b5-b1d3-27b176880432">
+  <p id="_f20da219-9480-4250-bfd8-6c023659504f">In the expression <tt>R/2018Y1M/P1M/F3M</tt>, the lowest order time scale unit specified is month, hence the resolution is month precision. This expression resolves to the set <tt>{ 2018-01/2018-02, 2018-04/2018-05 …​ }</tt></p>
+</example>
+<example id="_6e4d397b-0825-47dc-8c4b-8bf01056bd22">
+  <p id="_eee142ac-68a6-4da3-a020-8a66dc54c2db">In the expression <tt>R/2018Y1M1D/P1D/F3M</tt>, the lowest order time scale unit specified is day, hence the resolution is day precision. This expression resolves to the set <tt>{ 2018-01-01/2018-01-02, 2018-04-01/2018-04-02 …​ }</tt></p>
+</example>
+<example id="_372fe741-6793-4f70-88e3-227e9edf9455">
+  <p id="_13cbb3c3-9299-4202-9012-f7ab2ea2d6a3">In the expression <tt>R/2018Y1M/PT10M/F1M</tt>, the lowest order time scale unit specified is minute, hence the resolution is minute precision. This expression resolves to the set <tt>{ 2018-01-01T00:00/2018-01-01T00:10, 2018-02-01T00:00/2018-02-01T00:10, …​ }</tt></p>
+</example></clause>
+<clause id="_inheritance_of_component_values_from_time_interval_start" obligation="normative"><title>Inheritance of component values from time interval start</title><p id="_118b9095-bb08-47e7-bd2a-1785b23d445e">In a repeat rule with a selection part, the selection rules specified do not always fully account for all the time scale components provided in the initial start time, i.e. when there is no selection part, or if there is no one-to-one correspondence of time scale units used in the initial start time and those used in the selection part.</p>
+<p id="_5b9d0c67-ca07-4b21-ab66-05fc1f25f5e2">In this case, the selection rules shall inherit from time interval start the values of time scale units that are of lower order than those used in the eligibility part.</p>
+<example id="_89169a3f-ca6c-43d4-8aea-8137b3cea01a">
+  <p id="_19422989-64d3-40f2-a1ac-f221ea7f8da2">Given the expression 'R/2018-08-01T01:02:03/P5M/F1D', there is no selection part, however, the selection part is inferred from the time scale units of lower order than that of the eligibility part 'F1D', the "calendar day" unit. The specific time scale units specified in the time interval start and of lower order than "calendar day" are clock hour, clock minute and clock second. The inferred selection part directly takes values for those units from time interval start, resulting in the selection part 'LT1H2M3S'. The resulting occurrences are therefore { '2018-08-01T01:02:03/2018-08-01T01:07:03', '2018-08-02T01:02:03/2018-08-02T01:07:03', … }.</p>
+</example>
+<example id="_2038269a-b92a-4bfc-9ac7-c55862844c18">
+  <p id="_f723909a-ed66-464c-9b68-c04c1cf8ae16">Given the expression 'R/2018Y8M1DT1H/P1D/F2ML{1,3}D', the eligible time intervals are the second month of a 2-month period, selecting for the calendar days "1" and "3". Since the time scale units of lower order than calendar day ("D") do not have specified units, the clock hours from the initial start date is inherited in the selection rule, resulting in the selection part 'L{1,3}DT1H'. The resulting occurrences are { '2018Y8M1DT1H/2018Y8M2DT1H' , '2018Y8M3DT1H/2018Y8M3DT1H', '2018Y10M1DT1H/2018Y10M2DT1H' , '2018Y10M3DT1H/2018Y10M3DT1H', … }</p>
+</example>
+<example id="_cc177642-17e3-40c1-970c-0e4c39b11dbe"><p id="_ef93eb39-fdde-4879-b072-91c079e6a712">'R/20150104T083000/PT15M00S/F2YL1M1KT{8,9}H30M' expresses a recurring interval (number of occurrences is unspecified) whose first occurrence is January 4, 2015, 8:30-8:45 AM, and subsequent occurrences, all of the same duration (15 minutes), are determined by the repeat cycle for which the following evaluation sequence is provided:</p>
+<ul id="_7635ea07-cba6-4ab5-9637-c0762935d5d5">
+  <li>
+    <p id="_16185b93-41a0-405e-a743-7fa61d503763">the expression '2Y' indicates that the eligible time intervals have a repeating cycle of two years, and each eligible time interval is 1 year in length, the second year within its repeating interval;</p>
+  </li>
+  <li>
+    <p id="_07484a8f-6a0b-4422-904d-57d4e1b1f37a">From this information together with the specification of the first occurrence, it is calculated that:</p>
+    <ul id="_1c4b1dfb-81cc-40cf-b78e-76fe3a80473f">
+  <li>
+    <p id="_f670b3e8-59ac-4c24-8511-e54e59444724">the first eligible time interval is the calendar year 2015 (the year during which the first occurrence takes place)</p>
+  </li>
+  <li>
+    <p id="_6f548ea2-305f-4ab6-8f9a-fadf5a2bcfb2">the first repeating interval is the two-year period comprising calendar years 2014 and 2015;</p>
+  </li>
+</ul>
+  </li>
+  <li>
+    <p id="_e37ca7f0-4ab4-4d5b-b373-384c4ecf465a">the subsequent recurring intervals are then determined by the selection part;</p>
+    <ul id="_84ae84e6-613d-4734-8508-6ad1ccedc529">
+  <li>
+    <p id="_b528a120-3805-4279-9146-04a6b8c5cdd1">the expression '1M' indicates that the matching occurrences are limited to January only;</p>
+  </li>
+  <li>
+    <p id="_ba402c9f-f3fa-41c6-aab6-086f5dc1650c">the expression '1K' indicates that the matching occurrences are limited to Sundays only;</p>
+  </li>
+  <li>
+    <p id="_0ab80de6-692a-48f6-abed-c76e19567d0c">the expression '{8,9}H' indicates that the matching occurrences have clock hours 8 or 9;</p>
+  </li>
+  <li>
+    <p id="_b9e8d2f1-48ec-42a0-b74d-78be548f1552">the expression '30M' indicates that the matching occurrences have a clock minute value of 30, combined with specified clock hours, the starting times are determined to be 8:30AM and 9:30 AM;</p>
+  </li>
+  <li>
+    <p id="_589b0cdb-1975-44cb-bd72-2055de677439">since the selection rules lacks specified values for clock seconds, in accordance with 14.6.3, they should be obtained from the clock seconds value of the "time interval start" of '20150104T083000', hence the clock seconds selection rule is specified as value '00';</p>
+  </li>
+  <li>
+    <p id="_fe1fff7d-2424-4618-b2df-524465d9c338">the recurrent occurrences therefore resolve to the rule "in the second year of every two year period beginning year 2014, for every Sunday in January at both 8:30:00 AM and 9:30:00 AM, create a 15 minutes occurrence."</p>
+  </li>
+</ul>
+  </li>
+</ul></example></clause></clause></clause>
+
+
+</sections><annex id="annexa" obligation="informative"><title>Interactions between eligible time intervals with the selection part</title><clause id="_general_6" obligation="informative">
+  <title>General</title>
+  <p id="_535caab7-a8b8-42f6-ab49-8cd67ca49da9">The interaction between eligible time intervals and selection rules
+specified within a repeating rule give rise to interesting properties
+that users should be aware of.</p>
+</clause>
+<clause id="annexa-example" obligation="informative"><title>Sample evaluation of a recurring time interval with repeat rules</title><p id="_847cef26-f77c-40f7-aa3b-cd2963202fa2"><tt>R/20150104T083000/PT15M00S/F2YL1M1KT{8,9}H30MN</tt> expresses a recurring
+interval (number of occurrences is unspecified) whose first occurrence
+is January 4, 2015, 8:30-8:45 AM, and subsequent occurrences, all of
+the same duration (15 minutes), are determined by the repeat cycle for
+which the following evaluation sequence is provided.</p>
+<ul id="_d7fcb5ef-0076-423b-8c88-04922256324e">
+  <li>
+    <p id="_1f1047c1-aab6-4b92-9702-d608ab42776d">the character <tt>F</tt> indicates that the formula for determining eligible
+time intervals follows;</p>
+  </li>
+  <li>
+    <p id="_273c1cd5-ad7f-4c10-a1e8-aa803719c2d3">the expression <tt>2Y</tt> indicates that the eligible time intervals have a
+repeating cycle of two years, and each eligible time interval is 1 year
+in length, the second year within its repeating interval;</p>
+  </li>
+  <li>
+    <p id="_b7835679-b19c-4bb4-af44-f02f7cbc4768">From this information together with the specification of the first
+occurrence, it is calculated that:</p>
+    <ul id="_c91229c8-79c3-4b5f-8485-ec8ae902b566">
+  <li>
+    <p id="_39ffdba8-791a-4d8b-aa74-e7d69767b918">the first eligible time interval is the calendar year 2015 (the year
+during which the first occurrence takes place)</p>
+  </li>
+  <li>
+    <p id="_561b745f-cb48-46b9-ac08-b64ba749534c">the first repeating interval is the two-year period comprising
+calendar years 2014 and 2015;</p>
+  </li>
+</ul>
+  </li>
+  <li>
+    <p id="_4081286c-5adf-434b-8450-8c9fb593316a">the subsequent recurring intervals are then determined by the
+selection part;</p>
+    <ul id="_8a401049-acda-4a17-9297-137a73fd3232">
+  <li>
+    <p id="_40ed0f1e-0d48-42ea-8d80-ba044927cb0b">the character <tt>L</tt> indicates that selection parts follow;</p>
+  </li>
+  <li>
+    <p id="_585ca006-78be-4cc6-b5d6-f9303f5a259d">the expression <tt>1M</tt> indicates that the matching occurrences are
+limited to January only;</p>
+  </li>
+  <li>
+    <p id="_db625647-7043-4570-89b6-7b4f7309be0c">the expression <tt>1K</tt> indicates that the matching occurrences are
+limited to Sundays only;</p>
+  </li>
+  <li>
+    <p id="_6794ae08-1dff-4259-9616-9a2f3f457f2a">the expression <tt>T</tt> indicates that intraday time scale components
+follow;</p>
+  </li>
+  <li>
+    <p id="_4183deb8-f24a-415d-90bf-eaf944ca5c6d">the expression <tt>{8,9}H</tt> indicates that the matching occurrences have
+clock hours 8 or 9;</p>
+  </li>
+  <li>
+    <p id="_43e01258-297a-4c85-abf9-00dbea2ac4cf">the expression <tt>30M</tt> indicates that the matching occurrences have a
+clock minute value of 30, combined with specified clock hours, the
+starting times are determined to be 8:30AM and 9:30 AM;</p>
+  </li>
+  <li>
+    <p id="_c336a27c-38ce-4d66-8429-4315b9ff8dcb">since the selection rules lacks specified values for clock seconds,
+in accordance with 9.3.3, they should be obtained from the clock
+seconds value of the "time interval start" of <tt>20150104T083000</tt>, hence
+the clock seconds selection rule is specified as value <tt>00</tt>;</p>
+  </li>
+  <li>
+    <p id="_7b8335db-138d-4255-bf4e-a26fdc6b6e07">the recurrent occurrences therefore resolve to the rule "in the secondyear of every two year period beginning year 2014, for every Sunday in January at both 8:30:00 AMand 9:30:00 AM, create a 15 minutes occurence."</p>
+  </li>
+</ul>
+  </li>
+</ul>
+<figure id="figure-basic-recurrences">
+  <name>Resulting occurrences of the rule F3YL{2,4,6,8,10}M1DN</name>
+  <image src="images/basic-concepts.png" id="_ecb97acd-143f-4921-8add-01759ec09a4f" imagetype="PNG" height="auto" width="auto"/>
+</figure>
+<p id="_b4231d87-c22b-4917-a09d-22b33336bafc"><xref target="figure-basic-recurrences"/> demonstrates that the repeating cycle
+denotes how often the eligible time intervals be evaluated. Within the
+eligible time intervals, the selection rules are applied. It is the
+overlap between the selection rules and eligible time intervals that
+produce the resulting occurrences.</p></clause>
+<clause id="annexa-special-case" obligation="informative">
+  <title>Special case when the repeating cycle uses value 1</title>
+  <p id="_57de94b6-f283-49fd-a126-238311bd68e2">When the repeating cycle is defined with a value 1 for any time unit
+(e.g. calendar year, calendar month, calendar day, calendar hour,
+etc.), the effect on the resulting occurrences are identical – the
+repeating cycle fully covers all instants of the time scale. Therefore,
+the resulting occurrences are fully described by the selection rules
+that apply.</p>
+</clause>
+<clause id="_orders_of_the_repeating_cycle_and_selection_rules" obligation="informative"><title>Orders of the repeating cycle and selection rules</title><clause id="_repeating_cycle_of_higher_order_than_selection_rules" obligation="informative"><title>Repeating cycle of higher order than selection rules</title><p id="_d7737376-e829-48c0-8a81-aeff1d21d452">It is common in natural expressions and in calendar implementations
+that the repeating cycle uses a time scale unit of a higher order than
+that of the selection rules. The resulting occurrences are generally as
+expected by the creator of these rules.</p>
+<example id="_8be7bc09-6233-4471-83ec-e91c328aefa7">
+  <p id="_e8ef062b-0402-4d69-bfea-736096d116d8"><xref target="figure-higher-order"/> provides such a case; where the resulting
+occurrences happen once every three years, matching a single date of
+September 10th.</p>
+</example>
+<figure id="figure-higher-order">
+  <name>When the repeating cycle is of a higher order than the selection part</name>
+  <image src="images/repeating-cycle-higher-order-as-selection.png" id="_da9a2439-3ed1-4373-be15-6ce41785456a" imagetype="PNG" height="auto" width="auto"/>
+</figure></clause>
+<clause id="annexa-same-order" obligation="informative"><title>Repeating cycle of same order with selection rules</title><p id="_0c8f1ba5-14df-44c0-834c-47f777abe5f1">When a time scale unit of the same order is used for both the repeating
+cycle and the selection rules, the following properties arise:</p>
+<ul id="_a10a8eda-f241-4c34-99e3-b425fcad343a">
+  <li>
+    <p id="_148ca9cd-6a88-4868-89a3-098b9a893843">The effect of <xref target="annexa-special-case"/> applies;</p>
+  </li>
+</ul>
+<example id="_ff237535-874b-486c-83e3-8b55a3be8618">
+  <p id="_d6b060b7-4d16-441a-9629-b31dfc5134a8">A repeating rule of 1 month repeating cycle, with selection rules that
+are of the highest order of "month", has the same effect as the
+repeating cycle of 1 calendar year because every calendar month in the
+calendar year will be evaluated</p>
+</example>
+<ul id="_1b62c879-0269-4ae5-9870-b23503ac07ec">
+  <li>
+    <p id="_b3e7ad98-0cad-4205-b7ba-aa687c24d4f6">A repeating rule with an n time unit repeating cycle, matched with
+selection rules of the same time unit, will provide occurrences that
+depend on the start instant of the repeating cycle.</p>
+  </li>
+</ul>
+<example id="_f03d763b-1c5f-4620-b9b7-fab008e2a2f2">
+  <p id="_e17c9dbf-72cc-40f2-96cd-48d9609e1963">A repeating cycle starting in April every 6 months will only match a
+monthly selection rule that contains April or October</p>
+</example>
+<example id="_bdfdb8b6-03fe-4b45-b325-21ae8314a1aa">
+  <p id="_dd535908-6701-4a17-be6d-d8c0997ba617"><xref target="figure-same-order"/> demonstrates an instance of the second case where
+the repeating cycle does not overlap with eligible time intervals,
+resulting in no occurrences.</p>
+</example>
+<figure id="figure-same-order">
+  <name>When the repeating cycle is of the same order as the selection part and mismatches</name>
+  <image src="images/repeating-cycle-same-order-as-selection.png" id="_e723130e-c43a-447b-84ed-8487d5fc2fbb" imagetype="PNG" height="auto" width="auto"/>
+</figure></clause>
+<clause id="_repeating_cycle_of_lower_order_than_selection_rules" obligation="informative"><title>Repeating cycle of lower order than selection rules</title><p id="_edcd1103-7b91-4b79-8913-498fcaa94990">When a time scale unit of a lower order is used for the repeating cycle
+than that of the selection rules, the following should be of note:</p>
+<ul id="_d0896d79-1494-47bf-addb-4e87ded7f490">
+  <li>
+    <p id="_493455f7-8b1d-40d5-a377-db134deb0bc7">The effect of <xref target="annexa-special-case"/> applies;</p>
+  </li>
+  <li>
+    <p id="_5e26dc4d-e260-4693-8523-423468571b74">A repeating rule with an n time unit repeating cycle, matched with
+selection rules of a lower order time unit, will provide occurrences
+that depend on the start instant of the repeating cycle.</p>
+  </li>
+</ul>
+<example id="_c2da3a33-b5b9-4045-984e-b94d77231420">
+  <p id="_605ee669-01d9-45e1-9fca-6779902c14a0"><xref target="figure-lower-order"/> demonstrates this interaction of the second
+case, where the repeating cycle is of day order and a selection rule of
+calendar month order. Notice that there are no matches outside calendar
+month 3 due to the application of the selection rule.</p>
+</example>
+<figure id="figure-lower-order">
+  <name>When the repeating cycle is of a lower order than the selection part</name>
+  <image src="images/repeating-cycle-lower-order-as-selection.png" id="_fad1e778-524e-41bd-ab65-ddaf8c67ef6d" imagetype="PNG" height="auto" width="auto"/>
+</figure></clause></clause></annex><annex id="annexb" obligation="informative"><title>Compatibility considerations of repeat rules with RFC 5545 recurrences</title><clause id="_evaluation_of_repeat_rules" obligation="informative">
+  <title>Evaluation of repeat rules</title>
+  <p id="_ef892e07-ee3a-42bc-ae66-c846d808b98d">In this document, the evaluation of repeat rules
+(see <xref target="recurrence-repeat-rule"/>) rely on
+explicit specification of selection rules (see <xref target="selection"/>) and the direct
+inheritance of time scale component information from the initial start
+date.</p>
+</clause>
+<clause id="_inheritance_of_time_scale_component_information" obligation="informative"><title>Inheritance of time scale component information</title><p id="_e1c6e0ef-0e62-4966-81db-d7d65ff09d08">In the evaluation of repeat rules within this document as well as in
+<eref type="inline" bibitemid="RFC5545" citeas="RFC 5545"/>, a number of time scale components can be directly
+inherited from the initial start date.</p>
+<p id="_0d177029-3c27-4eb3-ad37-5e2bef16fa85">In terms of <eref type="inline" bibitemid="RFC5545" citeas="RFC 5545"/> specifically:</p>
+<ul id="_fb2b1f9b-1af1-44c1-97ce-b800b2aa22d3">
+  <li>
+    <p id="_3dab9be5-a177-4e2b-ba82-fc7f0ef44531">when the <tt>FREQ</tt> parameter is set to <tt>SECONDLY</tt>, but without a
+<tt>BYSECOND</tt> parameter, the <tt>BYSECOND</tt> selection is directly inherited
+from the clock seconds value from the initial start date;</p>
+  </li>
+  <li>
+    <p id="_53df45b3-d0ff-4fbe-b823-2cde39e5651e">when the <tt>FREQ</tt> parameter is set to <tt>MINUTELY</tt>, but without a
+<tt>BYMINUTE</tt> parameter, the <tt>BYMINUTE</tt> selection is directly inherited
+from the clock minutes value from the initial start date;</p>
+  </li>
+  <li>
+    <p id="_f13bddb2-43c4-429c-be96-4a1a2c047a0e">when the <tt>FREQ</tt> parameter is set to <tt>HOURLY</tt>, but without a
+<tt>BYHOUR</tt> parameter, the <tt>BYHOUR</tt> selection is directly inherited from
+the clock hours value from the initial start date.</p>
+  </li>
+</ul></clause>
+<clause id="annexb-implicit-selection" obligation="informative"><title>Implicit selection rules of RFC 5545</title><p id="_2c833a8a-6f72-4ad0-bdbe-2057a0132948">In <eref type="inline" bibitemid="RFC5545" citeas="RFC 5545"/>, however, the evaluation of certain repeat rules also
+relies on implicit selection rules inherited indirectly from the
+initial start date.</p>
+<p id="_d22c637f-95b9-4dab-a993-e8e55731943d">Specifically,</p>
+<ul id="_345c170b-2b72-4504-940a-ba73eb09a7be">
+  <li>
+    <p id="_b37048c6-b716-437f-a08c-aba8b280b591">when the <tt>FREQ</tt> parameter is set to <tt>WEEKLY</tt>, but without a <tt>BYDAY</tt>
+parameter, the <tt>BYDAY</tt> selection is inherited from the calendar day of
+week value from the initial start date (note that the calendar day of
+week value is not directly specified in the initial start date, but it
+has to be inferred);</p>
+  </li>
+  <li>
+    <p id="_7ad04b30-3489-4bbf-851d-29f394d9d0a8">when the <tt>FREQ</tt> parameter is set to <tt>MONTHLY, but without both`BYMONTHDAY</tt> and <tt>BYDAY</tt> parameters, the <tt>BYMONTHDAY</tt> selection is
+inherited from the calendar month of year value from the initial start
+date;</p>
+  </li>
+  <li>
+    <p id="_6c98fd93-1111-4060-ad9a-e5fd38ea68d6">when the <tt>FREQ</tt> parameter is set to <tt>YEARLY</tt> but without a
+<tt>BYYEARDAY</tt> parameter,</p>
+    <ul id="_3e35c871-e83e-40fa-9b72-76a431aa469f">
+  <li>
+    <p id="_4a6ca804-20a4-4e55-88f9-fd2a5cfefd7d">if no <tt>BYMONTH</tt> or <tt>BYWEEKNO</tt> parameter is set:</p>
+    <ul id="_5107a551-9531-4051-9b87-b100ccc48974">
+  <li>
+    <p id="_c0048b10-913a-44ab-aa39-06f701f6bd22">if the <tt>BYMONTHDAY</tt> parameter is provided, then the <tt>BYMONTH</tt>
+selection is inherited from the calendar month of year value from the
+initial start date;</p>
+  </li>
+  <li>
+    <p id="_e43cb736-659b-49db-a846-47039ab58e21">if the <tt>BYDAY</tt> parameter is not set, then the <tt>BYMONTH</tt> selection
+is inherited from the calendar month of year value from the initial
+start date;</p>
+  </li>
+</ul>
+  </li>
+  <li>
+    <p id="_5f0809fb-744e-4f55-a76d-e4885ce259a2">if no <tt>BYMONTHDAY</tt>, <tt>BYWEEKNO</tt> or <tt>BYDAY</tt> parameter is set, the
+<tt>BYMONTHDAY</tt> selection is inherited from calendar day of month of the
+initial start date;</p>
+  </li>
+  <li>
+    <p id="_d87b5276-cf4a-4801-bf8c-e00163bee52f">if there is a <tt>BYWEEKNO</tt> parameter set but no <tt>BYMONTHDAY</tt> or
+<tt>BYDAY</tt>, the <tt>BYDAY</tt> selection is inherited from the calendar day of
+week of the initial start date.</p>
+  </li>
+</ul>
+  </li>
+</ul>
+<example id="_d4dbced8-e083-43be-9693-ac027a958a47">
+  <p id="_652eb5a7-b0e1-42e8-a2cf-946d06d6d765">In evaluating a simplified example expression from <eref type="inline" bibitemid="RFC5545" citeas="RFC 5545"/>, with
+<tt>DTSTART</tt> set to <tt>19970902T090000</tt> and <tt>RRULE</tt> set to
+<tt>FREQ=WEEKLY;INTERVAL=2</tt>, will result in the instance series of "1997September 2, 16, 30; October 14…​". This resulting instance series
+relies on an implicit understanding that <tt>FREQ=WEEKLY</tt> always requires
+selection of the <tt>BYDAY</tt> parameter, which is not specified in the
+original selection rule. In this case, <tt>BYDAY</tt> is implicitly set to
+Tuesdays as originally obtained from the <tt>DTSTART</tt> value being a
+Tuesday.</p>
+</example></clause>
+<clause id="_achieving_equivalent_selection_criteria_in_rfc_5545_syntax" obligation="informative"><title>Achieving equivalent selection criteria in RFC 5545 syntax</title><p id="_eb8bdd5c-c34d-4c43-89c1-b6c3a74ef8c1">Using mechanisms described in this document, implicit selection rules
+are not allowed. In order to convert a <eref type="inline" bibitemid="RFC5545" citeas="RFC 5545"/> recurrence rule into
+a repeat rule specified by <xref target="recurrence-repeat-rule"/>, the implicit
+selection rules based on indirect inheritance must be made into
+explicit selection rules.</p>
+<example id="_8a527b72-3ed0-454d-86eb-6add7eb9adfd">
+  <p id="_bd9ec6b3-97b5-4486-a31d-17303db60765">Following the example in <xref target="annexb-implicit-selection"/>, the value of
+Tuesday is considered to be indirectly inferred from the initial start
+date since it is not explicitly specified. To achieve the same effect
+using mechanisms of this document, the <tt>BYDAY</tt> selection rule in
+<eref type="inline" bibitemid="RFC5545" citeas="RFC 5545"/> must be explicitly set as a selection rule, such as in
+<tt>L1KN</tt>.</p>
+</example></clause></annex><bibliography><references id="_normative_references" obligation="informative">
+  <title>Normative References</title>
+  <bibitem id="CC18011">
+  <formattedref format="application/x-isodoc+xml"><fn reference="1">
+  <p id="_c61a5d46-ed08-4e25-95ab-ada696c8a57a">Under preparation. (Stage at the time of publication CC/DS 18011)</p>
+</fn>, <em>Date and time — Explicit representation</em></formattedref>
+  <docidentifier>CC 18011:--</docidentifier>
+</bibitem>
+  <bibitem id="ISO8601-1" type="standard">
+  <title format="text/plain">Date and time — Representation for information interchange — Part 1: Basic rules</title>
+  <docidentifier type="ISO">ISO 8601-1:--</docidentifier>
+  <date type="published">
+    <on>--</on>
+  </date>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>ISO</name>
+    </organization>
+  </contributor>
+  <note format="text/plain">ISO DATE: Under preparation. (Stage at the time of publication ISO/FDIS 8601-1)</note>
+</bibitem>
+</references><references id="_bibliography" obligation="informative"><title>Bibliography</title>
+<bibitem type="international-standard" id="ISOIEC646">
+  <fetched>2018-10-30</fetched>
+  <title format="text/plain" language="en" script="Latn">Information technology — ISO 7-bit coded character set for information interchange</title>
+  <uri type="src">https://www.iso.org/standard/4777.html</uri>
+  <uri type="obp">https://www.iso.org/obp/ui/#!iso:std:4777:en</uri>
+  <uri type="rss">https://www.iso.org/contents/data/standard/00/47/4777.detail.rss</uri>
+  <docidentifier type="ISO">ISO/IEC 646</docidentifier>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>International Organization for Standardization</name>
+      <abbreviation>ISO</abbreviation>
+      <uri>www.iso.org</uri>
+    </organization>
+  </contributor>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>International Electrotechnical Commission</name>
+      <abbreviation>IEC</abbreviation>
+      <uri>www.iec.ch</uri>
+    </organization>
+  </contributor>
+  <edition>3</edition>
+  <language>en</language>
+  <language>fr</language>
+  <script>Latn</script>
+  <status>
+    <stage>90</stage>
+    <substage>93</substage>
+  </status>
+  <copyright>
+    <from>1991</from>
+    <owner>
+      <organization>
+        <name>ISO/IEC</name>
+      </organization>
+    </owner>
+  </copyright>
+  <relation type="obsoletes">
+    <bibitem>
+      <formattedref>ISO 646:1983</formattedref>
+    </bibitem>
+  </relation>
+  <relation type="updates">
+    <bibitem>
+      <formattedref>ISO/IEC 646:1991</formattedref>
+    </bibitem>
+  </relation>
+  <relation type="instance">
+    <bibitem>
+      <formattedref>ISO/IEC 646:1991</formattedref>
+    </bibitem>
+  </relation>
+  <editorialgroup>
+    <technical-committee number="1" type="TC">ISO/IEC JTC 1/SC 2Coded character sets</technical-committee>
+  </editorialgroup>
+  <ics>
+    <code>35.040.10</code>
+    <text>Coding of character sets</text>
+  </ics>
+</bibitem>
+
+<bibitem type="international-standard" id="ISO8601">
+  <fetched>2018-10-30</fetched>
+  <title format="text/plain" language="en" script="Latn">Data elements and interchange formats — Information interchange — Representation of dates and times</title>
+  <uri type="src">https://www.iso.org/standard/40874.html</uri>
+  <uri type="obp">https://www.iso.org/obp/ui/#!iso:std:40874:en</uri>
+  <uri type="rss">https://www.iso.org/contents/data/standard/04/08/40874.detail.rss</uri>
+  <docidentifier type="ISO">ISO 8601:2004</docidentifier>
+  <date type="published">
+    <on>2004</on>
+  </date>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>International Organization for Standardization</name>
+      <abbreviation>ISO</abbreviation>
+      <uri>www.iso.org</uri>
+    </organization>
+  </contributor>
+  <edition>3</edition>
+  <language>en</language>
+  <language>fr</language>
+  <script>Latn</script>
+  <abstract format="plain" language="en" script="Latn">ISO 8601:2004 is applicable whenever representation of dates in the Gregorian calendar, times in the 24-hour timekeeping system, time intervals and recurring time intervals or of the formats of these representations are included in information interchange. It includesISO 8601:2004 does not cover dates and times where words are used in the representation and dates and times where characters are not used in the representation.ISO 8601:2004 does not assign any particular meaning or interpretation to any data element that uses representations in accordance with ISO 8601:2004. Such meaning will be determined by the context of the application.</abstract>
+  <status>
+    <stage>90</stage>
+    <substage>92</substage>
+  </status>
+  <copyright>
+    <from>2004</from>
+    <owner>
+      <organization>
+        <name>ISO</name>
+      </organization>
+    </owner>
+  </copyright>
+  <relation type="obsoletes">
+    <bibitem>
+      <formattedref>ISO 8601:2000</formattedref>
+    </bibitem>
+  </relation>
+  <relation type="obsoletes">
+    <bibitem>
+      <formattedref>ISO/FDIS 8601-1</formattedref>
+    </bibitem>
+  </relation>
+  <relation type="obsoletes">
+    <bibitem>
+      <formattedref>ISO/FDIS 8601-2</formattedref>
+    </bibitem>
+  </relation>
+  <editorialgroup>
+    <technical-committee number="154" type="TC">ISO/TC 154Processes, data elements and documents in commerce, industry and administration</technical-committee>
+  </editorialgroup>
+  <ics>
+    <code>01.140.30</code>
+    <text>Documents in administration, commerce and industry</text>
+  </ics>
+</bibitem>
+
+<bibitem id="RFC5545">
+  <fetched>2018-10-30</fetched>
+  <title format="plain" language="en" script="Latn">Internet Calendaring and Scheduling Core Object Specification (iCalendar)</title>
+  <uri type="src">https://www.rfc-editor.org/info/rfc5545</uri>
+  <docidentifier type="IETF">RFC 5545</docidentifier>
+  <docidentifier type="DOI">10.17487/RFC5545</docidentifier>
+  <date type="published">
+    <on>2009</on>
+  </date>
+  <contributor>
+    <role type="editor"/>
+    <person>
+      <name>
+        <completename language="en">B. Desruisseaux</completename>
+      </name>
+      <affiliation>
+        <organization>
+          <name>IETF</name>
+          <abbreviation>IETF</abbreviation>
+        </organization>
+      </affiliation>
+    </person>
+  </contributor>
+  <language>en</language>
+  <series type="main">
+    <title format="plain" language="en" script="Latn">RFC</title>
+    <number>5545</number>
+  </series>
+</bibitem></references></bibliography>
+</csd-standard>

@@ -595,13 +595,12 @@ p {
   font-family: "Overpass", sans-serif; }
 
 .coverpage-title {
-  padding-bottom: 0.5em;
+  padding: 0.5em 1em;
   font-family: "Overpass", sans-serif;
   font-size: 1.2em;
   line-height: 1.2em;
-  font-weight: 900;
-  padding-left: 1em;
-  padding-right: 1em; }
+  font-weight: 500;
+}
 
 .title-section1 {
   padding: 0 2em 0 3em; }
@@ -958,22 +957,28 @@ main {
  padding-left: 0;
 }
 
-.coverpage-title {
-  padding-top: 50px;
-}
-
 .title-section1 .rule {
   display: none;
 }
 
 
-#topbar-inner{background-color:#424242;font-size:0.8em;
-height: 30px;
-padding-top: 3px;}
+#topbar-inner {
+  background-color:#424242;
+  font-size:0.8em;
+  height: 30px;
+  line-height:30px;
+}
 
-#topbar-inner #title-bar>span{color:#ddd;display:block;font-family:'Ek Mukta',Arial,Helvetica,sans-serif;font-weight:200;letter-spacing:2px;font-variant-caps:small-caps;
-font-size: 18px;
-margin: 0 3em 0 6em;}
+#topbar-inner #title-bar > span {
+  color: #ddd;
+  display: block;
+  font-family:'Ek Mukta',Arial,Helvetica,sans-serif;
+  font-weight: 200;
+  letter-spacing: 2px;
+  font-variant-caps:small-caps;
+  font-size: 18px;
+  margin: 0 2em;
+}
 
 .doc-stage:before {
   content: "STAGE: "
