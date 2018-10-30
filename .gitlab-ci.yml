@@ -1,0 +1,16 @@
+image:
+  name: ribose/metanorma
+  entrypoint: [""]
+
+cache:
+  paths:
+
+build:
+  stage: build
+  script:
+    - bundle
+    - make dist-clean clean all
+    - mkdir -p public && mv index.html index.xml public/ && mv csd public/
+  artifacts:
+    paths:
+      - public
