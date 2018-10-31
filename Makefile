@@ -24,10 +24,10 @@ index.html: index.xml
 
 index.xml: relaton-ext.xml relaton-csd.xml
 	cp relaton-ext/*.rxl csd/; \
-	bundle exec relaton-metanorma-extract \
+	bundle exec relaton concatenate \
 	  -t "CalConnect Standards Registry" \
-		-r "Calendaring and Scheduling Consortium" \
-	  -R $@ csd
+		-g "Calendaring and Scheduling Consortium" \
+	  csd/ $@
 
 relaton-ext.xml relaton-ext/%.rxl:
 	mkdir -p relaton-ext
@@ -39,10 +39,10 @@ $(CSD_HTML) $(CSD_PDF) $(CSD_DOC) $(CSD_RXL):
 	# bundle exec metanorma -t csd -R relaton-csd/$*.xml -x html,pdf,doc,xml $(word 2,$^)
 
 relaton-csd.xml: $(CSD_RXL)
-	bundle exec relaton-metanorma-extract \
+	bundle exec relaton concatenate \
 	  -t "CalConnect Standards Registry" \
-		-r "Calendaring and Scheduling Consortium" \
-	  -R $@ csd
+		-g "Calendaring and Scheduling Consortium" \
+	  csd/ $@
 
 
 # $(RELATON_CSD_RXL): $(CSD_RXL) relaton-csd
