@@ -3,37 +3,37 @@ root:
   title: CalConnect Standards Registry
   items:
     - technical_committee: PUBLISH
-      docidentifier: "36000"
+      docidentifier: "CC/NP 36000"
       doctype: standard
       title: Standardization documents -- Vocabulary
       stage: proposal
       revdate: 2018-10-25
     - technical_committee: DATETIME
-      docidentifier: "34000"
+      docidentifier: "CC/NP 34000"
       doctype: standard
       title: Date and time -- Concepts and vocabulary
       stage: proposal
       revdate: 2018-10-25
     - technical_committee: DATETIME
-      docidentifier: "34002"
+      docidentifier: "CC/NP 34002"
       doctype: standard
       title: Date and time -- Timezones
       stage: proposal
       revdate: 2018-10-25
     - technical_committee: DATETIME
-      docidentifier: "34003"
+      docidentifier: "CC/NP 34003"
       doctype: standard
       title: Date and time -- Codes for calendar systems
       stage: proposal
       revdate: 2018-10-25
     - technical_committee: DATETIME
-      docidentifier: "34005"
+      docidentifier: "CC/NP 34005"
       doctype: standard
       title: Date and time -- Calendars -- Gregorian calendar
       stage: proposal
       revdate: 2018-10-25
     - technical_committee: DATETIME
-      docidentifier: "34006"
+      docidentifier: "CC/S/NP 34006"
       doctype: specification
       title: Date and time -- Calendars -- Chinese calendar
       stage: proposal
