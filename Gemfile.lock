@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/riboseinc/metanorma-cli
-  revision: e7b11d9c8e8c00f3c1c918ff1275ca5b8c03a4b2
+  revision: 3a0108c76449e7aaed4a6a2d7f22a3530a212ca2
   specs:
     metanorma-cli (1.0.5)
       asciidoctor-rfc (~> 0.9.0)
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://github.com/riboseinc/relaton-cli
-  revision: b62ea934618e80c107856234723ca6a333c87b50
+  revision: 9a0b2a690815198534c35eb87448778e7f1eea02
   specs:
     relaton-cli (0.1.3)
       liquid
