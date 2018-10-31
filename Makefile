@@ -20,7 +20,7 @@ dist-clean: clean
 	rm -rf relaton-csd.xml relaton-ext.xml
 
 index.html: index.xml
-	bundle exec relaton-xml-html $^ $(INDEX_CSS) templates
+	bundle exec relaton xml2html $^ $(INDEX_CSS) templates
 
 index.xml: relaton-ext.xml relaton-csd.xml
 	cp relaton-ext/*.rxl csd/; \
@@ -30,7 +30,7 @@ index.xml: relaton-ext.xml relaton-csd.xml
 	  -R $@ csd
 
 relaton-ext.xml relaton-ext/%.rxl:
-	bundle exec relaton-yaml-xml -p "ext-" -R relaton-ext relaton-ext.yaml
+	bundle exec relaton yaml2xml -p "ext-" -R relaton-ext relaton-ext.yaml
 
 $(CSD_HTML) $(CSD_PDF) $(CSD_DOC) $(CSD_RXL):
 	bundle exec metanorma -t csd -R $(basename $@).rxl -x html,pdf,doc,xml $(basename $@).xml
