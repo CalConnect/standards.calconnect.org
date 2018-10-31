@@ -30,7 +30,9 @@ index.xml: relaton-ext.xml relaton-csd.xml
 	  -R $@ csd
 
 relaton-ext.xml relaton-ext/%.rxl:
-	bundle exec relaton yaml2xml -p "ext-" -R relaton-ext relaton-ext.yaml
+	mkdir -p relaton-ext
+	# bundle exec relaton yaml2xml -p "ext-" -R relaton-ext relaton-ext.yaml
+	bundle exec relaton yaml2xml -p "ext-" -x rxl relaton-ext.yaml relaton-ext/
 
 $(CSD_HTML) $(CSD_PDF) $(CSD_DOC) $(CSD_RXL):
 	bundle exec metanorma -t csd -R $(basename $@).rxl -x html,pdf,doc,xml $(basename $@).xml
