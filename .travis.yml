@@ -2,7 +2,7 @@ language: ruby
 sudo: required
 cache: bundler
 rvm:
-- 2.5.1
+  - 2.5.1
 env:
   global:
     - JAVA_OPTS="java.awt.headless=true"
@@ -10,37 +10,38 @@ env:
     # - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
 before_install:
   - travis_retry sudo apt-get update
-  - travis_retry sudo apt-get install -y curl git make ruby-bundler ruby-dev libxml2-dev libxslt-dev
+  - travis_retry sudo apt-get install -y curl git make ruby-bundler ruby-dev libxml2-dev libxslt-dev npm
   - travis_retry gem install bundler
-  - travis_retry gem install nokogiri -v '1.8.4'
+  - travis_retry gem install nokogiri -v '1.8.5'
+  - travis_retry npm install puppeteer
   - sudo bash -c "curl -L https://github.com/riboseinc/plantuml-install/raw/master/ubuntu.sh | bash"
 before_script:
-- bundle
-- plantuml -testdot
+  - bundle
+  - plantuml -testdot
 script:
-- make dist-clean all
-- mkdir -p _site && mv index.html _site/ && mv csd _site/
+  - make dist-clean all
+  - mkdir -p _site && mv index.html _site/ && mv csd _site/
 install:
-- pip install --user awscli
+  - pip install --user awscli
 deploy:
-- provider: s3
-  access_key_id: $AWS_ACCESS_KEY_ID
-  secret_access_key: $AWS_SECRET_ACCESS_KEY
-  bucket: $S3_BUCKET_NAME
-  region: $AWS_REGION
-  skip_cleanup: true
-  local_dir: _site
-  on:
-    branch: master
-- provider: s3
-  access_key_id: $AWS_ACCESS_KEY_ID
-  secret_access_key: $AWS_SECRET_ACCESS_KEY
-  bucket: $S3_STAGING_BUCKET_NAME
-  region: $AWS_REGION
-  skip_cleanup: true
-  local_dir: _site
-  on:
-    branch: staging
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    bucket: $S3_BUCKET_NAME
+    region: $AWS_REGION
+    skip_cleanup: true
+    local_dir: _site
+    on:
+      branch: master
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    bucket: $S3_STAGING_BUCKET_NAME
+    region: $AWS_REGION
+    skip_cleanup: true
+    local_dir: _site
+    on:
+      branch: staging
 after_deploy:
   - aws configure set preview.cloudfront true
   - test $TRAVIS_BRANCH = "master" && aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
