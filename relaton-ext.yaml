@@ -370,20 +370,6 @@ root:
       technical_committee: MOBILE
       title: Mobile Calendar Interoperability Test Suite V1.1 (CD 0706)
       pdf: http://www.calconnect.org//pubdocs/CD0706%20Mobile%20Calendar%20Interoperability%20Test%20Suite%20V1.1.pdf
-    - docidentifier: CC/Adv 0707:2007
-      stage: published
-      doctype: advisory
-      revdate: 2007-09-14
-      technical_committee: ADHOC DST
-      title: CalConnect EDST Reflections and Recommendations V1.0 (CD 0707)
-      pdf: http://www.calconnect.org//pubdocs/CD0707%20CalConnect%20EDST%20Reflections%20and%20Recommendations%20V1.0.pdf
-    - docidentifier: CC/Adv 0707:2007
-      stage: published
-      doctype: advisory
-      revdate: 2007-10-04
-      technical_committee: ADHOC DST
-      title: CalConnect EDST Reflections and Recommendations V1.1 (CD 0707)
-      pdf: http://www.calconnect.org//pubdocs/CD0707%20CalConnect%20EDST%20Reflections%20and%20Recommendations%20V1.1.pdf
     - docidentifier: CC/Adv 0708:2007
       stage: published
       doctype: advisory
