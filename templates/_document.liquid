@@ -44,7 +44,7 @@
     {%- unless document.revdate == blank or document.revdate == nil -%}
     <div class="doc-dates">
       <div class="doc-{{ stagetag | downcase }}">
-        ({{ document.revdate }})
+        ({{ document.revdate | date: "%Y-%m-%d" }})
       </div>
     </div>
     {%- endunless -%}
