@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<csd-standard xmlns="https://www.calconnect.org/standards/csd">
+<bibdata type="directive">
+  <title language="en" format="plain">CalConnect Directive: Patent policy</title>
+  <docidentifier>CC/DIR/DS 10003:2018</docidentifier>
+  <contributor>
+    <role type="author"/>
+    <organization>
+      <name>CalConnect</name>
+    </organization>
+  </contributor>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>CalConnect</name>
+    </organization>
+  </contributor>
+  <language>en</language>
+  <script>Latn</script>
+  <status format="plain">draft-standard</status>
+  <copyright>
+    <from>2018</from>
+    <owner>
+      <organization>
+        <name>CalConnect</name>
+      </organization>
+    </owner>
+  </copyright>
+  <editorialgroup>
+    <technical-committee>PUBLISH</technical-committee>
+  </editorialgroup>
+</bibdata><version>
+  <edition>1</edition>
+  <revision-date>2018-09-03T00:00:00Z</revision-date>
+</version>
+<termdocsource bibitemid="CCSTD"/><preface><foreword obligation="informative"><title>Foreword</title><p id="_7fc0416b-9146-4a68-89de-55c94f6118b8">The Calendaring and Scheduling Consortium ("CalConnect") is global
+non-profit organization with the aim to facilitate interoperability of
+collaborative technologies and tools through open standards.</p>
+<p id="_20471511-aab4-4dfc-bf54-658cabc6f750">CalConnect works closely with international and regional partners,
+of which the full list is available on our website
+(<link target="https://www.calconnect.org/about/liaisons-and-relationships"/>).</p>
+<p id="_fba43eed-9931-4d8b-865f-8054875bbbf2">The procedures used to develop this document and those intended for its
+further maintenance are described in the CalConnect Directives.</p>
+<p id="_ea270847-dd65-4299-9db4-5ab0acc70acd">In particular the different approval criteria needed for the different
+types of CalConnect documents should be noted. This document was drafted in
+accordance with the editorial rules of the CalConnect Directives.</p>
+<p id="_bfd3dec2-3212-4914-a36d-a3dcd8cc442a">Attention is drawn to the possibility that some of the elements of this
+document may be the subject of patent rights. CalConnect shall not be
+held responsible for identifying any or all such patent rights. Details
+of any patent rights identified during the development of the document
+will be provided in the Introduction.</p>
+<p id="_6e3eb445-3d08-4c2c-89a2-cf1fd26e1bb3">Any trade name used in this document is information given for the
+convenience of users and does not constitute an endorsement.</p>
+<p id="_61143b8e-b30c-46c1-a8d9-d2157dda0176">This document was prepared by Technical Committee
+<em>PUBLISH</em>.</p></foreword><introduction id="_introduction" obligation="informative"><title>Introduction</title><clause id="_general" obligation="informative"><title>General</title><p id="_1d3bf67a-6bb4-40b8-901e-553650442533">CalConnect is committed in expanding the realm of standards
+in collaborative technologies with a focus on interoperability
+across the globe and communities of practice.</p>
+<p id="_de607471-e867-4a79-93d5-97727ba4710b">As a proponent of open standards, CalConnect does not endorse
+mandatory usage of patents within CalConnect Standards.
+The CalConnect Board of Directors has decided to align
+IPR practice with major international standardization bodies
+including ISO, IEC and ITU.</p></clause>
+<clause id="_purpose" obligation="informative"><title>Purpose</title><p id="_b7f9c69b-5075-4051-b1be-c4d1bac43b26">This document describes the policy of CalConnect with regards to patent
+usage within CalConnect deliverables and provides a
+"code of practice" that is simple and straightforward.</p>
+<p id="_7b84af47-e683-4d3b-aedd-83ae0ee5c983">CalConnect deliverables are drawn up by technical, not patent, experts,
+who may not be fully aware of all nuisances in the complex
+international legal situation of intellectual property rights.</p>
+<p id="_495e7678-a47d-4761-9970-a62c2fac3b35">CalConnect deliverables are non-binding — their objective is to ensure
+compatibility of technologies and systems on a worldwide basis.</p>
+<p id="_72a9c2e7-ed36-4356-b421-3fed204b82f7">To meet this objective, which is in the common interests of all those
+participating, it must be ensured that the usage and continued
+application of CalConnect deliverables are accessible to everybody.</p>
+<p id="_a1278e2f-f348-4cd6-b195-9a11ddcd26c8">Therefore, a patent embodied fully or partly in a CalConnect
+deliverable must be accessible to everybody without undue constraints.</p></clause></introduction></preface><sections>
+
+<clause id="_scope" obligation="normative"><title>Scope</title><p id="_8d318900-02f5-4f02-8c1b-4222b472d49f">This document provides the CalConnect patent policy, which governs all
+standardization deliverables developed through the CalConnect
+standardization process.</p>
+<p id="_0a7065c6-e081-4cb9-b103-fdc2e6483fd1">The CalConnect patent policy is identical to the <eref type="inline" bibitemid="ISOPP" citeas="ISO/IEC/ITU common patent policy"/> in content,
+except where:</p>
+<ul id="_adedcbf4-2bbe-4b89-afbc-f6aefc27f1af">
+  <li>
+    <p id="_b386a44b-6f02-44e3-8836-715482222aa0">entity names such as "ISO", "IEC", "ITU-T" and "ITU-R" were
+changed to "CalConnect";</p>
+  </li>
+  <li>
+    <p id="_c2ce3aab-4af5-4d26-bc18-6c1974f22dce">deliverables and processes pertaining to those entities have been
+changed to their counterparts within CalConnect.</p>
+  </li>
+</ul>
+<p id="_3b4ccdef-331e-4323-abde-22c159ab583c">Detailed arrangements arising from patents (licensing, royalties, etc.)
+are left to the parties concerned, as these arrangements might differ
+from case to case.</p></clause>
+
+<terms id="terms" obligation="normative">
+  <title>Terms and definitions</title>
+  
+</terms>
+<clause id="information-transparency" obligation="normative"><title>Patent information transparency policy</title><p id="_8779ae07-02ff-4457-91c3-ca2a838ce11f">CalConnect does not provide authoritative or comprehensive information
+about evidence, validity or scope of patents or similar rights.</p>
+<p id="_22f6e57b-0251-4e26-a39e-d01f4e4815b8">However, the fullest available information shall be disclosed in any CalConnect-published standard.</p>
+<p id="_ae19a400-8f81-4629-9f00-41d64d027e50">Therefore, any party participating in the work of CalConnect shall,
+from the outset, draw the attention of the Executive Director and TCC
+of CalConnect, to any known patent or to any known pending patent
+application, either their own or of other organizations, although
+CalConnect is unable to verify the validity of any such information.</p>
+<p id="_b4d2b35a-93a9-4385-b6ad-848dab90975e">In a joint deliverable developed with other standardization bodies,
+IPR requirements of all such standardization bodies who will be
+publishing the deliverable shall be satisfied.</p></clause>
+<clause id="licensing-requirements" obligation="normative"><title>Licensing requirements on patent holders</title><clause id="_general_2" obligation="normative">
+  <title>General</title>
+  <p id="_19a34c74-4f96-412a-81c5-c7bc53054199">If a CalConnect deliverable is developed and such information as
+referred to in <xref target="information-transparency"/> has been disclosed,
+one of the following three situations may arise.</p>
+</clause>
+<clause id="license-free" obligation="normative"><title>Situation 1: Licensing free-of-charge</title><p id="_0b35c253-9dc1-4ebf-bd7e-a066e8f79134">The patent holder is willing to negotiate licences free of charge with
+other parties on a nondiscriminatory basis on reasonable terms and
+conditions.</p>
+<p id="_a727405c-0ede-41e8-a720-346022f36390">Such negotiations are left to the parties concerned and are performed
+outside CalConnect.</p></clause>
+<clause id="license-nd" obligation="normative"><title>Situation 2: Licensing in a non-discriminatory manner</title><p id="_7eb4ed52-d0b0-4038-ad38-525af6c86a93">The patent holder is willing to negotiate licences with other parties
+on a non-discriminatory basis on reasonable terms and conditions.</p>
+<p id="_9a23f30e-17a6-48a2-bf4f-ea2e7aa07c17">Such negotiations are left to the parties concerned and are performed
+outside CalConnect.</p></clause>
+<clause id="license-other" obligation="normative"><title>Situation 3: Licensing in other manners</title><p id="_20d3f2ad-0611-4aeb-8214-53405047f6bb">The patent holder is not willing to comply with the provisions of
+either <xref target="license-free"/> or <xref target="license-nd"/>.</p>
+<p id="_2fca0335-3f12-4a37-9ce5-a6d3dec6d48c">In such case, the deliverable shall not include provisions that depends
+on the patent.</p></clause></clause>
+<clause id="declaration" obligation="normative"><title>Patent declaration requirements</title><p id="_dceb04dc-7f0e-4a1e-9a43-e06eec666103">Whatever the licensing requirements (<xref target="licensing-requirements"/>)
+are, the patent holder must provide a written statement to be
+filed at CalConnect, using the appropriate
+"Patent Statement and Licensing Declaration" Form.</p>
+<p id="_8b1fa1c9-116c-4540-b861-0b8cff97d011">This statement must not include additional provisions, conditions, or
+any other exclusion clauses in excess of what is provided for each case
+in the corresponding boxes of the form.</p></clause>
+</sections><bibliography><references id="_normative_references" obligation="informative">
+  <title>Normative References</title>
+  <bibitem id="ISOPP">
+  <formattedref format="application/x-isodoc+xml"><em>ISO/IEC/ITU common patent policy</em>, <link target="https://isotc.iso.org/livelink/livelink/fetch/2000/2122/3770791/Common_Policy.htm"/></formattedref>
+  <docidentifier type="ISO">ISO/IEC/ITU common patent policy</docidentifier>
+</bibitem>
+</references><references id="_bibliography" obligation="informative">
+  <title>Bibliography</title>
+  <bibitem id="CCSTD">
+  <formattedref format="application/x-isodoc+xml">
+    <em>CalConnect Directive: Standardization and publication</em>
+  </formattedref>
+  <docidentifier>CC/DIR 10001</docidentifier>
+</bibitem>
+  <bibitem id="ISODIR1" type="standard">
+  <title format="text/plain">ISO/IEC Directives, Part 1, Procedures for the technical work</title>
+  <docidentifier type="ISO">ISO/IEC Directives, Part 1</docidentifier>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>ISO</name>
+    </organization>
+  </contributor>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>IEC</name>
+    </organization>
+  </contributor>
+</bibitem>
+  <bibitem id="ISODIR2" type="standard">
+  <title format="text/plain">ISO/IEC Directives, Part 2, Principles and rules for the structure and drafting of ISO and IEC documents</title>
+  <docidentifier type="ISO">ISO/IEC Directives, Part 2</docidentifier>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>ISO</name>
+    </organization>
+  </contributor>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>IEC</name>
+    </organization>
+  </contributor>
+</bibitem>
+  <bibitem id="ISODIR1C">
+  <formattedref format="application/x-isodoc+xml">
+    <em>ISO/IEC Directives, Part 1, Consolidated ISO Supplement, Procedures specific to ISO</em>
+  </formattedref>
+  <docidentifier type="ISO">ISO/IEC Directives, Part 1, Consolidated ISO Supplement</docidentifier>
+</bibitem>
+</references></bibliography>
+</csd-standard>
