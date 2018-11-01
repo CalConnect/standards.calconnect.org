@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: https://github.com/riboseinc/relaton-cli
-  revision: 24d5a04ee2f2a32461e8d81b59650ca0f53cfb2c
+  revision: eb5a5fb9821a98b09ffa72aca2b7129a33266e39
   specs:
     relaton-cli (0.1.3)
       liquid
