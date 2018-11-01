@@ -115,8 +115,11 @@ root:
 
 All `relaton-ext/*.rxl` files are then copied into `csd/` so that all Relaton XML files are in the same directory.
 
-The `relaton concatenate` command is again used to combine the `csd/*.rxl` entries into `index.xml`,
-this time including both CSD-extracted and pure bibliographic entries in the same Relaton XML collection.
+The `relaton concatenate` command is again used to:
+
+* Combine the `csd/*.rxl` entries into `index.xml`, this time including both CSD-extracted and pure bibliographic entries in the same Relaton XML collection
+
+* Sorting of the entries based on document number (the numeric portion of the document identifier, say, `13001` of `CC/DIR/WD 13001:2018`)
 
 
 === Rendering of HTML
