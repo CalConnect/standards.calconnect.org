@@ -1,5 +1,10 @@
 = CalConnect Standards Registry
 
+image:https://travis-ci.com/CalConnect/standards.calconnect.org.svg?branch=master[
+	Build Status, link="https://travis-ci.com/CalConnect/standards.calconnect.org"]
+
+== Introduction
+
 The CalConnect Standards Registry is used to publish
 CalConnect deliverables, including its Standards and
 other public documents.
@@ -7,25 +12,140 @@ other public documents.
 This repository provides all necessary information for the
 https://www.calendarstandards.org site.
 
+The site is managed by TC PUBLISH.
+
 
 == Building the index
 
 [source,sh]
 ----
-# generates index.html
+# removes all generated CSD files
 make dist-clean
+
+# generates index.html
 make all
 ----
 
-== Steps
+== Structure (and how it works)
 
-TODO:...
+=== General
 
-== Structure
+There are two types of entries in this site:
 
-There are two types of entries here, pure Relaton entries (bibliographic entries)
-and real CSD document entries.
+. CSD document entries
 
-TODO:
+. Relaton entries (pure bibliographic entries)
 
-== Editing
+
+=== CSD document entries
+
+This repository accepts CSD document entries in CSD XML format, all stored under the `csd/` directory.
+
+NOTE: The CSD XML format is described https://github.com/riboseinc/metanorma-csd[here].
+
+Every CSD XML document is embedded with metadata information in Relaton format, including title, identifier(s), author(s) and date information.
+
+. For every CSD XML document under `csd/`, a Relaton XML is generated of the same base filename, using the `metanorma -R foo.rxl foo.xml` command from the https://github.com/riboseinc/metanorma-cli[`metanorma-cli` gem]. For example, for a CSD XML file `csd/csd-patent-policy.xml`, the created Relaton XML file is `csd/csd-pateht-policy.rxl`.
+
+. Every CSD XML document under `csd/` is also used to generate the proper output formats using the `metanorma` command, including PDF, HTML and Word. All of these output files are placed in the same directory, `csd/`.
+
+. All of the Relaton XML entries from the `csd/` directory is combined into a `/relaton-csd.xml`, which is a Relaton collection of all CSD documents. This relies on usage of the `relaton concatenate` command from the https://github.com/riboseinc/relaton-cli/[`relaton-cli` gem].
+
+** In addition, the `relaton concatenate` command detects the existence of related output files for the CSD entry, such as the PDF, HTML, Word files, and links them into their corresponding entry in `csd/foo.rxl` and `/relaton-csd.xml`.
+
+
+=== Bibliographic entries
+
+Bibliographic entries in Relaton format are entered in `relaton-ext.yaml`.
+
+NOTE: Relaton is a bibliographic model developed for ISO 690, the International Standard for citations. Relaton currently supports Relaton-XML (`.xml` or `.rxl`) and Relaton-YAML (`.yaml`) formats. More details about Relaton can be found https://github.com/riboseinc/relaton-models[here].
+
+These are entries that are either:
+
+* managed outside of this repository (i.e. they are not generated using information provided in this repository)
+
+* does not provide a public draft (in CSD XML) but would like the entry to be displayed in this site.
+
+NOTE: The filename suffix of `-ext` indicates that the actual documents are managed outside of this repository (i.e. they are not generated using information provided in this repository).
+
+The basic structure of `relaton-ext.yaml` is in a format called "`Relaton-YAML`", and looks like this.
+
+[source,yaml]
+----
+root:
+  author: The Calendaring and Scheduling Consortium
+  title: CalConnect Standards Registry
+  items:
+    - technical_committee: PUBLISH
+      docidentifier: "CC/NP 36000"
+      doctype: standard
+      title: Standardization documents -- Vocabulary
+      stage: proposal
+      revdate: 2018-10-25
+    - technical_committee: DATETIME
+      ...
+----
+
+* The `relaton-ext.yaml` file specifies a "`bibliographic group`" using a Relaton Collection. This YAML file represents a collection of bibliographic entries.
+
+* Each bibliographic entry is placed under the `items` key.
+
+* Each bibliographic entry can have the following attributes:
+
+** `technical_committee: {TCNAME}`: is the name of the TC that owns this work item. Please exclude the prefix "`TC`" in there as it will be automatically generated. e.g. `DATETIME` for `TC DATETIME` will suffice. It has a data type of "`string`".
+
+** `docidentifier: "{prefix} {doc-number}"` provides the full document identifier, including the prefix, stage codes, and the document number of the work item. You may also specify the edition year suffix, such as, "`:2019`" at the end. e.g. `CC/DIR/FDS 10001:2019`. It has a data type of "`string`".
+
+** `doctype: {doctype}` provides the document type of the document. These currently include `directive`, `standard`, `guide`, `specification`, `report`, `amendment`, `technical-corrigendum`, `administrative`, and `advisory`. Please refer to CC/DIR 10001 for document types of CalConnect Standardization deliverables. It has a data type of "`string`".
+
+** `title: {title}` is the document title. If there are funny characters in it (it shouldn't), remember to double quote the string. It has a data type of "`string`".
+
+** `stage: {stage}` is the string representation of the stage identifier. This attribute accepts the following stage codes `proposal`, `working-draft`, `committee-draft`, `draft-standard`, `final-draft`, `withdrawn`, `cancelled`. It has a data type of "`string`".
+
+** `revdate: 2018-10-25` is the date when the document was last updated. It is optional and accepts the ISO 8601-1 date format. A full date-time could be provided, but the "`time`" is not rendered in the index. It has a data type of "`date`".
+
+
+. The `relaton-ext.yaml` document is read. The `relaton yaml2xml` command from the https://github.com/riboseinc/relaton-cli/[`relaton-cli` gem] does the following:
+
+** splits off each entry into its own Relaton XML file in a specified directory (`relaton-ext/*.rxl`)
+** converts the Relaton YAML collection into a Relaton XML collection called `relaton-ext.xml`
+
+
+=== Combining document and pure bibliographic entries
+
+All `relaton-ext/*.rxl` files are then copied into `csd/` so that all Relaton XML files are in the same directory.
+
+The `relaton concatenate` command is again used to combine the `csd/*.rxl` entries into `index.xml`,
+this time including both CSD-extracted and pure bibliographic entries in the same Relaton XML collection.
+
+
+=== Rendering of HTML
+
+The `relaton xml2html` command is used to transform the `/index.xml` Relaton collection file into `/index.html`.
+
+The template and styling used for the transformation are customizable, and are located in `/templates`:
+
+* `templates/_index.liquid` is the Liquid template for the Index page
+
+* `templates/_document.liquid` is the Liquid template for each document entry in the Index page
+
+* `templates/index-style.css` is the CSS used to style the Index page
+
+
+== Usage
+
+=== How to add/remove entries?
+
+* Bibliographic entry: simply add an entry in `relaton-ext.yaml` under the `items:` key.
+
+* CSD document entry: simply add your CSD XML file to `csd/`.
+
+On the next run of `make clean all` you will see your entry added to `/index.html`.
+
+
+=== Deployment
+
+Please push all changes to the `staging` branch, and changes will be automatically deployed and reflected on the staging site.
+
+If your changes are to be made public to the production site, please contact TC PUBLISH.
+
