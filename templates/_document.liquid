@@ -9,7 +9,6 @@
 {% assign stagetag = "updated" %}
 {%- endif -%}
 
-
   <div class="doc-line">
     <div class="doc-identifier">
       <h{{ depth }}>
@@ -30,11 +29,11 @@
 
   <div class="doc-title">
     <h{{ depth | plus: 1 }}>
-      {% if document.html == blank or document.html == nil %}
+      {%- if document.html == blank or document.html == nil -%}
         {{ document.title }}
-      {% else %}
+      {%- else -%}
         <a href="{{ document.html }}">{{ document.title }}</a>
-      {% endif %}
+      {%- endif -%}
     </h{{ depth | plus: 1 }}>
   </div>
 
@@ -42,13 +41,13 @@
     <div class="doc-stage {{ document.stage | downcase }}">
       {{ document.stage }}
     </div>
-    {% unless document.revdate == blank or document.revdate == nil %}
+    {%- unless document.revdate == blank or document.revdate == nil -%}
     <div class="doc-dates">
       <div class="doc-{{ stagetag | downcase }}">
         ({{ document.revdate }})
       </div>
-    {% endunless %}
     </div>
+    {%- endunless -%}
   </div>
 
   <div class="doc-bib">
@@ -58,26 +57,26 @@
   </div>
 
   <div class="doc-access">
-  {% unless document.html == blank or document.html == nil %}
+  {%- unless document.html == blank or document.html == nil -%}
     <div class="doc-access-button-html">
       <a href="{{ document.html }}">HTML</a>
     </div>
-  {% endunless %}
-  {% unless document.pdf == blank or document.pdf == nil %}
+  {%- endunless -%}
+  {%- unless document.pdf == blank or document.pdf == nil -%}
     <div class="doc-access-button-pdf">
       <a href="{{ document.pdf }}">PDF</a>
     </div>
-  {% endunless %}
-  {% unless document.doc == blank or document.doc == nil %}
+  {%- endunless -%}
+  {%- unless document.doc == blank or document.doc == nil -%}
     <div class="doc-access-button-doc">
       <a href="{{ document.doc }}">Word</a>
     </div>
-  {% endunless %}
-  {% unless document.xml == blank or document.xml == nil %}
+  {%- endunless -%}
+  {%- unless document.xml == blank or document.xml == nil -%}
     <div class="doc-access-button-xml">
       <a href="{{ document.xml }}">XML</a>
     </div>
-  {% endunless %}
+  {%- endunless -%}
   </div>
 </div>
 
