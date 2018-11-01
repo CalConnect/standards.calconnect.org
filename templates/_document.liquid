@@ -12,11 +12,11 @@
   <div class="doc-line">
     <div class="doc-identifier">
       <h{{ depth }}>
-      {% if document.html == "" %}
+      {%- if document.html == blank or document.html == nil -%}
         {{ document.docidentifier }}
-      {% else %}
+      {%- else -%}
         <a href="{{ document.html }}">{{ document.docidentifier }}</a>
-      {% endif %}
+      {%- endif -%}
       </h{{ depth }}>
     </div>
 
