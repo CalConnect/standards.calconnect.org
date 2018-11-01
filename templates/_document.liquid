@@ -50,6 +50,12 @@
     {%- endunless -%}
   </div>
 
+  {%- unless document.abstract == blank or document.abstract == nil -%}
+  <div class="doc-abstract">
+    {{ document.abstract }}
+  </div>
+  {%- endunless -%}
+
   <div class="doc-bib">
     <div class="doc-bib-relaton">
       <a href="{{ document.relaton }}">Relaton XML</a>

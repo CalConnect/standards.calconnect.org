@@ -153,6 +153,7 @@ root:
       technical_committee: CALDAV
       title: CalDAV Use Cases V1.0 (CD 0507)
       pdf: http://www.calconnect.org/pubdocs/CD0507%20CalDAV%20Use%20Cases%20V1.0.pdf
+      abstract: "This document is one in a series of use case documents that the Calendaring and Scheduling Consortium is developing to help better define the needs of different calendaring and scheduling user groups. As such, this document provides a list of use cases for a calendar access protocol only. Other use case documents will cover different areas of calendaring and scheduling, and will be made available by the Consortium in the usual manner. While this list of use cases was developed to assist in the development of the CalDAV protocol, none of the use cases are specific to CalDAV, that is, this list of use cases should apply to any calendar access protocol. It is expected that this document will be used as a basis to further develop technical requirements for a calendar access protocol such as CalDAV."
     - docidentifier: CC/Adm 0508:2005
       stage: published
       doctype: administrative
@@ -216,6 +217,7 @@ root:
       technical_committee: USECASE
       title: Min-IOP Use Cases V1.1 (CD 0601)
       pdf: http://www.calconnect.org/pubdocs/CD0601%20Min-IOP%20Use%20Cases%20V1.1.pdf
+      abstract: "This document was created by the Use Case Technical Committee of the Calendaring and Scheduling Consortium. The document defines the use cases for minimum interoperability of calendaring and scheduling. Minimum interoperability is the basic level of functionality our collective experience tells us is necessary to have a useful system. We realize that in some cases it may be more than is currently offered by 'basic' calendaring and scheduling applications."
     - docidentifier: CC/Adv 0602:2006
       stage: published
       doctype: advisory
@@ -237,6 +239,7 @@ root:
       technical_committee: RECURR
       title: iCalendar Recurrence Problems and Recommendations V1.0 (CD 0604)
       pdf: http://www.calconnect.org/pubdocs/CD0604%20iCalendar%20Recurrence%20Problems%20and%20Recommendations%20V1.0.pdf
+      abstract: "This document contains information about recurrence implementation issues and recommendations on how to resolve these issues. We first explain what recurrences are, justify the need for recurrences, identify recurrence implementation problems and ambiguities, and then offer some guidelines and recommendations to solve these issues."
     - docidentifier: CC/Adm 0605:2006
       stage: published
       doctype: administrative
@@ -251,6 +254,7 @@ root:
       technical_committee: TIMEZONE
       title: Timezone Registry and Service Recommendations V1.0 (CD 0606)
       pdf: http://www.calconnect.org/pubdocs/CD0606%20Timezone%20Registry%20and%20Service%20Recommendations%20V1.0.pdf
+      abstract: "This document contains technical recommendations on implementing a time zone registry and a time zone service. Standardized time zones are needed for improved interoperability to avoid some common problems, and to allow using time zones by reference rather than value."
     - docidentifier: CC/R 0607:2006
       stage: published
       doctype: report
@@ -286,6 +290,7 @@ root:
       technical_committee: MOBILE
       title: The Benefits of iCalendar for the Mobile Industry V1.0 (CD 0611)
       pdf: http://www.calconnect.org/pubdocs/CD0611%20The%20Benefits%20of%20iCalendar%20for%20the%20Mobile%20Industry%20V1.0.pdf
+      abstract: "This document, prepared by the Mobile Technical Committee, discusses the benefits and value of converting to the iCalendar specification from its early predecessor, vCalendar, still widely in use in the mobile and travel industries. The document draws upon results from the Mobile Calendaring Questionnaires conducted earlier this year by TC Mobile; see Mobile Calendaring Questionnaire V2 Results: CD 0609."
     - docidentifier: CC/R 0612:2006
       stage: published
       doctype: report
@@ -328,6 +333,7 @@ root:
       technical_committee: USECASE
       title: Min-IOP (Minimum Interoperable Subset) Use Cases for Tasks V1.0 (CD 0701)
       pdf: http://www.calconnect.org/pubdocs/CD0701%20Min-IOP%20Use%20Cases%20for%20Tasks%20V1.0.pdf
+      abstract: "This document was created by the Use Case Technical Committee of the Calendaring and Scheduling Consortium and defines the use cases for minimum interoperablity for tasks support (VTODO) for calendaring and scheduling. Minimum interoperability is the basic level of functionality our collective experience tells us is necessary to have a useful system. We realize that in some cases it may be more than is currently offered by 'basic' calendaring and scheduling applications."
     - docidentifier: CC/R 0702:2007
       stage: published
       doctype: report
@@ -342,6 +348,7 @@ root:
       technical_committee: CALDAV
       title: CalDAV Scheduling Requirements V1.1 (CD 0703)
       pdf: http://www.calconnect.org/pubdocs/CD0703%20CalDAV%20Scheduling%20Requirements%20V1.1.pdf
+      abstract: "This document was created by the CalDAV Technical Committee of the Calendaring and Scheduling Consortium. It presents a list of features in the form of requirements for the scheduling extensions to CalDAV [RFC 4791], that is, the extensions to the Web Distributed Authoring and Versioning (WebDAV) [RFC 2518] protocol to specify a standard way of exchanging and processing scheduling messages based on the iCalendar Transport-Independent Interoperability Protocol (iTIP) [RFC 2446]."
     - docidentifier: CC/R 0704:2007
       stage: published
       doctype: report
@@ -453,6 +460,7 @@ root:
       technical_committee: MOBILE
       title: Mobile Recurrence Interoperability Recommendations V1.0 (CD 0805)
       pdf: http://www.calconnect.org/pubdocs/CD0805%20Mobile%20Recurrence%20Interoperability%20Recommendations%20V1.0.pdf
+      abstract: "This document, prepared by the Mobile Technical Committee, describes interoperability problems observed in the implementation of recurring events in mobile devices and provides recommendations for how these issues can be avoided."
     - docidentifier: CC/Adm 0806:2008
       stage: published
       doctype: administrative
@@ -523,6 +531,7 @@ root:
       technical_committee: FREEBUSY
       title: Freebusy Read URL V1.0 (CD 0903)
       pdf: http://www.calconnect.org/pubdocs/CD0903%20Freebusy%20Read%20URL%20V1.0.pdf
+      abstract: "This document, developed by the Freebusy Technical Committee, defines a standardized form of Freebusy read URL to improve interoperability between client and server implementations, while extending the functionality and utility through the use of optional parameters."
     - docidentifier: CC/IETF 6321:2009
       stage: published
       doctype: standard
@@ -558,6 +567,7 @@ root:
       technical_committee: USECASE
       title: Use Cases for Resources V1.0 (CD 0906)
       pdf: http://www.calconnect.org/pubdocs/CD0906%20Use%20Cases%20for%20Resources%20V1.0.pdf
+      abstract: "This document was created by the USECASE Technical Committee of the Calendaring and Scheduling Consortium. The document lists use cases that utilize resources within the calendaring and scheduling application domain. We realize that some of the use cases presented may include workflow or ideas beyond what is offered by current calendaring and scheduling applications."
     - docidentifier: CC/Adv 0907:2009
       stage: published
       doctype: advisory
@@ -565,6 +575,7 @@ root:
       technical_committee: USECASE
       title: A Recommendation for Minimum Interoperability of Resource Information V1.0 (CD 0907)
       pdf: http://www.calconnect.org/pubdocs/CD0907%20A%20Recommendation%20for%20Minimum%20Interoperability%20of%20Resource%20Information%20V1.0.pdf
+      abstract: "This document was created by the USECASE Technical Committee of the Calendaring and Scheduling Consortium. The document presents a recommendation for enhancing inter-operability of resources within the calendaring and scheduling application domain. Minimum interoperability is the basic level of functionality our collective experience tells us is necessary to have a useful system. The thrust of this effort is to enable resource inter-operability such that, when a described event contains resources, the recipient of that event is able to make practical use of the described resources; ideally the recipient should be so enabled regardless of whether the recipient is within the same calendaring domain. The resulting recommendations rely in part upon adoption of standards revisions that are in draft as of this writing."
     - docidentifier: CC/R 0908:2009
       stage: published
       doctype: report
@@ -697,12 +708,16 @@ root:
       technical_committee: XML
       title: CalWS-Rest Restful Web Services Protocol for Calendaring V1.0.1 (CD 1011)
       pdf: http://www.calconnect.org/pubdocs/CD1011%20CalWS-Rest%20Restful%20Web%20Services%20Protocol%20for%20Calendaring%20V1.0.1.pdf
-    - docidentifier: CC/R 1012:2010
-      stage: published
-      doctype: report
-      revdate: 2010-10-14
-      technical_committee: CALCONNECT
-      title: An Introduction to Internet Calendaring V1.0 (CD 1012)
+      abstract: "This document, developed by the XML Technical Committee, specifies a RESTful web services Protocol for calendaring operations. This protocol has been contributed to OASIS WS-CALENDAR as a component of the WS-CALENDAR Specification under development by OASIS.
+
+CalConnect and OASIS have agreed that any future work by CalConnect TC XML or OASIS WS-Calendar (or other committees in CalConnect and OASIS) on their respective versions of CalWS will be harmonized to maintain consistency between the versions. CalConnect and OASIS reserve the right to jointly and formally agree to fork the specifications at some point in the future if need arises."
+    # - docidentifier: CC/R 1012:2010
+    #   stage: published
+    #   doctype: report
+    #   revdate: 2010-10-14
+    #   technical_committee: CALCONNECT
+    #   title: An Introduction to Internet Calendaring V1.0 (CD 1012)
+    #   abstract: "This CalConnect guide introduces internet calendaring and the major standards and specifications related to calendaring and scheduling."
     - docidentifier: CC/R 1012:2011
       stage: published
       doctype: report
@@ -710,6 +725,7 @@ root:
       technical_committee: CALCONNECT
       title: An Introduction to Internet Calendaring and Scheduling V1.1 (CD 1012)
       html: https://www.calconnect.org/resources/introduction-internet-calendaring
+      abstract: "This CalConnect guide introduces internet calendaring and the major standards and specifications related to calendaring and scheduling."
     - docidentifier: CC/R 1013:2010
       stage: published
       doctype: report
@@ -738,6 +754,7 @@ root:
       technical_committee: CALCONNECT
       title: Calendaring and Scheduling Glossary of Terms V2.2 (CD 1102)
       html: https://www.calconnect.org/resources/glossary
+      abstract: "A Glossary of Calendaring and Scheduling Terms."
     - docidentifier: CC/R 1103:2011
       stage: published
       doctype: report
@@ -850,6 +867,10 @@ root:
       technical_committee: XML
       title: CalWS-SOAP SOAP Web Services Protocol for Calendaring V1.0 (CD 1301)
       pdf: http://www.calconnect.org/pubdocs/CD1301%20CalWS-SOAP%20SOAP%20Web%20Services%20Protocol%20for%20Calendaring%20V1.0.pdf
+      abstract: "This document, developed by the XML Technical Committee, specifies a SOAP web services Protocol for calendaring operations. This protocol has been contributed to OASIS WS-CALENDAR as a component of the WS-CALENDAR Specification under development by OASIS.
+
+CalConnect and OASIS have agreed that any future work by CalConnect TC XML or OASIS WS-Calendar (or other committees in CalConnect and OASIS) on their respective versions of CalWS will be harmonized to maintain consistency between the versions. CalConnect and OASIS reserve the right to jointly and formally agree to fork the specifications at some point in the future if need arises.
+"
     - docidentifier: CC/IETF 70012:2013
       stage: published
       doctype: standard

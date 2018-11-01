@@ -917,6 +917,10 @@ $docstage-colors-list:(
   margin-left: 0.5em;
 }
 
+.doc-abstract {
+  float: left;
+}
+
 .doc-access, .doc-bib {
   display: block;
   float: right;
