@@ -17,6 +17,14 @@ GIT
       nokogiri
 
 GIT
+  remote: https://github.com/riboseinc/metanorma-csd
+  revision: a3452a5ef8081ef9923018806bbdb0344b41794e
+  specs:
+    metanorma-csd (1.0.8)
+      isodoc (~> 0.9.6)
+      metanorma-standoc (~> 1.0.0)
+
+GIT
   remote: https://github.com/riboseinc/relaton-cli
   revision: 6c5b43741c2b0b6a587172aae3394b604f0fffa8
   specs:
@@ -113,9 +121,6 @@ GEM
       ruby-xslt
       thread_safe
       uuidtools
-    metanorma-csd (1.0.8)
-      isodoc (~> 0.9.6)
-      metanorma-standoc (~> 1.0.0)
     metanorma-gb (1.0.7)
       gb-agencies (~> 0.0.1)
       isodoc (~> 0.9.1)
@@ -202,6 +207,7 @@ PLATFORMS
 
 DEPENDENCIES
   metanorma-cli!
+  metanorma-csd!
   relaton-cli!
 
 BUNDLED WITH
