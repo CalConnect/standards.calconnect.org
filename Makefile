@@ -26,7 +26,7 @@ index.xml: relaton-ext.xml relaton-csd.xml
 	cp relaton-ext/*.rxl csd/; \
 	bundle exec relaton concatenate \
 	  -t "CalConnect Standards Registry" \
-		-g "Calendaring and Scheduling Consortium" \
+		-g "CalConnect : The Calendaring and Scheduling Consortium" \
 	  csd/ $@
 
 # this empty target is necessary so that make detects changes in relaton-ext.yaml
@@ -44,7 +44,7 @@ $(CSD_HTML) $(CSD_PDF) $(CSD_DOC) $(CSD_RXL):
 relaton-csd.xml: $(CSD_RXL)
 	bundle exec relaton concatenate \
 	  -t "CalConnect Standards Registry" \
-		-g "Calendaring and Scheduling Consortium" \
+		-g "CalConnect : The Calendaring and Scheduling Consortium" \
 	  csd/ $@
 
 

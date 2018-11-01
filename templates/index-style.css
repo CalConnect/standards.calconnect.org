@@ -966,7 +966,7 @@ main {
   line-height:30px;
 }
 
-#topbar-inner #title-bar > span {
+#topbar-inner #title-bar > a {
   color: #ddd;
   display: block;
   font-family:'Ek Mukta',Arial,Helvetica,sans-serif;
@@ -977,14 +977,30 @@ main {
   margin: 0 2em;
 }
 
+#topbar-inner #title-bar > a:hover {
+  background-color: unset;
+}
+
+@media only screen and (min-width: 320px) {
+  #title-bar {
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #title-bar {
+  font-size: 16px;
+  text-align: left;
+  }
+}
+
 .doc-stage:before {
   content: "STAGE: "
 }
 
 
-@media only screen and (max-width: 900px){
+@media only screen and (max-width: 900px) {
   .doc-dates, .doc-type, .doc-stage {
-
     margin-bottom: 5px;
   }
 
