@@ -29,7 +29,10 @@ index.xml: relaton-ext.xml relaton-csd.xml
 		-g "Calendaring and Scheduling Consortium" \
 	  csd/ $@
 
-relaton-ext.xml relaton-ext/%.rxl:
+# this empty target is necessary so that make detects changes in relaton-ext.yaml
+relaton-ext.yaml:
+
+relaton-ext.xml relaton-ext/%.rxl: relaton-ext.yaml
 	mkdir -p relaton-ext
 	# bundle exec relaton yaml2xml -p "ext-" -R relaton-ext relaton-ext.yaml
 	bundle exec relaton yaml2xml -p "ext-" -x rxl relaton-ext.yaml relaton-ext/

@@ -38,3 +38,1193 @@ root:
       title: Date and time -- Calendars -- Chinese calendar
       stage: proposal
       revdate: 2018-10-25
+    - technical_committee: TCC
+      docidentifier: "CC/R 1801:2018"
+      doctype: report
+      title: Report on CalConnect Conference XLI (CD 1801)
+      stage: published
+      pdf: http://calconnect.org/pubdocs/conference41rpt.pdf
+      revdate: 2018-03-02
+    - technical_committee: TCC
+      docidentifier: "CC/R 1802:2018"
+      doctype: report
+      title: Report on Interoperability Test Event XLI (CD 1802)
+      stage: published
+      revdate: 2018-03-02
+    - technical_committee: TCC
+      docidentifier: "CC/R 1803:2018"
+      doctype: report
+      title: Report on CalConnect Conference XLII (CD 1803)
+      stage: published
+      revdate: 2018-06-25
+    - technical_committee: TCC
+      docidentifier: "CC/R 1804:2018"
+      doctype: report
+      title: Report on Interoperability Test Event XLII (CD 1804)
+      stage: published
+      revdate: 2018-06-29
+    - technical_committee: TCC
+      docidentifier: "CC/R 1805:2018"
+      doctype: report
+      title: Report on CalConnect XLIII (CD 1805)
+      stage: published
+      revdate: 2018-10-23
+    - technical_committee: CALENDAR
+      docidentifier: "CC/IETF/DS 34010"
+      doctype: standard
+      title: The Time Zone Information Format (TZif)
+      stage: draft-standard
+      revdate: 2017-11-26
+      html: https://tools.ietf.org/html/draft-murchison-tzdist-tzif-00
+    - docidentifier: CC/R 0401:2004
+      stage: published
+      doctype: report
+      revdate: 2004-07-30
+      technical_committee: IOPTEST
+      title: July 2004 CalConnect Interoperability Test Rules and Test Scenarios V1.0 (CD 0401)
+      pdf: http://calconnect.org/pubdocs/CD0401%20July%202004%20CalConnect%20Interoperability%20Test%20Rules%20and%20Test%20Scenarios%20V1.0.pdf
+    - docidentifier: CC/R 0402:2004
+      stage: published
+      doctype: report
+      revdate: 2004-07-30
+      technical_committee: IOPTEST
+      title: July 2004 CalConnect Interoperability Test Results Spreadsheet V1.0 (CD 0402)
+      pdf: http://calconnect.org/pubdocs/CD0402%20July%202004%20CalConnect%20Interoperability%20Test%20Results%20Spreadsheet%20V1.0.pdf
+    - docidentifier: CC/R 0403:2004
+      stage: published
+      doctype: report
+      revdate: 2004-07-30
+      technical_committee: IOPTEST
+      title: July 2004 CalConnect Interoperability Test Report V1.0 (CD 0403)
+      pdf: http://calconnect.org/pubdocs/CD0403%20July%202004%20CalConnect%20Interoperability%20Test%20Report%20V1.0.pdf
+    - docidentifier: CC/R 0404:2004
+      stage: published
+      doctype: report
+      revdate: 2004-09-25
+      technical_committee: CALCONNECT
+      title: Report on Roundtable I (CD 0404)
+      pdf: http://calconnect.org/pubdocs/roundtable1rpt.pdf
+    - docidentifier: CC/R 0501:2005
+      stage: published
+      doctype: report
+      revdate: 2005-01-12
+      technical_committee: IOPTEST
+      title: January 2005 CalConnect Interoperability Test Scenarios V1.0 (CD 0501)
+      pdf: http://calconnect.org/pubdocs/CD0501%20January%202005%20CalConnect%20Interoperability%20Test%20Scenarios%20V1.0.pdf
+    - docidentifier: CC/R 0502:2005
+      stage: published
+      doctype: report
+      revdate: 2005-01-12
+      technical_committee: IOPTEST
+      title: January 2005 CalConnect Interoperability Test Report V1.0 (CD 0502)
+      pdf: http://calconnect.org/pubdocs/CD0502%20January%202005%20CalConnect%20Interoperability%20Test%20Report%20V1.0.pdf
+    - docidentifier: CC/R 0503:2005
+      stage: published
+      doctype: report
+      revdate: 2005-06-18
+      technical_committee: IOPTEST
+      title: June 2005 CalConnect Interoperability Test Scenarios V1.0 (CD 0503)
+      pdf: http://www.calconnect.org//pubdocs/CD0503%20June%202005%20CalConnect%20Interoperability%20Test%20Scenarios%20V1.0.pdf
+    - docidentifier: CC/R 0504:2005
+      stage: published
+      doctype: report
+      revdate: 2005-06-18
+      technical_committee: IOPTEST
+      title: June 2005 CalConnect Interoperability Test Report V1.0 (CD 0504)
+      pdf: http://www.calconnect.org//pubdocs/CD0504%20June%202005%20CalConnect%20Interoperability%20Test%20Report%20V1.0.pdf
+    - docidentifier: CC/R 0505:2005
+      stage: published
+      doctype: report
+      revdate: 2005-07-21
+      technical_committee: RECURR
+      title: Results from First Recurrence Questionnaire V1.0 (CD 0505)
+      pdf: http://www.calconnect.org//pubdocs/CD0505%20Results%20from%20First%20Recurrence%20Questionnaire%20V1.0.pdf
+    - docidentifier: CC/R 0506:2005
+      stage: published
+      doctype: report
+      revdate: 2005-09-14
+      technical_committee: IOPTEST
+      title: September 2005 CalConnect Interoperability Test Report V1.0 (CD 0506)
+      pdf: http://www.calconnect.org//pubdocs/CD0506%20September%202005%20CalConnect%20Interoperability%20Test%20Report%20V1.0.pdf
+    - docidentifier: CC/Adv 0507:2005
+      stage: published
+      doctype: advisory
+      revdate: 2005-09-26
+      technical_committee: CALDAV
+      title: CalDAV Use Cases V1.0 (CD 0507)
+      pdf: http://www.calconnect.org//pubdocs/CD0507%20CalDAV%20Use%20Cases%20V1.0.pdf
+    - docidentifier: CC/Adm 0508:2005
+      stage: published
+      doctype: administrative
+      revdate: 2005-10-11
+      technical_committee: CALCONNECT
+      title: Overview of The Calendaring and Scheduling Consortium V1.0 (CD 0508)
+      pdf: http://www.calconnect.org//pubdocs/CD0508%20Overview%20of%20The%20Calendaring%20and%20Scheduling%20Consortium%20V1.0.pdf
+    - docidentifier: CC/Adm 0509:2005
+      stage: published
+      doctype: administrative
+      revdate: 2005-09-26
+      technical_committee: CALCONNECT
+      title: Educause 2005 Overview of The Calendaring and Scheduling Consortium V1.0 (CD 0509)
+      pdf: http://www.calconnect.org//pubdocs/CD0509%20Educause%202005%20Overview%20of%20The%20Calendaring%20and%20Scheduling%20Consortium%20V1.0.pdf
+    - docidentifier: CC/R 0510:2005
+      stage: published
+      doctype: report
+      revdate: 2005-10-03
+      technical_committee: TIMEZONE
+      title: Report on TIMEZONE Questionnaire Results V1.0 (CD 0510)
+      pdf: http://www.calconnect.org//pubdocs/CD0510%20Report%20on%20TIMEZONE%20Questionnaire%20Results%20V1.0.pdf
+    - docidentifier: CC/R 0511:2005
+      stage: published
+      doctype: report
+      revdate: 2005-01-13
+      technical_committee: CALCONNECT
+      title: Report on Roundtable II (CD 0511)
+      pdf: http://www.calconnect.org//pubdocs/roundtable2rpt.pdf
+    - docidentifier: CC/R 0512:2005
+      stage: published
+      doctype: report
+      revdate: 2005-06-03
+      technical_committee: CALCONNECT
+      title: Report on Roundtable III (CD 0512)
+      pdf: http://www.calconnect.org//pubdocs/roundtable3rpt.pdf
+    - docidentifier: CC/R 0513:2005
+      stage: published
+      doctype: report
+      revdate: 2005-09-15
+      technical_committee: CALCONNECT
+      title: Report on Roundtable IV (CD 0513)
+      pdf: http://www.calconnect.org//pubdocs/roundtable4rpt.pdf
+    - docidentifier: CC/Adv 0514:2005
+      stage: published
+      doctype: advisory
+      revdate: 2005-06-29
+      technical_committee: ADHOC DST
+      title: DST Advisory Notice V1.0 (CD 0514)
+      pdf: http://www.calconnect.org//pubdocs/CD0514%20DST%20Advisory%20Notice%20V1.0.pdf
+    - docidentifier: CC/Adv 0601:2005
+      stage: published
+      doctype: advisory
+      revdate: 2005-11-30
+      technical_committee: USECASE
+      title: Min-IOP Use Cases V1.0 (CD 0601)
+      pdf: http://www.calconnect.org//pubdocs/CD0601%20Min-IOP%20Use%20Cases%20V1.0.pdf
+    - docidentifier: CC/Adv 0601:2006
+      stage: published
+      doctype: advisory
+      revdate: 2006-01-24
+      technical_committee: USECASE
+      title: Min-IOP Use Cases V1.1 (CD 0601)
+      pdf: http://www.calconnect.org//pubdocs/CD0601%20Min-IOP%20Use%20Cases%20V1.1.pdf
+    - docidentifier: CC/Adv 0602:2006
+      stage: published
+      doctype: advisory
+      revdate: 2006-01-24
+      technical_committee: TIMEZONE
+      title: iCalendar Timezone Problems and Recommendations V1.0 (CD 0602)
+      pdf: http://www.calconnect.org//pubdocs/CD0602%20iCalendar%20Timezone%20Problems%20and%20Recommendations%20V1.0.pdf
+    - docidentifier: CC/R 0603:2006
+      stage: published
+      doctype: report
+      revdate: 2006-02-09
+      technical_committee: IOPTEST
+      title: January 2006 CalConnect Interoperability Test Report V1.0 (CD 0603)
+      pdf: http://www.calconnect.org//pubdocs/CD0603%20January%202006%20CalConnect%20Interoperability%20Test%20Report%20V1.0.pdf
+    - docidentifier: CC/Adv 0604:2006
+      stage: published
+      doctype: advisory
+      revdate: 2006-03-16
+      technical_committee: RECURR
+      title: iCalendar Recurrence Problems and Recommendations V1.0 (CD 0604)
+      pdf: http://www.calconnect.org//pubdocs/CD0604%20iCalendar%20Recurrence%20Problems%20and%20Recommendations%20V1.0.pdf
+    - docidentifier: CC/Adm 0605:2006
+      stage: published
+      doctype: administrative
+      revdate: 2006-04-05
+      technical_committee: CALCONNECT
+      title: OMA DS Briefing April 2006 V1.0 (CD 0605)
+      pdf: http://www.calconnect.org//pubdocs/CD0605%20OMA%20DS%20Briefing%20April%202006%20V1.0.pdf
+    - docidentifier: CC/Adv 0606:2006
+      stage: published
+      doctype: advisory
+      revdate: 2006-04-17
+      technical_committee: TIMEZONE
+      title: Timezone Registry and Service Recommendations V1.0 (CD 0606)
+      pdf: http://www.calconnect.org//pubdocs/CD0606%20Timezone%20Registry%20and%20Service%20Recommendations%20V1.0.pdf
+    - docidentifier: CC/R 0607:2006
+      stage: published
+      doctype: report
+      revdate: 2006-06-12
+      technical_committee: IOPTEST
+      title: May 2006 CalConnect Interoperability Test Report V1.1 (CD 0607)
+      pdf: http://www.calconnect.org//pubdocs/CD0607%20May%202006%20CalConnect%20Interoperability%20Test%20Report%20V1.1.pdf
+    - docidentifier: CC/Adm 0608:2006
+      stage: published
+      doctype: administrative
+      revdate: 2006-07-17
+      technical_committee: FREEBUSY
+      title: The Open Group Federated Freebusy Challenge Demo V1.0 (CD 0608)
+      pdf: http://www.calconnect.org//pubdocs/CD0608%20The%20Open%20Group%20Federated%20Freebusy%20Challenge%20Demo%20V1.0.pdf
+    - docidentifier: CC/R 0609:2006
+      stage: published
+      doctype: report
+      revdate: 2006-07-24
+      technical_committee: MOBILE
+      title: Report on Mobile Calendaring Questionnaire V2 Results V1.0 (CD 0609)
+      pdf: http://www.calconnect.org//pubdocs/CD0609%20Report%20on%20Mobile%20Calendaring%20Questionnaire%20V2%20Results%20V1.0.pdf
+    - docidentifier: CC/R 0610:2006
+      stage: published
+      doctype: report
+      revdate: 2006-10-24
+      technical_committee: USECASE
+      title: Calendaring and Scheduling Glossary of Terms V1.0 (Obsoleted by CD1102) (CD 0610)
+      pdf: http://www.calconnect.org//pubdocs/CD0610%20Calendaring%20and%20Scheduling%20Glossary%20of%20Terms%20V1.0.pdf
+    - docidentifier: CC/Adv 0611:2006
+      stage: published
+      doctype: advisory
+      revdate: 2006-11-27
+      technical_committee: MOBILE
+      title: The Benefits of iCalendar for the Mobile Industry V1.0 (CD 0611)
+      pdf: http://www.calconnect.org//pubdocs/CD0611%20The%20Benefits%20of%20iCalendar%20for%20the%20Mobile%20Industry%20V1.0.pdf
+    - docidentifier: CC/R 0612:2006
+      stage: published
+      doctype: report
+      revdate: 2006-12-06
+      technical_committee: IOPTEST
+      title: September 2006 CalConnect Interoperability Test Report V1.2 (CD 0612)
+      pdf: http://www.calconnect.org//pubdocs/CD0612%20September%202006%20CalConnect%20Interoperability%20Test%20Report%20V1.2.pdf
+    - docidentifier: CC/R 0613:2006
+      stage: published
+      doctype: report
+      revdate: 2006-01-12
+      technical_committee: CALCONNECT
+      title: Report on Roundtable V (CD 0613)
+      pdf: http://www.calconnect.org//pubdocs/roundtable5rpt.pdf
+    - docidentifier: CC/R 0614:2006
+      stage: published
+      doctype: report
+      revdate: 2006-05-23
+      technical_committee: CALCONNECT
+      title: Report on Roundtable VI (CD 0614)
+      pdf: http://www.calconnect.org//pubdocs/roundtable6rpt.pdf
+    - docidentifier: CC/R 0615:2006
+      stage: published
+      doctype: report
+      revdate: 2006-09-29
+      technical_committee: CALCONNECT
+      title: Report on Roundtable VII (CD 0615)
+      pdf: http://www.calconnect.org//pubdocs/roundtable7rpt.pdf
+    - docidentifier: CC/IETF 7953:2006
+      stage: published
+      doctype: standard
+      revdate: 2006-11-15
+      technical_committee: FREEBUSY
+      title: Calendar Availability (VAVAILABILITY)
+      pdf: https://tools.ietf.org/html/rfc7953
+    - docidentifier: CC/Adv 0701:2007
+      stage: published
+      doctype: advisory
+      revdate: 2007-04-19
+      technical_committee: USECASE
+      title: Min-IOP (Minimum Interoperable Subset) Use Cases for Tasks V1.0 (CD 0701)
+      pdf: http://www.calconnect.org//pubdocs/CD0701%20Min-IOP%20Use%20Cases%20for%20Tasks%20V1.0.pdf
+    - docidentifier: CC/R 0702:2007
+      stage: published
+      doctype: report
+      revdate: 2007-04-24
+      technical_committee: IOPTEST
+      title: January 2007 CalConnect Interoperability Test Report V2.0 (CD 0702)
+      pdf: http://www.calconnect.org//pubdocs/CD0702%20January%202007%20CalConnect%20Interoperability%20Test%20Report%20V2.0.pdf
+    - docidentifier: CC/Adv 0703:2007
+      stage: published
+      doctype: advisory
+      revdate: 2007-07-11
+      technical_committee: CALDAV
+      title: CalDAV Scheduling Requirements V1.1 (CD 0703)
+      pdf: http://www.calconnect.org//pubdocs/CD0703%20CalDAV%20Scheduling%20Requirements%20V1.1.pdf
+    - docidentifier: CC/R 0704:2007
+      stage: published
+      doctype: report
+      revdate: 2007-08-10
+      technical_committee: IOPTEST
+      title: May 2007 CalConnect Interoperability Test Report V1.2 (CD 0704)
+      pdf: http://www.calconnect.org//pubdocs/CD0704%20May%202007%20CalConnect%20Interoperability%20Test%20Report%20V1.2.pdf
+    - docidentifier: CC/Adm 0705:2007
+      stage: published
+      doctype: administrative
+      revdate: 2007-11-11
+      technical_committee: CALCONNECT
+      title: CalConnect Calendaring Interoperability and Calendaring Standards V1.0 (CD 0705)
+      pdf: http://www.calconnect.org//pubdocs/CD0705%20CalConnect%20Calendaring%20Interoperability%20and%20Calendaring%20Standards%20V1.0.pdf
+    - docidentifier: CC/Adv 0706:2007
+      stage: published
+      doctype: advisory
+      revdate: 2007-08-28
+      technical_committee: MOBILE
+      title: Mobile Calendar Interoperability Test Suite V1.0 (CD 0706)
+      pdf: http://www.calconnect.org//pubdocs/CD0706%20Mobile%20Calendar%20Interoperability%20Test%20Suite%20V1.0.pdf
+    - docidentifier: CC/Adv 0706:2008
+      stage: published
+      doctype: advisory
+      revdate: 2008-08-24
+      technical_committee: MOBILE
+      title: Mobile Calendar Interoperability Test Suite V1.1 (CD 0706)
+      pdf: http://www.calconnect.org//pubdocs/CD0706%20Mobile%20Calendar%20Interoperability%20Test%20Suite%20V1.1.pdf
+    - docidentifier: CC/Adv 0707:2007
+      stage: published
+      doctype: advisory
+      revdate: 2007-09-14
+      technical_committee: ADHOC DST
+      title: CalConnect EDST Reflections and Recommendations V1.0 (CD 0707)
+      pdf: http://www.calconnect.org//pubdocs/CD0707%20CalConnect%20EDST%20Reflections%20and%20Recommendations%20V1.0.pdf
+    - docidentifier: CC/Adv 0707:2007
+      stage: published
+      doctype: advisory
+      revdate: 2007-10-04
+      technical_committee: ADHOC DST
+      title: CalConnect EDST Reflections and Recommendations V1.1 (CD 0707)
+      pdf: http://www.calconnect.org//pubdocs/CD0707%20CalConnect%20EDST%20Reflections%20and%20Recommendations%20V1.1.pdf
+    - docidentifier: CC/Adv 0708:2007
+      stage: published
+      doctype: advisory
+      revdate: 2007-02-15
+      technical_committee: ADHOC DST
+      title: Extended Daylight Savings Time Review and Considerations (CD 0708)
+      pdf: http://www.calconnect.org//pubdocs/dstreview.pdf
+    - docidentifier: CC/Adv 0709:2007
+      stage: published
+      doctype: advisory
+      revdate: 2007-10-06
+      technical_committee: ADHOC DST
+      title: Extended Daylight Savings Time Links, Advisories and Changes (CD 0709)
+      pdf: http://www.calconnect.org//pubdocs/dstlinks.pdf
+    - docidentifier: CC/R 0710:2007
+      stage: published
+      doctype: report
+      revdate: 2007-12-14
+      technical_committee: IOPTEST
+      title: September 2007 CalConnect Interoperability Test Report V2.0 (CD 0710)
+      pdf: http://www.calconnect.org//pubdocs/CD0710%20September%202007%20CalConnect%20Interoperability%20Test%20Report%20V2.0.pdf
+    - docidentifier: CC/R 0711:2007
+      stage: published
+      doctype: report
+      revdate: 2007-02-02
+      technical_committee: CALCONNECT
+      title: Report on Roundtable VIII (CD 0711)
+      pdf: http://www.calconnect.org//pubdocs/roundtable8rpt.pdf
+    - docidentifier: CC/R 0712:2007
+      stage: published
+      doctype: report
+      revdate: 2007-05-11
+      technical_committee: CALCONNECT
+      title: Report on Roundtable IX (CD 0712)
+      pdf: http://www.calconnect.org//pubdocs/roundtable9rpt.pdf
+    - docidentifier: CC/R 0713:2007
+      stage: published
+      doctype: report
+      revdate: 2007-09-21
+      technical_committee: CALCONNECT
+      title: Report on Roundtable X (CD 0713)
+      pdf: http://www.calconnect.org//pubdocs/roundtable10rpt.pdf
+    - docidentifier: CC/R 0714:2007
+      stage: published
+      doctype: report
+      revdate: 2007-09-18
+      title: VCARD WKSP	Report on CalConnect vCard Workshop September 18 2007 (CD 0714)
+      pdf: http://www.calconnect.org//pubdocs/vcardworkshopreport.pdf
+    - docidentifier: CC/Adm 0801:2008
+      stage: published
+      doctype: administrative
+      revdate: 2008-02-06
+      technical_committee: CALCONNECT
+      title: CalConnect Technical Preview Roundtable XI V1.0 (CD 0801)
+      pdf: http://www.calconnect.org//pubdocs/CD0801%20CalConnect%20Technical%20Preview%20Roundtable%20XI%20V1.0.pdf
+    - docidentifier: CC/R 0802:2008
+      stage: published
+      doctype: report
+      revdate: 2008-04-09
+      technical_committee: IOPTEST
+      title: February 2008 CalConnect Interoperability Test Report V2.0 (CD 0802)
+      pdf: http://www.calconnect.org//pubdocs/CD0802%20February%202008%20CalConnect%20Interoperability%20Test%20Report%20V2.0.pdf
+    - docidentifier: CC/R 0803:2008
+      stage: published
+      doctype: report
+      revdate: 2008-04-09
+      technical_committee: IOPTEST
+      title: February 2008 CalConnect Mobile Interoperability Test Report V2.0 (CD 0803)
+      pdf: http://www.calconnect.org//pubdocs/CD0803%20February%202008%20CalConnect%20Mobile%20Interoperability%20Test%20Report%20V2.0.pdf
+    - docidentifier: CC/R 0804:2008
+      stage: published
+      doctype: report
+      revdate: 2008-08-31
+      technical_committee: IOPTEST
+      title: June 2008 CalConnect Interoperability Test Report V1.3 (CD 0804)
+      pdf: http://www.calconnect.org//pubdocs/CD0804%20June%202008%20CalConnect%20Interoperability%20Test%20Report%20V1.3.pdf
+    - docidentifier: CC/R 0805:2008
+      stage: published
+      doctype: report
+      revdate: 2008-07-29
+      technical_committee: MOBILE
+      title: Mobile Recurrence Interoperability Recommendations V1.0 (CD 0805)
+      pdf: http://www.calconnect.org//pubdocs/CD0805%20Mobile%20Recurrence%20Interoperability%20Recommendations%20V1.0.pdf
+    - docidentifier: CC/Adm 0806:2008
+      stage: published
+      doctype: administrative
+      revdate: 2008-10-08
+      technical_committee: CALCONNECT
+      title: CalConnect Technical Preview Roundtable XIII V1.0 (CD 0806)
+      pdf: http://www.calconnect.org//pubdocs/CD0806%20CalConnect%20Technical%20Preview%20Roundtable%20XIII%20V1.0.pdf
+    - docidentifier: CC/R 0807:2008
+      stage: published
+      doctype: report
+      revdate: 2008-10-08
+      technical_committee: IOPTEST
+      title: October 2008 CalConnect Interoperability Test Report V1.1 (CD 0807)
+      pdf: http://www.calconnect.org//pubdocs/CD0807%20October%202008%20CalConnect%20Interoperability%20Test%20Report%20V1.1.pdf
+    - docidentifier: CC/R 0808:2009
+      stage: published
+      doctype: report
+      revdate: 2009-02-19
+      technical_committee: IOPTEST
+      title: November 2008 CalConnect Mobile Interoperability Test Report V2.0 (CD 0808)
+      pdf: http://www.calconnect.org//pubdocs/CD0808%20November%202008%20CalConnect%20Mobile%20Interoperability%20Test%20Report%20V2.0.pdf
+    - docidentifier: CC/R 0809:2008
+      stage: published
+      doctype: report
+      revdate: 2008-02-08
+      technical_committee: CALCONNECT
+      title: Report on Roundtable XI (CD 0809)
+      pdf: http://www.calconnect.org//pubdocs/roundtable11rpt.pdf
+    - docidentifier: CC/R 0810:2008
+      stage: published
+      doctype: report
+      revdate: 2008-06-06
+      technical_committee: CALCONNECT
+      title: Report on Roundtable XII (CD 0810)
+      pdf: http://www.calconnect.org//pubdocs/roundtable12rpt.pdf
+    - docidentifier: CC/R 0811:2008
+      stage: published
+      doctype: report
+      revdate: 2008-10-10
+      technical_committee: CALCONNECT
+      title: Report on Roundtable XIII (CD 0811)
+      pdf: http://www.calconnect.org//pubdocs/roundtable13rpt.pdf
+    - docidentifier: CC/Adm 0812:2008
+      stage: published
+      doctype: administrative
+      revdate: 2008-11-07
+      technical_committee: CALCONNECT
+      title: Meet CalConnect 2008 (CD 0812)
+      html: http://www.calconnect.org//pubdocs/CD0812%20Meet%20CalConnect%202008%20V1.0.zip
+    - docidentifier: CC/R 0901:2009
+      stage: published
+      doctype: report
+      revdate: 2009-02-06
+      technical_committee: CALCONNECT
+      title: Report on Roundtable XIV (CD 0901)
+      pdf: http://www.calconnect.org//pubdocs/roundtable14rpt.pdf
+    - docidentifier: CC/R 0902:2009
+      stage: published
+      doctype: report
+      revdate: 2009-04-14
+      technical_committee: IOPTEST
+      title: February 2009 CalConnect Interoperability Test Report V2.0 (CD 0902)
+      pdf: http://www.calconnect.org//pubdocs/CD0902%20February%202009%20CalConnect%20Interoperability%20Test%20Report%20V2.0.pdf
+    - docidentifier: CC/R 0903:2009
+      stage: published
+      doctype: proposal
+      revdate: 2009-04-15
+      technical_committee: FREEBUSY
+      title: Freebusy Read URL V1.0 (CD 0903)
+      pdf: http://www.calconnect.org//pubdocs/CD0903%20Freebusy%20Read%20URL%20V1.0.pdf
+    - docidentifier: CC/IETF 6321:2009
+      stage: published
+      doctype: standard
+      revdate: 2009-06-04
+      technical_committee: XML
+      title: xCal - The XML Format for iCalendar
+      html: http://tools.ietf.org/html/rfc6321
+    - docidentifier: CC/IETF 70001
+      stage: published
+      doctype: standard
+      revdate: 2009-07-06
+      technical_committee: CALDAV
+      title: VALARM Extensions for iCalendar
+      html: http://tools.ietf.org/id/draft-daboo-valarm-extensions
+    - docidentifier: CC/R 0904:2011
+      stage: published
+      doctype: ARTF
+      revdate: 2011-08-10
+      technical_committee: XML
+      title: iCalendar in XML (xCal) Schema (CD 0904)
+      html: http://www.calconnect.org/artifacts/ical-art.shtml
+    - docidentifier: CC/R 0905:2009
+      stage: published
+      doctype: report
+      revdate: 2009-06-10
+      technical_committee: USECASE
+      title: State of Resource Interoperability for Calendaring, Groupware, and Project (CD 0905) Management V1.0
+      pdf: http://www.calconnect.org//pubdocs/CD0905%20State%20of%20Resource%20Interoperability%20V1.0.pdf
+    - docidentifier: CC/Adv 0906:2009
+      stage: published
+      doctype: advisory
+      revdate: 2009-06-10
+      technical_committee: USECASE
+      title: Use Cases for Resources V1.0 (CD 0906)
+      pdf: http://www.calconnect.org//pubdocs/CD0906%20Use%20Cases%20for%20Resources%20V1.0.pdf
+    - docidentifier: CC/Adv 0907:2009
+      stage: published
+      doctype: advisory
+      revdate: 2009-06-10
+      technical_committee: USECASE
+      title: A Recommendation for Minimum Interoperability of Resource Information V1.0 (CD 0907)
+      pdf: http://www.calconnect.org//pubdocs/CD0907%20A%20Recommendation%20for%20Minimum%20Interoperability%20of%20Resource%20Information%20V1.0.pdf
+    - docidentifier: CC/R 0908:2009
+      stage: published
+      doctype: report
+      revdate: 2009-06-11
+      technical_committee: CALCONNECT
+      title: Report on Roundtable XV (CD 0908)
+      pdf: http://www.calconnect.org//pubdocs/roundtable15rpt.pdf
+    - docidentifier: CC/R 0909:2009
+      stage: published
+      doctype: report
+      revdate: 2009-08-30
+      technical_committee: IOPTEST
+      title: June 2009 CalConnect Interoperability Test Report V2.0 (CD 0909)
+      pdf: http://www.calconnect.org//pubdocs/CD0909%20June%202009%20CalConnect%20Interoperability%20Test%20Report%20V2.0.pdf
+    - docidentifier: CC/R 0910:2009
+      stage: published
+      doctype: report
+      revdate: 2009-10-19
+      technical_committee: CALCONNECT
+      title: Report on Roundtable XVI (CD 0910)
+      pdf: http://www.calconnect.org//pubdocs/roundtable16rpt.pdf
+    - docidentifier: CC/IETF 70002:2009
+      stage: published
+      doctype: standard
+      revdate: 2009-11-16
+      technical_committee: ISCHEDULE
+      title: Internet Calendar Scheduling Protocol (iSchedule)
+      html: https://datatracker.ietf.org/doc/draft-desruisseaux-ischedule/
+    - docidentifier: CC/R 0911:2009
+      stage: published
+      doctype: report
+      revdate: 2009-11-24
+      technical_committee: IOPTEST
+      title: October 2009 CalConnect Interoperability Test Report V2.0 (CD 0911)
+      pdf: http://www.calconnect.org//pubdocs/CD0911%20October%202009%20CalConnect%20Interoperability%20Test%20Report%20V2.0.pdf
+    - docidentifier: CC/R 1001:2010
+      stage: published
+      doctype: report
+      revdate: 2010-02-10
+      technical_committee: CALCONNECT
+      title: Report on Roundtable XVII (CD 1001)
+      pdf: http://www.calconnect.org//pubdocs/roundtable17rpt.pdf
+    - docidentifier: CC/IETF 7986:2010
+      stage: published
+      doctype: standard
+      revdate: 2010-02-26
+      technical_committee: EVENTPUB
+      title: New Properties for iCalendar
+      html: https://tools.ietf.org/html/rfc7986
+    - docidentifier: CC/R 1002:2010
+      stage: published
+      doctype: report
+      revdate: 2010-03-25
+      technical_committee: IOPTEST
+      title: February 2010 CalConnect Interoperability Test Report V1.1 (CD 1002)
+      pdf: http://www.calconnect.org//pubdocs/CD1002%20February%202010%20CalConnect%20Interoperability%20Test%20Report%20V1.1.pdf
+    - docidentifier: CC/IETF 70003:2010
+      stage: published
+      doctype: standard
+      revdate: 2010-04-30
+      technical_committee: RESOURCE
+      title: Schema for representing resources for calendaring and scheduling services
+      html: https://datatracker.ietf.org/doc/draft-cal-resource-schema/
+    - docidentifier: CC/S 1004:2010
+      stage: published
+      doctype: specification
+      revdate: 2010-05-19
+      technical_committee: XML
+      title: Cal-WS Web Services API for Calendaring and Scheduling V0.3 (CD 1004)
+      pdf: http://www.calconnect.org//pubcomment/CD1004%20Cal-WS%20Web%20Services%20API%20V0.3.pdf
+    - docidentifier: CC/R 1005:2010
+      stage: published
+      doctype: report
+      revdate: 2010-06-02
+      technical_committee: CALCONNECT
+      title: Report on Roundtable XVIII (CD 1005)
+      pdf: http://www.calconnect.org//pubdocs/roundtable18rpt.pdf
+    - docidentifier: CC/IETF 7808:2010
+      stage: published
+      doctype: standard
+      revdate: 2010-06-30
+      technical_committee: EVENTPUB
+      title: LINK Property Extension to iCalendar (Obsolete)
+    - docidentifier: CC/IETF 70004:2010
+      stage: published
+      doctype: standard
+      revdate: 2010-07-05
+      technical_committee: TIMEZONE
+      title: Time Zone Data Distribution Service
+      html: https://www.rfc-editor.org/rfc/rfc7808.txt
+    - docidentifier: CC/IETF 70005:2010
+      stage: published
+      doctype: standard
+      revdate: 2010-07-05
+      technical_committee: TIMEZONE
+      title: Timezone XML Specification
+      html: https://datatracker.ietf.org/doc/draft-douglass-timezone-xml/
+    - docidentifier: CC/R 1009:2010
+      stage: published
+      doctype: report
+      revdate: 2010-07-19
+      technical_committee: IOPTEST
+      title: May 2010 CalConnect Interoperability Test Event Report V1.0 (CD 1009)
+      pdf: http://www.calconnect.org//pubdocs/CD1009%20May%202010%20CalConnect%20Interoperability%20Test%20Event%20Report%20V1.0.pdf
+    - docidentifier: CC/IETF 70006:2010
+      stage: published
+      doctype: standard
+      revdate: 2010-08-26
+      technical_committee: CALCONNECT
+      title: CardDAV Directory Gateway Extension
+      html: https://tools.ietf.org/html/draft-daboo-carddav-directory-gateway-02
+    - docidentifier: CC/R 1010:2010
+      stage: published
+      doctype: report
+      revdate: 2010-09-10
+      technical_committee: IOPTEST
+      title: TC MOBILE Interoperability Test Event Report V1.0 (CD 1010)
+      pdf: http://www.calconnect.org//pubdocs/CD1010%20TC%20MOBILE%20Interoperability%20Test%20Event%20Report%20V1.0.pdf
+    - docidentifier: CC/R 1011:2010
+      stage: published
+      doctype: proposal
+      revdate: 2010-09-13
+      technical_committee: XML
+      title: CalWS-Rest Restful Web Services Protocol for Calendaring V1.0 (CD 1011)
+      pdf: http://www.calconnect.org//pubdocs/CD1011%20CalWS-Rest%20Restful%20Web%20Services%20Protocol%20for%20Calendaring%20V1.0.pdf
+    - docidentifier: CC/R 1011:2010
+      stage: published
+      doctype: proposal
+      revdate: 2010-02-22
+      technical_committee: XML
+      title: CalWS-Rest Restful Web Services Protocol for Calendaring V1.0.1 (CD 1011)
+      pdf: http://www.calconnect.org//pubdocs/CD1011%20CalWS-Rest%20Restful%20Web%20Services%20Protocol%20for%20Calendaring%20V1.0.1.pdf
+    - docidentifier: CC/R 1012:2010
+      stage: published
+      doctype: report
+      revdate: 2010-10-14
+      technical_committee: CALCONNECT
+      title: An Introduction to Internet Calendaring V1.0 (CD 1012)
+    - docidentifier: CC/R 1012:2011
+      stage: published
+      doctype: report
+      revdate: 2011-10-20
+      technical_committee: CALCONNECT
+      title: An Introduction to Internet Calendaring and Scheduling V1.1 (CD 1012)
+      html: https://www.calconnect.org/resources/introduction-internet-calendaring
+    - docidentifier: CC/R 1013:2010
+      stage: published
+      doctype: report
+      revdate: 2010-10-20
+      technical_committee: CALCONNECT
+      title: Report on Roundtable XIX (CD 1013)
+      pdf: http://www.calconnect.org//pubdocs/roundtable19rpt.pdf
+    - docidentifier: CC/R 1014:2011
+      stage: published
+      doctype: report
+      revdate: 2011-01-11
+      technical_committee: IOPTEST
+      title: October 2010 CalConnect Interoperability Test Event Report V1.0 (CD 1014)
+      pdf: http://www.calconnect.org//pubdocs/CD1014%20October%202010%20CalConnect%20Interoperability%20Test%20Event%20Report%20V1.0.pdf
+    - docidentifier: CC/IETF 70006:2011
+      stage: published
+      doctype: standard
+      revdate: 2011-02-16
+      technical_committee: EVENTPUB
+      title: Event Publishing Extensions to iCalendar
+      html: https://datatracker.ietf.org/doc/draft-douglass-calendar-extension
+    - docidentifier: CC/R 1102:2013
+      stage: published
+      doctype: report
+      revdate: 2013-05-02
+      technical_committee: CALCONNECT
+      title: Calendaring and Scheduling Glossary of Terms V2.2 (CD 1102)
+      html: https://www.calconnect.org/resources/glossary
+    - docidentifier: CC/R 1103:2011
+      stage: published
+      doctype: report
+      revdate: 2011-03-16
+      technical_committee: CALCONNECT
+      title: Report on Roundtable XX (CD 1103)
+      pdf: http://www.calconnect.org//pubdocs/roundtable20rpt.pdf
+    - docidentifier: CC/R 1104:2018
+      stage: published
+      doctype: report
+      revdate: 2018-06-22
+      technical_committee: CALCONNECT
+      title: Index to Calendaring and Scheduling Standards (CD 1104)
+      html: https://www.calconnect.org/resources/calendaring-standards
+    - docidentifier: CC/R 1105:2011
+      stage: published
+      doctype: report
+      revdate: 2011-06-20
+      technical_committee: CALCONNECT
+      title: Report on Roundtable XXI (CD 1105)
+      pdf: http://www.calconnect.org//pubdocs/roundtable21rpt.pdf
+    - docidentifier: CC/IETF 6352:2011
+      stage: published
+      doctype: standard
+      revdate: 2011-08-01
+      technical_committee: CALCONNECT
+      title: "CardDAV: vCard Extensions to Web Distributed Authoring and Versioning (WebDAV)"
+      html: http://www.rfc-editor.org/rfc/rfc6352.txt
+    - docidentifier: CC/IETF 70007:2011
+      stage: published
+      doctype: standard
+      revdate: 2011-10-24
+      technical_committee: CALDAV
+      title: Collected Extensions to CalDAV
+      html: http://tools.ietf.org/id/draft-daboo-caldav-extensions
+    - docidentifier: CC/IETF 70008:2011
+      stage: published
+      doctype: standard
+      revdate: 2011-10-24
+      technical_committee: CALDAV
+      title: CalDAV Managed Attachments
+      html: https://tools.ietf.org/html/draft-ietf-calext-caldav-attachments
+    - docidentifier: CC/R 1106:2011
+      stage: published
+      doctype: report
+      revdate: 2011-11-07
+      technical_committee: CALCONNECT
+      title: Report on Roundtable XXII (CD 1106)
+      pdf: http://www.calconnect.org//pubdocs/roundtable22rpt.pdf
+    - docidentifier: CC/R 1201:2012
+      stage: published
+      doctype: report
+      revdate: 2012-02-15
+      technical_committee: CALCONNECT
+      title: Report on Roundtable XXIII (CD 1201)
+      pdf: http://www.calconnect.org//pubdocs/roundtable23rpt.pdf
+    - docidentifier: CC/S 1202:2012
+      stage: published
+      doctype: specification
+      revdate: 2012-02-22
+      technical_committee: XML
+      title: CalWS-SOAP SOAP Web Services Protocol for Calendaring V1.0 (CD 1202)
+      pdf: http://www.calconnect.org//pubcomment/CD1202%20CalWS-SOAP%20SOAP%20Web%20Services%20Protocol%20for%20Calendaring%20V1.0.pdf
+    - docidentifier: CC/IETF 70009:2012
+      stage: published
+      doctype: standard
+      revdate: 2012-04-09
+      technical_committee: RESOURCE
+      title: vCard Representation of Resources
+      html: https://datatracker.ietf.org/doc/draft-cal-resource-vcard/
+    - docidentifier: CC/R 1203:2012
+      stage: published
+      doctype: report
+      revdate: 2012-06-01
+      technical_committee: CALCONNECT
+      title: Report on Roundtable XXIV (CD 1203)
+      pdf: http://www.calconnect.org//pubdocs/roundtable24rpt.pdf
+    - docidentifier: CC/IETF 6638:2012
+      stage: published
+      doctype: standard
+      revdate: 2012-06-01
+      technical_committee: CALDAV
+      title: Scheduling Extensions to CalDAV
+      pdf: https://www.ietf.org/rfc/rfc6638.txt
+    - docidentifier: CC/IETF 70010:2012
+      stage: published
+      doctype: standard
+      revdate: 2012-08-29
+      technical_committee: AUTODISC
+      title: Automated Service Configuration
+      html: https://datatracker.ietf.org/doc/draft-daboo-aggregated-service-discovery/
+    - docidentifier: CC/IETF 70011:2012
+      stage: published
+      doctype: standard
+      revdate: 2012-09-27
+      technical_committee: CALDAV
+      title: Use of the Prefer Header Field in Web Distributed Authoring and Versioning (WebDAV)
+      pdf: http://datatracker.ietf.org/doc/draft-murchison-webdav-prefer/
+    - docidentifier: CC/R 1204:2012
+      stage: published
+      doctype: report
+      revdate: 2012-10-18
+      technical_committee: CALCONNECT
+      title: Report on Roundtable XXV (CD 1204)
+      pdf: http://www.calconnect.org//pubdocs/roundtable25rpt.pdf
+    - docidentifier: CC/R 1301:2012
+      stage: published
+      doctype: proposal
+      revdate: 2013-01-10
+      technical_committee: XML
+      title: CalWS-SOAP SOAP Web Services Protocol for Calendaring V1.0 (CD 1301)
+      pdf: http://www.calconnect.org//pubdocs/CD1301%20CalWS-SOAP%20SOAP%20Web%20Services%20Protocol%20for%20Calendaring%20V1.0.pdf
+    - docidentifier: CC/IETF 70012:2013
+      stage: published
+      doctype: standard
+      revdate: 2013-01-22
+      technical_committee: FREEBUSY
+      title: "VPOLL: Consensus Scheduling Component for iCalendar"
+      html: http://tools.ietf.org/id/draft-york-vpoll
+    - docidentifier: CC/IETF 70013:2013
+      stage: published
+      doctype: standard
+      revdate: 2013-01-24
+      technical_committee: RESOURCE
+      title: Objectclass Property for vCard
+      html: http://tools.ietf.org/id/draft-vcard-objectclass
+    - docidentifier: CC/IETF 6868:2013
+      stage: published
+      doctype: standard
+      revdate: 2013-02-01
+      technical_committee: CALDAV
+      title: Parameter Value Encoding in iCalendar and vCard
+      html: https://tools.ietf.org/html/rfc6868
+    - docidentifier: CC/IETF 70014:2013
+      stage: published
+      doctype: standard
+      revdate: 2013-01-25
+      technical_committee: RESOURCE
+      title: Schedulable Objectclass for vCard
+      html: http://tools.ietf.org/id/draft-vcard-schedulable
+    - docidentifier: CC/R 1302:2013
+      stage: published
+      doctype: report
+      revdate: 2013-02-20
+      technical_committee: CALCONNECT
+      title: Report on Roundtable XXVI (CD 1302)
+      pdf: http://www.calconnect.org//pubdocs/roundtable26rpt.pdf
+    - docidentifier: CC/R 1303:2013
+      stage: published
+      doctype: report
+      revdate: 2013-02-20
+      technical_committee: IOPTEST
+      title: Report on Interoperability Test Event XXVI (CD 1303)
+      pdf: http://www.calconnect.org//pubdocs/ioptestevent26rpt.pdf
+    - docidentifier: CC/IETF 7265:2013
+      stage: published
+      doctype: standard
+      revdate: 2013-03-26
+      technical_committee: XML
+      title: "jCal: The JSON format for iCalendar"
+      html: https://tools.ietf.org/html/rfc7265
+    - docidentifier: CC/IETF 7529:2013
+      stage: published
+      doctype: standard
+      revdate: 2013-04-26
+      technical_committee: ADHOC CALSCALE
+      title: Non-Gregorian Recurrence Rules in iCalendar (RSCALE)
+      html: https://tools.ietf.org/html/rfc7529
+    - docidentifier: CC/IETF 70015:2013
+      stage: published
+      doctype: standard
+      revdate: 2013-07-02
+      technical_committee: EVENTPUB
+      title: Improved Support for iCalendar Relationships
+      html: https://datatracker.ietf.org/doc/draft-ietf-calext-ical-relations/
+    - docidentifier: CC/R 1304:2013
+      stage: published
+      doctype: report
+      revdate: 2013-07-08
+      technical_committee: CALCONNECT
+      title: Report on Roundtable XXVII (CD 1304)
+      pdf: http://www.calconnect.org//pubdocs/roundtable27rpt.pdf
+    - docidentifier: CC/R 1305:2013
+      stage: published
+      doctype: report
+      revdate: 2013-07-10
+      technical_committee: IOPTEST
+      title: Report on Interoperability Test Event XXVII (CD 1305)
+      pdf: http://www.calconnect.org//pubdocs/ioptestevent27rpt.pdf
+    - docidentifier: CC/IETF 7809:2013
+      stage: published
+      doctype: standard
+      revdate: 2013-08-26
+      technical_committee: TIMEZONE
+      title: "CalDAV: Timezones by Reference"
+      html: https://www.rfc-editor.org/rfc/rfc7809.txt
+    - docidentifier: CC/R 1306:2013
+      stage: published
+      doctype: report
+      revdate: 2013-10-10
+      technical_committee: CALCONNECT
+      title: Report on Roundtable XXVIII (CD 1306)
+      pdf: http://www.calconnect.org//pubdocs/roundtable28rpt.pdf
+    - docidentifier: CC/R 1307:2013
+      stage: published
+      doctype: report
+      revdate: 2013-10-24
+      technical_committee: IOPTEST
+      title: Report on Interoperability Test Event XXVIII (CD 1307)
+      pdf: http://www.calconnect.org//pubdocs/ioptestevent28rpt.pdf
+    - docidentifier: CC/IETF 7095:2014
+      stage: published
+      doctype: standard
+      revdate: 2014-01-16
+      technical_committee: CALCONNECT
+      title: "jCard: The JSON Format for vCard"
+      html: https://www.rfc-editor.org/rfc/rfc7095.txt
+    - docidentifier: CC/R 1401:2014
+      stage: published
+      doctype: report
+      revdate: 2014-02-26
+      technical_committee: CALCONNECT
+      title: Report on Roundtable XXIX (CD 1401)
+      pdf: http://www.calconnect.org//pubdocs/roundtable29rpt.pdf
+    - docidentifier: CC/R 1402:2014
+      stage: published
+      doctype: report
+      revdate: 2014-02-28
+      technical_committee: IOPTEST
+      title: Report on Interoperability Test Event XXIX (CD 1402)
+      pdf: http://www.calconnect.org//pubdocs/ioptestevent29rpt.pdf
+    - docidentifier: CC/R 1403:2014
+      stage: published
+      doctype: report
+      revdate: 2014-05-20
+      technical_committee: CALCONNECT
+      title: Workshop on the Veterans Administration Scheduling System Challenge (CD 1403)
+      pdf: http://www.calconnect.org//pubdocs/vachallengeworkshopreport.pdf
+    - docidentifier: CC/R 1404:2014
+      stage: published
+      doctype: report
+      revdate: 2014-06-09
+      technical_committee: IOPTEST
+      title: Report on Interoperability Test Event at CalConnect XXX (CD 1404)
+      pdf: http://www.calconnect.org//pubdocs/ioptestevent30rpt.pdf
+    - docidentifier: CC/R 1405:2014
+      stage: published
+      doctype: report
+      revdate: 2014-06-09
+      technical_committee: CALCONNECT
+      title: Report on CalConnect Conference XXX (CD 1405)
+      pdf: http://www.calconnect.org//pubdocs/conference30rpt.pdf
+    - docidentifier: CC/R 1406:2014
+      stage: published
+      doctype: report
+      revdate: 2014-10-16
+      technical_committee: CALCONNECT
+      title: Report on CalConnect Conference XXXI (CD 1406)
+      pdf: http://www.calconnect.org//pubdocs/conference31rpt.pdf
+    - docidentifier: CC/R 1407:2014
+      stage: published
+      doctype: report
+      revdate: 2014-10-31
+      technical_committee: IOPTEST
+      title: Report on Interoperability Test Event at CalConnect XXXI (CD 1407)
+      pdf: http://www.calconnect.org//pubdocs/ioptestevent31rpt.pdf
+    - docidentifier: CC/IETF 70016:2014
+      stage: published
+      doctype: standard
+      revdate: 2014-12-15
+      technical_committee: SHARING
+      title: "WebDAV: User Notifications"
+      html: https://datatracker.ietf.org/doc/draft-pot-webdav-notifications/
+    - docidentifier: CC/IETF 70017:2014
+      stage: published
+      doctype: standard
+      revdate: 2014-12-15
+      technical_committee: SHARING
+      title: WebDAV Resource Sharing
+      html: https://datatracker.ietf.org/doc/draft-pot-webdav-resource-sharing/
+    - docidentifier: CC/R 1501:2015
+      stage: published
+      doctype: report
+      revdate: 2015-02-18
+      technical_committee: CALCONNECT
+      title: Report on CalConnect Conference XXXII (CD 1501)
+      pdf: http://www.calconnect.org//pubdocs/conference32rpt.pdf
+    - docidentifier: CC/R 1502:2015
+      stage: published
+      doctype: report
+      revdate: 2015-02-18
+      technical_committee: IOPTEST
+      title: Report on Interoperability Test Event XXXII (CD 1502)
+      pdf: http://www.calconnect.org//pubdocs/ioptestevent32rpt.pdf
+    - docidentifier: CC/R 1503:2015
+      stage: published
+      doctype: report
+      revdate: 2015-06-22
+      technical_committee: CALCONNECT
+      title: Report on CalConnect Conference XXXIII (CD 1503)
+      pdf: http://www.calconnect.org//pubdocs/conference33rpt.pdf
+    - docidentifier: CC/R 1504:2015
+      stage: published
+      doctype: report
+      revdate: 2015-06-23
+      technical_committee: IOPTEST
+      title: Report on Interoperability Test Event XXXIII (CD 1504)
+      pdf: http://www.calconnect.org//pubdocs/ioptestevent33rpt.pdf
+    - docidentifier: CC/R 1505:2015
+      stage: published
+      doctype: report
+      revdate: 2015-06-19
+      technical_committee: IOPTEST
+      title: Report on Interoperability Test Event XXXIV (CD 1505)
+      pdf: http://www.calconnect.org//pubdocs/ioptestevent34rpt.pdf
+    - docidentifier: CC/R 1506:2015
+      stage: published
+      doctype: report
+      revdate: 2015-10-23
+      technical_committee: CALCONNECT
+      title: Report on CalConnect Conference XXXIV (CD 1506)
+      pdf: http://www.calconnect.org//pubdocs/conference34rpt.pdf
+    - docidentifier: CC/IETF 70017:2015
+      stage: published
+      doctype: standard
+      revdate: 2015-01-04
+      technical_committee: TASKS
+      title: Task Extensions to iCalendar
+      html: https://datatracker.ietf.org/doc/draft-apthorp-ical-tasks/
+    - docidentifier: CC/IETF 70018:2015
+      stage: published
+      doctype: standard
+      revdate: 2015-05-15
+      technical_committee: CALDAV
+      title: DAV Server Information Object
+      html: http://datatracker.ietf.org/doc/draft-douglass-server-info/
+    - docidentifier: CC/IETF 70019:2015
+      stage: published
+      doctype: standard
+      revdate: 2015-11-24
+      technical_committee: EVENTPUB
+      title: "v-event URI: An URI scheme for events"
+      html: https://datatracker.ietf.org/doc/draft-menderico-v-event-uri/
+    - docidentifier: CC/IETF 70020:2016
+      stage: published
+      doctype: standard
+      revdate: 2016-01-11
+      technical_committee: SHARING
+      title: CalDAV Calendar Sharing
+      html: https://datatracker.ietf.org/doc/draft-pot-caldav-sharing/
+    - docidentifier: CC/R 1601:2016
+      stage: published
+      doctype: report
+      revdate: 2016-02-03
+      technical_committee: CALCONNECT
+      title: Report on CalConnect Conference XXXV (CD 1601)
+      pdf: http://www.calconnect.org//pubdocs/conference35rpt.pdf
+    - docidentifier: CC/R 1602:2016
+      stage: published
+      doctype: report
+      revdate: 2016-02-17
+      technical_committee: CALCONNECT
+      title: Report on Interoperability Test Event XXXV (CD 1602)
+      pdf: http://www.calconnect.org/pubdocs/ioptestevent35rpt.pdf
+    - docidentifier: CC/R 1603:2016
+      stage: published
+      doctype: report
+      revdate: 2016-05-13
+      technical_committee: CALCONNECT
+      title: Report on CalConnect Conference XXXVI (CD 1603)
+      pdf: http://www.calconnect.org/pubdocs/conference36rpt.pdf
+    - docidentifier: CC/R 1604:2016
+      stage: published
+      doctype: report
+      revdate: 2016-05-29
+      technical_committee: CALCONNECT
+      title: Report on Interoperability Test Event XXXVI (CD 1604)
+      pdf: http://www.calconnect.org/pubdocs/ioptestevent36rpt.pdf
+    - docidentifier: CC/IETF 70021:2016
+      stage: published
+      doctype: standard
+      revdate: 2016-06-27
+      technical_committee: SHARING
+      title: CardDAV Address Book Sharing
+      html: https://tools.ietf.org/html/draft-pot-carddav-sharing-00
+    - docidentifier: CC/R 1605:2016
+      stage: published
+      doctype: report
+      revdate: 2016-09-20
+      technical_committee: CALCONNECT
+      title: Report on CalConnect Conference XXXVII (CD 1605)
+      pdf: http://www.calconnect.org/pubdocs/conference37rpt.pdf
+    - docidentifier: CC/R 1606:2016
+      stage: published
+      doctype: report
+      revdate: 2016-10-07
+      technical_committee: CALCONNECT
+      title: Report on Interoperability Test Event XXXVII (CD 1606)
+      pdf: http://www.calconnect.org/pubdocs/ioptestevent37rpt.pdf
+    - docidentifier: CC/IETF 70022:2016
+      stage: published
+      doctype: standard
+      revdate: 2016-10-14
+      technical_committee: CALENDAR
+      title: The Time Zone Data Distribution Service (TZDIST) Geolocate Extension
+      html: https://tools.ietf.org/html/draft-murchison-tzdist-geolocate-00
+    - docidentifier: CC/IETF 70023:2017
+      stage: published
+      doctype: standard
+      revdate: 2017-02-13
+      technical_committee: CALENDAR
+      title: Calendar subscription upgrades
+      html: https://tools.ietf.org/html/draft-douglass-subscription-upgrade-02
+    - docidentifier: CC/IETF 70024:2017
+      stage: published
+      doctype: standard
+      revdate: 2017-02-15
+      technical_committee: CALENDAR
+      title: Support for Series in iCalendar
+      html: https://tools.ietf.org/html/draft-douglass-icalendar-series-00
+    - docidentifier: CC/R 1701:2017
+      stage: published
+      doctype: report
+      revdate: 2017-03-08
+      technical_committee: CALCONNECT
+      title: Report on CalConnect Conference XXXVIII (CD 1701)
+      pdf: http://www.calconnect.org//pubdocs/conference38rpt.pdf
+    - docidentifier: CC/R 1702:2017
+      stage: published
+      doctype: report
+      revdate: 2017-03-10
+      technical_committee: CALCONNECT
+      title: Report on Interoperability Test Event XXXVIII (CD 1702)
+      pdf: http://www.calconnect.org/pubdocs/ioptestevent38rpt.pdf
+    - docidentifier: CC/IETF 70025:2017
+      stage: published
+      doctype: standard
+      revdate: 2017-05-02
+      technical_committee: PUSH
+      title: Push Discovery and Notification Dispatch Protocol
+      html: https://tools.ietf.org/html/draft-gajda-dav-push-00
+    - docidentifier: CC/R 1703:2017
+      stage: published
+      doctype: report
+      revdate: 2017-02-13
+      technical_committee: CALCONNECT
+      title: Report on CalConnect Conference XXXIX (CD 1703)
+      pdf: http://www.calconnect.org//pubdocs/conference39rpt.pdf
+    - docidentifier: CC/R 1704:2017
+      stage: published
+      doctype: report
+      revdate: 2017-07-21
+      technical_committee: CALCONNECT
+      title: Report on Interoperability Test Event XXXIX (CD 1704)
+      pdf: http://www.calconnect.org/pubdocs/ioptestevent39rpt.pdf
+    - docidentifier: CC/IETF 70026:2017
+      stage: published
+      doctype: standard
+      revdate: 2017-08-01
+      technical_committee: CALENDAR
+      title: "JSCalendar: A JSON representation of calendar data"
+      pdf: https://www.ietf.org/archive/id/draft-ietf-calext-jscalendar-00.txt
+    - docidentifier: CC/R 1705:2017
+      stage: published
+      doctype: report
+      revdate: 2017-10-23
+      technical_committee: CALCONNECT
+      title: Report on CalConnect Conference XL (CD 1705)
+      pdf: http://www.calconnect.org//pubdocs/conference40rpt.pdf
+    - docidentifier: CC/R 1706:2017
+      stage: published
+      doctype: report
+      revdate: 2017-11-20
+      technical_committee: CALCONNECT
+      title: Report on Interoperability Test Event XL (CD 1706)
+      pdf: http://www.calconnect.org/pubdocs/ioptestevent40rpt.pdf
