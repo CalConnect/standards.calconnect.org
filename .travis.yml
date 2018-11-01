@@ -13,8 +13,8 @@ before_install:
   - travis_retry sudo apt-get install -y curl git make ruby-bundler ruby-dev libxml2-dev libxslt-dev npm
   - travis_retry gem install bundler
   - travis_retry gem install nokogiri -v '1.8.5'
-  - travis_retry npm install puppeteer
   - sudo bash -c "curl -L https://github.com/riboseinc/plantuml-install/raw/master/ubuntu.sh | bash"
+  - travis_retry npm install -g --save --save-exact puppeteer --unsafe-perm=true
 before_script:
   - bundle
   - plantuml -testdot
