@@ -917,13 +917,6 @@ $docstage-colors-list:(
   margin-left: 0.5em;
 }
 
-.doc-dates:before {
-  content: "("
-}
-.doc-dates:after {
-  content: ")"
-}
-
 .doc-access, .doc-bib {
   display: block;
   float: right;
