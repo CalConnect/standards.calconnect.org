@@ -368,7 +368,7 @@ root:
     datetype: ''
   - docidentifier: CC/IETF 6321:2009
     doctype: standard
-    title: xCal - The XML Format for iCalendar
+    title: 'xCal - The XML Format for iCalendar (IETF RFC 6351)'
     stage: published
     html: http://tools.ietf.org/html/rfc6321
     revdate: 2009-06-04
@@ -379,7 +379,7 @@ root:
   - docidentifier: CC/IETF 6352:2011
     doctype: standard
     title: 'CardDAV: vCard Extensions to Web Distributed Authoring and Versioning
-      (WebDAV)'
+      (WebDAV) (IETF RFC 6352)'
     stage: published
     html: http://www.rfc-editor.org/rfc/rfc6352.txt
     revdate: 2011-08-01
@@ -389,7 +389,7 @@ root:
     datetype: ''
   - docidentifier: CC/IETF 6638:2012
     doctype: standard
-    title: Scheduling Extensions to CalDAV
+    title: 'Scheduling Extensions to CalDAV (IETF RFC 6638)'
     stage: published
     pdf: https://www.ietf.org/rfc/rfc6638.txt
     revdate: 2012-06-01
@@ -399,7 +399,7 @@ root:
     datetype: ''
   - docidentifier: CC/IETF 6868:2013
     doctype: standard
-    title: Parameter Value Encoding in iCalendar and vCard
+    title: 'Parameter Value Encoding in iCalendar and vCard (IETF RFC 6868)'
     stage: published
     html: https://tools.ietf.org/html/rfc6868
     revdate: 2013-02-01
@@ -409,7 +409,7 @@ root:
     datetype: ''
   - docidentifier: CC/IETF 7095:2014
     doctype: standard
-    title: 'jCard: The JSON Format for vCard'
+    title: 'jCard: The JSON Format for vCard  (IETF RFC 7095)'
     stage: published
     html: https://www.rfc-editor.org/rfc/rfc7095.txt
     revdate: 2014-01-16
@@ -419,7 +419,7 @@ root:
     datetype: ''
   - docidentifier: CC/IETF 7265:2013
     doctype: standard
-    title: 'jCal: The JSON format for iCalendar'
+    title: 'jCal: The JSON format for iCalendar (IETF RFC 7265)'
     stage: published
     html: https://tools.ietf.org/html/rfc7265
     revdate: 2013-03-26
@@ -429,7 +429,7 @@ root:
     datetype: ''
   - docidentifier: CC/IETF 7529:2013
     doctype: standard
-    title: Non-Gregorian Recurrence Rules in iCalendar (RSCALE)
+    title: 'Non-Gregorian Recurrence Rules in iCalendar (RSCALE) (IETF RFC 7529)'
     stage: published
     html: https://tools.ietf.org/html/rfc7529
     revdate: 2013-04-26
@@ -439,7 +439,7 @@ root:
     datetype: ''
   - docidentifier: CC/IETF 7809:2013
     doctype: standard
-    title: 'CalDAV: Timezones by Reference'
+    title: 'CalDAV: Timezones by Reference (IETF RFC 7809)'
     stage: published
     html: https://www.rfc-editor.org/rfc/rfc7809.txt
     revdate: 2013-08-26
@@ -449,7 +449,7 @@ root:
     datetype: ''
   - docidentifier: CC/IETF 7953:2006
     doctype: standard
-    title: Calendar Availability (VAVAILABILITY)
+    title: 'Calendar Availability (VAVAILABILITY) (IETF RFC 7953)'
     stage: published
     html: https://tools.ietf.org/html/rfc7953
     revdate: 2006-11-15
@@ -459,7 +459,7 @@ root:
     datetype: ''
   - docidentifier: CC/IETF 7986:2010
     doctype: standard
-    title: New Properties for iCalendar
+    title: 'New Properties for iCalendar (IETF RFC 7986)'
     stage: published
     html: https://tools.ietf.org/html/rfc7986
     revdate: 2010-02-26
