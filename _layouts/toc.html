@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<div class="container">
+   <h1>Table of Contents</h1>
+
+    {{ content }}
+
+</div>
+
+<div class="container">
+  <ol>
+  {% assign pages = site.pages | where: "parent", "/" | sort: "order" %}
+  {% include toc-entry.html pages=pages level=false %}
+  </ol>
+</div>

@@ -38,6 +38,11 @@ csd.xml: $(CSD_RXL)
 		-g $(NAME_ORG) \
 	  csd/ $@
 
+csd.yaml: csd.xml
+	bundle exec relaton xml2yaml \
+		-o csd/ \
+		$<
+
 # This empty target is necessary so that make detects changes in relaton-ext.yaml
 %.yaml:
 
@@ -49,6 +54,9 @@ csd.xml: $(CSD_RXL)
 
 %.html: %.xml
 	bundle exec relaton xml2html $^ $(INDEX_CSS) templates
+
+prepare-jekyll: csd.yaml external.yaml admin.yaml
+	cp -a $^ _data/
 
 # 	#docker run -v "$$(pwd)":/metanorma/ ribose/metanorma -t csd -x html,pdf $<
 

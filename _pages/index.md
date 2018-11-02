@@ -1,0 +1,23 @@
+---
+title: Introduction
+layout: page
+permalink: /
+parent: "/"
+order: 1
+---
+
+# Introduction #
+
+Welcome to the Calendaring and Scheduling Consortium's Public Document Registry.
+
+
+## Links
+[Standards](standards)
+
+[Administrative Documents](administrative)
+
+## Disclaimer
+
+This site is maintained by people involved in the development of calendaring and scheduling standards and/or implementations. Although the content contributors are employed by a range of commercial and non-profit organizations, this site does not represent the views or opinions of those organizations.
+
+Please note that the authors of this site have not made any attempt to confirm support for any of the implementations, products or services listed on this site.
