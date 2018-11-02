@@ -1,0 +1,43 @@
+---
+layout: page
+title: Public review
+parent: "/"
+---
+:page-liquid:
+{% assign depth = "3" %}
+
+== Public review ends 2018/12/01
+
+++++
+{% assign identifier = "CC/R/DS 18003:2018" %}
+{% include find-doc.html %}
+++++
+
+++++
+{% assign identifier = "CC/FDS 18011:2018" %}
+{% include find-doc.html %}
+++++
+
+++++
+{% assign identifier = "CC/FDS 18012:2018" %}
+{% include find-doc.html %}
+++++
+
+
+== Internal review ends 2018/12/01
+
+++++
+{% assign identifier = "CC/DIR/FDS 10001:2018" %}
+{% include find-doc.html %}
+++++
+
+++++
+{% assign identifier = "CC/DIR/FDS 10002:2018" %}
+{% include find-doc.html %}
+++++
+
+++++
+{% assign identifier = "CC/DIR/DS 10003:2018" %}
+{% include find-doc.html %}
+++++
+
