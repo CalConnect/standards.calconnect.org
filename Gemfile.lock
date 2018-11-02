@@ -24,8 +24,9 @@ GIT
       isodoc (~> 0.9.6)
       metanorma-standoc (~> 1.0.0)
 
-PATH
-  remote: ../../relaton-cli
+GIT
+  remote: https://github.com/riboseinc/relaton-cli
+  revision: 5d1bb53259b5b235422f35adb65ef3ca0d909b25
   specs:
     relaton-cli (0.1.3)
       liquid
