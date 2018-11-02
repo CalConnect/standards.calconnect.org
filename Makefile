@@ -13,14 +13,14 @@ CSD_REGISTRY_NAME := "CalConnect Document Registry: Standards"
 ADMIN_REGISTRY_NAME := "CalConnect Document Registry: Administrative Documents"
 
 INDEX_CSS := templates/index-style.css
-INDEX_OUTPUT := index.xml index.html admin.xml admin.html external.xml external.html
+INDEX_OUTPUT := index.xml index.html admin.rxl admin.html external.rxl external.html
 
 all: _site
 
 clean:
 	rm -f $(INDEX_OUTPUT) csd/*.yaml csd/*.rxl
 
-_site: index.xml admin.xml external.xml csd.yaml
+_site: index.xml admin.rxl external.rxl csd.yaml
 	mkdir -p _data; \
 	cp -a admin.yaml external.yaml csd.yaml _data/ && \
 	bundle exec jekyll build
@@ -29,8 +29,9 @@ dist-clean: clean
 	rm -f $(CSD_HTML) $(CSD_PDF) $(CSD_DOC) $(CSD_RXL) $(CSD_YAML)
 	rm -rf _site _data/* admin external
 
-index.xml: csd.xml external.xml
+index.xml: csd.rxl external.rxl admin.rxl
 	cp -a external/*.rxl csd/; \
+	cp -a admin/*.rxl csd/; \
 	bundle exec relaton concatenate \
 	  -t $(CSD_REGISTRY_NAME) \
 		-g $(NAME_ORG) \
@@ -39,13 +40,13 @@ index.xml: csd.xml external.xml
 $(CSD_HTML) $(CSD_PDF) $(CSD_DOC) $(CSD_RXL):
 	bundle exec metanorma -t csd -R $(basename $@).rxl -x html,pdf,doc,xml $(basename $@).xml
 
-csd.xml: $(CSD_RXL)
+csd.rxl: $(CSD_RXL)
 	bundle exec relaton concatenate \
 	  -t $(CSD_REGISTRY_NAME) \
 		-g $(NAME_ORG) \
 	  csd/ $@
 
-csd.yaml: csd.xml
+csd.yaml: csd.rxl
 	bundle exec relaton xml2yaml \
 		-o csd/ \
 		$<
@@ -53,13 +54,13 @@ csd.yaml: csd.xml
 # This empty target is necessary so that make detects changes in relaton-ext.yaml
 %.yaml:
 
-%.xml: %.yaml
+%.rxl: %.yaml
 	bundle exec relaton yaml2xml \
 		-x rxl \
 		-o $(basename $@)/ \
 		$<
 
-%.html: %.xml
+%.html: %.rxl
 	bundle exec relaton xml2html $^ $(INDEX_CSS) templates
 
 # 	#docker run -v "$$(pwd)":/metanorma/ ribose/metanorma -t csd -x html,pdf $<

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "CalConnect Document Registry: Administrative Documents"
+title: Administrative Documents
 parent: "/"
 ---
 {% for document in site.data.admin.root.items %}

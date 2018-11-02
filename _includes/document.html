@@ -5,13 +5,19 @@
 {% assign stagetag = "updated" %}
 {%- endif -%}
 
+{%- assign htmluri = document.html -%}
+{%- assign pdfuri = document.pdf -%}
+{%- assign docuri = document.doc -%}
+{%- assign xmluri = document.xml -%}
+{%- assign relatonuri = document.relaton -%}
+
   <div class="doc-line">
     <div class="doc-identifier">
       <h{{ depth }}>
-      {%- if document.html == blank or document.html == nil -%}
+      {%- if htmluri == blank or htmluri == nil -%}
         {{ document.docidentifier }}
       {%- else -%}
-        <a href="/{{ document.html }}">{{ document.docidentifier }}</a>
+        <a href="{{ htmluri }}">{{ document.docidentifier }}</a>
       {%- endif -%}
       </h{{ depth }}>
     </div>
@@ -25,10 +31,10 @@
 
   <div class="doc-title">
     <h{{ depth | plus: 1 }}>
-      {%- if document.html == blank or document.html == nil -%}
+      {%- if htmluri == blank or htmluri == nil -%}
         {{ document.title }}
       {%- else -%}
-        <a href="/{{ document.html }}">{{ document.title }}</a>
+        <a href="{{ htmluri }}">{{ document.title }}</a>
       {%- endif -%}
     </h{{ depth | plus: 1 }}>
   </div>
@@ -55,30 +61,30 @@
   {%- unless document.relaton == blank or document.relaton == nil -%}
   <div class="doc-bib">
     <div class="doc-bib-relaton">
-      <a href="/{{ document.relaton }}">Relaton XML</a>
+      <a href="{{ relatonuri }}">Relaton XML</a>
     </div>
   </div>
   {%- endunless -%}
 
   <div class="doc-access">
-  {%- unless document.html == blank or document.html == nil -%}
+   {%- unless htmluri == blank or htmluri == nil -%}
     <div class="doc-access-button-html">
-      <a href="/{{ document.html }}">HTML</a>
+      <a href="{{ htmluri }}">HTML</a>
     </div>
   {%- endunless -%}
-  {%- unless document.pdf == blank or document.pdf == nil -%}
+   {%- unless pdfuri == blank or pdfuri == nil -%}
     <div class="doc-access-button-pdf">
-      <a href="/{{ document.pdf }}">PDF</a>
+      <a href="{{ pdfuri }}">PDF</a>
     </div>
   {%- endunless -%}
-  {%- unless document.doc == blank or document.doc == nil -%}
+   {%- unless docuri == blank or docuri == nil -%}
     <div class="doc-access-button-doc">
-      <a href="/{{ document.doc }}">Word</a>
+      <a href="{{ docuri }}">Word</a>
     </div>
   {%- endunless -%}
-  {%- unless document.xml == blank or document.xml == nil -%}
+   {%- unless xmluri == blank or xmluri == nil -%}
     <div class="doc-access-button-xml">
-      <a href="/{{ document.xml }}">XML</a>
+      <a href="{{ xmluri }}">XML</a>
     </div>
   {%- endunless -%}
   </div>

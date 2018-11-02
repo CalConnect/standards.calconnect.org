@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "CalConnect Document Registry: Standards"
+title: Standards
 parent: "/"
 ---
 {% for document in site.data.csd.root.items %}
