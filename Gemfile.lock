@@ -18,15 +18,15 @@ GIT
 
 GIT
   remote: https://github.com/riboseinc/metanorma-csd
-  revision: a3452a5ef8081ef9923018806bbdb0344b41794e
+  revision: 54191614d4e4a1fae2883e823d47064c68beb7e2
   specs:
-    metanorma-csd (1.0.8)
+    metanorma-csd (1.0.9)
       isodoc (~> 0.9.6)
       metanorma-standoc (~> 1.0.0)
 
 GIT
   remote: https://github.com/riboseinc/relaton-cli
-  revision: 7659b11cac8fe4973e47a40b1c4fc092832965e7
+  revision: 346a03c281aa7bbde2c4e2649702b9a01137bb94
   specs:
     relaton-cli (0.1.3)
       liquid

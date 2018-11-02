@@ -18,50 +18,72 @@ INDEX_OUTPUT := index.xml index.html admin.rxl admin.html external.rxl external.
 all: _site
 
 clean:
-	rm -f $(INDEX_OUTPUT) csd/*.yaml csd/*.rxl
+	rm -f $(INDEX_OUTPUT) csd/*.yaml csd/*.rxl .tmp.xml csd.rxl
+	rm -rf *_images
 
-_site: index.xml admin.rxl external.rxl csd.yaml
-	mkdir -p _data; \
-	cp -a admin.yaml external.yaml csd.yaml _data/ && \
+_site: _data
 	bundle exec jekyll build
+
+_data: _data/admin.yaml _data/standards.yaml
 
 dist-clean: clean
 	rm -f $(CSD_HTML) $(CSD_PDF) $(CSD_DOC) $(CSD_RXL) $(CSD_YAML)
 	rm -rf _site _data/* admin external
 
-index.xml: csd.rxl external.rxl admin.rxl
-	cp -a external/*.rxl csd/; \
-	cp -a admin/*.rxl csd/; \
-	bundle exec relaton concatenate \
-	  -t $(CSD_REGISTRY_NAME) \
-		-g $(NAME_ORG) \
-	  csd/ $@
+# index.xml: csd.rxl external.rxl admin.rxl
+# 	cp -a external/*.rxl csd/; \
+# 	bundle exec relaton concatenate \
+# 	  -t $(CSD_REGISTRY_NAME) \
+# 		-g $(NAME_ORG) \
+# 	  csd/ $@
 
 $(CSD_HTML) $(CSD_PDF) $(CSD_DOC) $(CSD_RXL):
 	bundle exec metanorma -t csd -R $(basename $@).rxl -x html,pdf,doc,xml $(basename $@).xml
 
-csd.rxl: $(CSD_RXL)
+_data/standards.yaml: standards csd.raw.rxl
+	bundle exec relaton xml2yaml standards.rxl
+	mv standards.yaml _data/standards.yaml
+
+_data/%.yaml: %
+	bundle exec relaton concatenate \
+	  -t $(CSD_REGISTRY_NAME) \
+		-g $(NAME_ORG) \
+	  $</ $(patsubst %.yaml,%.xml,$(notdir $@))
+	bundle exec relaton xml2yaml $(patsubst %.yaml,%.xml,$(notdir $@))
+	mv $(patsubst %.xml,%.yaml,$(notdir $@)) _data/
+
+standards: csd.raw.rxl external
+	mkdir -p standards
+	cp -a csd/* external/* standards/
+	bundle exec relaton concatenate \
+	  -t $(CSD_REGISTRY_NAME) \
+		-g $(NAME_ORG) \
+	  standards/ standards.rxl
+
+admin/ admin.rxl admin/%.rxl: admin.raw.yaml
+	bundle exec relaton yaml2xml \
+		-x rxl \
+		-o admin \
+		$^
+
+external/ external.rxl external/%.rxl: external.raw.yaml
+	bundle exec relaton yaml2xml \
+		-x rxl \
+		-o external \
+		$^
+
+csd.raw.rxl: $(CSD_RXL)
 	bundle exec relaton concatenate \
 	  -t $(CSD_REGISTRY_NAME) \
 		-g $(NAME_ORG) \
 	  csd/ $@
 
-csd.yaml: csd.rxl
-	bundle exec relaton xml2yaml \
-		-o csd/ \
-		$<
 
 # This empty target is necessary so that make detects changes in relaton-ext.yaml
 %.yaml:
 
-%.rxl: %.yaml
-	bundle exec relaton yaml2xml \
-		-x rxl \
-		-o $(basename $@)/ \
-		$<
-
-%.html: %.rxl
-	bundle exec relaton xml2html $^ $(INDEX_CSS) templates
+# %.html: %.rxl
+# 	bundle exec relaton xml2html $^ $(INDEX_CSS) templates
 
 # 	#docker run -v "$$(pwd)":/metanorma/ ribose/metanorma -t csd -x html,pdf $<
 

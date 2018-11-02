@@ -51,3 +51,6 @@ exclude:
   - vendor/ruby/
   - "*.yaml"
   - "csd-*"
+  - csd/
+  - external/
+  - "*.raw.rxl"

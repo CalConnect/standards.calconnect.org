@@ -5,11 +5,45 @@
 {% assign stagetag = "updated" %}
 {%- endif -%}
 
+{%- unless document.html == blank or document.html == nil -%}
+{%- if document.html contains '://' -%}
 {%- assign htmluri = document.html -%}
+{%- else -%}
+{%- assign htmluri = document.html | prepend: "/" -%}
+{%- endif -%}
+{%- endunless -%}
+
+{%- unless document.pdf == blank or document.pdf == nil -%}
+{%- if document.pdf contains '://' -%}
 {%- assign pdfuri = document.pdf -%}
+{%- else -%}
+{%- assign pdfuri = document.pdf | prepend: "/" -%}
+{%- endif -%}
+{%- endunless -%}
+
+{%- unless document.doc == blank or document.doc == nil -%}
+{%- if document.doc contains '://' -%}
 {%- assign docuri = document.doc -%}
+{%- else -%}
+{%- assign docuri = document.doc | prepend: "/" -%}
+{%- endif -%}
+{%- endunless -%}
+
+{%- unless document.xml == blank or document.xml == nil -%}
+{%- if document.xml contains '://' -%}
 {%- assign xmluri = document.xml -%}
+{%- else -%}
+{%- assign xmluri = document.xml | prepend: "/" -%}
+{%- endif -%}
+{%- endunless -%}
+
+{%- unless document.relaton == blank or document.relaton == nil -%}
+{%- if document.relaton contains '://' -%}
 {%- assign relatonuri = document.relaton -%}
+{%- else -%}
+{%- assign relatonuri = document.relaton | prepend: "/" -%}
+{%- endif -%}
+{%- endunless -%}
 
   <div class="doc-line">
     <div class="doc-identifier">
