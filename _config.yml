@@ -50,3 +50,4 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - "*.yaml"
+  - "csd-*"

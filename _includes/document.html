@@ -11,7 +11,7 @@
       {%- if document.html == blank or document.html == nil -%}
         {{ document.docidentifier }}
       {%- else -%}
-        <a href="{{ document.html }}">{{ document.docidentifier }}</a>
+        <a href="/{{ document.html }}">{{ document.docidentifier }}</a>
       {%- endif -%}
       </h{{ depth }}>
     </div>
@@ -28,7 +28,7 @@
       {%- if document.html == blank or document.html == nil -%}
         {{ document.title }}
       {%- else -%}
-        <a href="{{ document.html }}">{{ document.title }}</a>
+        <a href="/{{ document.html }}">{{ document.title }}</a>
       {%- endif -%}
     </h{{ depth | plus: 1 }}>
   </div>
@@ -54,29 +54,29 @@
 
   <div class="doc-bib">
     <div class="doc-bib-relaton">
-      <a href="{{ document.relaton }}">Relaton XML</a>
+      <a href="/{{ document.relaton }}">Relaton XML</a>
     </div>
   </div>
 
   <div class="doc-access">
   {%- unless document.html == blank or document.html == nil -%}
     <div class="doc-access-button-html">
-      <a href="{{ document.html }}">HTML</a>
+      <a href="/{{ document.html }}">HTML</a>
     </div>
   {%- endunless -%}
   {%- unless document.pdf == blank or document.pdf == nil -%}
     <div class="doc-access-button-pdf">
-      <a href="{{ document.pdf }}">PDF</a>
+      <a href="/{{ document.pdf }}">PDF</a>
     </div>
   {%- endunless -%}
   {%- unless document.doc == blank or document.doc == nil -%}
     <div class="doc-access-button-doc">
-      <a href="{{ document.doc }}">Word</a>
+      <a href="/{{ document.doc }}">Word</a>
     </div>
   {%- endunless -%}
   {%- unless document.xml == blank or document.xml == nil -%}
     <div class="doc-access-button-xml">
-      <a href="{{ document.xml }}">XML</a>
+      <a href="/{{ document.xml }}">XML</a>
     </div>
   {%- endunless -%}
   </div>

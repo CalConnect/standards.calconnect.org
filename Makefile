@@ -3,6 +3,7 @@ CSD_HTML := $(patsubst %.xml,%.html,$(CSD_SRC))
 CSD_PDF  := $(patsubst %.xml,%.pdf,$(CSD_SRC))
 CSD_DOC  := $(patsubst %.xml,%.doc,$(CSD_SRC))
 CSD_RXL  := $(patsubst %.xml,%.rxl,$(CSD_SRC))
+CSD_YAML := $(patsubst %.xml,%.yaml,$(CSD_SRC))
 # RELATON_CSD_RXL := $(addprefix relaton-csd/, $(notdir $(CSD_SRC)))
 
 SHELL := /bin/bash
@@ -14,16 +15,22 @@ ADMIN_REGISTRY_NAME := "CalConnect Document Registry: Administrative Documents"
 INDEX_CSS := templates/index-style.css
 INDEX_OUTPUT := index.xml index.html admin.xml admin.html external.xml external.html
 
-all: $(CSD_HTML) $(CSD_PDF) $(CSD_DOC) $(INDEX_OUTPUT)
+all: _site
 
 clean:
-	rm -f $(INDEX_OUTPUT)
+	rm -f $(INDEX_OUTPUT) csd/*.yaml csd/*.rxl
+
+_site: index.xml admin.xml external.xml csd.yaml
+	mkdir -p _data; \
+	cp -a admin.yaml external.yaml csd.yaml _data/ && \
+	bundle exec jekyll build
 
 dist-clean: clean
-	rm -f $(CSD_HTML) $(CSD_PDF) $(CSD_DOC) $(CSD_RXL)
+	rm -f $(CSD_HTML) $(CSD_PDF) $(CSD_DOC) $(CSD_RXL) $(CSD_YAML)
+	rm -rf _site _data/* admin external
 
 index.xml: csd.xml external.xml
-	cp external/*.rxl csd/; \
+	cp -a external/*.rxl csd/; \
 	bundle exec relaton concatenate \
 	  -t $(CSD_REGISTRY_NAME) \
 		-g $(NAME_ORG) \
@@ -55,9 +62,9 @@ csd.yaml: csd.xml
 %.html: %.xml
 	bundle exec relaton xml2html $^ $(INDEX_CSS) templates
 
-prepare-jekyll: csd.yaml external.yaml admin.yaml
-	cp -a $^ _data/
-
 # 	#docker run -v "$$(pwd)":/metanorma/ ribose/metanorma -t csd -x html,pdf $<
 
-.PHONY: bundle all open
+serve:
+	bundle exec jekyll serve
+
+.PHONY: bundle all open serve dist-clean clean

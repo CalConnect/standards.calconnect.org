@@ -22,8 +22,8 @@ The site is managed by TC PUBLISH.
 # removes all generated CSD files
 make dist-clean
 
-# generates index.html
-make all
+# generates all required files for Jekyll and runs `jekyll build`
+make _site
 ----
 
 == Structure (and how it works)
