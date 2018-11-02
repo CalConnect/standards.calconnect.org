@@ -38,7 +38,7 @@ Bibliographic details for every document can be downloaded in the Relaton XML fo
 
 * link:/public-review[CalConnect Standards under public review]
 
-* link:/administrative[CalConnect Administrative Documents]
+* link:/administrative[CalConnect Administrative documents]
 
 
 == Disclaimer
