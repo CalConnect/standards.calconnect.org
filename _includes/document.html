@@ -52,11 +52,13 @@
   </div>
   {%- endunless -%}
 
+  {%- unless document.relaton == blank or document.relaton == nil -%}
   <div class="doc-bib">
     <div class="doc-bib-relaton">
       <a href="/{{ document.relaton }}">Relaton XML</a>
     </div>
   </div>
+  {%- endunless -%}
 
   <div class="doc-access">
   {%- unless document.html == blank or document.html == nil -%}
