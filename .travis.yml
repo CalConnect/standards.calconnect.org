@@ -22,6 +22,7 @@ script:
   - make dist-clean all
   - make csd.yaml prepare-jekyll
   - bundle exec jekyll build
+  - mv _site/csd _site/standards/
   # - mkdir -p _site && mv index.* _site/ && mv csd _site/
 install:
   - pip install --user awscli
