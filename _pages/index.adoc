@@ -4,20 +4,57 @@ layout: page
 permalink: /
 order: 1
 ---
+:page-liquid:
 
 == Introduction
 
-Welcome to the Calendaring and Scheduling Consortium's Public Document Registry.
+This is the Calendaring and Scheduling Consortium's Public Document Registry.
 
-== Links
+The Calendaring and Scheduling Consortium ("`CalConnect`") is global non-profit
+organization with the aim of facilitating interoperability of technologies across
+user-centric systems and applications.
 
-link:/standards[CalConnect Standards]
+CalConnect works closely with liaison partners including international
+organizations such as ISO, OASIS and M3AAWG.
 
-link:/administrative[CalConnect Administrative Documents]
+In compliance with WTO TBT rules, all documents under 60-day public review
+(as defined in link:/standards/csd-publication-process.html[CC/DIR 10001])
+are provided on this site.
+
+Documents in this registry are provided in the following formats:
+
+* accessible formats, such as in HTML, inasmuch possible (`.html`);
+* https://www.metanorma.com/software/metanorma-csd/[Metanorma-CSD XML standardization document] format (`.xml`);
+* PDF (`.pdf`) and Word (`.doc`) formats are also available for Metanorma-generated documents;
+
+NOTE: Older documents may only be provided in PDF format.
+
+Bibliographic details for every document can be downloaded in the Relaton XML format.
+
+
+== Document categories
+
+* link:/standards[CalConnect Standards]
+
+//* link:/public-review[CalConnect Standards under public review]
+
+* link:/administrative[CalConnect Administrative Documents]
+
 
 == Disclaimer
 
-This site is maintained by people involved in the development of calendaring and scheduling standards and/or implementations. Although the content contributors are employed by a range of commercial and non-profit organizations, this site does not represent the views or opinions of those organizations.
+Attention is drawn to the possibility that some of the elements of documents
+on this site may be the subject of patent rights. CalConnect shall not be held responsible
+for identifying any or all such patent rights. Details of any patent rights
+identified during the development of such documents will be provided in the Introduction
+of the document and/or on the CalConnect list of patent declarations received.
 
-Please note that the authors of this site have not made any attempt to confirm support for any of the implementations, products or services listed on this site.
+Any trade name used in documents or pages of this site is information given for the convenience
+of users and does not constitute an endorsement.
 
+
+== Copyright
+
+++++
+{% include copyright.html %}
+++++

@@ -1,0 +1,31 @@
+---
+layout: page
+title: "Page not found"
+permalink: "/404.html"
+---
+:page-liquid:
+
+== Page not found
+
+The page you were looking does not exist here.
+
+Go to the link:/[Home] page to start again.
+
+
+== Disclaimer
+
+Attention is drawn to the possibility that some of the elements of documents
+on this site may be the subject of patent rights. CalConnect shall not be held responsible
+for identifying any or all such patent rights. Details of any patent rights
+identified during the development of such documents will be provided in the Introduction
+of the document and/or on the CalConnect list of patent declarations received.
+
+Any trade name used in documents or pages of this site is information given for the convenience
+of users and does not constitute an endorsement.
+
+
+== Copyright
+
+++++
+{% include copyright.html %}
+++++

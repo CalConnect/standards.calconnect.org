@@ -1,9 +1,12 @@
 ---
 layout: page
-title: Administrative Documents
+title: Standards
 parent: "/"
 ---
-{% for document in site.data.admin.root.items %}
+:page-liquid:
+++++
+{% for document in site.data.standards.root.items %}
 {% assign depth = "3" %}
 {% include document.html %}
 {% endfor %}
+++++
