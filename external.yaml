@@ -1,0 +1,527 @@
+root:
+  author: "CalConnect : The Calendaring and Scheduling Consortium"
+  title: "CalConnect Document Registry: Standards"
+  items:
+    - technical_committee: PUBLISH
+      docidentifier: "CC/NP 36000"
+      doctype: standard
+      title: Standardization documents -- Vocabulary
+      stage: proposal
+      revdate: 2018-10-25
+    - technical_committee: DATETIME
+      docidentifier: "CC/NP 34000"
+      doctype: standard
+      title: Date and time -- Concepts and vocabulary
+      stage: proposal
+      revdate: 2018-10-25
+    - technical_committee: DATETIME
+      docidentifier: "CC/NP 34002"
+      doctype: standard
+      title: Date and time -- Timezones
+      stage: proposal
+      revdate: 2018-10-25
+    - technical_committee: DATETIME
+      docidentifier: "CC/NP 34003"
+      doctype: standard
+      title: Date and time -- Codes for calendar systems
+      stage: proposal
+      revdate: 2018-10-25
+    - technical_committee: DATETIME
+      docidentifier: "CC/NP 34005"
+      doctype: standard
+      title: Date and time -- Calendars -- Gregorian calendar
+      stage: proposal
+      revdate: 2018-10-25
+    - technical_committee: DATETIME
+      docidentifier: "CC/NP 34006"
+      doctype: standard
+      title: Date and time -- Calendars -- Chinese calendar
+      stage: proposal
+      revdate: 2018-10-25
+    - technical_committee: CALENDAR
+      docidentifier: "CC/IETF/DS 34010"
+      doctype: standard
+      title: The Time Zone Information Format (TZif)
+      stage: draft-standard
+      revdate: 2017-11-26
+      html: https://tools.ietf.org/html/draft-murchison-tzdist-tzif-00
+    - docidentifier: CC/Adv 0507:2005
+      stage: published
+      doctype: advisory
+      revdate: 2005-09-26
+      technical_committee: CALDAV
+      title: CalDAV Use Cases V1.0 (CD 0507)
+      pdf: http://www.calconnect.org/pubdocs/CD0507%20CalDAV%20Use%20Cases%20V1.0.pdf
+      abstract: "This document is one in a series of use case documents that the Calendaring and Scheduling Consortium is developing to help better define the needs of different calendaring and scheduling user groups. As such, this document provides a list of use cases for a calendar access protocol only. Other use case documents will cover different areas of calendaring and scheduling, and will be made available by the Consortium in the usual manner. While this list of use cases was developed to assist in the development of the CalDAV protocol, none of the use cases are specific to CalDAV, that is, this list of use cases should apply to any calendar access protocol. It is expected that this document will be used as a basis to further develop technical requirements for a calendar access protocol such as CalDAV."
+    - docidentifier: CC/Adv 0514:2005
+      stage: published
+      doctype: advisory
+      revdate: 2005-06-29
+      technical_committee: ADHOC DST
+      title: DST Advisory Notice V1.0 (CD 0514)
+      pdf: http://www.calconnect.org/pubdocs/CD0514%20DST%20Advisory%20Notice%20V1.0.pdf
+    - docidentifier: CC/Adv 0601:2005
+      stage: published
+      doctype: advisory
+      revdate: 2005-11-30
+      technical_committee: USECASE
+      title: Min-IOP Use Cases V1.0 (CD 0601)
+      pdf: http://www.calconnect.org/pubdocs/CD0601%20Min-IOP%20Use%20Cases%20V1.0.pdf
+    - docidentifier: CC/Adv 0601:2006
+      stage: published
+      doctype: advisory
+      revdate: 2006-01-24
+      technical_committee: USECASE
+      title: Min-IOP Use Cases V1.1 (CD 0601)
+      pdf: http://www.calconnect.org/pubdocs/CD0601%20Min-IOP%20Use%20Cases%20V1.1.pdf
+      abstract: "This document was created by the Use Case Technical Committee of the Calendaring and Scheduling Consortium. The document defines the use cases for minimum interoperability of calendaring and scheduling. Minimum interoperability is the basic level of functionality our collective experience tells us is necessary to have a useful system. We realize that in some cases it may be more than is currently offered by 'basic' calendaring and scheduling applications."
+    - docidentifier: CC/R 0602:2006
+      stage: published
+      doctype: report
+      revdate: 2006-01-24
+      technical_committee: TIMEZONE
+      title: iCalendar Timezone Problems and Recommendations V1.0 (CD 0602)
+      pdf: http://www.calconnect.org/pubdocs/CD0602%20iCalendar%20Timezone%20Problems%20and%20Recommendations%20V1.0.pdf
+    - docidentifier: CC/R 0604:2006
+      stage: published
+      doctype: report
+      revdate: 2006-03-16
+      technical_committee: RECURR
+      title: iCalendar Recurrence Problems and Recommendations V1.0 (CD 0604)
+      pdf: http://www.calconnect.org/pubdocs/CD0604%20iCalendar%20Recurrence%20Problems%20and%20Recommendations%20V1.0.pdf
+      abstract: "This document contains information about recurrence implementation issues and recommendations on how to resolve these issues. We first explain what recurrences are, justify the need for recurrences, identify recurrence implementation problems and ambiguities, and then offer some guidelines and recommendations to solve these issues."
+    - docidentifier: CC/R 0606:2006
+      stage: published
+      doctype: report
+      revdate: 2006-04-17
+      technical_committee: TIMEZONE
+      title: Timezone Registry and Service Recommendations V1.0 (CD 0606)
+      pdf: http://www.calconnect.org/pubdocs/CD0606%20Timezone%20Registry%20and%20Service%20Recommendations%20V1.0.pdf
+      abstract: "This document contains technical recommendations on implementing a time zone registry and a time zone service. Standardized time zones are needed for improved interoperability to avoid some common problems, and to allow using time zones by reference rather than value."
+    - docidentifier: CC/R 0610:2006
+      stage: published
+      doctype: report
+      revdate: 2006-10-24
+      technical_committee: USECASE
+      title: Calendaring and Scheduling Glossary of Terms V1.0 (Obsoleted by CD1102) (CD 0610)
+      pdf: http://www.calconnect.org/pubdocs/CD0610%20Calendaring%20and%20Scheduling%20Glossary%20of%20Terms%20V1.0.pdf
+    - docidentifier: CC/Adv 0611:2006
+      stage: published
+      doctype: advisory
+      revdate: 2006-11-27
+      technical_committee: MOBILE
+      title: The Benefits of iCalendar for the Mobile Industry V1.0 (CD 0611)
+      pdf: http://www.calconnect.org/pubdocs/CD0611%20The%20Benefits%20of%20iCalendar%20for%20the%20Mobile%20Industry%20V1.0.pdf
+      abstract: "This document, prepared by the Mobile Technical Committee, discusses the benefits and value of converting to the iCalendar specification from its early predecessor, vCalendar, still widely in use in the mobile and travel industries. The document draws upon results from the Mobile Calendaring Questionnaires conducted earlier this year by TC Mobile; see Mobile Calendaring Questionnaire V2 Results: CD 0609."
+    - docidentifier: CC/IETF 7953:2006
+      stage: published
+      doctype: standard
+      revdate: 2006-11-15
+      technical_committee: FREEBUSY
+      title: Calendar Availability (VAVAILABILITY)
+      html: https://tools.ietf.org/html/rfc7953
+    - docidentifier: CC/Adv 0701:2007
+      stage: published
+      doctype: advisory
+      revdate: 2007-04-19
+      technical_committee: USECASE
+      title: Min-IOP (Minimum Interoperable Subset) Use Cases for Tasks V1.0 (CD 0701)
+      pdf: http://www.calconnect.org/pubdocs/CD0701%20Min-IOP%20Use%20Cases%20for%20Tasks%20V1.0.pdf
+      abstract: "This document was created by the Use Case Technical Committee of the Calendaring and Scheduling Consortium and defines the use cases for minimum interoperablity for tasks support (VTODO) for calendaring and scheduling. Minimum interoperability is the basic level of functionality our collective experience tells us is necessary to have a useful system. We realize that in some cases it may be more than is currently offered by 'basic' calendaring and scheduling applications."
+    - docidentifier: CC/Adv 0703:2007
+      stage: published
+      doctype: advisory
+      revdate: 2007-07-11
+      technical_committee: CALDAV
+      title: CalDAV Scheduling Requirements V1.1 (CD 0703)
+      pdf: http://www.calconnect.org/pubdocs/CD0703%20CalDAV%20Scheduling%20Requirements%20V1.1.pdf
+      abstract: "This document was created by the CalDAV Technical Committee of the Calendaring and Scheduling Consortium. It presents a list of features in the form of requirements for the scheduling extensions to CalDAV [RFC 4791], that is, the extensions to the Web Distributed Authoring and Versioning (WebDAV) [RFC 2518] protocol to specify a standard way of exchanging and processing scheduling messages based on the iCalendar Transport-Independent Interoperability Protocol (iTIP) [RFC 2446]."
+    - docidentifier: CC/R 0706:2007
+      stage: published
+      doctype: report
+      revdate: 2007-08-28
+      technical_committee: MOBILE
+      title: Mobile Calendar Interoperability Test Suite V1.0 (CD 0706)
+      pdf: http://www.calconnect.org/pubdocs/CD0706%20Mobile%20Calendar%20Interoperability%20Test%20Suite%20V1.0.pdf
+    - docidentifier: CC/Adv 0706:2008
+      stage: published
+      doctype: advisory
+      revdate: 2008-08-24
+      technical_committee: MOBILE
+      title: Mobile Calendar Interoperability Test Suite V1.1 (CD 0706)
+      pdf: http://www.calconnect.org/pubdocs/CD0706%20Mobile%20Calendar%20Interoperability%20Test%20Suite%20V1.1.pdf
+    - docidentifier: CC/Adv 0708:2007
+      stage: published
+      doctype: advisory
+      revdate: 2007-02-15
+      technical_committee: ADHOC DST
+      title: Extended Daylight Savings Time Review and Considerations (CD 0708)
+      pdf: http://www.calconnect.org/pubdocs/dstreview.pdf
+    - docidentifier: CC/Adv 0709:2007
+      stage: published
+      doctype: advisory
+      revdate: 2007-10-06
+      technical_committee: ADHOC DST
+      title: Extended Daylight Savings Time Links, Advisories and Changes (CD 0709)
+      pdf: http://www.calconnect.org/pubdocs/dstlinks.pdf
+    - docidentifier: CC/S 0903:2009
+      stage: published
+      doctype: specification
+      revdate: 2009-04-15
+      technical_committee: FREEBUSY
+      title: Freebusy Read URL V1.0 (CD 0903)
+      pdf: http://www.calconnect.org/pubdocs/CD0903%20Freebusy%20Read%20URL%20V1.0.pdf
+      abstract: "This document, developed by the Freebusy Technical Committee, defines a standardized form of Freebusy read URL to improve interoperability between client and server implementations, while extending the functionality and utility through the use of optional parameters."
+    - docidentifier: CC/IETF 6321:2009
+      stage: published
+      doctype: standard
+      revdate: 2009-06-04
+      technical_committee: XML
+      title: xCal - The XML Format for iCalendar
+      html: http://tools.ietf.org/html/rfc6321
+    - docidentifier: CC/IETF 70001
+      stage: published
+      doctype: standard
+      revdate: 2009-07-06
+      technical_committee: CALDAV
+      title: VALARM Extensions for iCalendar
+      html: http://tools.ietf.org/id/draft-daboo-valarm-extensions
+    - docidentifier: CC/R 0904:2011
+      stage: published
+      doctype: report
+      revdate: 2011-08-10
+      technical_committee: XML
+      title: iCalendar in XML (xCal) Schema (CD 0904)
+      html: http://www.calconnect.org/artifacts/ical-art.shtml
+    - docidentifier: CC/R 0905:2009
+      stage: published
+      doctype: report
+      revdate: 2009-06-10
+      technical_committee: USECASE
+      title: State of Resource Interoperability for Calendaring, Groupware, and Project (CD 0905) Management V1.0
+      pdf: http://www.calconnect.org/pubdocs/CD0905%20State%20of%20Resource%20Interoperability%20V1.0.pdf
+    - docidentifier: CC/Adv 0906:2009
+      stage: published
+      doctype: advisory
+      revdate: 2009-06-10
+      technical_committee: USECASE
+      title: Use Cases for Resources V1.0 (CD 0906)
+      pdf: http://www.calconnect.org/pubdocs/CD0906%20Use%20Cases%20for%20Resources%20V1.0.pdf
+      abstract: "This document was created by the USECASE Technical Committee of the Calendaring and Scheduling Consortium. The document lists use cases that utilize resources within the calendaring and scheduling application domain. We realize that some of the use cases presented may include workflow or ideas beyond what is offered by current calendaring and scheduling applications."
+    - docidentifier: CC/Adv 0907:2009
+      stage: published
+      doctype: advisory
+      revdate: 2009-06-10
+      technical_committee: USECASE
+      title: A Recommendation for Minimum Interoperability of Resource Information V1.0 (CD 0907)
+      pdf: http://www.calconnect.org/pubdocs/CD0907%20A%20Recommendation%20for%20Minimum%20Interoperability%20of%20Resource%20Information%20V1.0.pdf
+      abstract: "This document was created by the USECASE Technical Committee of the Calendaring and Scheduling Consortium. The document presents a recommendation for enhancing inter-operability of resources within the calendaring and scheduling application domain. Minimum interoperability is the basic level of functionality our collective experience tells us is necessary to have a useful system. The thrust of this effort is to enable resource inter-operability such that, when a described event contains resources, the recipient of that event is able to make practical use of the described resources; ideally the recipient should be so enabled regardless of whether the recipient is within the same calendaring domain. The resulting recommendations rely in part upon adoption of standards revisions that are in draft as of this writing."
+    - docidentifier: CC/IETF 7986:2010
+      stage: published
+      doctype: standard
+      revdate: 2010-02-26
+      technical_committee: EVENTPUB
+      title: New Properties for iCalendar
+      html: https://tools.ietf.org/html/rfc7986
+    - docidentifier: CC/IETF 70003:2010
+      stage: published
+      doctype: standard
+      revdate: 2010-04-30
+      technical_committee: RESOURCE
+      title: Schema for representing resources for calendaring and scheduling services
+      html: https://datatracker.ietf.org/doc/draft-cal-resource-schema/
+    - docidentifier: CC/S 1004:2010
+      stage: published
+      doctype: specification
+      revdate: 2010-05-19
+      technical_committee: XML
+      title: Cal-WS Web Services API for Calendaring and Scheduling V0.3 (CD 1004)
+      pdf: http://www.calconnect.org/pubcomment/CD1004%20Cal-WS%20Web%20Services%20API%20V0.3.pdf
+    - docidentifier: CC/IETF 70027:2010
+      stage: published
+      doctype: standard
+      revdate: 2010-06-30
+      technical_committee: EVENTPUB
+      title: LINK Property Extension to iCalendar (Obsolete)
+    - docidentifier: CC/IETF 70004:2010
+      stage: published
+      doctype: standard
+      revdate: 2010-07-05
+      technical_committee: TIMEZONE
+      title: Time Zone Data Distribution Service
+      html: https://www.rfc-editor.org/rfc/rfc7808.txt
+    - docidentifier: CC/IETF 70005:2010
+      stage: published
+      doctype: standard
+      revdate: 2010-07-05
+      technical_committee: TIMEZONE
+      title: Timezone XML Specification
+      html: https://datatracker.ietf.org/doc/draft-douglass-timezone-xml/
+    - docidentifier: CC/IETF 70006:2010
+      stage: published
+      doctype: standard
+      revdate: 2010-08-26
+      technical_committee: CALCONNECT
+      title: CardDAV Directory Gateway Extension
+      html: https://tools.ietf.org/html/draft-daboo-carddav-directory-gateway-02
+    - docidentifier: CC/R 1011:2010
+      stage: published
+      doctype: report
+      revdate: 2010-09-13
+      technical_committee: XML
+      title: CalWS-Rest Restful Web Services Protocol for Calendaring V1.0 (CD 1011)
+      pdf: http://www.calconnect.org/pubdocs/CD1011%20CalWS-Rest%20Restful%20Web%20Services%20Protocol%20for%20Calendaring%20V1.0.pdf
+    - docidentifier: CC/R 1011:2010
+      stage: published
+      doctype: report
+      revdate: 2010-02-22
+      technical_committee: XML
+      title: CalWS-Rest Restful Web Services Protocol for Calendaring V1.0.1 (CD 1011)
+      pdf: http://www.calconnect.org/pubdocs/CD1011%20CalWS-Rest%20Restful%20Web%20Services%20Protocol%20for%20Calendaring%20V1.0.1.pdf
+      abstract: "This document, developed by the XML Technical Committee, specifies a RESTful web services Protocol for calendaring operations. This protocol has been contributed to OASIS WS-CALENDAR as a component of the WS-CALENDAR Specification under development by OASIS.
+
+CalConnect and OASIS have agreed that any future work by CalConnect TC XML or OASIS WS-Calendar (or other committees in CalConnect and OASIS) on their respective versions of CalWS will be harmonized to maintain consistency between the versions. CalConnect and OASIS reserve the right to jointly and formally agree to fork the specifications at some point in the future if need arises."
+    - docidentifier: CC/R 1012:2011
+      stage: published
+      doctype: report
+      revdate: 2011-10-20
+      technical_committee: CALCONNECT
+      title: An Introduction to Internet Calendaring and Scheduling V1.1 (CD 1012)
+      html: https://www.calconnect.org/resources/introduction-internet-calendaring
+      abstract: "This CalConnect guide introduces internet calendaring and the major standards and specifications related to calendaring and scheduling."
+    - docidentifier: CC/IETF 70006:2011
+      stage: published
+      doctype: standard
+      revdate: 2011-02-16
+      technical_committee: EVENTPUB
+      title: Event Publishing Extensions to iCalendar
+      html: https://datatracker.ietf.org/doc/draft-douglass-calendar-extension
+    - docidentifier: CC/R 1102:2013
+      stage: published
+      doctype: report
+      revdate: 2013-05-02
+      technical_committee: CALCONNECT
+      title: Calendaring and Scheduling Glossary of Terms V2.2 (CD 1102)
+      html: https://www.calconnect.org/resources/glossary
+      abstract: "A Glossary of Calendaring and Scheduling Terms."
+    - docidentifier: CC/R 1104:2018
+      stage: published
+      doctype: report
+      revdate: 2018-06-22
+      technical_committee: CALCONNECT
+      title: Index to Calendaring and Scheduling Standards (CD 1104)
+      html: https://www.calconnect.org/resources/calendaring-standards
+    - docidentifier: CC/IETF 6352:2011
+      stage: published
+      doctype: standard
+      revdate: 2011-08-01
+      technical_committee: CALCONNECT
+      title: "CardDAV: vCard Extensions to Web Distributed Authoring and Versioning (WebDAV)"
+      html: http://www.rfc-editor.org/rfc/rfc6352.txt
+    - docidentifier: CC/IETF 70007:2011
+      stage: published
+      doctype: standard
+      revdate: 2011-10-24
+      technical_committee: CALDAV
+      title: Collected Extensions to CalDAV
+      html: http://tools.ietf.org/id/draft-daboo-caldav-extensions
+    - docidentifier: CC/IETF 70008:2011
+      stage: published
+      doctype: standard
+      revdate: 2011-10-24
+      technical_committee: CALDAV
+      title: CalDAV Managed Attachments
+      html: https://tools.ietf.org/html/draft-ietf-calext-caldav-attachments
+    - docidentifier: CC/S 1202:2012
+      stage: published
+      doctype: specification
+      revdate: 2012-02-22
+      technical_committee: XML
+      title: CalWS-SOAP SOAP Web Services Protocol for Calendaring V1.0 (CD 1202)
+      pdf: http://www.calconnect.org/pubcomment/CD1202%20CalWS-SOAP%20SOAP%20Web%20Services%20Protocol%20for%20Calendaring%20V1.0.pdf
+    - docidentifier: CC/IETF 70009:2012
+      stage: published
+      doctype: standard
+      revdate: 2012-04-09
+      technical_committee: RESOURCE
+      title: vCard Representation of Resources
+      html: https://datatracker.ietf.org/doc/draft-cal-resource-vcard/
+    - docidentifier: CC/IETF 6638:2012
+      stage: published
+      doctype: standard
+      revdate: 2012-06-01
+      technical_committee: CALDAV
+      title: Scheduling Extensions to CalDAV
+      pdf: https://www.ietf.org/rfc/rfc6638.txt
+    - docidentifier: CC/IETF 70010:2012
+      stage: published
+      doctype: standard
+      revdate: 2012-08-29
+      technical_committee: AUTODISC
+      title: Automated Service Configuration
+      html: https://datatracker.ietf.org/doc/draft-daboo-aggregated-service-discovery/
+    - docidentifier: CC/IETF 70011:2012
+      stage: published
+      doctype: standard
+      revdate: 2012-09-27
+      technical_committee: CALDAV
+      title: Use of the Prefer Header Field in Web Distributed Authoring and Versioning (WebDAV)
+      html: http://datatracker.ietf.org/doc/draft-murchison-webdav-prefer/
+    - docidentifier: CC/S 1301:2012
+      stage: published
+      doctype: specification
+      revdate: 2013-01-10
+      technical_committee: XML
+      title: CalWS-SOAP SOAP Web Services Protocol for Calendaring V1.0 (CD 1301)
+      pdf: http://www.calconnect.org/pubdocs/CD1301%20CalWS-SOAP%20SOAP%20Web%20Services%20Protocol%20for%20Calendaring%20V1.0.pdf
+      abstract: "This document, developed by the XML Technical Committee, specifies a SOAP web services Protocol for calendaring operations. This protocol has been contributed to OASIS WS-CALENDAR as a component of the WS-CALENDAR Specification under development by OASIS.
+
+CalConnect and OASIS have agreed that any future work by CalConnect TC XML or OASIS WS-Calendar (or other committees in CalConnect and OASIS) on their respective versions of CalWS will be harmonized to maintain consistency between the versions. CalConnect and OASIS reserve the right to jointly and formally agree to fork the specifications at some point in the future if need arises.
+"
+    - docidentifier: CC/IETF 70012:2013
+      stage: published
+      doctype: standard
+      revdate: 2013-01-22
+      technical_committee: FREEBUSY
+      title: "VPOLL: Consensus Scheduling Component for iCalendar"
+      html: http://tools.ietf.org/id/draft-york-vpoll
+    - docidentifier: CC/IETF 70013:2013
+      stage: published
+      doctype: standard
+      revdate: 2013-01-24
+      technical_committee: RESOURCE
+      title: Objectclass Property for vCard
+      html: http://tools.ietf.org/id/draft-vcard-objectclass
+    - docidentifier: CC/IETF 6868:2013
+      stage: published
+      doctype: standard
+      revdate: 2013-02-01
+      technical_committee: CALDAV
+      title: Parameter Value Encoding in iCalendar and vCard
+      html: https://tools.ietf.org/html/rfc6868
+    - docidentifier: CC/IETF 70014:2013
+      stage: published
+      doctype: standard
+      revdate: 2013-01-25
+      technical_committee: RESOURCE
+      title: Schedulable Objectclass for vCard
+      html: http://tools.ietf.org/id/draft-vcard-schedulable
+    - docidentifier: CC/IETF 7265:2013
+      stage: published
+      doctype: standard
+      revdate: 2013-03-26
+      technical_committee: XML
+      title: "jCal: The JSON format for iCalendar"
+      html: https://tools.ietf.org/html/rfc7265
+    - docidentifier: CC/IETF 7529:2013
+      stage: published
+      doctype: standard
+      revdate: 2013-04-26
+      technical_committee: ADHOC CALSCALE
+      title: Non-Gregorian Recurrence Rules in iCalendar (RSCALE)
+      html: https://tools.ietf.org/html/rfc7529
+    - docidentifier: CC/IETF 70015:2013
+      stage: published
+      doctype: standard
+      revdate: 2013-07-02
+      technical_committee: EVENTPUB
+      title: Improved Support for iCalendar Relationships
+      html: https://datatracker.ietf.org/doc/draft-ietf-calext-ical-relations/
+    - docidentifier: CC/IETF 7809:2013
+      stage: published
+      doctype: standard
+      revdate: 2013-08-26
+      technical_committee: TIMEZONE
+      title: "CalDAV: Timezones by Reference"
+      html: https://www.rfc-editor.org/rfc/rfc7809.txt
+    - docidentifier: CC/IETF 7095:2014
+      stage: published
+      doctype: standard
+      revdate: 2014-01-16
+      technical_committee: CALCONNECT
+      title: "jCard: The JSON Format for vCard"
+      html: https://www.rfc-editor.org/rfc/rfc7095.txt
+    - docidentifier: CC/IETF 70016:2014
+      stage: published
+      doctype: standard
+      revdate: 2014-12-15
+      technical_committee: SHARING
+      title: "WebDAV: User Notifications"
+      html: https://datatracker.ietf.org/doc/draft-pot-webdav-notifications/
+    - docidentifier: CC/IETF 70017:2014
+      stage: published
+      doctype: standard
+      revdate: 2014-12-15
+      technical_committee: SHARING
+      title: WebDAV Resource Sharing
+      html: https://datatracker.ietf.org/doc/draft-pot-webdav-resource-sharing/
+    - docidentifier: CC/IETF 70017:2015
+      stage: published
+      doctype: standard
+      revdate: 2015-01-04
+      technical_committee: TASKS
+      title: Task Extensions to iCalendar
+      html: https://datatracker.ietf.org/doc/draft-apthorp-ical-tasks/
+    - docidentifier: CC/IETF 70018:2015
+      stage: published
+      doctype: standard
+      revdate: 2015-05-15
+      technical_committee: CALDAV
+      title: DAV Server Information Object
+      html: http://datatracker.ietf.org/doc/draft-douglass-server-info/
+    - docidentifier: CC/IETF 70019:2015
+      stage: published
+      doctype: standard
+      revdate: 2015-11-24
+      technical_committee: EVENTPUB
+      title: "v-event URI: An URI scheme for events"
+      html: https://datatracker.ietf.org/doc/draft-menderico-v-event-uri/
+    - docidentifier: CC/IETF 70020:2016
+      stage: published
+      doctype: standard
+      revdate: 2016-01-11
+      technical_committee: SHARING
+      title: CalDAV Calendar Sharing
+      html: https://datatracker.ietf.org/doc/draft-pot-caldav-sharing/
+    - docidentifier: CC/IETF 70021:2016
+      stage: published
+      doctype: standard
+      revdate: 2016-06-27
+      technical_committee: SHARING
+      title: CardDAV Address Book Sharing
+      html: https://tools.ietf.org/html/draft-pot-carddav-sharing-00
+    - docidentifier: CC/IETF 70022:2016
+      stage: published
+      doctype: standard
+      revdate: 2016-10-14
+      technical_committee: CALENDAR
+      title: The Time Zone Data Distribution Service (TZDIST) Geolocate Extension
+      html: https://tools.ietf.org/html/draft-murchison-tzdist-geolocate-00
+    - docidentifier: CC/IETF 70023:2017
+      stage: published
+      doctype: standard
+      revdate: 2017-02-13
+      technical_committee: CALENDAR
+      title: Calendar subscription upgrades
+      html: https://tools.ietf.org/html/draft-douglass-subscription-upgrade-02
+    - docidentifier: CC/IETF 70024:2017
+      stage: published
+      doctype: standard
+      revdate: 2017-02-15
+      technical_committee: CALENDAR
+      title: Support for Series in iCalendar
+      html: https://tools.ietf.org/html/draft-douglass-icalendar-series-00
+    - docidentifier: CC/IETF 70025:2017
+      stage: published
+      doctype: standard
+      revdate: 2017-05-02
+      technical_committee: PUSH
+      title: Push Discovery and Notification Dispatch Protocol
+      html: https://tools.ietf.org/html/draft-gajda-dav-push-00
+    - docidentifier: CC/IETF 70026:2017
+      stage: published
+      doctype: standard
+      revdate: 2017-08-01
+      technical_committee: CALENDAR
+      title: "JSCalendar: A JSON representation of calendar data"
+      pdf: https://www.ietf.org/archive/id/draft-ietf-calext-jscalendar-00.txt
