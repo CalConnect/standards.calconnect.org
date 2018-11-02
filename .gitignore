@@ -6,4 +6,13 @@ _site
 .byebug_history
 .tmp.xml
 csd/*.rxl
-relaton-ext/
+csd/*.yaml
+csd.xml
+csd.yaml
+external
+admin
+*.xml
+_data/admin.yaml
+_data/external.yaml
+_data/csd.yaml
+*.rxl
