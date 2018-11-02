@@ -796,7 +796,7 @@ root:
     doctype: standard
     title: 'JSCalendar: A JSON representation of calendar data'
     stage: published
-    pdf: https://www.ietf.org/archive/id/draft-ietf-calext-jscalendar-00.txt
+    html: https://www.ietf.org/archive/id/draft-ietf-calext-jscalendar-00.txt
     revdate: 2017-08-01
     technical_committee: CALENDAR
     language: ''
@@ -808,8 +808,9 @@ root:
     stage: published
     revdate: 2010-06-30
     technical_committee: EVENTPUB
+    html: https://tools.ietf.org/html/draft-douglass-link-extension-01
     language: ''
     script: ''
     datetype: ''
-  doctype: 
+  doctype:
   author: 'CalConnect : The Calendaring and Scheduling Consortium'
