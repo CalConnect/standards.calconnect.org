@@ -827,12 +827,12 @@ root:
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/IETF 70026:2017
+  - docidentifier: CC/IETF 70026:2018
     doctype: standard
     title: 'JSCalendar: A JSON representation of calendar data'
     stage: published
     html: https://datatracker.ietf.org/doc/draft-ietf-calext-jscalendar/
-    revdate: 2017-08-01
+    revdate: 2018-11-05
     technical_committee: CALENDAR
     language: ''
     script: ''
