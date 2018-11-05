@@ -830,7 +830,7 @@ root:
   - docidentifier: CC/IETF 70026:2018
     doctype: standard
     title: 'JSCalendar: A JSON representation of calendar data'
-    stage: published
+    stage: draft-standard
     html: https://datatracker.ietf.org/doc/draft-ietf-calext-jscalendar/
     revdate: 2018-11-05
     technical_committee: CALENDAR
