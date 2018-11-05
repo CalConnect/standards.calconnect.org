@@ -4,8 +4,9 @@ title: Administrative documents
 parent: "/"
 ---
 :page-liquid:
+{% assign sorted = site.data.admin.root.items | sort: 'revdate' | reverse %}
 ++++
-{% for document in site.data.admin.root.items %}
+{% for document in sorted %}
 {% assign depth = "3" %}
 {% include document.html %}
 {% endfor %}
