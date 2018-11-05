@@ -6,7 +6,7 @@ parent: "/"
 :page-liquid:
 ++++
 {% for document in site.data.standards.root.items %}
-{% assign depth = "3" %}
+{% assign depth = "4" %}
 {% include document.html %}
 {% endfor %}
 ++++
