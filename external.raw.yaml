@@ -217,7 +217,7 @@ root:
     doctype: report
     title: iCalendar in XML (xCal) Schema (CD 0904)
     stage: published
-    html: http://www.calconnect.org/artifacts/ical-art.shtml
+    html: https://www.calconnect.org/resources/code-artifacts/icalendar-xml-schema
     revdate: 2011-08-10
     technical_committee: XML
     language: ''
