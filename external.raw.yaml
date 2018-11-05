@@ -370,7 +370,7 @@ root:
     doctype: standard
     title: 'xCal - The XML Format for iCalendar (IETF RFC 6351)'
     stage: published
-    html: http://tools.ietf.org/html/rfc6321
+    html: https://tools.ietf.org/html/rfc6321
     revdate: 2009-06-04
     technical_committee: XML
     language: ''
@@ -381,7 +381,7 @@ root:
     title: 'CardDAV: vCard Extensions to Web Distributed Authoring and Versioning
       (WebDAV) (IETF RFC 6352)'
     stage: published
-    html: http://www.rfc-editor.org/rfc/rfc6352.txt
+    html: https://tools.ietf.org/html/rfc6352
     revdate: 2011-08-01
     technical_committee: CALCONNECT
     language: ''
@@ -391,7 +391,7 @@ root:
     doctype: standard
     title: 'Scheduling Extensions to CalDAV (IETF RFC 6638)'
     stage: published
-    pdf: https://www.ietf.org/rfc/rfc6638.txt
+    html: https://tools.ietf.org/html/rfc6638
     revdate: 2012-06-01
     technical_committee: CALDAV
     language: ''
@@ -411,7 +411,7 @@ root:
     doctype: standard
     title: 'jCard: The JSON Format for vCard  (IETF RFC 7095)'
     stage: published
-    html: https://www.rfc-editor.org/rfc/rfc7095.txt
+    html: https://tools.ietf.org/html/rfc7095
     revdate: 2014-01-16
     technical_committee: CALCONNECT
     language: ''
@@ -441,7 +441,7 @@ root:
     doctype: standard
     title: 'CalDAV: Timezones by Reference (IETF RFC 7809)'
     stage: published
-    html: https://www.rfc-editor.org/rfc/rfc7809.txt
+    html: https://tools.ietf.org/html/rfc7809
     revdate: 2013-08-26
     technical_committee: TIMEZONE
     language: ''
@@ -516,7 +516,7 @@ root:
     doctype: standard
     title: The Time Zone Information Format (TZif)
     stage: draft-standard
-    html: https://tools.ietf.org/html/draft-murchison-tzdist-tzif-00
+    html: https://datatracker.ietf.org/doc/draft-murchison-tzdist-tzif/
     revdate: 2017-11-26
     technical_committee: CALENDAR
     language: ''
@@ -535,7 +535,7 @@ root:
     doctype: standard
     title: VALARM Extensions for iCalendar
     stage: published
-    html: http://tools.ietf.org/id/draft-daboo-valarm-extensions
+    html: https://datatracker.ietf.org/doc/draft-daboo-valarm-extensions/
     revdate: 2009-07-06
     technical_committee: CALDAV
     language: ''
@@ -555,7 +555,7 @@ root:
     doctype: standard
     title: Time Zone Data Distribution Service
     stage: published
-    html: https://www.rfc-editor.org/rfc/rfc7808.txt
+    html: https://tools.ietf.org/html/rfc7808
     revdate: 2010-07-05
     technical_committee: TIMEZONE
     language: ''
@@ -575,7 +575,7 @@ root:
     doctype: standard
     title: CardDAV Directory Gateway Extension
     stage: published
-    html: https://tools.ietf.org/html/draft-daboo-carddav-directory-gateway-02
+    html: https://datatracker.ietf.org/doc/draft-daboo-carddav-directory-gateway/
     revdate: 2010-08-26
     technical_committee: CALCONNECT
     language: ''
@@ -585,7 +585,7 @@ root:
     doctype: standard
     title: Event Publishing Extensions to iCalendar
     stage: published
-    html: https://datatracker.ietf.org/doc/draft-douglass-calendar-extension
+    html: https://datatracker.ietf.org/doc/draft-douglass-calendar-extension/
     revdate: 2011-02-16
     technical_committee: EVENTPUB
     language: ''
@@ -595,7 +595,7 @@ root:
     doctype: standard
     title: Collected Extensions to CalDAV
     stage: published
-    html: http://tools.ietf.org/id/draft-daboo-caldav-extensions
+    html: https://datatracker.ietf.org/doc/draft-daboo-caldav-extensions/
     revdate: 2011-10-24
     technical_committee: CALDAV
     language: ''
@@ -605,7 +605,7 @@ root:
     doctype: standard
     title: CalDAV Managed Attachments
     stage: published
-    html: https://tools.ietf.org/html/draft-ietf-calext-caldav-attachments
+    html: https://datatracker.ietf.org/doc/draft-ietf-calext-caldav-attachments/
     revdate: 2011-10-24
     technical_committee: CALDAV
     language: ''
@@ -636,7 +636,7 @@ root:
     title: Use of the Prefer Header Field in Web Distributed Authoring and Versioning
       (WebDAV)
     stage: published
-    html: http://datatracker.ietf.org/doc/draft-murchison-webdav-prefer/
+    html: https://datatracker.ietf.org/doc/draft-murchison-webdav-prefer/
     revdate: 2012-09-27
     technical_committee: CALDAV
     language: ''
@@ -646,7 +646,7 @@ root:
     doctype: standard
     title: 'VPOLL: Consensus Scheduling Component for iCalendar'
     stage: published
-    html: http://tools.ietf.org/id/draft-york-vpoll
+    html: https://datatracker.ietf.org/doc/draft-york-vpoll/
     revdate: 2013-01-22
     technical_committee: FREEBUSY
     language: ''
@@ -656,7 +656,7 @@ root:
     doctype: standard
     title: Objectclass Property for vCard
     stage: published
-    html: http://tools.ietf.org/id/draft-vcard-objectclass
+    html: https://datatracker.ietf.org/doc/draft-vcard-objectclass/
     revdate: 2013-01-24
     technical_committee: RESOURCE
     language: ''
@@ -666,7 +666,7 @@ root:
     doctype: standard
     title: Schedulable Objectclass for vCard
     stage: published
-    html: http://tools.ietf.org/id/draft-vcard-schedulable
+    html: https://datatracker.ietf.org/doc/draft-vcard-schedulable/
     revdate: 2013-01-25
     technical_committee: RESOURCE
     language: ''
@@ -716,7 +716,7 @@ root:
     doctype: standard
     title: DAV Server Information Object
     stage: published
-    html: http://datatracker.ietf.org/doc/draft-douglass-server-info/
+    html: https://datatracker.ietf.org/doc/draft-douglass-server-info/
     revdate: 2015-05-15
     technical_committee: CALDAV
     language: ''
@@ -746,7 +746,7 @@ root:
     doctype: standard
     title: CardDAV Address Book Sharing
     stage: published
-    html: https://tools.ietf.org/html/draft-pot-carddav-sharing-00
+    html: https://datatracker.ietf.org/doc/draft-pot-carddav-sharing/
     revdate: 2016-06-27
     technical_committee: SHARING
     language: ''
@@ -756,7 +756,7 @@ root:
     doctype: standard
     title: The Time Zone Data Distribution Service (TZDIST) Geolocate Extension
     stage: published
-    html: https://tools.ietf.org/html/draft-murchison-tzdist-geolocate-00
+    html: https://datatracker.ietf.org/doc/draft-murchison-tzdist-geolocate/
     revdate: 2016-10-14
     technical_committee: CALENDAR
     language: ''
@@ -766,7 +766,7 @@ root:
     doctype: standard
     title: Calendar subscription upgrades
     stage: published
-    html: https://tools.ietf.org/html/draft-douglass-subscription-upgrade-02
+    html: https://datatracker.ietf.org/doc/draft-douglass-subscription-upgrade/
     revdate: 2017-02-13
     technical_committee: CALENDAR
     language: ''
@@ -776,7 +776,7 @@ root:
     doctype: standard
     title: Support for Series in iCalendar
     stage: published
-    html: https://tools.ietf.org/html/draft-douglass-icalendar-series-00
+    html: https://datatracker.ietf.org/doc/draft-douglass-icalendar-series/
     revdate: 2017-02-15
     technical_committee: CALENDAR
     language: ''
@@ -786,7 +786,7 @@ root:
     doctype: standard
     title: Push Discovery and Notification Dispatch Protocol
     stage: published
-    html: https://tools.ietf.org/html/draft-gajda-dav-push-00
+    html: https://datatracker.ietf.org/doc/draft-gajda-dav-push/
     revdate: 2017-05-02
     technical_committee: PUSH
     language: ''
@@ -796,7 +796,7 @@ root:
     doctype: standard
     title: 'JSCalendar: A JSON representation of calendar data'
     stage: published
-    html: https://www.ietf.org/archive/id/draft-ietf-calext-jscalendar-00.txt
+    html: https://datatracker.ietf.org/doc/draft-ietf-calext-jscalendar/
     revdate: 2017-08-01
     technical_committee: CALENDAR
     language: ''
@@ -808,7 +808,7 @@ root:
     stage: published
     revdate: 2010-06-30
     technical_committee: EVENTPUB
-    html: https://tools.ietf.org/html/draft-douglass-link-extension-01
+    html: https://datatracker.ietf.org/doc/draft-douglass-link-extension/
     language: ''
     script: ''
     datetype: ''
