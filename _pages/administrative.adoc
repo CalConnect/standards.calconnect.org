@@ -7,7 +7,7 @@ parent: "/"
 {% assign sorted = site.data.admin.root.items | sort: 'revdate' | reverse %}
 ++++
 {% for document in sorted %}
-{% assign depth = "3" %}
+{% assign depth = "4" %}
 {% include document.html %}
 {% endfor %}
 ++++
