@@ -31,343 +31,343 @@
   </editorialgroup>
 </bibdata><version>
   <edition>1</edition>
-  <revision-date>2018-09-03T00:00:00Z</revision-date>
+  <revision-date>2018-11-07</revision-date>
 </version>
-<preface><foreword obligation="informative"><title>Foreword</title><p id="_33925d39-048d-4d3b-a628-41a52669e244">The Calendaring and Scheduling Consortium ("CalConnect") is global
+<preface><foreword obligation="informative"><title>Foreword</title><p id="_a728be57-f9d0-489f-85c2-4921fa63aea3">The Calendaring and Scheduling Consortium ("CalConnect") is global
 non-profit organization with the aim to facilitate interoperability of
 collaborative technologies and tools through open standards.</p>
-<p id="_80dcceca-5b5b-49df-aa26-c9554152e7df">CalConnect works closely with international and regional partners,
+<p id="_3a4baa7e-7423-40fc-81e1-1bab9492b03b">CalConnect works closely with international and regional partners,
 of which the full list is available on our website
 (<link target="https://www.calconnect.org/about/liaisons-and-relationships"/>).</p>
-<p id="_f618bd13-e302-40b8-8789-2e0773e263ab">The procedures used to develop this document and those intended for its
+<p id="_7e2c6365-8f58-47f8-bcf5-e7aceb63e9d7">The procedures used to develop this document and those intended for its
 further maintenance are described in the CalConnect Directives.</p>
-<p id="_ab9af511-95cb-482f-8719-e4454a2972bc">In particular the different approval criteria needed for the different
+<p id="_a5777798-95d2-4971-8809-1382485e611d">In particular the different approval criteria needed for the different
 types of CalConnect documents should be noted. This document was drafted in
 accordance with the editorial rules of the CalConnect Directives.</p>
-<p id="_061a2a33-1df4-41d2-830d-5832fa3159ef">Attention is drawn to the possibility that some of the elements of this
+<p id="_25500c3d-5bfc-4c8f-9087-999ed851264a">Attention is drawn to the possibility that some of the elements of this
 document may be the subject of patent rights. CalConnect shall not be
 held responsible for identifying any or all such patent rights. Details
 of any patent rights identified during the development of the document
 will be provided in the Introduction.</p>
-<p id="_5520be3d-ee37-4fe4-b4b7-71e242a36fe0">Any trade name used in this document is information given for the
+<p id="_6cef9fb3-32af-4631-98f0-9b31888731ce">Any trade name used in this document is information given for the
 convenience of users and does not constitute an endorsement.</p>
-<p id="_a9cdd8c4-f760-4d98-845c-8b93fa0c91a6">This document was prepared by Technical Committee
+<p id="_70606b67-63eb-4343-a784-e6fa1fc5e2ad">This document was prepared by Technical Committee
 <em>PUBLISH</em>.</p>
-<p id="_7ce9fd5c-725f-49b7-8829-b12c40352823">This document, together with
+<p id="_6b789c5f-ec2c-4599-aade-7ba376602905">This document, together with
 CC 10002 "CalConnect Directives — Standard document requirements",
 replaces the following documents:</p>
-<ul id="_56459f68-3681-41e6-98dd-1d611390a5f9">
+<ul id="_dd711c44-affc-4d4f-ac49-9643ac38bb35">
   <li>
-    <p id="_f3937a0c-a659-4c19-aa1b-228634f0f09f">I0701 CalConnect Document Public Review and Comment</p>
+    <p id="_9302ef9c-263e-4561-ad4f-68ae63b722e1">I0701 CalConnect Document Public Review and Comment</p>
   </li>
   <li>
-    <p id="_bd2c4e29-d36a-4b3c-82b6-76b81c9300ed">I0702 CalConnect Document Classification and Numbering</p>
+    <p id="_a76ec4cd-7c5b-48e6-bdb0-bc056792dcf5">I0702 CalConnect Document Classification and Numbering</p>
   </li>
   <li>
-    <p id="_7be456ef-def3-4d5c-bd55-b2eb2b87823e">I0703 CalConnect Document Processes and Management</p>
+    <p id="_4ab60c81-f5b8-44c0-a18c-23965639b96d">I0703 CalConnect Document Processes and Management</p>
   </li>
-</ul></foreword><introduction id="_introduction" obligation="informative"><title>Introduction</title><p id="_cb8fb4ec-1299-4162-bc0c-b5b72768e919">CalConnect is committed in expanding the realm of open
+</ul></foreword><introduction id="_introduction" obligation="informative"><title>Introduction</title><p id="_8c9dc824-75cc-4056-8b3d-787877f5174a">CalConnect is committed in expanding the realm of open
 collaboration standards across the globe and across communities of
 practice.</p>
-<p id="_0da35f88-9a02-4231-9acc-bae1a9054081">To facilitate its mission, the CalConnect Board of Directors has decided
+<p id="_51482df9-1add-40c5-b67a-cfa55c95b83f">To facilitate its mission, the CalConnect Board of Directors has decided
 to align standardization and publication processes with international
 best practices, such as the ISO standardization process, and the
 <eref type="inline" bibitemid="WTOTBT" citeas="WTO Technical Barriers To Trade Agreements"/>.
 This document aims to achieve the said intention.</p>
-<p id="_8ebc942d-ce4e-4c35-aa1f-43343a0ac15e">The document describes the CalConnect standardization process, from
+<p id="_13ad892c-1fbb-4043-9e34-69e6b2f6a137">The document describes the CalConnect standardization process, from
 conception, IPR policy, TC establishment, collaboration policies
 (liaisons), to the publishing of work items.</p>
-<p id="_c9d3bd6c-d43c-45d9-9bdb-0580efc74fcd">Processes described in this document contain parts that relate
+<p id="_1140d627-e522-4785-9747-1d614977dad7">Processes described in this document contain parts that relate
 to all CalConnect technical committees and the TCC, which
 carries responsibility of implementing these processes.</p></introduction></preface><sections>
 
-<clause id="_scope" obligation="normative"><title>Scope</title><p id="_c3bd8e82-d1d8-4e5f-a1ef-192f5954c4e3">This document formalizes the standardization and publication processes
+<clause id="_scope" obligation="normative"><title>Scope</title><p id="_408f4189-6c6b-44e9-8dc3-d89a92b250a0">This document formalizes the standardization and publication processes
 of CalConnect.</p>
-<p id="_d5dac1f1-63d7-4c32-8faf-82af76a4d7a9">Specifically, it describes the processes and requirements for the
+<p id="_a2a25d0f-9e5b-46c0-b277-b37343675a9d">Specifically, it describes the processes and requirements for the
 standardization and publication of the following document types
 produced by CalConnect, including:</p>
-<dl id="_f3cb3622-7918-4eaa-90b3-856471c3ed7f">
+<dl id="_63226f11-493d-4db1-87a5-265f9ad66e32">
   <dt>Directive</dt>
   <dd>
-    <p id="_e67c7205-cdb1-4835-8e0d-b595deab5cb5">normative document that provides requirements for
+    <p id="_a04771c3-90db-457a-a22c-ba0ebe1da6b3">normative document that provides requirements for
 internal CalConnect processes</p>
   </dd>
   <dt>Standard</dt>
   <dd>
-    <p id="_7a468c94-812e-4763-9160-cc9dfc1db7e4">normative document that provide requirements, specifications or guidelines
+    <p id="_23f269ab-7d59-4791-8157-e0cdc2e799ed">normative document that provide requirements, specifications or guidelines
 for the public</p>
   </dd>
   <dt>Guide</dt>
   <dd>
-    <p id="_267bfb5c-c77b-4a2d-bba3-b66789def2ac">informative internal document for CalConnect technical committees</p>
+    <p id="_fd250112-c34e-4221-86a9-7e1c36f29ccd">informative internal document for CalConnect technical committees</p>
   </dd>
   <dt>Specification</dt>
   <dd>
-    <p id="_3ece4cb4-d4a1-48f8-bae5-22fb4adbc9d2">informative specification for the public</p>
+    <p id="_f4f3ffaf-da24-4a75-b35a-c3358a8c098b">informative specification for the public</p>
   </dd>
   <dt>Report</dt>
   <dd>
-    <p id="_8ab96072-109a-4fe5-bc3f-a1e04f3bf60e">informative internal or public report</p>
+    <p id="_7a7d7bd2-fd1b-46c8-9ee8-a0855585f177">informative internal or public report</p>
   </dd>
   <dt>Amendment</dt>
   <dd>
-    <p id="_388107b0-199e-4de8-813a-42657269e0dc">normative document that amend a published CalConnect document</p>
+    <p id="_b6ee62d6-bb85-4db6-bab2-15f9007eac5e">normative document that amend a published CalConnect document</p>
   </dd>
   <dt>Technical corrigendum</dt>
   <dd>
-    <p id="_576fedd2-76f5-4375-b1cd-34bbc238cf5b">document that describes a minor amendment
+    <p id="_1639c9b6-19bb-49b2-9044-adf6a7bb601b">document that describes a minor amendment
 of a published CalConnect document, that does not affect the overall validity
 of the original document</p>
   </dd>
 </dl>
-<p id="_a82b3b22-01a0-475c-97a9-de25da3b62d6">This document does not apply to the following types of documents
+<p id="_7d67d465-1dd9-420a-8e43-c91df62c33b9">This document does not apply to the following types of documents
 produced by CalConnect, although processes described in this document
 can be optionally used as guidance for rigor:</p>
-<ul id="_0df6c7d1-1816-4e37-91cc-9132c3416300">
+<ul id="_a1e15052-580c-485d-8401-f1411457e7bb">
   <li>
-    <p id="_f83ccba9-c3bf-4886-a464-a0ab79123afe">policy statements;</p>
+    <p id="_28cc931a-f279-4607-9d33-f46b070e3a7a">policy statements;</p>
   </li>
   <li>
-    <p id="_d09c260f-29b5-45b8-9425-c967076a0fe1">internal administrative documents; and</p>
+    <p id="_d032bf2c-7340-4a8f-b462-57f92db9281c">internal administrative documents; and</p>
   </li>
   <li>
-    <p id="_8598131c-3ac3-453f-96be-7d7d3a87cb2a">how-to guides.</p>
+    <p id="_322327e0-4415-42fd-bc6a-458c44788743">how-to guides.</p>
   </li>
 </ul></clause>
 
 <clause id="terms" obligation="normative"><title>Terms and definitions</title><terms id="_terms_and_definitions" obligation="normative"><title>Terms and definitions</title><term id="term-std-project">
   <preferred>standardization project</preferred>
-  <definition><p id="_1a3a3bde-c2dd-4a00-91b3-ef94402f33bb">an organized process with one or more <em>standardization work items</em> (<xref target="term-std-work-item"/>)
+  <definition><p id="_04a53263-6a3a-443f-b14f-f18a861f9039">an organized process with one or more <em>standardization work items</em> (<xref target="term-std-work-item"/>)
 that contributes towards a defined scope of work</p></definition>
 </term>
 <term id="term-std-work-item">
   <preferred>standardization work item</preferred>
-  <definition><p id="_af6b762b-9086-4ac7-b545-0b027580c2a3">publishable <em>document</em> (<xref target="term-document"/>) that relates to standardization</p></definition>
+  <definition><p id="_ad485fd5-2692-4488-9c1e-7e7cc1a6ca21">publishable <em>document</em> (<xref target="term-document"/>) that relates to standardization</p></definition>
 </term>
 <term id="term-project-owner">
   <preferred>project owner</preferred>
-  <definition><p id="_2a52d9fd-9612-456f-9655-725d513050d5">entity with authority in charge of a <em>standardization project</em>
+  <definition><p id="_08eb86d4-8e58-4301-a148-911f1903136f">entity with authority in charge of a <em>standardization project</em>
 (<xref target="term-std-project"/>)</p></definition>
 </term>
 <term id="term-document">
   <preferred>document</preferred>
-  <definition><p id="_d56fa62f-e91e-49f3-9f48-1a96eff6bfd8">written output</p></definition>
+  <definition><p id="_fcfefb40-515b-4f7d-b299-6297c593f5bf">written output</p></definition>
 </term>
 <term id="term-cc-deliverable">
   <preferred>CalConnect deliverable</preferred>
-  <definition><p id="_39a6b6d2-88c0-4789-bc42-1d353116edcb"><em>document</em> (<xref target="term-document"/>) that could be a CalConnect Standard,
+  <definition><p id="_614ecef6-a291-4d86-8f8b-4d4c498ebede"><em>document</em> (<xref target="term-document"/>) that could be a CalConnect Standard,
 Guide, Specification, Report</p></definition>
 </term>
-<term id="term-iso-deliverable"><preferred>ISO TC deliverable</preferred><definition><p id="_4be39c82-55ed-472e-9d72-8e514b081f21"><em>document</em> (<xref target="term-document"/>) of an ISO TC as described in <xref target="ISODIR1"/></p></definition>
-<termnote id="_3bf6affb-cc88-4d8e-b5e0-ee5b49ed30dd">
-  <p id="_c58c2ba5-2c3f-4eb2-82b4-f549a648f53b">According to <xref target="ISODIR1"/>, ISO TC deliverables include the following types: International Standards, Technical Specifications, Publicly Available Specifications and Technical Reports.</p>
+<term id="term-iso-deliverable"><preferred>ISO TC deliverable</preferred><definition><p id="_4e045f6f-3a75-4d8e-9d8f-70850d934d22"><em>document</em> (<xref target="term-document"/>) of an ISO TC as described in <eref type="inline" bibitemid="ISODIR1" citeas="ISO/IEC Directives, Part 1"/></p></definition>
+<termnote id="_a5a3bf7f-f756-46ed-9617-fe121e982501">
+  <p id="_302f9814-cf63-4a34-b4dd-f49825853ba2">According to <eref type="inline" bibitemid="ISODIR1" citeas="ISO/IEC Directives, Part 1"/>, ISO TC deliverables include the following types: International Standards, Technical Specifications, Publicly Available Specifications and Technical Reports.</p>
 </termnote></term>
 <term id="term-cc-tc"><preferred>CalConnect technical committee</preferred>
   <admitted>CalConnect TC</admitted>
 
-<definition><p id="_93680810-7054-43e8-8e7e-b4465bdaf940">internal committee of CalConnect tasked with a scope of work it
+<definition><p id="_d2abe699-39db-43d3-b578-8df120ac60e6">internal committee of CalConnect tasked with a scope of work it
 is responsible for</p></definition></term>
 <term id="_document_stage">
   <preferred>document stage</preferred>
-  <definition><p id="_60122507-1586-4e2b-98eb-56a95e737e2b">stage of document as specified in the ISO harmonized stages (as defined in <xref target="ISODIR1C"/>)</p></definition>
+  <definition><p id="_7fe23b37-1ed6-4300-9ab3-f0ae5312e78a">stage of document as specified in the ISO harmonized stages (as defined in <eref type="inline" bibitemid="ISODIR1C" citeas="ISO/IEC Directives, Part 1, Consolidated ISO Supplement"/>)</p></definition>
 </term>
-<term id="term-std-project-output"><preferred>standardization project output</preferred><definition><p id="_bfa67f15-b0e2-4293-bcb3-a7b8ca8ebdc1">output of a <em>standardization project</em> (<xref target="term-std-project"/>)</p></definition>
-<termnote id="_4603b015-965d-405f-81e7-e5994c465ccd">
-  <p id="_f8316034-ba2c-440f-b84f-4542b8bc5788">In this document, it explicitly means any documents and IP rights
+<term id="term-std-project-output"><preferred>standardization project output</preferred><definition><p id="_e40c1c89-0812-4ea1-9383-03e6b98ace42">output of a <em>standardization project</em> (<xref target="term-std-project"/>)</p></definition>
+<termnote id="_2e0a89e4-62ed-4619-bf1d-fbb67e5b0c2a">
+  <p id="_c2e8d42d-680a-4fdd-9df9-b60dd2d38805">In this document, it explicitly means any documents and IP rights
 produced by the standardization project.</p>
 </termnote></term>
 <term id="term-sdo"><preferred>standardization body</preferred><admitted>standards-developing organization</admitted>
 <admitted>SDO</admitted>
-<definition><p id="_04af3bf7-729f-4bf2-baab-c51b82541c4b">entity that publishes <em>standardization work items</em> (<xref target="term-std-work-item"/>)</p></definition></term>
+<definition><p id="_a00903a7-f6a6-407a-80b6-ca5c75506752">entity that publishes <em>standardization work items</em> (<xref target="term-std-work-item"/>)</p></definition></term>
 <term id="term-std-proposal">
   <preferred>proposal for standardization</preferred>
-  <definition><p id="_1f107687-6450-4536-8a77-ea896cb07df3">proposal for a new work item for standardization</p></definition>
+  <definition><p id="_af3bf934-18b2-4b12-8f17-95db1f2e563f">proposal for a new work item for standardization</p></definition>
 </term>
 <term id="term-co-develop"><preferred>co-develop</preferred>
   <admitted>collaborative development</admitted>
 
-<definition><p id="_cbd5b3bf-a286-43a8-929b-7ca7e7e5ae4f">act of developing a work item by multiple parties from the proposal stage</p></definition></term>
+<definition><p id="_3068d0ec-3514-4e1c-8cfe-17b60b47b077">act of developing a work item by multiple parties from the proposal stage</p></definition></term>
 <term id="term-co-publish"><preferred>co-publish</preferred>
   <admitted>collaborative publishing</admitted>
 
-<definition><p id="_de29a572-95b1-4233-8b77-566648b30fb9">act of publishing <em>documents</em> (<xref target="term-document"/>) of identical content
+<definition><p id="_94182593-f064-4c0d-bf77-906584014494">act of publishing <em>documents</em> (<xref target="term-document"/>) of identical content
 by multiple parties</p></definition></term>
 <term id="_joint_work_item">
   <preferred>joint work item</preferred>
-  <definition><p id="_4909a47d-c014-4b1b-83cb-793b063fc684">work item <em>co-developed</em> (<xref target="term-co-develop"/>) by both parties</p></definition>
+  <definition><p id="_da94b036-fc51-4985-a125-a161bab48aa3">work item <em>co-developed</em> (<xref target="term-co-develop"/>) by both parties</p></definition>
 </term>
-<term id="_joint_publication"><preferred>joint publication</preferred><definition><p id="_86cb1b78-9c67-4609-a543-4e1d079dbe84">publication that is <em>co-published</em> (<xref target="term-co-publish"/>) by CalConnect with
+<term id="_joint_publication"><preferred>joint publication</preferred><definition><p id="_255fd9fd-e0c5-476f-9529-f33c26b2a9a2">publication that is <em>co-published</em> (<xref target="term-co-publish"/>) by CalConnect with
 an external <em>standardization body</em> (<xref target="term-sdo"/>)</p></definition>
-<termnote id="_22453530-5416-4c90-b898-e6d275d383d9">
-  <p id="_db13e996-2c0d-4d43-8dc2-e28c8fdc411e">Both parties may jointly hold copyright of the joint publication.</p>
+<termnote id="_68f67553-39ce-497d-8aa6-6374f1f2be6c">
+  <p id="_2aedb367-d109-4ef7-8127-f1d28cc6172e">Both parties may jointly hold copyright of the joint publication.</p>
 </termnote></term>
 <term id="term-jcg"><preferred>Joint Coordination Group</preferred>
   <admitted>JCG</admitted>
 
-<definition><p id="_ad9cdd31-6372-4dcd-b61e-52421b777276">advisory group with representatives from CalConnect and an external
+<definition><p id="_6794d324-df61-41cc-baa1-0f8da99e1e4a">advisory group with representatives from CalConnect and an external
 <em>standardization body</em> (<xref target="term-sdo"/>) on the execution and maintenance of a
 <em>co-publishing</em> (<xref target="term-co-publish"/>) agreement</p></definition></term>
 <term id="term-doc-register">
   <preferred>co-development document register</preferred>
-  <definition><p id="_df8d0013-4435-4e3e-9e0b-ee1681d26bb8">document register of a list of <em>co-developed</em> (<xref target="term-co-develop"/>)
+  <definition><p id="_83383afe-0b79-44bc-b56b-416267047ccf">document register of a list of <em>co-developed</em> (<xref target="term-co-develop"/>)
 <em>documents</em> (<xref target="term-document"/>) developed under this agreement,
 held by the corresponding <em>Joint Coordination Group</em> (<xref target="term-jcg"/>)</p></definition>
 </term>
 <term id="term-board">
   <preferred>CalConnect Board of Directors</preferred>
-  <definition><p id="_c2e19e62-c38c-435e-a5cc-02a5b7c35df3">persons serving as a Board Director for and with a statutory obligation
+  <definition><p id="_d476165f-c488-430b-a238-2f21661f570a">persons serving as a Board Director for and with a statutory obligation
 to CalConnect</p></definition>
 </term>
 <term id="term-repo">
   <preferred>CalConnect Document Repository</preferred>
-  <definition><p id="_1c143314-8bac-423c-bded-77873ee4892c">designated repository used to store CalConnect documents</p></definition>
+  <definition><p id="_32e5668c-f047-400b-9764-c8e637f28937">designated repository used to store CalConnect documents</p></definition>
 </term></terms>
 <definitions id="_abbreviations">
-  <dl id="_e04c518f-c2e8-4e31-b09f-e45ae446be8d">
+  <dl id="_daca2439-b401-4fcc-ab41-7f6e6c74431e">
   <dt>IPR</dt>
   <dd>
-    <p id="_68f8e2e3-4724-496e-9ae0-f42ac8b96bf5">Intellectual Property Rights</p>
+    <p id="_1f3085e3-11ce-4932-bf92-1b520cd60a39">Intellectual Property Rights</p>
   </dd>
   <dt>TCC</dt>
   <dd>
-    <p id="_488cba98-6aaa-4ce2-95d8-2875c76adcd5">Technical Coordination Committee</p>
+    <p id="_310cd05c-7293-454e-aaa1-dabd4d0a54e6">Technical Coordination Committee</p>
   </dd>
 </dl>
 </definitions></clause>
 <clause id="authority" obligation="normative"><title>Authority</title><clause id="_general" obligation="normative">
   <title>General</title>
-  <p id="_17319f1f-8e79-4559-a3d4-b2ce0fce9ec0">TC PUBLISH is responsible for developing the corresponding processes
+  <p id="_bc17932d-ade4-4286-a7aa-3f4d70209af3">TC PUBLISH is responsible for developing the corresponding processes
 and tools, while the TCC for their employment.</p>
 </clause>
-<clause id="_tc_publish" obligation="normative"><title>TC PUBLISH</title><p id="_5c689a0f-0472-499e-84f2-1286e4ce331a">TC PUBLISH is responsible for:</p>
-<ul id="_9032bbb5-c995-4107-be80-cb689ac3b9aa">
+<clause id="_tc_publish" obligation="normative"><title>TC PUBLISH</title><p id="_827abafd-b0b2-4414-aaf1-c2d91553eeb9">TC PUBLISH is responsible for:</p>
+<ul id="_cc0055b8-60b2-445e-acf7-39a3247f36a2">
   <li>
-    <p id="_b828c941-81d0-4f68-a805-1b9979f3c484">policy development: providing recommendations to the Board of
+    <p id="_aa6cbd84-9fbb-4b95-ae76-a2180d013459">policy development: providing recommendations to the Board of
 Directors and the TCC on the CalConnect standardization and
 publication processes;</p>
   </li>
   <li>
-    <p id="_8212bf0e-3961-4392-bea4-493be6cfec2f">policy establishment: developing and supporting process
+    <p id="_e9d66669-4feb-4edf-bfc1-45b5ca0d1936">policy establishment: developing and supporting process
 documents, including:</p>
-    <ul id="_e5559e52-322c-4299-9dc8-29eb8d95873d">
+    <ul id="_69f3ea49-56e6-4e2f-8127-c0d2b748e4c0">
   <li>
-    <p id="_1786bb18-fd4f-453f-83ce-8764a1431fff">this document; and</p>
+    <p id="_9cb081ae-0be4-4fac-b2b6-f0ec0ca3bf25">this document; and</p>
   </li>
   <li>
-    <p id="_4143621a-2733-4951-bfdb-2dd1b3150516">CalConnect publication requirements; and</p>
+    <p id="_adfffacd-ffa5-4de6-b13f-f14863e42a2f">CalConnect publication requirements; and</p>
   </li>
 </ul>
   </li>
   <li>
-    <p id="_bedf8979-0a49-43ee-bff7-c02d65fc436e">maintenance: periodic review and perform amendments necessary
+    <p id="_ec3cc042-0e3a-4350-9793-b665f780bc45">maintenance: periodic review and perform amendments necessary
 to support the processes and requirements established in this
 document.</p>
   </li>
 </ul></clause>
-<clause id="_tcc" obligation="normative"><title>TCC</title><p id="_7495f00a-0050-425f-b112-51c3a50bb3bf">The TCC is responsible for:</p>
-<ul id="_1422a7e7-cf89-41a8-9257-36eb3301cdca">
+<clause id="_tcc" obligation="normative"><title>TCC</title><p id="_3f4f4e42-b983-452b-9d9c-a1d196fbe7be">The TCC is responsible for:</p>
+<ul id="_04a8df4e-5391-47d4-b776-5328cbc7629b">
   <li>
-    <p id="_3103f4f0-e092-45bf-b227-130218568eab">execution: faithful execution and maintenance of the CalConnect
+    <p id="_d60559b8-c724-4b46-b7d0-e21f7a297894">execution: faithful execution and maintenance of the CalConnect
 standardization process;</p>
   </li>
   <li>
-    <p id="_ad56f6c8-8c85-4e89-bdc4-181533d417bd">enforcement: enforcing CalConnect publication requirements on the publication
+    <p id="_cb34360a-202e-45e5-a8bc-2f259d376d81">enforcement: enforcing CalConnect publication requirements on the publication
 of CalConnect deliverables;</p>
   </li>
   <li>
-    <p id="_17fd7d02-1a30-4580-b6bb-ba76d9cc9f3c">mediation: raising issues and problems encountered concerning the processes
+    <p id="_e425dd57-0463-4b93-ad9b-b99368be1df4">mediation: raising issues and problems encountered concerning the processes
 and procedures described in this document to TC PUBLISH for
 further consideration; and</p>
   </li>
   <li>
-    <p id="_b410f209-5793-40e7-adfb-74a1b12f4196">coordination: supporting liaisons between CalConnect technical committees and
+    <p id="_cdc585dc-0219-4891-9a11-437b3a77a7fb">coordination: supporting liaisons between CalConnect technical committees and
 project teams with corresponding parties of external standardization
 bodies.</p>
   </li>
 </ul></clause></clause>
-<clause id="document-types" obligation="normative"><title>Document types</title><p id="_10755c27-70c6-4f45-8f24-9ba135840cc7">All documents must have at least one document type, or category. A
+<clause id="document-types" obligation="normative"><title>Document types</title><p id="_f540f3bc-31fe-4016-bdde-0570768d5c75">All documents must have at least one document type, or category. A
 document may appear in more than one category, if appropriate.</p>
 <clause id="_directive" obligation="normative">
   <title>Directive</title>
-  <p id="_994139a0-529f-4136-9b8e-4bfe41f04719">Internal, normative documents approved by the CalConnect Board of Directors,
+  <p id="_c62c757f-e971-4d12-b725-1e94ea3a5a03">Internal, normative documents approved by the CalConnect Board of Directors,
 developed by TC PUBLISH, that provides requirements for
 internal CalConnect processes.</p>
 </clause>
 <clause id="_standard" obligation="normative">
   <title>Standard</title>
-  <p id="_9d81c6d7-cf69-4658-a208-d89a204c52bb">Normative documents created through the CalConnect standardization process
+  <p id="_2a95b728-c930-4f61-9a4a-fc2c5b8e81b1">Normative documents created through the CalConnect standardization process
 that provide requirements, specifications or guidelines for the public.</p>
 </clause>
-<clause id="_guide" obligation="normative"><title>Guide</title><p id="_01c95445-f90e-4983-86c6-561fda7617e0">Informative, internal documents that describe guidelines for the work of
+<clause id="_guide" obligation="normative"><title>Guide</title><p id="_f6c43ce6-13b5-4a8e-a5bb-326adb6b9b0b">Informative, internal documents that describe guidelines for the work of
 CalConnect technical committees.</p>
-<p id="_895ce3bc-cff0-4c10-a9cf-e08a6498d45d">Often a document discussing problems or issues and making suggestions for
+<p id="_26213805-6592-4c02-806f-783b66473ff1">Often a document discussing problems or issues and making suggestions for
 action.</p></clause>
-<clause id="_specification" obligation="normative"><title>Specification</title><p id="_bb28d833-6397-4d5e-8557-472207545e50">Informative specifications for the public.</p>
-<p id="_b60f11b1-af85-4f09-8958-bf1458edc4e8">It could be an experimental specification intended for research and exploration,
+<clause id="_specification" obligation="normative"><title>Specification</title><p id="_0b0c6a12-0ea8-459a-b836-0fbd815fd41a">Informative specifications for the public.</p>
+<p id="_ac00f40c-0206-4431-8da0-dfa5d4e66606">It could be an experimental specification intended for research and exploration,
 such as to encourage trial implementations, to determine its usefulness and
 applicability.</p>
-<p id="_77e21f8e-9f2e-41b0-9c60-76870653b1c5">A published Specification deemed successful would be candidates for progression
+<p id="_df77f7f3-2e32-412e-bcb4-d7bcce42b03c">A published Specification deemed successful would be candidates for progression
 towards a Standard.</p></clause>
 <clause id="_amendment" obligation="normative">
   <title>Amendment</title>
-  <p id="_7195e560-367c-4aa1-85a0-afac28230c6c">Normative documents that amend a published CalConnect document, such as a
+  <p id="_d409a9f4-26ca-4a19-b4e1-ea8311516b6f">Normative documents that amend a published CalConnect document, such as a
 Standard.</p>
 </clause>
-<clause id="_technical_corrigendum" obligation="normative"><title>Technical corrigendum</title><p id="_af02dad6-d41b-439d-918b-e4e540523eaf">Document that describes a minor amendment of a published CalConnect
+<clause id="_technical_corrigendum" obligation="normative"><title>Technical corrigendum</title><p id="_b920b26e-d040-4d6a-a6ca-a14ef9af9bbd">Document that describes a minor amendment of a published CalConnect
 document, that does not affect the overall validity of the original
 document.</p>
-<p id="_03ebf9ad-8a68-4178-b451-c73d1fbbb74b">Could be a normative or informative document for public or
+<p id="_8eb3a181-ffe6-4db7-9c88-c0d12c312877">Could be a normative or informative document for public or
 internal consumption.</p></clause>
-<clause id="_reports" obligation="normative"><title>Reports</title><p id="_abb26635-c582-4031-a460-f3bb15bd3ada">Informative document, reporting on an event or presenting findings
+<clause id="_reports" obligation="normative"><title>Reports</title><p id="_a65d084d-af3f-49d8-960d-f3bf9029a706">Informative document, reporting on an event or presenting findings
 of a study or research effort, which may reach conclusions but does
 not contain suggestions for action, except incidentally.</p>
-<p id="_ebc5081f-3f60-4429-a366-9c79eaf15136">Intended for internal or public consumption.</p>
-<example id="_35c7d080-94cf-4fd8-a08e-a7ed2a32c915">
-  <p id="_87651d2f-cdf7-437e-b1d0-05f5a7173a22">A report on a CalConnect conference.</p>
+<p id="_91c3110c-e03b-4312-a15d-c9000ff20812">Intended for internal or public consumption.</p>
+<example id="_5cbd23cd-4f63-45bb-9b55-287c9abba22b">
+  <p id="_9a7379f0-5569-4271-b34a-05c6b20d65c8">A report on a CalConnect conference.</p>
 </example></clause>
 <clause id="_administrative" obligation="normative">
   <title>Administrative</title>
-  <p id="_cef9b087-9500-4617-a2ee-5f1303e1110d">A document type for meeting minutes, proposals to committees, policy
+  <p id="_bd2bb9c3-3176-436e-93c2-ae38fad56d10">A document type for meeting minutes, proposals to committees, policy
 documents, and other material, generally of an internal nature.</p>
 </clause></clause>
-<clause id="process" obligation="normative"><title>Standardization process</title><clause id="_general_2" obligation="normative"><title>General</title><p id="_3dfa7a4b-bc35-4b7a-8a0a-2e2d212d0610">Every CalConnect deliverable starts as a project.</p>
-<p id="_486f0ce6-dcae-4521-a776-e41ca48d7d5f">A CalConnect project goes through the following processes:</p>
-<ul id="_651c9b67-a487-4e3d-b732-3f7df7d6cc66">
+<clause id="process" obligation="normative"><title>Standardization process</title><clause id="_general_2" obligation="normative"><title>General</title><p id="_e2b12817-3a54-41a0-b66b-8b0ad4bffd2c">Every CalConnect deliverable starts as a project.</p>
+<p id="_ac2f109f-0bd8-402b-8f6f-2dcea13d3337">A CalConnect project goes through the following processes:</p>
+<ul id="_c1d4b22c-fb1a-40e6-9236-e3d98e4e3c11">
   <li>
-    <p id="_ac254409-f701-4fe8-b4b3-c5e679638049">starts with a proposal;</p>
+    <p id="_a4af2c82-e6f6-486e-bc57-002589930495">starts with a proposal;</p>
   </li>
   <li>
-    <p id="_d35da9d7-9162-4a94-b139-fec6b17f4cdf">the proposal is given to the approving entity for enactment;</p>
+    <p id="_ba6f4d31-1d6a-460b-b2d1-33dcfbca5739">the proposal is given to the approving entity for enactment;</p>
   </li>
   <li>
-    <p id="_e788dab4-b2ba-4569-b8db-8f95b641be78">assigns a committee as project owner once the project is approved;</p>
+    <p id="_1d1fdf96-6de1-4473-8f4a-6c760ca253d6">assigns a committee as project owner once the project is approved;</p>
   </li>
   <li>
-    <p id="_d323cac0-1d36-4ebc-9412-2ef44640f1cd">the committee creates one or more working drafts from the proposal;</p>
+    <p id="_f4dc9566-0200-4acb-99dd-29d49711bd56">the committee creates one or more working drafts from the proposal;</p>
   </li>
   <li>
-    <p id="_d9c668b9-470b-40d9-8e2a-6d42f40f1cb8">the committee decides to endorse a committee draft;</p>
+    <p id="_fdbf38f7-1034-4fe7-a314-2e9c4645c5bd">the committee decides to endorse a committee draft;</p>
   </li>
   <li>
-    <p id="_828a256a-263b-4fc8-b634-7df0b5449107">the approved committee draft becomes a standards draft</p>
+    <p id="_b3ad9cee-93ca-4f38-971f-6bed7f52afac">the approved committee draft becomes a standards draft</p>
   </li>
   <li>
-    <p id="_23fc6fab-060a-436d-9a46-aadb4d272db1">the draft standard is given to the approving entity for endorsement;</p>
+    <p id="_bb2626d7-16d1-4990-a8e6-7fd3ad8b77cc">the draft standard is given to the approving entity for endorsement;</p>
   </li>
   <li>
-    <p id="_8ed3d69e-bbb9-453f-ad29-bb83d45aa091">the draft standard is approved for publication as a standard.</p>
+    <p id="_e72eeb28-214b-48f3-a990-ac83bbde9ee1">the draft standard is approved for publication as a standard.</p>
   </li>
 </ul></clause>
-<clause id="_project_stages" obligation="normative"><title>Project stages</title><p id="_1d8e665c-aa4a-4b89-849b-a4530eae0a43">The following table provides a mapping between CalConnect project stages and
+<clause id="_project_stages" obligation="normative"><title>Project stages</title><p id="_7b316d95-6e5b-43c2-8658-5fa24fdcf46f">The following table provides a mapping between CalConnect project stages and
 ISO project stages. This document identifies stages
 according to the CalConnect project stage names.</p>
-<table id="_8a857b5b-12a8-4005-b302-43878910f291">
+<table id="_3e5b8f9e-c731-46bc-8efb-70df281accd4">
   <name>Alignment between ISO and CalConnect project stages</name>
   <thead>
     <tr>
       <th align="left">Stage identifier</th>
       <th align="left">CalConnect stage</th>
-      <th align="left">ISO harmonized stage (<xref target="ISODIR1"/>)</th>
+      <th align="left">ISO harmonized stage (<eref type="inline" bibitemid="ISODIR1" citeas="ISO/IEC Directives, Part 1"/>)</th>
       <th align="left">CalConnect deliverable</th>
       <th align="left">ISO deliverable</th>
     </tr>
@@ -456,437 +456,437 @@ according to the CalConnect project stage names.</p>
     </tr>
   </tbody>
 </table></clause>
-<clause id="_project_track" obligation="normative"><title>Project track</title><p id="_78968752-1f4b-4268-acda-75b0e9300a45">There is only one project track in CalConnect as considered by the TCC.</p>
+<clause id="_project_track" obligation="normative"><title>Project track</title><p id="_5179e58d-194d-46bf-9f55-d71ce2263256">There is only one project track in CalConnect as considered by the TCC.</p>
 <clause id="_co_development_guidelines" obligation="normative">
   <title>Co-development guidelines</title>
-  <p id="_1ce7664c-715e-45dd-9c82-4abb5b668848">For projects under co-development agreements, CalConnect agrees to
+  <p id="_6063f155-3b17-4ab3-a8fd-b6874957b967">For projects under co-development agreements, CalConnect agrees to
 adopt a developmental track not slower than a corresponding track
 selected by the external standardization body to ensure
 synchronicity between development outcome and publication.</p>
 </clause></clause>
 <clause id="_project_ownership" obligation="normative"><title>Project ownership</title><clause id="_general_3" obligation="normative">
   <title>General</title>
-  <p id="_d30728a6-f8e7-414a-949b-7b322ae3688a">All CalConnect non-administrative documents must be owned by a single
+  <p id="_b94077f3-5301-4a98-915d-e2f574735920">All CalConnect non-administrative documents must be owned by a single
 Technical Committee (the "owning" Technical Committee) even if two
 or more TCs participate in the work of developing the document.</p>
 </clause>
-<clause id="_transition_of_ownership_on_tc_retirement" obligation="normative"><title>Transition of ownership on TC retirement</title><p id="_7dd25360-d1b0-4a82-be5a-56a55b387b11">When a TC completes its scope of work and is shut down, the ownership
+<clause id="_transition_of_ownership_on_tc_retirement" obligation="normative"><title>Transition of ownership on TC retirement</title><p id="_2d03a7ce-4d22-4b7e-b9f4-5c6013a0d91d">When a TC completes its scope of work and is shut down, the ownership
 of its documents moves to the TCC.</p>
-<p id="_6e552bf7-46b2-415e-aa71-8261fc3b87f8">TCC may retain ownership of a document once assigned to it, or
+<p id="_308ece09-c282-41c2-9c2a-50e1f3fb61c5">TCC may retain ownership of a document once assigned to it, or
 it may assign the document to a different or new Technical Committee,
 generally if follow-on work or maintenance is required on the document.</p></clause></clause>
-<clause id="_project_membership" obligation="normative"><title>Project membership</title><clause id="_general_4" obligation="normative"><title>General</title><p id="_66a35e54-280e-4f19-81a0-93b557d5c523">The owning TC is responsible for maintaining expert membership of a
+<clause id="_project_membership" obligation="normative"><title>Project membership</title><clause id="_general_4" obligation="normative"><title>General</title><p id="_2b78b700-c89b-4231-8127-31f36e9bda76">The owning TC is responsible for maintaining expert membership of a
 project group.</p>
-<p id="_84fc0669-193f-4fee-ac8b-44014dd23111">CalConnect members are allowed to nominate experts to the project group
+<p id="_89abb653-efab-4f6a-ba50-4ec70bfc82b2">CalConnect members are allowed to nominate experts to the project group
 with approval of the owning TC.</p>
-<p id="_efac4315-1e8c-4138-8f03-6e71106f6f28">At least one person, at most two, serves as project leader, as decided
+<p id="_b9603425-e619-44c1-904f-e403d178a9c7">At least one person, at most two, serves as project leader, as decided
 by the owning TC.</p>
-<p id="_eae6045d-176e-4728-986c-d13e4d532066">The project leader(s) shall assume project editorship unless that
+<p id="_72f2b60a-6260-4174-bafc-ba80be39b2bf">The project leader(s) shall assume project editorship unless that
 activity is specifically assigned to another individual.</p></clause>
 <clause id="_external_members" obligation="normative">
   <title>External members</title>
-  <p id="_464951e3-acfb-4818-9b33-fe2e876e4964">Individuals who are not members of CalConnect are only allowed to participate in
+  <p id="_e7af4708-d0f3-492b-a3f0-46ced2245f58">Individuals who are not members of CalConnect are only allowed to participate in
 a project unless specifically authorized by the project owning TC, in consultation
 with the project leader, and approved by the TCC.</p>
 </clause>
 <clause id="_co_development_guidelines_2" obligation="normative">
   <title>Co-development guidelines</title>
-  <p id="_2340a876-2499-470c-8e8a-bffe375a2b42">Parties may bring in additional collaborators given approval by the
+  <p id="_ad2ca360-0f3a-445c-a51c-5d28bb4202ad">Parties may bring in additional collaborators given approval by the
 corresponding JCG, that the provisions of this agreement
 are fully satisfied by agreements present between all collaborators.</p>
 </clause></clause>
-<clause id="_project_stages_2" obligation="normative"><title>Project stages</title><clause id="_preliminary_stage" obligation="normative"><title>Preliminary stage</title><clause id="_initiation_methods" obligation="normative"><title>Initiation methods</title><p id="_2c645aa3-ba6d-451b-acce-ab1ab4b545f7">A standardization project can be initiated in one of the following ways:</p>
-<ol id="_0ed81f68-a566-403e-921d-c42c8b692403" type="arabic">
+<clause id="_project_stages_2" obligation="normative"><title>Project stages</title><clause id="_preliminary_stage" obligation="normative"><title>Preliminary stage</title><clause id="_initiation_methods" obligation="normative"><title>Initiation methods</title><p id="_f298a0bd-abbd-46ff-a43d-6cc5c99b7f8e">A standardization project can be initiated in one of the following ways:</p>
+<ol id="_548bcbf4-6034-44ef-bbc1-7909891b359d" type="arabic">
   <li>
-    <p id="_8b9c3342-4118-491e-bf5a-40b0c56692b1">a project defined as part of the charter process of a TC;</p>
+    <p id="_9d524856-7442-406c-9486-8cc30f535cac">a project defined as part of the charter process of a TC;</p>
   </li>
   <li>
-    <p id="_5d8eb5c7-86ea-40a4-9bc4-1b124e0319f9">a TC decides to create a new project as an addition to its program of work;</p>
+    <p id="_fac1cdff-be60-48b8-b4cd-5c7abe846010">a TC decides to create a new project as an addition to its program of work;</p>
   </li>
   <li>
-    <p id="_b50b1b1b-6693-4190-a13e-3988e0d68d2e">the TCC or the Board of Directors decides that a project should
+    <p id="_be912021-1269-47d9-86cc-298e732a3fb5">the TCC or the Board of Directors decides that a project should
 be initiated and assigns it to a Technical Committee.</p>
   </li>
 </ol></clause>
-<clause id="_initiation_requirements" obligation="normative"><title>Initiation requirements</title><p id="_652623a4-43ee-48d5-9b45-398eb4ec1204">When a project is initiated, the following items must be defined
+<clause id="_initiation_requirements" obligation="normative"><title>Initiation requirements</title><p id="_ed2db336-0410-498e-a49c-5776b3d807d7">When a project is initiated, the following items must be defined
 by the proposer as part of the proposal to the TCC:</p>
-<ol id="_4a748068-7eb5-4612-8cfa-03356d273d0b" type="arabic">
+<ol id="_c866be7e-df16-4607-b25e-838eca4dae3a" type="arabic">
   <li>
-    <p id="_7921418b-8b51-4121-94a2-6a09c1ddefc8">scope</p>
+    <p id="_5b73fb4f-4f12-4012-851e-d50fad3c4140">scope</p>
   </li>
   <li>
-    <p id="_667ec41a-7f4d-42ee-8b20-21f2ca737dea">target audience</p>
+    <p id="_eb5a6563-cfef-4cfc-a76d-aa4a9451e306">target audience</p>
   </li>
   <li>
-    <p id="_2bd4c156-22c8-4e1c-a484-675fa52dd4a0">schedule for development and publication</p>
+    <p id="_db940ba9-3692-4a5b-a945-17c57af9e64b">schedule for development and publication</p>
   </li>
   <li>
-    <p id="_9af9fc81-5733-499e-a5bb-4dbba8680154">proposer, project leader</p>
+    <p id="_575a12d8-3314-434f-a637-57eb76a0d2b2">proposer, project leader</p>
   </li>
 </ol>
-<p id="_0c9a6e95-18db-4ac9-92ec-dc12eb505c71">All documents other than administrative documents must have an editor
+<p id="_dcef6df7-75aa-4fcf-bbd9-d11180b1a9ba">All documents other than administrative documents must have an editor
 or editors who are members of the Technical Committee(s) developing the
 document.</p></clause>
-<clause id="_confirmation" obligation="normative"><title>Confirmation</title><p id="_8849fd9d-2976-4cb4-8e53-eadede64f3bc">Once a project is confirmed initiation:</p>
-<ul id="_1b68528a-1337-41ce-bfd9-b58a128611d7">
+<clause id="_confirmation" obligation="normative"><title>Confirmation</title><p id="_8576a02f-013a-422e-9bde-b88415291026">Once a project is confirmed initiation:</p>
+<ul id="_d52bdb04-0107-48e2-be5c-92d9683fa601">
   <li>
-    <p id="_91fcac1d-49d6-471b-9f76-191d6dd2e73d">the project shall be assigned a project number as decided by the TCC; and</p>
+    <p id="_cc82b1d9-5019-43b6-bee1-2d525a28eade">the project shall be assigned a project number as decided by the TCC; and</p>
   </li>
   <li>
-    <p id="_15b2ae4c-9a92-4c15-a03e-3ba570454746">the project’s name and stage shall be listed in the project registry.</p>
+    <p id="_6853376c-0dce-4ca5-8fec-e77966002ed4">the project’s name and stage shall be listed in the project registry.</p>
   </li>
 </ul>
-<note id="_2776e395-ebd1-42b9-a575-13a17091cc36">
-  <p id="_019e4bd6-c339-4fa2-9a75-4f4948fe3d63">This document supports the creation of a project registry.</p>
+<note id="_43c3e7ea-7686-41f8-9fd9-0f06652e3995">
+  <p id="_b7543be2-a6ed-4993-940d-0f0f62d6f93a">This document supports the creation of a project registry.</p>
 </note></clause>
-<clause id="_first_draft" obligation="normative"><title>First draft</title><p id="_aed60a70-2d3f-4dc2-9721-59e29831a1ea">A first draft of the standardization deliverable may be created
+<clause id="_first_draft" obligation="normative"><title>First draft</title><p id="_06a17e82-6a5b-473d-b535-3a61e4690271">A first draft of the standardization deliverable may be created
 for proposal submission, or may be created in the Committee stage.</p>
-<p id="_f66a4d96-a3cc-405a-9e83-a30a6c13ddc5">Disclaimers and necessary statements such as relating to IPR and
+<p id="_7e70b865-452c-4a82-b30c-1c1cfc41641c">Disclaimers and necessary statements such as relating to IPR and
 copyright shall be placed in an obvious place in the draft.</p></clause>
-<clause id="_co_development_guidelines_3" obligation="normative"><title>Co-development guidelines</title><p id="_eb21f33d-91bc-4e3c-9aa8-2539dcb021a7">The draft shall be created through a collaboration process between
+<clause id="_co_development_guidelines_3" obligation="normative"><title>Co-development guidelines</title><p id="_1b1afb75-3172-423d-ab58-212d65b7a7f2">The draft shall be created through a collaboration process between
 experts from both organizations, or at least, the proposing
 organization should have received input from the other organization.</p>
-<p id="_ce1633a8-d9ab-4afc-a0da-c5be0cc0b43b">At the first instance where a CalConnect project wishes to co-develop
+<p id="_595abbf1-46a0-4bcc-9126-51054122ea3d">At the first instance where a CalConnect project wishes to co-develop
 with an external standardization body, it should be raised to the TCC.
 The JCG shall consult the stakeholders to determine appropriateness
 of the project and advise the proposer.</p>
-<p id="_ae0b6483-b39b-47fc-a1e5-413579cae5f8">If the project is rejected by the TCC, its output may still be
+<p id="_d6ac6933-8e7c-4433-9307-3b19b6362831">If the project is rejected by the TCC, its output may still be
 developed within CalConnect if it is appropriate, and its output may
 still be proposed to the TCC for co-development in later stages.</p></clause></clause>
-<clause id="_proposal_stage" obligation="normative"><title>Proposal stage</title><p id="_92e16d5a-70f4-4deb-92bd-efea57a08b0e">When the TCC determines interest within CalConnect to develop the
+<clause id="_proposal_stage" obligation="normative"><title>Proposal stage</title><p id="_78496ffa-5f88-4ea7-8862-b34e97ae9f79">When the TCC determines interest within CalConnect to develop the
 proposed project, the project initiator should submit a proposal
 to the TCC for ballot indicating its wish to develop the proposed project.</p>
-<p id="_aba5ca19-86bf-40db-b156-e6a83be2f303">If accepted, the project shall be adopted by a CalConnect TC.
+<p id="_eeb359be-3271-449f-91e0-c8ce9c2b3eeb">If accepted, the project shall be adopted by a CalConnect TC.
 Members of the project group shall be represented by experts.
 This project shall then be listed in the TCC register of projects.</p>
-<p id="_02760c10-a01c-4cc4-a9c5-2530fc82ed40">If rejected, its output may still be developed by one or more members
+<p id="_abb630f6-37d1-4f28-bee7-a027fb78ef2c">If rejected, its output may still be developed by one or more members
 of CalConnect if appropriate, and the resulting output may still be
 proposed to the TCC for development in later stages.</p>
-<p id="_df21cb01-c444-4b38-85ca-ad517e477161">A "Report" document type shall be published upon a successful ballot
+<p id="_7f575d45-09b8-4d9e-8a5d-cfbfeb468c27">A "Report" document type shall be published upon a successful ballot
 of two-thirds approval at this stage.</p>
-<clause id="_co_development_guidelines_4" obligation="normative"><title>Co-development guidelines</title><p id="_b2fa1bfb-6bb3-4c42-af62-8b168a991074">The TCC should also consider JCGs whether a proposal is suitable
+<clause id="_co_development_guidelines_4" obligation="normative"><title>Co-development guidelines</title><p id="_bb321dc9-e1e8-467e-baff-4640773dd871">The TCC should also consider JCGs whether a proposal is suitable
 to be co-developed with existing liaison organizations or
 external standardization bodies.</p>
-<p id="_f01ae028-16bc-4aa1-bafc-47b834232c35">The TCC may suggest the project group to co-develop the project
+<p id="_53c7696c-a2ae-405b-ab4a-f118c4008012">The TCC may suggest the project group to co-develop the project
 under one or more JCGs.</p></clause></clause>
-<clause id="_preparatory_stage" obligation="normative"><title>Preparatory stage</title><p id="_792141e5-d29b-495a-9b11-a27f5d9c9f24">This is an optional stage.</p>
-<p id="_9448e15b-c51e-44aa-a217-cef6d6644554">The goal of the preparatory stage is to create a "working draft"
+<clause id="_preparatory_stage" obligation="normative"><title>Preparatory stage</title><p id="_6a4190b6-0115-4512-8010-963120257f9b">This is an optional stage.</p>
+<p id="_76cef09b-2860-4da9-9078-ac4a758f1f56">The goal of the preparatory stage is to create a "working draft"
 of the deliverable approved by the project group within the TC.</p>
-<p id="_7abc0560-2ca9-4e04-a253-1697e5a3c706">Once the project team decides the working draft has advanced
+<p id="_a4dac8b0-c80c-4deb-acf0-e7bb6cb7c31b">Once the project team decides the working draft has advanced
 to being a "committee draft" or a "draft standard", this
 stage ends.</p>
-<p id="_910dbd05-5ac0-4797-a3c6-fadacb36132d">There is no ballot at this stage.</p></clause>
-<clause id="_committee_stage" obligation="normative"><title>Committee stage</title><p id="_203eb7d8-072c-4cf2-b9d8-023fa82ccd7f">This is an optional stage.</p>
-<p id="_39c13e61-754d-4997-8331-191ca5ea6bd5">The goal of the committee stage is to create a "committee draft"
+<p id="_b05daaf4-bd17-4f9a-820b-d2ab25429d0f">There is no ballot at this stage.</p></clause>
+<clause id="_committee_stage" obligation="normative"><title>Committee stage</title><p id="_aa815d8d-8fc7-441d-b2c3-a027c4e709ac">This is an optional stage.</p>
+<p id="_1d93fd4b-97ef-46b6-a385-2791a0d8d578">The goal of the committee stage is to create a "committee draft"
 of the deliverable approved by the TC.</p>
-<p id="_30d67d14-6f9c-4038-940a-453477cc7af1">The owning TC distributes the committee draft and may select a 8-week or 10-week
+<p id="_778b34a6-7960-4a26-8785-a710bd681fdb">The owning TC distributes the committee draft and may select a 8-week or 10-week
 comment period for TC members to comment.</p>
-<p id="_20d87789-ec5f-49e0-9183-5ce7a5fa3048">Within 4 weeks of completion of the comment period, the owning TC shall distribute
+<p id="_201e0ed4-095b-454f-9a42-65bee508c52a">Within 4 weeks of completion of the comment period, the owning TC shall distribute
 all formal comments received during ballot to TC members.</p>
-<p id="_23eb47cd-9b03-498a-93e1-7f1cdd7aebab">Given the results of comments, the Chair of the TC, considering TC consensus,
+<p id="_ecbbf9df-b855-4706-a473-26b5f1510c7c">Given the results of comments, the Chair of the TC, considering TC consensus,
 in consultation with the project leader (if necessary),
 shall decide on the below outcomes:</p>
-<ol id="_bd05d845-f166-4e81-9ea7-d1c20c1d9755" type="arabic">
+<ol id="_fe031337-5243-4568-9a3d-1ef5a43bda0b" type="arabic">
   <li>
-    <p id="_dc41f978-bd9e-4dba-8d1a-e072e300834d">to prepare and circulate a revised committee draft for consideration; or</p>
+    <p id="_1f02152b-08bd-48da-a7b0-c56ec662c463">to prepare and circulate a revised committee draft for consideration; or</p>
   </li>
   <li>
-    <p id="_7be562ca-187b-45c6-931e-b7d21c948d23">to register the committee draft for the enquiry stage.</p>
+    <p id="_bd31ad0d-5b95-47dd-8cf4-94c072a5faf9">to register the committee draft for the enquiry stage.</p>
   </li>
 </ol>
-<p id="_fc1debf2-86a1-491b-a514-c562b73d43bc">In case TC consensus is unclear from the results, a ballot (<xref target="process-balloting"/>) can be launched
+<p id="_9761b4d1-e4a8-44fc-aa43-ea3ab8a162d2">In case TC consensus is unclear from the results, a ballot (<xref target="process-balloting"/>) can be launched
 to determine consensus for stage advancement.</p>
-<p id="_a7438021-dcca-4556-8988-8b79daa35476">A "Specification" document type shall be published upon advancement
+<p id="_f10cbf72-3a5a-4bee-856e-743563f16ff7">A "Specification" document type shall be published upon advancement
 to the enquiry stage.</p></clause>
-<clause id="stage-enquiry" obligation="normative"><title>Enquiry stage</title><p id="_588c37a6-8424-45c0-9651-6a9ab7c67c75">The goal of the enquiry stage is to create a "draft standard"
+<clause id="stage-enquiry" obligation="normative"><title>Enquiry stage</title><p id="_cc10440f-46db-4762-917b-013132efbd37">The goal of the enquiry stage is to create a "draft standard"
 of the deliverable approved by the TC.</p>
-<p id="_0e0deeaa-d5ad-4fc5-bae6-0e50aa147453">The public review period (<xref target="public-review"/>) shall be started within
+<p id="_7495161c-2a5d-445e-b7fc-7feaa87fcb08">The public review period (<xref target="public-review"/>) shall be started within
 4 weeks of entering this stage.</p>
-<p id="_df809551-10c4-4a0b-a544-7c28fb3748ba">Once the owning TC deems a document under development to be
+<p id="_c6ab8029-f229-42a1-8968-48c921af68f7">Once the owning TC deems a document under development to be
 ready for publication, the Chair of the owning TC shall arrange
 for an official ballot (<xref target="process-balloting"/>) amongst TC members.
 "No" votes must be accompanied with technical reasons.</p>
-<p id="_7622c00e-c5ca-43f3-b642-bcd467684513">If no "No" votes were registered in the DIS ballot,
+<p id="_7f5c8a03-cbed-4ac7-ad44-784a764e544e">If no "No" votes were registered in the DIS ballot,
 the project is deemed to have unanimous support. It shall be fast-tracked
 towards the Approval stage for TCC ballot.</p>
-<p id="_06950ef2-d27a-439c-81ea-fd331d1e15cd">If the ballot was successful but at least one "No" vote has been received,
+<p id="_0522402f-1448-4394-b430-d0d9cdb8d792">If the ballot was successful but at least one "No" vote has been received,
 the project is advanced to Approval stage.</p>
-<p id="_fe58d90f-2d15-4261-ac7b-5f5bd8bb09ce">If the ballot failed, the Chair of the owning TC, in consultation
+<p id="_161b684e-c2ae-4ed2-a685-e43b020348f2">If the ballot failed, the Chair of the owning TC, in consultation
 with the project leader to decide whether to prepare and circulate a revised
 draft standard for re-balloting.</p>
-<clause id="_co_development_guidelines_5" obligation="normative"><title>Co-development guidelines</title><p id="_e6e9a9bd-e909-41d6-ad03-bb9a10b90bbb">In these stages, members of the project groups within CalConnect
+<clause id="_co_development_guidelines_5" obligation="normative"><title>Co-development guidelines</title><p id="_deb4c759-683a-4668-938d-fd49bcec90da">In these stages, members of the project groups within CalConnect
 and the external standardization body shall collaborate closely
 to ensure efficient and effective development of the deliverable of
 the respective stages. The deliverable shall be developed
 jointly by experts of the collaborating organizations.</p>
-<p id="_0f06934e-bf12-436c-82e3-5a46eee65dd0">The project stages of the collaborating organizations shall
+<p id="_d902ae71-4857-48e9-a7b1-c30150b54230">The project stages of the collaborating organizations shall
 be synchronized correspondingly.</p>
-<p id="_3d0220bf-2a52-4f80-b482-d986f2c2c9e6">Specifically:</p>
-<ul id="_178fe004-c2bd-4565-90b0-3acdd734d71b">
+<p id="_7765c3ea-2f2b-4598-9645-e6baee10bce7">Specifically:</p>
+<ul id="_92ff81fb-2bcf-4783-8e0b-e87ab18135d5">
   <li>
-    <p id="_b3c50e74-9c5c-4753-bec5-a871ce01f13a">If a deliverable is approved by ballot at an ISO TC,
+    <p id="_356671be-8a1b-4518-a1fc-0b8fca38a02c">If a deliverable is approved by ballot at an ISO TC,
 CalConnect will advance the project stage at its
 project group accordingly.</p>
   </li>
   <li>
-    <p id="_49007921-e0ce-4ad7-b97b-03076e4f2c0c">If a deliverable is rejected by ballot at an ISO TC,
+    <p id="_5a1759cb-469b-417a-8ea7-8e7a8b116b50">If a deliverable is rejected by ballot at an ISO TC,
 CalConnect will not advance project stage at its
 project group, unless the ISO TC re-ballot approves
 advancement of the deliverable.</p>
   </li>
   <li>
-    <p id="_20e0b5b2-0f07-42c1-be2d-6b849483b5b9">In cases where a development stage is optional and skipped
-in accordance with <xref target="ISODIR1"/> and <xref target="ISODIR1C"/>, CalConnect
+    <p id="_8702fbf8-4f33-4736-a09d-e0ee2894d57a">In cases where a development stage is optional and skipped
+in accordance with <eref type="inline" bibitemid="ISODIR1" citeas="ISO/IEC Directives, Part 1"/> and <eref type="inline" bibitemid="ISODIR1C" citeas="ISO/IEC Directives, Part 1, Consolidated ISO Supplement"/>, CalConnect
 shall set the stage of its project at the corresponding
 stage.</p>
   </li>
 </ul></clause></clause>
-<clause id="stage-approval" obligation="normative"><title>Approval stage</title><p id="_07ce7412-c23c-4154-abb1-3963c3576778">The goal of the approval stage is to create a "final draft standard"
+<clause id="stage-approval" obligation="normative"><title>Approval stage</title><p id="_ab5434f2-10a3-43f9-a1cd-551610d8de57">The goal of the approval stage is to create a "final draft standard"
 of the deliverable approved by the CalConnect membership.</p>
-<p id="_bfe7c3f7-268c-4b55-a1b1-0428dc385f02">The public review period (<xref target="public-review"/>) shall be started within
+<p id="_6e777519-9c0e-44d1-aa1a-9bdd545e3dc2">The public review period (<xref target="public-review"/>) shall be started within
 4 weeks of entering this stage, unless the document has already
 been reviewed publicly at the Enquiry stage (<xref target="stage-enquiry"/>).</p>
-<p id="_b588f26e-8afa-4129-8189-00b2e2edf249">A "last call" for formal comments shall be issued by the Chair of
+<p id="_9c0d1bd9-846c-4e49-a09b-eb28aaf85062">A "last call" for formal comments shall be issued by the Chair of
 the owning TC to both TCC and to the full CalConnect mailing list
 of 8 weeks.</p>
-<p id="_30ef4652-a071-4af7-a7c5-eef7f15ae832">The formal commenting process is described in detail at <xref target="comments-formal"/>.</p>
-<p id="_1a4081c4-b6ec-43c7-bf2c-58b1178da615">After the close of the commenting period, the Chair of TCC shall
+<p id="_0d2803f3-2189-4759-aec8-e44d35722620">The formal commenting process is described in detail at <xref target="comments-formal"/>.</p>
+<p id="_cf3a00a5-b616-4d4d-849f-d8a38e701989">After the close of the commenting period, the Chair of TCC shall
 distribute the comments to the CalConnect membership within
 4 weeks of the close, and conduct a 8-week ballot (<xref target="process-balloting"/>)
 of TCC members for a vote to approve publication.</p>
-<p id="_b9d7865f-f22e-4fc5-bf8b-d7e3e220c62b">All TCC members are required to vote in this ballot. A TCC member
+<p id="_30e38f43-be0d-4e36-b413-f609a597c85b">All TCC members are required to vote in this ballot. A TCC member
 that did not vote in the TCC poll is considered to have violated
 membership terms of the TCC, and has a 3-week period to rectify.</p>
-<p id="_052ade6a-95d2-466d-bc4c-740aa9da66fe">"No" votes from a TCC member must be accompanied with constructive
+<p id="_8304c80e-b1f6-48b3-bd35-3d326aa30eb2">"No" votes from a TCC member must be accompanied with constructive
 comments.</p>
-<p id="_3422875d-4a5b-48c4-90bd-f23e6b0a86d4">If the ballot was successful, the project is deemed to be ready for
+<p id="_4e2789d8-5218-4dc2-8d0c-b53f08b51cbc">If the ballot was successful, the project is deemed to be ready for
 publication and is advanced to the publication stage.</p>
-<p id="_47244e1e-6f78-4bc6-bf51-3eea475e8eb5">If the ballot failed, the Chair of the owning TC, in consultation
+<p id="_1e94907b-007c-46f4-aeb4-d5bbc254ac64">If the ballot failed, the Chair of the owning TC, in consultation
 with the project leader to decide whether to prepare and circulate a revised
 final draft standard for re-balloting.</p></clause>
-<clause id="draft-stages" obligation="normative"><title>Draft development stages (Preparatory, Committee and Enquiry stages)</title><ol id="_3def3574-c810-42b1-9159-859e7d23786d" type="arabic">
+<clause id="draft-stages" obligation="normative"><title>Draft development stages (Preparatory, Committee and Enquiry stages)</title><ol id="_3b9d4ca4-291b-45d5-b1d7-82c92e5abc16" type="arabic">
   <li>
-    <p id="_8d04e1ed-fb3b-46c9-ab84-7ccfa935bd72">Each new draft version of the document as it is developed shall be
+    <p id="_1c2ec7cb-0147-47e4-9216-c0d189f498ee">Each new draft version of the document as it is developed shall be
 posted by the editor(s) on the CalConnect Document Repository. A
 version is defined as a checkpoint where the developers want review
 from individuals other than active contributors, typically at the
 end of a development stage when the draft is a candidate for ballot.</p>
   </li>
   <li>
-    <p id="_fd423ce2-e424-45a3-b65a-78b9dd33e026">The availability of each new draft version shall be announced
+    <p id="_ac8d9e94-2b01-432f-9ae5-0719903397cc">The availability of each new draft version shall be announced
 to all contributing TCs.</p>
   </li>
   <li>
-    <p id="_5f1fd12f-1a20-4d75-973f-5c4643527b31">A draft version may be announced to the <tt>calconnect-l</tt> mailing
+    <p id="_860f63e6-b533-40ac-89bd-04ebf410a95d">A draft version may be announced to the <tt>calconnect-l</tt> mailing
 list if CalConnect-wide membership comment is requested.</p>
   </li>
   <li>
-    <p id="_ba1a3750-29d6-43d4-8bbc-a915bd50eee5">A draft version may be posted for external review and
+    <p id="_1d20d822-0605-420b-95f8-171fbf4e118e">A draft version may be posted for external review and
 comments upon approval by TCC (see <xref target="public-review"/>).
 This is normally be done at the Enquiry and Approval stages,
 where the draft is considered more mature for appropriate
 external input.</p>
   </li>
   <li>
-    <p id="_22761365-b6a0-4c11-9b87-66651374cf7d">Once initial approval is given by TCC, a draft may be posted
+    <p id="_d49bff4b-8835-47b7-be58-ff4a5da9f068">Once initial approval is given by TCC, a draft may be posted
 for external review and comment multiple times.</p>
   </li>
 </ol>
-<p id="_f38bb8ac-2d3e-479a-b7fe-c6149c208ca1">In every of the development stages, resolution of all outstanding
+<p id="_d82d9dcd-dec3-40dd-b04b-f1d9afb49f95">In every of the development stages, resolution of all outstanding
 comments is required to proceed towards ballot.</p></clause>
-<clause id="pre-publication" obligation="normative"><title>Pre-publication stages (Enquiry and Approval stages)</title><p id="_93a423a6-d403-4973-8117-58467e28b1fc">Once a "draft standard" or a "final draft standard" is approved
+<clause id="pre-publication" obligation="normative"><title>Pre-publication stages (Enquiry and Approval stages)</title><p id="_71523dfb-2057-4fc9-8d62-fd89cb984e31">Once a "draft standard" or a "final draft standard" is approved
 towards publication, a public review period ensues.</p>
-<p id="_2037cc81-8fff-4897-a4be-223035557a86">The public review process is described in <xref target="public-review"/>.</p></clause>
-<clause id="_publication_stage" obligation="normative"><title>Publication stage</title><clause id="_distribution" obligation="normative"><title>Distribution</title><p id="_783f4bd3-ad3a-41c6-a9be-559cea4ae750">Once TCC approves a document for publication, the Chair of the
+<p id="_8d80f5bf-ae63-4915-b60a-d4f2f33f0cb3">The public review process is described in <xref target="public-review"/>.</p></clause>
+<clause id="_publication_stage" obligation="normative"><title>Publication stage</title><clause id="_distribution" obligation="normative"><title>Distribution</title><p id="_e4db2cba-3b17-42b4-b464-46f4d26b6261">Once TCC approves a document for publication, the Chair of the
 owning TC shall forward the final draft standard to the
 Executive Director of the Consortium for publication.</p>
-<p id="_da670ce8-84eb-48fb-94c7-6ca93a7594cb">Internal documents are made available only to members of CalConnect
+<p id="_d0774470-ec6a-4cb0-8eb8-18788d878e29">Internal documents are made available only to members of CalConnect
 via the members area of the CalConnect website, and are registered in
 the CalConnect Internal Document Register.</p></clause>
 <clause id="_statement_changes" obligation="normative">
   <title>Statement changes</title>
-  <p id="_39c3f28f-067f-48ed-bb98-c0a069fcd8d3">The "boilerplate" statements of IP, appropriate usage and
+  <p id="_b9bfe204-b8f6-43a7-be54-f490114e2c05">The "boilerplate" statements of IP, appropriate usage and
 disclaimer will be changed to the external (public) statement.</p>
 </clause>
 <clause id="_registration_at_the_public_document_register" obligation="normative">
   <title>Registration at the public document register</title>
-  <p id="_cfde65ba-ae60-4d61-a28e-8d9b7273fe8f">The name, category, version and project number of the deliverable
+  <p id="_2b6cbdf6-80d2-4cd2-bb4f-2e2e12147926">The name, category, version and project number of the deliverable
 shall be registered in the CalConnect Public Document Register.</p>
 </clause></clause></clause>
 <clause id="_abandonment" obligation="normative">
   <title>Abandonment</title>
-  <clause id="_co_development_guidelines_6" obligation="normative"><title>Co-development guidelines</title><p id="_5b49232a-5194-43e5-aa56-923e3a93f4a6">A joint work item may be abandoned by one of the two parties if it sees
+  <clause id="_co_development_guidelines_6" obligation="normative"><title>Co-development guidelines</title><p id="_65f2f832-84c1-4f7c-814d-d3e8e816a624">A joint work item may be abandoned by one of the two parties if it sees
 it being inappropriate or is no longer interested or able to contribute
 to the joint work item. Each party is allowed to abandon the joint
 work, which at that point will become sole work of the other party.</p>
-<p id="_990d1291-a6a6-4271-9739-f192b6a915f1">A notice of such must be sent by the abandoning party to the JCG and
+<p id="_5e5d2494-4123-408b-a539-8c688d39b9ae">A notice of such must be sent by the abandoning party to the JCG and
 distributed by both parties to its members.</p>
-<p id="_43218598-f322-4cf3-9cca-8b6064694911">The abandoning party, if the abandoned work is carried on by the other
+<p id="_bafedc5b-cbab-4cc3-aa2e-a5f527605c0a">The abandoning party, if the abandoned work is carried on by the other
 party, is required to explicitly agree that the copyright of such work
 is to be waived to the other party to allow publication of the document.</p>
-<p id="_e6f85141-cd95-465d-9c63-45daf2963fbc">If the abandons party wishes to rejoin an abandoned work item, it is
+<p id="_17b6573a-c2c1-47e6-bdbb-6efa9e9518f6">If the abandons party wishes to rejoin an abandoned work item, it is
 agreed in this agreement that it is allowed, given a notice is filed at
 the JCG, unless in exceptional circumstances.</p></clause>
 </clause>
-<clause id="process-balloting" obligation="normative"><title>Balloting</title><p id="_872c2e0a-54d1-4c15-b7e9-759bc6ee5205">A ballot is launched upon gauging consensus within a group
+<clause id="process-balloting" obligation="normative"><title>Balloting</title><p id="_0bd048e8-cc78-4123-8ea4-5d2b55d6e907">A ballot is launched upon gauging consensus within a group
 (TC, TCC or amongst all members).</p>
-<p id="_0e3f947a-bb84-42e2-a72a-55d62a733092">In each ballot, a member is allocated three options:</p>
-<ul id="_dc214097-7c1e-4409-804f-f8e56efadde7">
+<p id="_31ba7afa-99e4-48cb-afae-faa9eb0048ee">In each ballot, a member is allocated three options:</p>
+<ul id="_2148a8b7-c7b3-45a9-bad6-927133b240ed">
   <li>
-    <p id="_178692cf-f99b-4059-833b-04ae49803029">Yes</p>
+    <p id="_b794b162-ee43-418d-89e8-6f98b0dedfed">Yes</p>
   </li>
   <li>
-    <p id="_8d9bf00f-1884-4869-b49a-d10e4361f24b">No</p>
+    <p id="_0ec06bdb-65af-4210-927d-5ea44f7711ff">No</p>
   </li>
   <li>
-    <p id="_5d2ccbd8-3c9f-4796-8ddf-eb7ffd141a76">Abstain</p>
+    <p id="_31961287-f31b-4a9f-9098-b4122527cda1">Abstain</p>
   </li>
 </ul>
-<p id="_d6da9cc5-2b9f-445f-b6d4-0bced4b1b499">A "No" vote must be accompanied by constructive comments. "Abstain" votes
+<p id="_973fd435-7e98-40a1-847d-a3a2522f0c69">A "No" vote must be accompanied by constructive comments. "Abstain" votes
 are not counted against the outcome.</p>
-<p id="_a1a2fcfe-7dad-4ba0-a9da-5e6488e3f892">Consensus is considered to have been reached when there are two-thirds of "Yes" votes.</p></clause>
+<p id="_4872d0e5-ec60-4c19-ada5-55bf29714f54">Consensus is considered to have been reached when there are two-thirds of "Yes" votes.</p></clause>
 <clause id="_notification" obligation="normative">
   <title>Notification</title>
-  <p id="_16e741a5-b9c3-4d1d-b960-3c4034cef95b">Notification of availability of new documents within CalConnect
+  <p id="_c03a1e21-7ed9-4579-b194-5464023885ff">Notification of availability of new documents within CalConnect
 will be announced to the appropriate {collaborative-iso-tc} working groups
 and CalConnect technical committees.</p>
 </clause>
 <clause id="_availability_of_working_documents" obligation="normative">
   <title>Availability of working documents</title>
-  <p id="_a612092a-82b3-4d5f-92a5-4d464d50cb76">Drafts and working documents are available according to
+  <p id="_a9e74328-bfad-4010-b19c-656a237e5caf">Drafts and working documents are available according to
 each party’s normal practices.</p>
 </clause>
 <clause id="_distribution_of_publication" obligation="normative">
   <title>Distribution of publication</title>
-  <p id="_6a1a90c5-4ce9-42c1-8fb6-8d2d27c232c8">After an ISO ballot on the acceptance of a joint work item as
+  <p id="_ff445a43-969c-46fc-97a5-f2c89a019a15">After an ISO ballot on the acceptance of a joint work item as
 DIS, FDIS or IS, the joint work item will be published
 as a CalConnect Standard.</p>
 </clause>
 <clause id="_promotional_activities_in_co_developed_projects" obligation="normative">
   <title>Promotional activities in co-developed projects</title>
-  <p id="_99d972ec-52c9-4cb2-9a92-2cef49e9e177">Promotional programs will be shared between {collaborative-iso-tc}
+  <p id="_6a05f39e-2dc9-4db3-be7d-f525be807b53">Promotional programs will be shared between {collaborative-iso-tc}
 and CalConnect for the purpose of coordinating marketing activities
 via the JCG.</p>
 </clause>
-<clause id="_external_progression" obligation="normative"><title>External progression</title><p id="_e1d0c286-93f1-4e97-a792-69441a1b1520">In some cases, CalConnect deliverables are sent to be progressed
+<clause id="_external_progression" obligation="normative"><title>External progression</title><p id="_60e595ec-c413-4665-96f6-b50ece654f63">In some cases, CalConnect deliverables are sent to be progressed
 at another standards body:</p>
-<ul id="_d96af33e-18aa-417f-b78a-d830f687b048">
+<ul id="_c5f2b497-9eaa-46ef-84b3-93e493fad6c4">
   <li>
-    <p id="_e4a4dbcc-933e-4688-8e87-36c69c511219">upon completion of the Approval stage, a CalConnect document may be sent
+    <p id="_9199ed74-5f9f-4eb5-8ced-a6875dc6b9e8">upon completion of the Approval stage, a CalConnect document may be sent
 immediately to an external standardization body for progression
 to become a standard; and</p>
   </li>
   <li>
-    <p id="_1b739551-18e3-4878-b106-ee8d58adefd6">if a published CalConnect document is subsequently decided to
+    <p id="_90a35bcd-7105-4bc9-88ec-d8a0475f7871">if a published CalConnect document is subsequently decided to
 be forwarded to another standards body for progression.</p>
   </li>
 </ul>
-<p id="_b2b3e1ad-194a-4005-a22b-15e4c899e247">In these situations, the CalConnect document shall be accompanied by a
+<p id="_cfb9bd07-e76f-4889-9216-2fa36af77998">In these situations, the CalConnect document shall be accompanied by a
 link at the CalConnect website, that provides the document at the target standards
 body, completely with document number, title, etc. given by that
 standards body.</p>
-<p id="_6fe1303a-d7b4-4ff3-a77b-8b58f42886f4">It is anticipated that such documents will be progressed and modified
+<p id="_5c42029a-bf2b-4d94-8606-772d22874d52">It is anticipated that such documents will be progressed and modified
 according to the processes of the recipient standards body. CalConnect
 shall attempt to ensure that the link remains valid, and if
 possible for the most current version of the document.</p></clause>
 <clause id="_document_requirements" obligation="normative">
   <title>Document requirements</title>
-  <p id="_f5c975e7-9cee-4ba0-9f22-0dbbf3dc3630">Requirements of a CalConnect document are stated in <eref type="inline" bibitemid="CC10002" citeas="CC/DIR 10002"/>.</p>
+  <p id="_c2925d88-0c1e-4d10-a363-626c46542063">Requirements of a CalConnect document are stated in <eref type="inline" bibitemid="CC10002" citeas="CC/DIR 10002"/>.</p>
 </clause></clause>
 <clause id="public-review" obligation="normative"><title>Public review process</title><clause id="_general_5" obligation="normative">
   <title>General</title>
-  <p id="_a6320522-cb55-40b5-9442-400c2560c00b">A public review period of 60 days is required for compliance to
+  <p id="_327bf95c-5fe2-4628-863b-56968cf52371">A public review period of 60 days is required for compliance to
 <eref type="inline" bibitemid="WTOTBT" citeas="WTO Technical Barriers To Trade Agreements"/> rules, which CalConnect adheres to.</p>
 </clause>
-<clause id="_timing" obligation="normative"><title>Timing</title><p id="_185e9965-bf2d-453d-af44-88c3b4613ca9">A 60-day public review shall be held in the DIS or FDIS stages
+<clause id="_timing" obligation="normative"><title>Timing</title><p id="_f6dfa421-c387-4824-acf1-70db53de4562">A 60-day public review shall be held in the DIS or FDIS stages
 of the standardization deliverable.</p>
-<p id="_ab6a21ba-7b0c-4ce3-bfca-75a015725af8">Under co-development, the public review shall be held on
+<p id="_b84d186e-055d-4f7c-80eb-4bed182ee430">Under co-development, the public review shall be held on
 the first instance of reaching the DIS stage:</p>
-<ul id="_a52fa463-0421-47fd-b7fb-15473b69075e">
+<ul id="_92892bb3-358d-43a6-9a4e-190dcfce2df5">
   <li>
-    <p id="_439fc158-568a-4405-87a1-7c8165090453">Comments to CalConnect shall be performed through CalConnect’s public review procedure.</p>
+    <p id="_873517e1-93f5-477c-93c2-6d402cb3d41f">Comments to CalConnect shall be performed through CalConnect’s public review procedure.</p>
   </li>
   <li>
-    <p id="_4ec63f55-42cc-41ec-9758-c63df890464a">Comments to an ISO TC shall be performed according to <xref target="ISODIR1"/> and <xref target="ISODIR1C"/>.</p>
+    <p id="_9fe8742e-ef8d-4b2e-88b4-bf70523de51b">Comments to an ISO TC shall be performed according to <eref type="inline" bibitemid="ISODIR1" citeas="ISO/IEC Directives, Part 1"/> and <eref type="inline" bibitemid="ISODIR1C" citeas="ISO/IEC Directives, Part 1, Consolidated ISO Supplement"/>.</p>
   </li>
   <li>
-    <p id="_aa11150c-0754-4d49-8c18-d08a5123b568">Comments to an external standardization body shall be according to their own procedures.</p>
+    <p id="_bd350de9-9c5a-4833-9ac9-8c4e76d9dbd3">Comments to an external standardization body shall be according to their own procedures.</p>
   </li>
 </ul>
-<p id="_dd617055-3d26-4404-a04d-bbb6ff982c01">The co-development parties shall agree to synchronization of the dates
+<p id="_1841bc2d-68ad-4d15-94ef-14fd6eebe0bd">The co-development parties shall agree to synchronization of the dates
 of review periods for the maximum benefit to the joint work item.</p></clause>
-<clause id="_informal_comments_via_public_review_mailing_list" obligation="normative"><title>Informal comments via public review mailing list</title><p id="_7fc556ff-9475-4a19-a958-d549485c82c5">Informal comments can be solicited from and posted to the
+<clause id="_informal_comments_via_public_review_mailing_list" obligation="normative"><title>Informal comments via public review mailing list</title><p id="_b9e4448f-b062-4112-9d79-194da449c12d">Informal comments can be solicited from and posted to the
 CalConnect public review mailing list.</p>
-<p id="_808bec94-9bce-411b-953d-08243ecdaedf">This list is open to subscription by any interested parties,
+<p id="_fd1e7f79-93e6-4e02-aea0-fdd9797d3682">This list is open to subscription by any interested parties,
 but subscription will be subject to approval by the list
 moderator and the list will be continuously moderated.</p>
-<p id="_81a877a5-c23e-4af2-8695-837ef0c48557">The Charter and Rules of Use for the list include:</p>
-<ol id="_aff2a789-ad36-4cd9-940a-461efeefa6d9" type="arabic">
+<p id="_a8f93afa-91fd-483b-9ca9-95290c31f285">The Charter and Rules of Use for the list include:</p>
+<ol id="_cfe13abf-5074-4df1-a42b-ed37c877521f" type="arabic">
   <li>
-    <p id="_26a380d4-3fea-4360-8e45-e566de1853b2">It is the responsibility of all participants on the list to ensure
+    <p id="_6485102e-b537-40f7-90a0-56011bf832dc">It is the responsibility of all participants on the list to ensure
 that their comments adhere to the CalConnect Intellectual Property
 Rights policy with respect to contributions.</p>
   </li>
   <li>
-    <p id="_9a1be83e-43ba-4476-853b-71a22874cd69">While all participants on this list are free to contribute
+    <p id="_65a18170-14b7-488c-9fa3-3943ea656ad2">While all participants on this list are free to contribute
 suggestions and comments, the actual process of development and
 revision of any CalConnect Document must be made by the Technical
 Committees developing the document, and by members of the Consortium.</p>
   </li>
 </ol>
-<p id="_203e1134-040b-48d1-8def-e5035e009461">Participants on the public review mailing list may offer comments not
+<p id="_e874a54b-d749-42df-8988-bf42fabe6c0e">Participants on the public review mailing list may offer comments not
 only upon documents currently posted for review and comment, but upon
 published documents of the Consortium.</p>
-<p id="_795cdbb4-4318-4a81-9951-127d68f5a968">The TCC committee has overall control of the public review list
+<p id="_1ac4dd44-56ee-4b68-a745-c5b355f5246b">The TCC committee has overall control of the public review list
 and process including what documents may be posted, the duration of
 postings, etc.</p>
-<p id="_45f4db7c-63b6-4ae1-b3ea-8bf8f9140fdc">For details of handling informal comments, see <xref target="comments-informal"/>.</p></clause>
-<clause id="_formal_comments_via_dedicated_site" obligation="normative"><title>Formal comments via dedicated site</title><p id="_b9424643-548c-4a77-b6f0-dc532e7405cb">Formal comments have to be submitted via the CalConnect commenting site.</p>
-<p id="_565c2974-6515-45e2-aa0b-0ef247f6f1b5">In a public review process where formal comments are received:</p>
-<ul id="_61bf771e-e6c5-4437-8f91-1d93ab3e7dad">
+<p id="_8d147d06-ea83-4da5-9d70-e37927bcbb3e">For details of handling informal comments, see <xref target="comments-informal"/>.</p></clause>
+<clause id="_formal_comments_via_dedicated_site" obligation="normative"><title>Formal comments via dedicated site</title><p id="_b6abb8e4-7fb8-4d14-aa24-63f1f65bb7e2">Formal comments have to be submitted via the CalConnect commenting site.</p>
+<p id="_fef24282-632d-46b8-9ced-6c6f9ca3c3d6">In a public review process where formal comments are received:</p>
+<ul id="_ebbc3528-41bb-4428-b280-a55cfe379e7b">
   <li>
-    <p id="_4ec1111a-44b7-4c04-aa9a-4a049e29bf04">the full list of formal comments are only viewable by CalConnect
+    <p id="_432767e0-8476-4e6b-8a88-7a7db82ef0d7">the full list of formal comments are only viewable by CalConnect
 members;</p>
   </li>
   <li>
-    <p id="_91317279-add5-4577-8a7c-7afd49599477">formal comments from non-CalConnect members should be addressed
+    <p id="_3731f0c3-4f01-413e-af8a-8d56ab0dcf13">formal comments from non-CalConnect members should be addressed
 and communicated to the commenter individually.</p>
   </li>
 </ul>
-<p id="_aa9d8348-f807-4d0e-8b00-482e120efd54">For details of handling formal comments, see <xref target="comments-formal"/>.</p></clause>
-<clause id="announcement-channels" obligation="normative"><title>Announcement channels</title><p id="_9e85bdee-b7b1-4331-88d0-85ff8ca2bd22">When a draft document is made available for public review, it shall be
+<p id="_689b156e-afc1-4239-bf81-e0be98cc9779">For details of handling formal comments, see <xref target="comments-formal"/>.</p></clause>
+<clause id="announcement-channels" obligation="normative"><title>Announcement channels</title><p id="_791f5f3e-f3f6-40cb-ba15-139ac5789ba1">When a draft document is made available for public review, it shall be
 announced:</p>
-<ul id="_118dcc69-a30d-488e-a54e-f02e9270b28f">
+<ul id="_35c6e7dd-fa9b-43f5-96c2-a7a3ba299783">
   <li>
-    <p id="_b56df91c-4ccd-4aac-92e0-bc358c0909b0">on the public review page and on the CalConnect home page;</p>
+    <p id="_164a0062-9dd5-4a42-b4bf-07c0177e75f6">on the public review page and on the CalConnect home page;</p>
   </li>
   <li>
-    <p id="_95207a68-83d2-47c2-929d-882b538a1c08">on the public review mailing list; and</p>
+    <p id="_8abbe644-2ca4-41be-ac90-372e120e07ba">on the public review mailing list; and</p>
   </li>
   <li>
-    <p id="_1f82f64b-bca8-417c-bacb-8cfb7eb40c68">on the general <tt>calconnect</tt> mailing list.</p>
+    <p id="_4a878cdc-d1ce-4d5b-9c01-49fbef13c902">on the general <tt>calconnect</tt> mailing list.</p>
   </li>
 </ul>
 <clause id="_eligibility" obligation="normative">
   <title>Eligibility</title>
-  <ol id="_86f963a1-d975-4ae3-91e1-9fe26bd1d2a2" type="arabic">
+  <ol id="_25502ac9-3032-4155-98eb-b29489a1bdca" type="arabic">
   <li>
-    <p id="_b9df9555-c31c-4d3f-9e62-a2629c7c73bd">At the request of the Chair of the owning TC and
+    <p id="_75ba7f2c-abda-4795-b694-fb4ee741fc59">At the request of the Chair of the owning TC and
 upon approval of TCC, any draft intended for
 publication is eligible for posting to the <xref target="announcement-channels"/>.</p>
   </li>
   <li>
-    <p id="_aac7a9e8-a27b-4e7e-b07d-f0e31875d6c3">A document or section of a document may be posted for public review
+    <p id="_10c078ab-dd86-4973-9377-f0df5aa0c383">A document or section of a document may be posted for public review
 and comment at any point within its development but generally it should
 be well-formed and close to final draft before such posting.</p>
   </li>
   <li>
-    <p id="_43967ccf-bfd9-4705-ada6-fa0c86bac4e7">If a section of a larger document is posted to the public review
+    <p id="_9e8f5112-7680-420b-bee0-e707cccb4709">If a section of a larger document is posted to the public review
 list, the context of the section must be made clear so that relevant
 comments can be made.</p>
   </li>
   <li>
-    <p id="_f46dd6c3-8e6a-495c-9fb7-b3021e84eb92">When a document previously posted for public review is finally
+    <p id="_e0347a01-a914-447c-b825-e54234e0e036">When a document previously posted for public review is finally
 published, a notification of the fact will be posted to the public
 review list along with any title changes.</p>
   </li>
@@ -894,15 +894,15 @@ review list along with any title changes.</p>
 </clause>
 <clause id="_tc_responsibilities" obligation="normative">
   <title>TC responsibilities</title>
-  <ol id="_c954cfa8-287a-4928-bcfd-e8b4d0ead09e" type="arabic">
+  <ol id="_6dee15d0-dabc-4ff1-bdf3-41467bf95e14" type="arabic">
   <li>
-    <p id="_29d8ce97-5de9-46f0-9e53-13a5814eb729">Since posting a document for public review and comment invites non-
+    <p id="_c18726ff-0c5b-48dd-ba02-a88d88f0fef1">Since posting a document for public review and comment invites non-
 Consortium individuals to participate, the owning TC is responsible
 for monitoring comments on the public review list and acting upon
 them as appropriate.</p>
   </li>
   <li>
-    <p id="_474a6da6-792b-492a-a9f4-bf5c474d7dac">Since any participant on the public review list may comment upon any
+    <p id="_cff1db8f-132b-4033-8bf2-54827eed07e8">Since any participant on the public review list may comment upon any
 published document at any time, the list moderator will monitor the
 list for comments on such documents and bring those comments to the
 attention of TCC.</p>
@@ -911,84 +911,84 @@ attention of TCC.</p>
 </clause></clause></clause>
 <clause id="comments" obligation="normative"><title>Comments</title><clause id="_general_6" obligation="normative">
   <title>General</title>
-  <p id="_0ff67070-a860-4ab6-b750-ebf017c7989c">The commenting process is managed by the TCC. The TCC is
+  <p id="_9a36a3cc-2e99-4537-8759-c05cf4277c99">The commenting process is managed by the TCC. The TCC is
 responsible for operating the CalConnect dedicated commenting
 site and the distribution of formal comments.</p>
 </clause>
-<clause id="comments-formal" obligation="normative"><title>Formal comments</title><p id="_287a06b1-17e4-43df-bb38-ae3f042c35c9">Formal comments are binding comments where the project team
+<clause id="comments-formal" obligation="normative"><title>Formal comments</title><p id="_0c922391-28fe-451e-bd31-aa917178ce0d">Formal comments are binding comments where the project team
 whose work is being commented on must respond to.</p>
-<p id="_b139f9d4-c326-4e92-a5a1-cf95a91c0d6e">These comments received are considered "open comments", meaning
+<p id="_abe18027-42f4-4fe9-a2c0-702901a437b1">These comments received are considered "open comments", meaning
 that these comments will be published to the CalConnect membership.</p>
-<p id="_211a49da-84c1-403d-8b18-e49face011b4">Formal comments shall be submitted via a designated site in a
+<p id="_b3c3c09f-0f80-4015-af2a-f7f30deb6fdd">Formal comments shall be submitted via a designated site in a
 structured format, where comments submitted are not re-distributed
 (reflected) to other commenters. This is to prevent submitted
 comments from influencing other potential commenters that have
 not yet commented.</p>
-<p id="_1dcd3574-94d9-4a90-8576-4baf42b658d5">Formal comments on a standardization deliverable shall be shared
+<p id="_20e7d563-0fef-4bee-b8c4-3fb61fb10047">Formal comments on a standardization deliverable shall be shared
 with the owning TC within 2 weeks of receiving them.</p></clause>
 <clause id="comments-informal" obligation="normative">
   <title>Informal comments</title>
-  <p id="_98f1b3d8-9f18-4567-9090-8b986053e1b4">These comments do not require a response from the project team
+  <p id="_9c8f87a0-b4dd-4692-9ff2-a691e592d61a">These comments do not require a response from the project team
 whose work is being commented on.</p>
 </clause></clause>
 <clause id="corrections" obligation="normative">
   <title>Corrections and amendments</title>
-  <p id="_2d7712b2-9b49-45ac-93d0-150b51923027">Corrections and amendments to standardization documents are
+  <p id="_29ebb176-0153-4508-993b-6d5ed191770b">Corrections and amendments to standardization documents are
 considered projects themselves, and should be handled
 as described in <xref target="process"/>.</p>
 </clause>
 <clause id="ipr" obligation="normative"><title>Intellectual property rights</title><clause id="_free_of_restrictions" obligation="normative">
   <title>Free of restrictions</title>
-  <p id="_bf982b8c-90a3-43e9-9f62-9ce3290fa371">Text of all working documents as well as co-developed/co-published deliverables will remain free of IPR restrictions that would limit their application.</p>
+  <p id="_d9d04b5a-cc6c-4282-803d-63c6293c1c9b">Text of all working documents as well as co-developed/co-published deliverables will remain free of IPR restrictions that would limit their application.</p>
 </clause>
 <clause id="_copyright" obligation="normative">
   <title>Copyright</title>
-  <p id="_08b037d0-ac6f-4900-922d-978b9033cf17">Copyright of standardization deliverables created under this document
+  <p id="_54f0cfdb-f34d-4cd6-b384-4b1c7143e3f3">Copyright of standardization deliverables created under this document
 will be jointly owned by CalConnect and its authors.</p>
 </clause>
 <clause id="_member_sourced_documents" obligation="normative">
-  <title>member-sourced documents</title>
-  <p id="_48794e4a-4d71-4072-995e-07f4f5e6832e">Authors of CalConnect deliverables grant CalConnect a world-wide,
+  <title>Member-sourced documents</title>
+  <p id="_67e82668-f80d-4b7a-b946-366147d7caa7">Authors of CalConnect deliverables grant CalConnect a world-wide,
 non-exclusive, non-sub-licensable license
 (except for the submission and adoption by other standardization bodies),
 to use contents of submitted documents to CalConnect,
 for the development and publishing of the deliverables.</p>
 </clause>
-<clause id="_patented_content" obligation="normative"><title>Patented content</title><p id="_b4b30f50-82ec-4456-8102-23d8397a5510">Patented content in a standard will be governed by the CalConnect IPR policy.</p>
-<p id="_81aea52f-ced5-4455-861d-53e005a64770">Any patents involved knowingly in a CalConnect deliverable must be made
+<clause id="_patented_content" obligation="normative"><title>Patented content</title><p id="_caff3881-2e54-43a0-99a2-b90543682e01">Patented content in a standard will be governed by the CalConnect IPR policy.</p>
+<p id="_da1f7c36-7840-4809-a7f5-7703058c43c3">Any patents involved knowingly in a CalConnect deliverable must be made
 transparent prior to the DIS stage.</p></clause></clause>
-<clause id="maintenance" obligation="normative"><title>Maintenance of deliverables</title><clause id="_review_period" obligation="normative"><title>Review period</title><p id="_7fc9dfeb-3231-4abe-9c17-4a91d7a4ed55">The review period of a standardization deliverable is 5 years.</p>
-<p id="_f7bf53fe-beaf-4a1b-a470-27703dfbf6bd">The review shall be performed by the owning TC, if it has been
+<clause id="maintenance" obligation="normative"><title>Maintenance of deliverables</title><clause id="_review_period" obligation="normative"><title>Review period</title><p id="_0c6b1828-462a-4b15-a877-a2f245ad88f8">The review period of a standardization deliverable is 5 years.</p>
+<p id="_7f18f00e-fbc3-4bda-84c0-acb3d235c383">The review shall be performed by the owning TC, if it has been
 disbanded, the TCC.</p></clause>
-<clause id="_updates" obligation="normative"><title>Updates</title><p id="_ab37f0dd-facc-4402-b86a-f3cce0a3dbc5">When a document is deemed to be updated, the owning TC shall
+<clause id="_updates" obligation="normative"><title>Updates</title><p id="_b98da301-3682-483e-993e-dcf4e09d54b8">When a document is deemed to be updated, the owning TC shall
 take action to either begin the review period in order to
 update the document, or begin a new project to produce an amendment.</p>
-<p id="_85d533fe-04c9-4ef8-9e0a-b279d56d9236">When a document is revised, any changes (as opposed to editorial
+<p id="_25ce2673-a811-41e7-a93c-98bd0ab56826">When a document is revised, any changes (as opposed to editorial
 corrections) should result in the document going through the same
 review process originally used for its publication.</p>
-<p id="_3ccd0b38-0b14-4ee9-94f1-2c236e0aca1f">A summary of changes from the previous edition should be
+<p id="_4ef0b25c-150f-4ad1-bf78-28ef8b7f996c">A summary of changes from the previous edition should be
 provided at the end of the Foreword.</p></clause>
 <clause id="_new_versions" obligation="normative">
   <title>New versions</title>
-  <p id="_5e9a885e-d04a-4d35-9fea-9a344dd021fb">A document once published may undergo revision and become a new
+  <p id="_823d2e7f-50d0-4744-8d82-90dc0a8203d8">A document once published may undergo revision and become a new
 version or dot release (i.e. V1-V2 or V2.0-V2.1) under several
 circumstances.</p>
 </clause>
 <clause id="_withdrawal" obligation="normative">
   <title>Withdrawal</title>
-  <p id="_2f6df275-d641-4c11-979c-da93f2e66960">When a review determines that a published item should be
+  <p id="_05ce3a2e-1e18-4140-b455-1788fd8ab06b">When a review determines that a published item should be
 withdrawn, it should be withdrawn from the list of published
 standards.</p>
 </clause></clause>
 <clause id="agency" obligation="normative"><title>Maintenance agency and registration authority</title><clause id="_general_7" obligation="normative">
   <title>General</title>
-  <p id="_bb74e6dd-59f5-4064-ad85-e78152b6b412">CalConnect recognizes that a maintenance agency or
+  <p id="_bc0dc5aa-567c-46bf-b012-28309122d7e5">CalConnect recognizes that a maintenance agency or
 registration authority is required for the successful implementation of
 certain standardization deliverables.</p>
 </clause>
 <clause id="_default_volunteer_role" obligation="normative">
   <title>Default volunteer role</title>
-  <p id="_d791bedc-73f8-40ae-836e-8ed3709c759e">The TCC shall serve as the maintenance agency or registration authority
+  <p id="_46edf07a-5f8b-410d-a4ea-a31a5594b5f6">The TCC shall serve as the maintenance agency or registration authority
 for CalConnect standardization deliverables as necessary.</p>
 </clause></clause>
 </sections><bibliography><references id="_normative_references" obligation="informative">
@@ -1004,6 +1004,28 @@ for CalConnect standardization deliverables as necessary.</p>
     <em>CalConnect Directive: Standard document requirements</em>
   </formattedref>
   <docidentifier>CC/DIR 10002</docidentifier>
+</bibitem>
+  <bibitem id="ISODIR1" type="standard">
+  <title format="text/plain">ISO/IEC Directives, Part 1, Procedures for the technical work</title>
+  <docidentifier type="ISO">ISO/IEC Directives, Part 1</docidentifier>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>ISO</name>
+    </organization>
+  </contributor>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>IEC</name>
+    </organization>
+  </contributor>
+</bibitem>
+  <bibitem id="ISODIR1C">
+  <formattedref format="application/x-isodoc+xml">
+    <em>ISO/IEC Directives, Part 1, Consolidated ISO Supplement, Procedures specific to ISO</em>
+  </formattedref>
+  <docidentifier type="ISO">ISO/IEC Directives, Part 1, Consolidated ISO Supplement</docidentifier>
 </bibitem>
 </references></bibliography>
 </csd-standard>
