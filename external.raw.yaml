@@ -502,7 +502,7 @@ root:
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/NP 34000
+  - docidentifier: CC/ISO/NP 34000
     doctype: standard
     title: Date and time -- Concepts and vocabulary
     stage: proposal
@@ -511,7 +511,7 @@ root:
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/NP 34002
+  - docidentifier: CC/ISO/NP 34002
     doctype: standard
     title: Date and time -- Timezones
     stage: proposal
@@ -520,7 +520,7 @@ root:
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/NP 34003
+  - docidentifier: CC/ISO/NP 34003
     doctype: standard
     title: Date and time -- Codes for calendar systems
     stage: proposal
@@ -529,24 +529,24 @@ root:
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/NP 34005
-    doctype: standard
-    title: Date and time -- Calendars -- Gregorian calendar
-    stage: proposal
-    revdate: 2018-10-25
-    technical_committee: DATETIME
-    language: ''
-    script: ''
-    datetype: ''
-  - docidentifier: CC/NP 34006
-    doctype: standard
-    title: Date and time -- Calendars -- Chinese calendar
-    stage: proposal
-    revdate: 2018-10-25
-    technical_committee: DATETIME
-    language: ''
-    script: ''
-    datetype: ''
+  # - docidentifier: CC/NP 34005
+  #   doctype: standard
+  #   title: Date and time -- Calendars -- Gregorian calendar
+  #   stage: proposal
+  #   revdate: 2018-10-25
+  #   technical_committee: DATETIME
+  #   language: ''
+  #   script: ''
+  #   datetype: ''
+  # - docidentifier: CC/NP 34006
+  #   doctype: standard
+  #   title: Date and time -- Calendars -- Chinese calendar
+  #   stage: proposal
+  #   revdate: 2018-10-25
+  #   technical_committee: DATETIME
+  #   language: ''
+  #   script: ''
+  #   datetype: ''
   - docidentifier: CC/IETF/DS 34010
     doctype: standard
     title: The Time Zone Information Format (TZif)
@@ -557,12 +557,39 @@ root:
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/NP 36000
+  # - docidentifier: CC/NP 36000
+  #   doctype: standard
+  #   title: Standardization documents -- Vocabulary
+  #   stage: proposal
+  #   revdate: 2018-10-25
+  #   technical_committee: PUBLISH
+  #   language: ''
+  #   script: ''
+  #   datetype: ''
+  - docidentifier: CC/ISO/NP 36001
     doctype: standard
-    title: Standardization documents -- Vocabulary
+    title: Standardization documents -- Metanorma -- Document metamodel
     stage: proposal
     revdate: 2018-10-25
-    technical_committee: PUBLISH
+    technical_committee: VCARD
+    language: ''
+    script: ''
+    datetype: ''
+  - docidentifier: CC/ISO/NP 36002
+    doctype: standard
+    title: Standardization documents -- Metanorma -- Representation in XML
+    stage: proposal
+    revdate: 2018-10-25
+    technical_committee: VCARD
+    language: ''
+    script: ''
+    datetype: ''
+  - docidentifier: CC/ISO/NP 56001
+    doctype: standard
+    title: Directory -- Common profile -- Personal and organizational information
+    stage: proposal
+    revdate: 2018-10-25
+    technical_committee: VCARD
     language: ''
     script: ''
     datetype: ''
