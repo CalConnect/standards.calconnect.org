@@ -593,6 +593,15 @@ root:
     language: ''
     script: ''
     datetype: ''
+  - docidentifier: CC/ISO/WD 19160-6
+    doctype: standard
+    title: Addressing -- Digital interchange models
+    stage: working-draft
+    revdate: 2018-10-04
+    technical_committee: VCARD
+    language: ''
+    script: ''
+    datetype: ''
   - docidentifier: CC/IETF 70001
     doctype: standard
     title: VALARM Extensions for iCalendar
