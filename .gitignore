@@ -12,6 +12,7 @@ csd.yaml
 external
 admin
 *.xml
+!csd/*.xml
 _data/admin.yaml
 _data/external.yaml
 _data/csd.yaml
