@@ -2,8 +2,8 @@
 <csd-standard xmlns="https://www.calconnect.org/standards/csd">
 <bibdata type="standard">
   <title language="en" format="text/plain">ISO/CalConnect Partner Standards Development Organization (PSDO) Cooperation Agreement</title>
-  <docidentifier type="csd">CC/FDS 10003:2018</docidentifier>
-  <docnumber>10003</docnumber>
+  <docidentifier type="csd">CC/DS 10010:2018</docidentifier>
+  <docnumber>10010</docnumber>
   <contributor>
     <role type="author"/>
     <organization>
@@ -18,7 +18,7 @@
   </contributor>
   <language>en</language>
   <script>Latn</script>
-  <status format="plain">final-draft</status>
+  <status format="plain">draft-standard</status>
   <copyright>
     <from>2018</from>
     <owner>
@@ -32,15 +32,15 @@
   </editorialgroup>
 </bibdata><version>
   <edition>1</edition>
-  <revision-date>2018-08-24T00:00:00Z</revision-date>
+  <revision-date>2018-11-14T00:00:00Z</revision-date>
 </version>
-<termdocsource bibitemid="ISOGUIDE2"/><preface><foreword obligation="informative"><title>Foreword</title><p id="_be31b8b6-b562-4057-a902-8ef2647ae036">The Calendaring and Scheduling Consortium ("CalConnect") is a global
+<termdocsource bibitemid="ISOGUIDE2"/><preface><foreword obligation="informative"><title>Foreword</title><p id="_42e2ba4e-5b79-475f-aac8-650772878dcc">The Calendaring and Scheduling Consortium ("CalConnect") is a global
 non-profit organization that pursues the wide availability of truly
 interoperable collaboration systems and applications through the use of
 open standards.
 CalConnect works closely with liaison partners and international
 standard organizations including ISO, OASIS and M3AAWG.</p>
-<p id="_3aaa12b4-e30f-41d0-934c-142505aaef65">ISO (the International Organization for Standardization)
+<p id="_48033344-4ea6-40ee-9653-e4716e48d7d5">ISO (the International Organization for Standardization)
 is a worldwide federation of national standards bodies (ISO member
 bodies). The work of preparing International Standards is normally
 carried out through ISO technical committees. Each member body
@@ -50,343 +50,343 @@ International organizations, governmental and non-governmental, in
 liaison with ISO, also take part in the work. ISO collaborates closely
 with the International Electrotechnical Commission (IEC) on all matters
 of electrotechnical standardization.</p>
-<p id="_eb754a31-a4bd-4001-9bd2-16579f921544">Any trade name used in this document is information given for the
+<p id="_e2d8f4c3-ab50-420d-b302-990ff3f96696">Any trade name used in this document is information given for the
 convenience of users and does not constitute an endorsement.</p>
-<p id="_de54d928-a8e2-4c62-8786-c655ea1618a0">This document was prepared by the Joint Coordination Group of
+<p id="_90f7b614-b28e-4ccf-8e8c-b6e55e9c0392">This document was prepared by the Joint Coordination Group of
 ISO and CalConnect.</p>
-<p id="_e5985a4c-08e7-4205-8f80-0238797f3ba0">This is the first edition of this document.</p></foreword><introduction id="_introduction" obligation="informative"><title>Introduction</title><clause id="_purpose" obligation="informative"><title>Purpose</title><p id="_d8a1768a-bbeb-427d-92b5-332b552db229">The purpose of this document is to establish an understanding between
+<p id="_d4d44071-9718-4820-9c94-fbf1ecb6d9f6">This is the first edition of this document.</p></foreword><introduction id="_introduction" obligation="informative"><title>Introduction</title><clause id="_purpose" obligation="informative"><title>Purpose</title><p id="_d2db8f04-309c-4e0e-87ad-dfddef480bf6">The purpose of this document is to establish an understanding between
 ISO and CalConnect on cooperation on standards
 development.</p>
-<p id="_0c6fb762-a0d1-4463-9049-138861abe14d">This document formalizes the process of collaboration of
+<p id="_e00bb6d7-e3a0-497d-8e51-930c5b4bcc13">This document formalizes the process of collaboration of
 ISO and CalConnect to cooperate and to
 enable the collaborative development of standards.</p>
-<p id="_6e24f30a-bf4d-4986-9707-edc4333aea0f">The resulting standards are to be jointly published by
+<p id="_05eec868-f45c-4bfd-b025-5ae47aeaea51">The resulting standards are to be jointly published by
 ISO and CalConnect as "ISO/CalConnect Standards",
 according to processes described in this document.</p></clause>
-<clause id="_background" obligation="informative"><title>Background</title><p id="_3d1225bb-6eb8-4562-a712-c6297b33f5db">One of the objectives of ISO is to facilitate the international
+<clause id="_background" obligation="informative"><title>Background</title><p id="_52605c10-efc3-4565-8892-371dc8914f74">One of the objectives of ISO is to facilitate the international
 exchange of goods and services through the development of International
 Standards.</p>
-<p id="_620d763e-2a79-46e0-9554-3e37db4fa1b2">The ISO Council has adopted a policy of inclusiveness
+<p id="_cfd67a7e-2582-4224-81b2-ed4dc8655c6f">The ISO Council has adopted a policy of inclusiveness
 and encourages cooperation between ISO and other standardizing bodies,
 where such cooperation would serve to ensure effective and efficient
 use of resources available for standardization activities.</p>
-<p id="_641c3ba5-048e-4b74-807b-dcc6ef2846d6">CalConnect aims to facilitate interoperability of collaborative
+<p id="_02270c60-4ed0-4b79-9dbf-fecf2b1ac78a">CalConnect aims to facilitate interoperability of collaborative
 technologies with open standards, in particular on calendar, scheduling,
 and contacts; its standards are globally recognized and widely applied.</p></clause>
 <clause id="_intention" obligation="informative">
   <title>Intention</title>
-  <p id="_127883dc-885e-47e8-b85a-227135ca8a95">ISO and CalConnect agree to the principles of cooperation described in
+  <p id="_5da901c2-022d-4dec-9ffa-8fb2bf8e5bd5">ISO and CalConnect agree to the principles of cooperation described in
 this document, in all fields subject to approval by the ISO TMB and the
 CalConnect TC PUBLISH and TCC.</p>
 </clause>
-<clause id="_process_cooperation" obligation="informative"><title>Process cooperation</title><p id="_c538913e-74cb-4431-8985-33ae1e4f3787">ISO and CalConnect wish to avoid duplication of efforts by their
+<clause id="_process_cooperation" obligation="informative"><title>Process cooperation</title><p id="_72833836-6419-4c96-a04b-cd5b7e511a78">ISO and CalConnect wish to avoid duplication of efforts by their
 respective committees.</p>
-<p id="_3218efaf-d73b-4c69-b793-88abac3d4869">ISO produces International Standards in accordance with processes
+<p id="_713f2a7e-a2c0-410b-b4c9-70700d02c872">ISO produces International Standards in accordance with processes
 described in <eref type="inline" bibitemid="ISODIR1C" citeas="ISO/IEC Directives, Part 1, Consolidated ISO Supplement"/> and <eref type="inline" bibitemid="ISODIR1" citeas="ISO/IEC Directives, Part 1"/>, with the standard documents
 drafted in accordance with the editorial rules of <eref type="inline" bibitemid="ISODIR2" citeas="ISO/IEC Directives, Part 2"/>.</p>
-<p id="_0ec5099f-3224-4d82-912a-37163d4cf7fd">CalConnect creates publicly available CalConnect Standards through
+<p id="_5ad367fb-1fc2-4334-9557-a13c71d4f183">CalConnect creates publicly available CalConnect Standards through
 a consensus-based standardization process described in <eref type="inline" bibitemid="CALSTD" citeas="CC/DIR 10001"/>, and
 standard documents created in accordance with <eref type="inline" bibitemid="CALDOC" citeas="CC/DIR 10002"/>.</p>
-<p id="_54913cfe-f013-4d87-b9bf-11224bfe4467">Both ISO and CalConnect believe that cooperation at
+<p id="_8d2f52c6-4e8d-423c-acf5-a95f9b2e696a">Both ISO and CalConnect believe that cooperation at
 the standards development process level provides the following benefits:</p>
-<ul id="_2f9b3d84-4cbb-491b-9f5a-fa68ec3774e5">
+<ul id="_2c588b35-94f2-4837-a6b0-4f5302b98dc7">
   <li>
-    <p id="_dc5e6c42-d3a4-42f4-a03c-e1d50f8c9205">maximizes the deliverable expertise of their experts; and</p>
+    <p id="_b8fb6c84-6c1d-495a-9249-f4625de1d3b6">maximizes the deliverable expertise of their experts; and</p>
   </li>
   <li>
-    <p id="_cf5c4466-ac2d-4ff4-bca2-7d35c401b69f">maximizes the quality of the resulting International Standard.</p>
+    <p id="_dbb4092a-ffa4-445b-9276-e6fb51ded927">maximizes the quality of the resulting International Standard.</p>
   </li>
 </ul>
-<p id="_357af605-005b-4b19-b214-69fde0b87f8f">This agreement facilitates a collaborative development process
+<p id="_2916fefd-cf74-450d-9d48-bccc2d50bfb5">This agreement facilitates a collaborative development process
 for the creation of joint publications (ISO/CalConnect Standards)
 between ISO and CalConnect.</p></clause></introduction></preface><sections>
 
-<clause id="_scope" obligation="normative"><title>Scope</title><p id="_2986f32a-1a5b-4087-a08f-bc4e001223ff">This document describes the agreement between CalConnect and ISO for
+<clause id="_scope" obligation="normative"><title>Scope</title><p id="_dee4a0bd-1f79-4685-9e1a-c0d5ffb0f592">This document describes the agreement between CalConnect and ISO for
 the cooperation of standards development and publication.</p>
-<p id="_164d5dec-711d-47c6-b2b4-1fc1331b2944">Specifically, it provides the principles and necessary processes for these
+<p id="_3b4be7fb-5217-4a1b-860b-e951fe18813b">Specifically, it provides the principles and necessary processes for these
 collaborative cases between ISO and CalConnect ("Parties"):</p>
-<ul id="_6e4b04a9-91ab-4e44-b7af-e36c797c0f0d">
+<ul id="_884adaec-e8a7-4d25-bbfa-3dff7e317890">
   <li>
-    <p id="_fe5ac5b2-3428-4dcb-a149-194a559038de">co-development of a standardization work item, proposed by either party</p>
+    <p id="_bec4c204-f794-455a-b56b-e4ab1cb46792">co-development of a standardization work item, proposed by either party</p>
   </li>
   <li>
-    <p id="_d253d494-987a-46b1-ba51-656b11bba61d">submission of a CalConnect document to ISO for its
+    <p id="_e12a582b-b387-4bfd-a413-d85e33978170">submission of a CalConnect document to ISO for its
 standardization process</p>
   </li>
 </ul>
-<p id="_103814e4-151f-4477-9f87-49243caf730d">Standardization processes in this document is intended to align
+<p id="_dccd6c73-50b1-477b-b136-ad74ad2c62f5">Standardization processes in this document is intended to align
 with <eref type="inline" bibitemid="ISODIR1" citeas="ISO/IEC Directives, Part 1"/>, <eref type="inline" bibitemid="ISODIR1C" citeas="ISO/IEC Directives, Part 1, Consolidated ISO Supplement"/>, <eref type="inline" bibitemid="CALSTD" citeas="CC/DIR 10001"/> and <eref type="inline" bibitemid="CALDOC" citeas="CC/DIR 10002"/>.</p></clause>
 
 <clause id="terms" obligation="normative"><title>Terms and definitions</title><terms id="_terms_and_definitions" obligation="normative"><title>Terms and definitions</title><term id="_iso_members">
   <preferred>ISO members</preferred>
-  <definition><p id="_9eeff13a-0752-440c-824a-6f633b89c4b1">ISO member bodies and correspondent members</p></definition>
+  <definition><p id="_3ca25f6c-1904-41f8-ac53-22a394357b42">ISO member bodies and correspondent members</p></definition>
 </term>
 <term id="_calconnect_members">
   <preferred>CalConnect members</preferred>
-  <definition><p id="_556acf7c-cf98-4a8b-bc22-7aa7dcf8bc96">CalConnect member bodies</p></definition>
+  <definition><p id="_b8c96ee3-e85e-4119-850b-dc9dd50d1674">CalConnect member bodies</p></definition>
 </term>
 <term id="term-iso-tc"><preferred>ISO committee</preferred>
   <admitted>ISO TC</admitted>
 
-<definition><p id="_2cd926e3-c4ea-4afe-96b6-3ff66c149528">ISO Technical Committee (including ISO/IEC JTC1) or Subcommittee</p></definition></term>
+<definition><p id="_a7be633f-d1d4-44dc-86e0-959d3792dcac">ISO Technical Committee (including ISO/IEC JTC1) or Subcommittee</p></definition></term>
 <term id="term-cc-tc"><preferred>CalConnect technical committee</preferred>
   <admitted>CalConnect TC</admitted>
 
-<definition><p id="_bec0afe1-bedf-4aa2-b3c8-3fa54f0cc334">internal committee of CalConnect tasked with a scope of work it
+<definition><p id="_f94019f8-7ce0-428f-9bb1-40431ffeca6a">internal committee of CalConnect tasked with a scope of work it
 is responsible for</p></definition></term>
 <term id="term-std-project">
   <preferred>standardization project</preferred>
-  <definition><p id="_f41a23fb-073b-4b24-9e31-320c6b310ae3">an organized process with one or more standardization work items that
+  <definition><p id="_3a46c812-1b76-400c-9b5f-4325dd3699d6">an organized process with one or more standardization work items that
 contributes towards a defined scope of work</p></definition>
 </term>
 <term id="term-std-work-item">
   <preferred>standardization work item</preferred>
-  <definition><p id="_77aff0ae-9d99-456b-bccb-14c20a64f29e">publishable work item that creates output that relates
+  <definition><p id="_edce553f-e8f1-472b-b05e-a7adb4cb0d6a">publishable work item that creates output that relates
 to standardization within a <em>standardization project</em> (<xref target="term-std-project"/>)</p></definition>
 </term>
 <term id="term-project-owner">
   <preferred>project owner</preferred>
-  <definition><p id="_68a1d626-5a01-4d5b-9702-0f2fa8af1ef9">entity with authority in charge of a <em>standardization project</em>
+  <definition><p id="_36dabb80-09d4-402a-97f3-295a9383953c">entity with authority in charge of a <em>standardization project</em>
 (<xref target="term-std-project"/>)</p></definition>
 </term>
 <term id="term-document">
   <preferred>document</preferred>
-  <definition><p id="_b21cb155-3817-47e5-b3d0-4e1e13df771d">written output of a work item</p></definition>
+  <definition><p id="_25ce55b0-61af-489e-81d6-21f71da7b2ef">written output of a work item</p></definition>
 </term>
-<term id="term-cc-deliverable"><preferred>CalConnect deliverable</preferred><definition><p id="_7ef25496-dc44-4922-b7ec-66e7f51eec19"><em>document</em> (<xref target="term-document"/>) produced by a <em>CalConnect TC</em>
+<term id="term-cc-deliverable"><preferred>CalConnect deliverable</preferred><definition><p id="_02b88d21-f51e-4ae7-82de-5a2f03c703a4"><em>document</em> (<xref target="term-document"/>) produced by a <em>CalConnect TC</em>
 (<xref target="term-cc-tc"/>) as described in <eref type="inline" bibitemid="CALSTD" citeas="CC/DIR 10001"/></p></definition>
-<termnote id="_d3d4acad-5598-4654-892f-0d7ca69f0392">
-  <p id="_9574ef40-bfb7-46db-8bb7-168ac84e4ce3">According to <eref type="inline" bibitemid="CALSTD" citeas="CC/DIR 10001"/>, CalConnect deliverables include the
+<termnote id="_e40e6f9a-55b5-4790-b1bd-b10e5528bd06">
+  <p id="_840375b3-b733-4b74-a675-16e14ee9d29d">According to <eref type="inline" bibitemid="CALSTD" citeas="CC/DIR 10001"/>, CalConnect deliverables include the
 following types: CalConnect Standard, Guide, Specification, Report and
 Directives. Directives are not considered a standardization work item.</p>
 </termnote></term>
-<term id="term-iso-deliverable"><preferred>ISO TC deliverable</preferred><definition><p id="_e4fc91a2-6b70-4f31-bf9e-850e55de677d"><em>document</em> (<xref target="term-document"/>) produced by an <em>ISO TC</em>
+<term id="term-iso-deliverable"><preferred>ISO TC deliverable</preferred><definition><p id="_6bbbeea8-aa89-4547-9421-4de8e7add4ea"><em>document</em> (<xref target="term-document"/>) produced by an <em>ISO TC</em>
 (<xref target="term-iso-tc"/>) as described in <eref type="inline" bibitemid="ISODIR1" citeas="ISO/IEC Directives, Part 1"/></p></definition>
-<termnote id="_60c049cf-938e-4eea-9302-6fe439cc20fe">
-  <p id="_c329f30a-0250-4eb9-ba31-eb22a0a21b00">According to <eref type="inline" bibitemid="ISODIR1" citeas="ISO/IEC Directives, Part 1"/>, ISO TC deliverables include the
+<termnote id="_838ccdd0-bee1-4742-b22a-2687084013ba">
+  <p id="_f3dee433-974c-424c-92f4-fae0468303f7">According to <eref type="inline" bibitemid="ISODIR1" citeas="ISO/IEC Directives, Part 1"/>, ISO TC deliverables include the
 following types: International Standards, Technical Specifications,
 Publicly Available Specifications and Technical Reports.</p>
 </termnote></term>
 <term id="_document_stage">
   <preferred>document stage</preferred>
-  <definition><p id="_f74786df-8280-4ffe-84cc-c90b8af985a0">stage of document as specified in the ISO harmonized stages (as defined
+  <definition><p id="_cfdf1bbe-a839-4181-be99-af20c84caa3b">stage of document as specified in the ISO harmonized stages (as defined
 in <eref type="inline" bibitemid="ISODIR1C" citeas="ISO/IEC Directives, Part 1, Consolidated ISO Supplement"/>)</p></definition>
 </term>
-<term id="term-std-project-output"><preferred>standardization project output</preferred><definition><p id="_f26184e2-77c3-4579-a626-1ec07e003072">output of a <em>standardization project</em> (<xref target="term-std-project"/>)</p></definition>
-<termnote id="_83478588-1c43-42be-aaac-de2c5ba8a7d0">
-  <p id="_1ec1c687-a7ad-4d9f-a7eb-7ac0442552f3">In this document, it explicitly means any documents and IP rights
+<term id="term-std-project-output"><preferred>standardization project output</preferred><definition><p id="_c61bdaf1-9917-4c5d-8c47-608cd4269e3e">output of a <em>standardization project</em> (<xref target="term-std-project"/>)</p></definition>
+<termnote id="_84902fba-44eb-48fe-9158-50e007ad9a49">
+  <p id="_9b71960a-23ce-4df2-8a91-f8e8facd234b">In this document, it explicitly means any documents and IP rights
 produced by the standardization project.</p>
 </termnote></term>
 <term id="term-std-proposal">
   <preferred>proposal for standardization</preferred>
-  <definition><p id="_146cfdcd-6514-4fd0-a6fa-bce449306b81">proposal for a new work item for standardization</p></definition>
+  <definition><p id="_4ded7da8-1a23-4fcb-a4b7-83e98d149ed7">proposal for a new work item for standardization</p></definition>
 </term>
 <term id="term-co-develop">
   <preferred>co-develop</preferred>
-  <definition><p id="_c819d342-45e6-4cb6-a544-26bc74ff9916">act of developing a work item by multiple parties from the proposal stage</p></definition>
+  <definition><p id="_e6ee9d55-05ef-4d4b-92a2-e4487d26d7fc">act of developing a work item by multiple parties from the proposal stage</p></definition>
 </term>
 <term id="term-co-publish">
   <preferred>co-publish</preferred>
-  <definition><p id="_f94300d5-58fc-4546-8574-444beb09d12a">act of publishing <em>documents</em> (<xref target="term-document"/>) of identical content
+  <definition><p id="_65c63d5f-6e98-4228-971f-f268d4a9055d">act of publishing <em>documents</em> (<xref target="term-document"/>) of identical content
 by multiple parties</p></definition>
 </term>
 <term id="term-joint-work-item">
   <preferred>joint work item</preferred>
-  <definition><p id="_d726d389-108f-45d4-99ef-31f46b408916">work item <em>co-developed</em> (<xref target="term-co-develop"/>) by both parties</p></definition>
+  <definition><p id="_c8197623-dc55-49bd-babd-e611793dd0ce">work item <em>co-developed</em> (<xref target="term-co-develop"/>) by both parties</p></definition>
 </term>
 <term id="term-joint-deliverable">
   <preferred>joint deliverable</preferred>
-  <definition><p id="_1cbf65bf-1b8e-4e31-9f91-a928273a2b65">completed form of a <em>joint work item</em> that is designated to be
+  <definition><p id="_ad4f3bcc-69cc-49e7-bffa-b625feec2247">completed form of a <em>joint work item</em> that is designated to be
 <em>co-published</em> (<xref target="term-co-publish"/>) by ISO
 and CalConnect</p></definition>
 </term>
-<term id="term-joint-publication"><preferred>joint publication</preferred><definition><p id="_1a68c530-46b0-467d-9cac-7ff10654fb08">publication that is <em>co-published</em> (<xref target="term-co-publish"/>) by
+<term id="term-joint-publication"><preferred>joint publication</preferred><definition><p id="_a2ce896a-16bc-44de-a72e-170e032db4c2">publication that is <em>co-published</em> (<xref target="term-co-publish"/>) by
 ISO and CalConnect</p></definition>
-<termnote id="_05354b7c-35ed-406a-9bb4-152493948bf9">
-  <p id="_1d66063e-8ccb-44df-932f-c3a717cec7aa">Different publishers of a joint publication may utilize a
+<termnote id="_32c7f992-12ed-412b-9f2a-714dfd9601e8">
+  <p id="_c0418093-8c6b-4d49-a818-b3c5eff9f182">Different publishers of a joint publication may utilize a
 different document layout.</p>
 </termnote></term>
 <term id="term-jcg"><preferred>Joint Coordination Group</preferred>
   <admitted>JCG</admitted>
 
-<definition><p id="_cc501b34-c214-44b7-beff-c06ae8baa2b5">advisory group with representatives from ISO and CalConnect on
+<definition><p id="_7dca2394-7d05-4828-a06c-324e1d5a278c">advisory group with representatives from ISO and CalConnect on
 the execution and maintenance of this agreement</p></definition></term>
 <term id="term-joint-project-group"><preferred>joint project group</preferred>
   <admitted>JPG</admitted>
 
-<definition><p id="_c03aa312-c891-4ccf-ae5a-f94713159d55">group created to be <em>project owner</em> (<xref target="term-project-owner"/>) of a <em>joint work item</em> (<xref target="term-joint-work-item"/>),
+<definition><p id="_94fc46d0-d084-4bd1-a8a0-327268807aac">group created to be <em>project owner</em> (<xref target="term-project-owner"/>) of a <em>joint work item</em> (<xref target="term-joint-work-item"/>),
 composed of participants from <em>ISO committees</em> (<xref target="term-iso-tc"/>) and <em>CalConnect TCs</em> (<xref target="term-cc-tc"/>)</p></definition></term>
 <term id="term-joint-maintenance-group"><preferred>joint maintenance group</preferred>
   <admitted>JMG</admitted>
 
-<definition><p id="_fc2db9b4-b5d1-4d64-bd18-a578339751fc"><em>joint project group</em> (<xref target="term-joint-project-group"/>) for the sole
+<definition><p id="_9ef63e74-68a7-4788-b6b7-3c3e1ef036c0"><em>joint project group</em> (<xref target="term-joint-project-group"/>) for the sole
 purpose of maintaining a
 <em>joint publication</em> (<xref target="term-joint-publication"/>)</p></definition></term>
 <term id="term-doc-register">
   <preferred>co-development document register</preferred>
-  <definition><p id="_d54f81aa-6cf3-4c4b-881e-fefd7126c7be">document register of a list of <em>co-developed</em> (<xref target="term-co-develop"/>)
+  <definition><p id="_7f719421-2d3f-48f8-b81f-caaa2d2f5b03">document register of a list of <em>co-developed</em> (<xref target="term-co-develop"/>)
 <em>documents</em> (<xref target="term-document"/>) developed under this agreement,
 held by the <em>Joint Coordination Group</em> (<xref target="term-jcg"/>)</p></definition>
 </term></terms>
 <definitions id="_abbreviations">
-  <dl id="_91c6ea03-03b7-47b4-b7a6-430aa9fe1869">
+  <dl id="_19b082e8-f0a8-4fe3-add9-ff910e6f7871">
   <dt>IPR</dt>
   <dd>
-    <p id="_7f2b5288-1ba9-41e1-9d23-5f6fd67a1d3a">Intellectual Property Rights</p>
+    <p id="_aa0c58c6-154d-4de7-b896-c7ac49347cb0">Intellectual Property Rights</p>
   </dd>
   <dt>TCC</dt>
   <dd>
-    <p id="_437ac30d-b41f-4935-b47d-96cd42eb11b9">CalConnect Technical Coordination Committee</p>
+    <p id="_c5cc3857-228e-47a9-a2ec-e3b120268184">CalConnect Technical Coordination Committee</p>
   </dd>
   <dt>TMB</dt>
   <dd>
-    <p id="_cc4e1f60-de69-4d4d-933c-818894fc55b0">ISO Technical Management Board</p>
+    <p id="_d349a90f-03a9-4f19-bc4f-60a7c6327df0">ISO Technical Management Board</p>
   </dd>
 </dl>
 </definitions></clause>
-<clause id="principles" obligation="normative"><title>Principles of cooperation</title><clause id="_collaborative_development_process" obligation="normative"><title>Collaborative development process</title><p id="_14654901-978f-464c-b21e-0b6690332cf6">A collaborative development process is crucial to effective development
+<clause id="principles" obligation="normative"><title>Principles of cooperation</title><clause id="_collaborative_development_process" obligation="normative"><title>Collaborative development process</title><p id="_c1eac757-dd3f-4a24-b5c2-cb5a4d2d36a3">A collaborative development process is crucial to effective development
 of work items between ISO and CalConnect.</p>
-<p id="_c8b1b794-54d2-44a7-9bae-0b433b3eaeaf">Both organizations agree to align appropriate internal processes
+<p id="_f66af632-4fdc-484b-85c5-1854a759349e">Both organizations agree to align appropriate internal processes
 and procedures in order to facilitate joint development of work items.</p>
-<p id="_08f97b02-a9a8-4210-b65a-c1768a73fe4b">Three mechanisms are provided below for cooperative development of
+<p id="_cde1bc13-77be-4919-8651-f96db0402a0f">Three mechanisms are provided below for cooperative development of
 joint publications between ISO and CalConnect, namely:</p>
-<ol id="_2075779e-d9b2-4513-82e0-468ef82d64ac" type="arabic">
+<ol id="_c1e35595-f213-4ac4-bd34-eae6bf019083" type="arabic">
   <li>
-    <p id="_210b8fc4-dbee-41e9-bbe3-26f95c217a6e">CalConnect contributes content to ISO;</p>
+    <p id="_3df31a7b-87bb-471f-b8c4-fb86c8b24c4d">CalConnect contributes content to ISO;</p>
   </li>
   <li>
-    <p id="_deee5414-6270-4410-8b7a-4388782065d7">ISO and CalConnect co-develop a joint deliverable;</p>
+    <p id="_7772248f-ec68-474a-af0d-6a648de44d1d">ISO and CalConnect co-develop a joint deliverable;</p>
   </li>
   <li>
-    <p id="_21b45db7-b065-44df-aa2d-763162ce497b">Adoption of an existing standard from either party.</p>
+    <p id="_92b18797-f47a-4111-ab70-c1be16abec74">Adoption of an existing standard from either party.</p>
   </li>
 </ol></clause>
 <clause id="_central_coordination_group" obligation="normative">
   <title>Central coordination group</title>
-  <p id="_aa20e8da-c456-4d5c-987e-dfb8793d02f8">ISO and CalConnect agree to the establishment of a joint coordination group
+  <p id="_66b877e8-c662-489e-8c90-0cd140207ea3">ISO and CalConnect agree to the establishment of a joint coordination group
 (JCG) to coordinate matters relevant to the execution and maintenance
 of this agreement.</p>
 </clause>
-<clause id="_across_subject_fields" obligation="normative"><title>Across subject fields</title><p id="_38f5fbfd-6163-4db4-af48-48b68d0e2e2f">ISO and CalConnect agree that this agreement applies to all subject fields
+<clause id="_across_subject_fields" obligation="normative"><title>Across subject fields</title><p id="_6eb2e701-deb0-4daa-b60d-95d95393f7eb">ISO and CalConnect agree that this agreement applies to all subject fields
 subject to approval by both parties.</p>
-<p id="_b85c9bb1-8740-4f22-b01b-1812b7846d25">Details of implementation are provided in <xref target="jcg-fields"/>.</p></clause>
-<clause id="principles-normref" obligation="normative"><title>Normative referencing</title><p id="_68970e79-dc12-4d10-9734-1196ac896b78">ISO and CalConnect agree to the normative referencing of their
+<p id="_e54b54c9-4ce8-4782-aabf-4c67910e6e90">Details of implementation are provided in <xref target="jcg-fields"/>.</p></clause>
+<clause id="principles-normref" obligation="normative"><title>Normative referencing</title><p id="_fb91b29d-5b0a-40d8-a245-6a2c50bd8d3d">ISO and CalConnect agree to the normative referencing of their
 standards as appropriate in publications of the other organization in
 compliance with each organization’s policies and directives relative to
 normative references.</p>
-<p id="_c089f197-ad2b-4e4a-b600-c46e2505efa9">Implementation details are provided in <xref target="joint-copyright-declaration"/>.</p></clause>
-<clause id="_patent_policy" obligation="normative"><title>Patent policy</title><p id="_605d8fe8-bcf0-45bc-bc0d-0ca4ecfc8b74">ISO and CalConnect agree that content of joint deliverables,
+<p id="_4636415a-5688-4edd-8a59-dfcd5c340031">Implementation details are provided in <xref target="joint-copyright-declaration"/>.</p></clause>
+<clause id="_patent_policy" obligation="normative"><title>Patent policy</title><p id="_5c1d9b57-e3e0-449c-8529-f96362f957cf">ISO and CalConnect agree that content of joint deliverables,
 including the ISO published form of joint publications,
 will remain free of IPR restrictions that would limit their application.</p>
-<p id="_9f6082aa-3bcc-4101-91c2-69b7accb2cbf">Patented content in a joint deliverable is governed by the
+<p id="_dfcfebd7-5530-486c-86db-17a938aa7ca1">Patented content in a joint deliverable is governed by the
 ISO patent policy and the CalConnect IPR policy.</p>
-<p id="_074c4401-1c08-4cd0-8811-4c208ca77d3e">Any patents involved knowingly in the document shall be made
+<p id="_0d8fdd1e-0b0a-451e-999c-5005e04cd829">Any patents involved knowingly in the document shall be made
 transparent prior to the DIS stage of the joint deliverable.</p></clause>
-<clause id="principles-contributions" obligation="normative"><title>Contributions to ISO standards</title><p id="_892af3e4-0a4b-42e5-9ecc-1933d6b89709">ISO International Standards are normally developed within ISO
+<clause id="principles-contributions" obligation="normative"><title>Contributions to ISO standards</title><p id="_7a738161-9ef3-479c-9b60-8a778768c8e3">ISO International Standards are normally developed within ISO
 Committees. As part of this normal development process, an ISO
 committee may determine that specific elements of an CalConnect
 standard (e.g. figures, data, definitions), along with information from
 other sources, would contribute to the development of an ISO Standard.</p>
-<p id="_973dbb21-f88f-4f82-b54a-470cc114d494">As specified in the <eref type="inline" bibitemid="ISODIR1C" citeas="ISO/IEC Directives, Part 1, Consolidated ISO Supplement"/>, original material contributed to
+<p id="_bf343cf3-cc29-44c3-adc5-0ac0a3e6fbac">As specified in the <eref type="inline" bibitemid="ISODIR1C" citeas="ISO/IEC Directives, Part 1, Consolidated ISO Supplement"/>, original material contributed to
 become part of an ISO publication is normally copied and distributed
 within the ISO system as part of the consensus-building process, this
 being without prejudice to the rights of the original copyright owner
 to exploit the original text.</p>
-<p id="_dc62f5ef-c0e8-41be-9ff2-2920f4d21bd7">It is also recognized that, where such material is already subject to
+<p id="_f6df8719-4869-40e1-919b-03da3f37c147">It is also recognized that, where such material is already subject to
 copyright, rights have to be granted to ISO to reproduce and circulate
 the material.</p>
-<p id="_3db7bcfb-9a81-42eb-8d98-7229132f8e1c">As part of this agreement, CalConnect grants a licence to ISO described
+<p id="_43abf9e0-0f6a-40fc-87e8-f6bfa1f0dd53">As part of this agreement, CalConnect grants a licence to ISO described
 in <xref target="calconnect-iso-license"/>
 for using elements of a CalConnect standard in the development of joint
 publications.</p></clause>
-<clause id="principles-codevelopment" obligation="normative"><title>Co-development of standards</title><p id="_7430f0b0-3025-438d-b3ee-6a7ee92df05e">In cases where CalConnect has developed a standard, or where CalConnect
+<clause id="principles-codevelopment" obligation="normative"><title>Co-development of standards</title><p id="_ddbc5e9c-0202-482a-9b4c-61c2c381636c">In cases where CalConnect has developed a standard, or where CalConnect
 is proposing or developing a standard (yet unpublished), which
 corresponds to a stated ISO TC need covered by this agreement.</p>
-<p id="_3db7047c-4a42-4326-b88a-f4ce0d2da94f">In these instances, the relevant ISO TC and CalConnect TC
+<p id="_be9d2ce9-72a9-4c39-a1dd-51e73cbe0d60">In these instances, the relevant ISO TC and CalConnect TC
 may agree that it would be mutually beneficial to develop work jointly.</p>
-<p id="_40326d31-4ab6-4fd0-ab6f-24c715714fb0">ISO and CalConnect agree to a coordinated and specified process for the
+<p id="_2d246233-6377-4c5c-936e-01ccb3623994">ISO and CalConnect agree to a coordinated and specified process for the
 co-development of joint publications.</p>
-<p id="_727a474d-786f-4a58-9f9c-6ff7353e5d3d">The detailed process and procedures are provided in <xref target="process-codevelopment"/>; copyright of the
+<p id="_c4b3cd7f-9556-4625-a0d3-356bd0a4427d">The detailed process and procedures are provided in <xref target="process-codevelopment"/>; copyright of the
 resulting deliverables is explained in <xref target="copyright-codevelopment"/>.</p></clause>
-<clause id="principles-adoption" obligation="normative"><title>Adoption of existing standards</title><clause id="_general" obligation="normative"><title>General</title><p id="_848045ec-d0a2-475e-8367-bfaef17be41e">ISO and CalConnect agree to a coordinated and specified process for the
+<clause id="principles-adoption" obligation="normative"><title>Adoption of existing standards</title><clause id="_general" obligation="normative"><title>General</title><p id="_87414d72-019a-4fdd-8685-abfe6d30bb53">ISO and CalConnect agree to a coordinated and specified process for the
 adoption of either party’s standardization work items, where:</p>
-<ul id="_f847a7e8-f60d-470f-a2a0-05b54b4f5b52">
+<ul id="_1fce0c49-9f2c-4193-9f35-3223f96bf3f3">
   <li>
-    <p id="_2a1fdba8-6bba-4747-ab3f-5f99ffc24a5e">CalConnect may wish to formally adopt a published ISO
+    <p id="_8bc82bd1-38af-42f9-9cd1-78a954364af1">CalConnect may wish to formally adopt a published ISO
 International Standard;</p>
   </li>
   <li>
-    <p id="_0460714e-b30f-424e-995a-29844d295ee2">CalConnect may propose that an existing CalConnect standard be
+    <p id="_e7de335c-2b46-456e-b19f-9e0cd0cc1538">CalConnect may propose that an existing CalConnect standard be
 submitted as a final draft International Standard (FDIS) at ISO.</p>
   </li>
 </ul>
-<p id="_dcb27504-1412-48a4-9232-dd35e750c560">Copyright of joint publications created through adoption is
+<p id="_1714a043-fb55-45c3-9154-aab381494485">Copyright of joint publications created through adoption is
 explained in <xref target="copyright-adopted"/>.</p></clause>
-<clause id="principles-adoption-calconnect" obligation="normative"><title>Adoption of an ISO Standard by CalConnect</title><p id="_fe6a8940-7b15-4896-9b7d-54ede89d692f">CalConnect may wish to formally adopt a published ISO International
+<clause id="principles-adoption-calconnect" obligation="normative"><title>Adoption of an ISO Standard by CalConnect</title><p id="_76ad3ade-1985-40b9-b488-efeccc40b7e2">CalConnect may wish to formally adopt a published ISO International
 Standard.</p>
-<p id="_e132f04c-4d28-4d5a-8bab-8bf523c87201">In this case, the source party is ISO and the adopting party
+<p id="_b47e8fca-57d4-4429-b2f6-0dfa6e66a5cf">In this case, the source party is ISO and the adopting party
 is CalConnect.</p>
-<p id="_0fb20f3b-5537-4dde-bd0f-e5d39f3f87fe">The method of adoption is specified in <xref target="adoption-calconnect"/>.</p></clause>
-<clause id="principles-adoption-proposal" obligation="normative"><title>Adoption of a CalConnect Standard by ISO</title><p id="_af0e803c-4391-41f6-9fd7-a88fb803d5e2">A published CalConnect standard with global use and acceptance may be
+<p id="_291b9277-4db1-4a20-acb1-6adc36232c21">The method of adoption is specified in <xref target="adoption-calconnect"/>.</p></clause>
+<clause id="principles-adoption-proposal" obligation="normative"><title>Adoption of a CalConnect Standard by ISO</title><p id="_0de5a18f-9e0e-4ca4-b66b-0b9035e42f8a">A published CalConnect standard with global use and acceptance may be
 proposed for adoption as an ISO International Standard, through the
 FDIS fast-track procedure of submitting a CalConnect standard to ISO.</p>
-<p id="_b38d3b35-66e9-4da9-8e4d-f2b7ac6bf55f">In this case, the source party is CalConnect and the adopting party
+<p id="_df673666-dd1b-4f08-a3f4-7c70bf3c1f77">In this case, the source party is CalConnect and the adopting party
 is ISO.</p>
-<p id="_f4bd5d03-7bc2-4d5a-bbe9-ed8c53f0cf07">The method of adoption is detailed in <xref target="adoption-iso"/>.</p></clause></clause>
-<clause id="principles-maintenance" obligation="normative"><title>Maintenance of joint publications</title><p id="_f3818483-379a-48f4-8ae5-509e6d2bf5cc">Maintenance of joint publications shall be a joint responsibility under
+<p id="_c5466d43-6a20-483b-8b5f-4792fb3fb88d">The method of adoption is detailed in <xref target="adoption-iso"/>.</p></clause></clause>
+<clause id="principles-maintenance" obligation="normative"><title>Maintenance of joint publications</title><p id="_6f304da1-afdc-4bb0-9324-bacd4b7637ff">Maintenance of joint publications shall be a joint responsibility under
 a joint process.</p>
-<p id="_7db08553-b7b7-420b-9868-9430a6ee1d2c">Details of the implementation of this clause is described in <xref target="maintenance"/>.</p>
-<p id="_1fd41bef-ffbd-4bd6-942a-441d9bfddc0c">In joint publications where a maintenance agency or registration authority
+<p id="_88cc9230-6247-4813-a6f3-4bfe072c4d35">Details of the implementation of this clause is described in <xref target="maintenance"/>.</p>
+<p id="_9a231489-7001-4a46-854a-393ccc19fbd7">In joint publications where a maintenance agency or registration authority
 is necessary, CalConnect agrees to serve as the default volunteer, as
 described in <xref target="agency"/>.</p></clause>
-<clause id="principles-mutual-recognition" obligation="normative"><title>Mutual recognition and joint deliverables requirements</title><p id="_dfaf5897-7f3c-4678-881f-eee16c624179">ISO and CalConnect shall establish rules to ensure
+<clause id="principles-mutual-recognition" obligation="normative"><title>Mutual recognition and joint deliverables requirements</title><p id="_de22029c-8acc-4de9-893d-7af1e1fc9752">ISO and CalConnect shall establish rules to ensure
 the collaborative effort by both parties are mutually
 recognized within joint deliverables.</p>
-<p id="_b8e24dd8-7b52-409b-af29-7921d2c628d1">The associated requirements are provided in <xref target="deliverable"/>.</p></clause>
+<p id="_219ea0cc-18ca-43b9-85b6-e2660cef14c4">The associated requirements are provided in <xref target="deliverable"/>.</p></clause>
 <clause id="principles-promotion" obligation="normative">
   <title>Promotional activities</title>
-  <p id="_2954e559-0d9b-412c-9afb-79a4e5288215">ISO and CalConnect agree to share and coordinate promotional activities
+  <p id="_0e1d1ca6-088b-4675-a99a-b7969b9efda4">ISO and CalConnect agree to share and coordinate promotional activities
 for the joint publication via the JCG.</p>
 </clause></clause>
-<clause id="jcg" obligation="normative"><title>Joint Coordination Group</title><clause id="_general_2" obligation="normative"><title>General</title><p id="_68d3775d-ebb4-4390-a6e1-275dea7216f8">ISO and CalConnect agrees to establish a standing body,
+<clause id="jcg" obligation="normative"><title>Joint Coordination Group</title><clause id="_general_2" obligation="normative"><title>General</title><p id="_73480314-c25e-40b4-a6c3-d3efe02f0a1b">ISO and CalConnect agrees to establish a standing body,
 the Joint Coordination Group ("JCG"), for:</p>
-<ul id="_3eb87dec-28d5-4b9d-b80c-3e6c281e1ce1">
+<ul id="_0aaccae9-0882-472b-bc99-854eafe86742">
   <li>
-    <p id="_ab12b26f-67f9-4289-97a2-fe8eda695cb0">maintenance and execution of this agreement; and</p>
+    <p id="_b4caac38-c8ea-4e60-9edb-33bb54f8bc4f">maintenance and execution of this agreement; and</p>
   </li>
   <li>
-    <p id="_b2d05fb9-321e-4761-9518-7cddfb6240e2">coordination and maintenance of procedures between two organizations.</p>
+    <p id="_c00f3dd9-c48e-45f1-ac45-5427e94ce454">coordination and maintenance of procedures between two organizations.</p>
   </li>
 </ul></clause>
 <clause id="_mediator_for_coordination_issues" obligation="normative">
   <title>Mediator for coordination issues</title>
-  <p id="_44b28233-d4ac-4343-9ca4-a1754d937d9e">This group meets as necessary and serves as the forum for discussing
+  <p id="_c71b2fce-c800-4253-8297-8dcb964779a5">This group meets as necessary and serves as the forum for discussing
 and resolving issues relating to coordination that may arise from time to time.</p>
 </clause>
-<clause id="_coordination_role" obligation="normative"><title>Coordination role</title><p id="_ce7ab081-219d-4352-8e74-477e026cbbd8">The JCG will support the individual liaisons between
+<clause id="_coordination_role" obligation="normative"><title>Coordination role</title><p id="_429badb5-0351-42de-8c44-88a4b40f4c38">The JCG will support the individual liaisons between
 ISO Technical Committee working groups and project teams,
 with CalConnect technical committees.</p>
-<p id="_4ebcc89d-100f-43b2-b533-e6b0bda4370b">The presence of the JCG is not intended to affect
+<p id="_a2cc6b7d-0832-4cfc-b432-f2b8489b5c44">The presence of the JCG is not intended to affect
 responsibilities of existing organizational structures
 in ISO and CalConnect.</p></clause>
 <clause id="jcg-fields" obligation="normative">
   <title>Fields of collaboration</title>
-  <p id="_1923cb13-e376-4f8d-a7bf-41366bfb35c6">The JCG is responsible with the determination of the subject fields
+  <p id="_39616d96-6967-47dc-bce7-fa91952a0e91">The JCG is responsible with the determination of the subject fields
 of which this agreement applies to, subject to approval by
 the ISO Technical Management Board and the CalConnect TC PUBLISH and TCC.</p>
 </clause>
-<clause id="_members" obligation="normative"><title>Members</title><p id="_61bfb80a-5d63-4e6e-86e6-c2c7a0a30358">The JCG is composed of an equal number of representatives from both parties:</p>
-<ul id="_d4752401-f899-498c-b875-f7cfb6d10141">
+<clause id="_members" obligation="normative"><title>Members</title><p id="_89439204-4f68-42de-83e2-c8baca49918e">The JCG is composed of an equal number of representatives from both parties:</p>
+<ul id="_47809bc2-c063-4324-b1d1-28f9625d1b8d">
   <li>
-    <p id="_c6b04074-e67e-40e4-a8f6-93320a8240b6">Two representatives from ISO</p>
+    <p id="_0410d2f3-0ff8-44c3-bed2-1019edc9cf68">Two representatives from ISO</p>
   </li>
   <li>
-    <p id="_3f5d6318-0489-4069-8741-df42db34412d">Two representatives from CalConnect</p>
+    <p id="_31d3e236-a0a2-433e-85c4-192e502f386b">Two representatives from CalConnect</p>
   </li>
 </ul></clause></clause>
 <clause id="amendments" obligation="normative">
   <title>Amendments to this agreement</title>
-  <p id="_725656f5-4beb-422b-8d4a-2642833142a0">ISO and CalConnect agree that changes to this agreement shall be
+  <p id="_e6743ca1-3d76-4e98-8e20-f64020ffc512">ISO and CalConnect agree that changes to this agreement shall be
 first proposed through the JCG, and formalized by a resolution from one
 party to the other.</p>
 </clause>
@@ -396,64 +396,64 @@ party to the other.</p>
 
 
 
-</sections><annex id="commercial" obligation="normative"><title>Publication, copyright and commercial arrangements</title><clause id="joint-copyright-declaration" obligation="normative"><title>Normative referencing of standards</title><p id="_bd52243c-91a8-4c8f-9711-3db5f3b3d3a6">ISO and CalConnect acknowledge that all documents,
+</sections><annex id="commercial" obligation="normative"><title>Publication, copyright and commercial arrangements</title><clause id="joint-copyright-declaration" obligation="normative"><title>Normative referencing of standards</title><p id="_6d8ac1b6-d119-42c0-88a2-726efd216c55">ISO and CalConnect acknowledge that all documents,
 data or electronic files provided by each consisting of or relating to
 joint publications are copyrighted property and data and will not be
 supplied to any other party without the prior written consent of the
 copyright owner, and will not be used, in whole or in part, as a basis
 for a joint publication without following specific procedures established by the
 respective copyright owner.</p>
-<p id="_ecfdcba7-5d61-443c-a1ba-410b45f7c0ad">Each organization will promptly notify the
+<p id="_9a16bb4b-96c8-449c-8caf-a4f76875569e">Each organization will promptly notify the
 other if it becomes aware of infringements or imitations by others of
 a joint publication.</p></clause>
-<clause id="calconnect-iso-license" obligation="normative"><title>CalConnect content license for joint development</title><p id="_0f23ae9f-f131-4037-8499-bab0f20273b4">In the development, review and adoption process, ISO members are free to copy and
+<clause id="calconnect-iso-license" obligation="normative"><title>CalConnect content license for joint development</title><p id="_b2539263-04d3-4b88-8bb0-8f3fa2681041">In the development, review and adoption process, ISO members are free to copy and
 distribute the relevant CalConnect documents for standards development
 purposes and in accordance with ISO policies for the circulation of
 draft standards and working documents.</p>
-<p id="_431eb5e4-e4b1-4f52-ae88-e5260f90ac44">CalConnect grants ISO a world-wide, non-exclusive, non-sub-licensable
+<p id="_d8adf9d0-6e25-4582-897f-29851704ae35">CalConnect grants ISO a world-wide, non-exclusive, non-sub-licensable
 license (except for national body adoption),
 to use contents of CalConnect submitted documents to ISO,
 within the development, review and adoption process of the
 deliverables under this agreement.</p></clause>
-<clause id="copyright-exploitation" obligation="normative"><title>Copyright and exploitation rights</title><clause id="copyright-adopted" obligation="normative"><title>Of adopted standards</title><p id="_9c53cdb1-18e0-4e0b-9213-66d8064490fb">The copyright in any resulting ISO/CalConnect International Standard(s) published according to
+<clause id="copyright-exploitation" obligation="normative"><title>Copyright and exploitation rights</title><clause id="copyright-adopted" obligation="normative"><title>Of adopted standards</title><p id="_53c77bd2-86f8-4b11-9559-5b2d2c739c40">The copyright in any resulting ISO/CalConnect International Standard(s) published according to
 <xref target="principles-adoption"/>, including any future versions of such Standard(s), remain with
 the source party.</p>
-<p id="_1d754034-eae8-4db5-a1d1-f3a2fd8571a4">The adopting party will neither acquire nor assert copyright ownership or any
+<p id="_5b37957b-2e83-48ec-afb7-8699967888e8">The adopting party will neither acquire nor assert copyright ownership or any
 other proprietary rights in these ISO/CalConnect International Standard(s).</p>
-<p id="_b3ec459d-25dd-4a21-a2ce-08658d99e344">The source party retains all copyrights in the CalConnect Product(s) and
+<p id="_c7fc1e62-9b10-4e78-a363-d3a4861d832d">The source party retains all copyrights in the CalConnect Product(s) and
 ISO/CalConnect International Standard(s) not specifically granted
 hereunder.</p>
-<p id="_d5afdd71-286a-47f9-a2d7-629c0520b175">Subject to the exploitation rights granted above, development by the adopting party (or its members)
+<p id="_a84e03f7-de21-4ff0-af10-1695830afec2">Subject to the exploitation rights granted above, development by the adopting party (or its members)
 of any other work affecting the integrity of the source standard or the ISO/CalConnect International
 Standard(s) would need a separate agreement with the source party.</p></clause>
-<clause id="copyright-codevelopment" obligation="normative"><title>Of jointly developed standards</title><p id="_defbef30-4d2a-466d-8e68-7edab9ad3684">Joint deliverables developed through the joint development process according to
+<clause id="copyright-codevelopment" obligation="normative"><title>Of jointly developed standards</title><p id="_f35f53cc-fe11-478c-8847-1a46a12730dc">Joint deliverables developed through the joint development process according to
 <xref target="principles-codevelopment"/>,
 copyright ownership will be held jointly by ISO
 and CalConnect with normal exploitation rights for CalConnect and for
 ISO and its members, including for national adoption purposes.</p>
-<p id="_b2fda3d7-bfc8-498a-81c5-b4cd3323e730">ISO and CalConnect may each sell and distribute the jointly developed standard,
+<p id="_c65bb200-46ff-485b-bb18-fde212d0028a">ISO and CalConnect may each sell and distribute the jointly developed standard,
 in accordance with their own rules, without any royalties to the other.</p>
-<p id="_782a16cc-d7bb-4ae5-9b59-f1d13adb7a39">The resulting joint publication is common to both organizations.</p></clause></clause>
-<clause id="republishing" obligation="normative"><title>Re-publishing</title><p id="_f92e378a-4ff9-439b-99eb-a940d8d2461a">ISO and CalConnect agree that any re-publishing of content
+<p id="_5221555b-08bf-499b-811f-2350bbcbc6f2">The resulting joint publication is common to both organizations.</p></clause></clause>
+<clause id="republishing" obligation="normative"><title>Re-publishing</title><p id="_a275c705-1b7b-400b-abe2-31709b0de0a6">ISO and CalConnect agree that any re-publishing of content
 developed under this agreement, such as the national adoption
 of a joint publication by an ISO member body, or the re-publishing
 of a joint publication by another organization,
 will adhere to this agreement.</p>
-<p id="_09f9b006-691f-4236-a235-c39ff16f78fe">Publishing arrangements between ISO and ISO member countries are
+<p id="_858a4ec0-ce60-4772-ad99-6b91b98ed778">Publishing arrangements between ISO and ISO member countries are
 unchanged by this agreement.</p></clause>
 <clause id="_statement_indicating_source" obligation="normative">
   <title>Statement indicating source</title>
-  <p id="_386571c2-0b27-4c33-98bc-0b8922495ab6">ISO and CalConnect agree that the resulting publication created with
+  <p id="_6562bbde-c1df-4b07-89a4-3efc0fdcbf26">ISO and CalConnect agree that the resulting publication created with
 the joint deliverable will contain a suitable statement that describes
 the base standard the joint deliverable was derived from.</p>
 </clause>
-<clause id="_notification_of_right_infringement" obligation="normative"><title>Notification of right infringement</title><p id="_eaee30cd-0902-4a43-967d-03484323e0f1">Each party shall promptly inform the other party if it becomes aware of
+<clause id="_notification_of_right_infringement" obligation="normative"><title>Notification of right infringement</title><p id="_61422b33-8709-4c9a-8c98-603767fde9ec">Each party shall promptly inform the other party if it becomes aware of
 any copyright infringement or potential infringement of a joint publication.</p>
-<p id="_bfb1079b-a176-4534-a0fb-22017c9291ed">CalConnect and ISO shall consult with each other to decide the best
-way to respond to such infringement.</p></clause></annex><annex id="process" obligation="normative"><title>Alignment of project timeline</title><clause id="_project_stage_mapping" obligation="normative"><title>Project stage mapping</title><p id="_6f0f1a83-f676-4c47-a568-d32ad4de434f">The following table provides a mapping between ISO project stages and
+<p id="_59ceb26a-0156-4ade-9f80-04ba34b6d664">CalConnect and ISO shall consult with each other to decide the best
+way to respond to such infringement.</p></clause></annex><annex id="process" obligation="normative"><title>Alignment of project timeline</title><clause id="_project_stage_mapping" obligation="normative"><title>Project stage mapping</title><p id="_9ac7bc13-1a1b-46dd-9d88-89c35ddc3ae4">The following table provides a mapping between ISO project stages and
 CalConnect project stages. This document identifies stages
 according to the ISO project stage names.</p>
-<table id="_ae12b28c-7e96-40a3-b6e0-2c6f555342a6">
+<table id="_7efd7d02-ef43-4a8c-8c10-f299a62e3677">
   <name>Alignment between ISO and CalConnect project stages</name>
   <thead>
     <tr>
@@ -528,325 +528,325 @@ according to the ISO project stage names.</p>
     </tr>
   </tbody>
 </table></clause>
-<clause id="_track_synchronization" obligation="normative"><title>Track synchronization</title><p id="_93399434-23c9-4ca2-9041-9f2d44dda48b">ISO deliverables can be developed according to different tracks
+<clause id="_track_synchronization" obligation="normative"><title>Track synchronization</title><p id="_38023829-9de3-4368-bf7d-e48c6126109d">ISO deliverables can be developed according to different tracks
 and timelines detailed in <eref type="inline" bibitemid="ISODIR1" citeas="ISO/IEC Directives, Part 1"/> and <eref type="inline" bibitemid="ISODIR1C" citeas="ISO/IEC Directives, Part 1, Consolidated ISO Supplement"/>.</p>
-<p id="_67458c89-8dd8-49f3-8884-a96208130c54">CalConnect deliverables are developed according to the
+<p id="_c6985eed-2ea6-4e95-9b42-502226902e78">CalConnect deliverables are developed according to the
 timelines detailed in <eref type="inline" bibitemid="CALSTD" citeas="CC/DIR 10001"/>.</p>
-<p id="_7b904d8c-5cc8-46ac-8a4b-5ddb6d60d772">For a project under this agreement, CalConnect agrees to adopt
+<p id="_f1b5b50c-0f3a-4d7d-a190-928694ca3667">For a project under this agreement, CalConnect agrees to adopt
 a developmental track not slower than the track selected in
 ISO to ensure the synchronicity between
-development outcome and publication.</p></clause></annex><annex id="process-codevelopment" obligation="normative"><title>Co-development process</title><clause id="_general_3" obligation="normative"><title>General</title><p id="_6339f17c-14cb-4192-bc80-187508f3800a">In joint development, technical level support for the development of
+development outcome and publication.</p></clause></annex><annex id="process-codevelopment" obligation="normative"><title>Co-development process</title><clause id="_general_3" obligation="normative"><title>General</title><p id="_75cd262c-16f2-4e26-be7f-7a8bbea6c4c2">In joint development, technical level support for the development of
 these standards is provided through the associated CalConnect TC as
 well as the ISO member bodies and their duly appointed technical
 experts through the relevant ISO TC.</p>
-<p id="_98fc9327-a03f-499d-bd96-a251cd559309">Experts in ISO are encouraged to participate in the
+<p id="_8b930597-592d-45f8-9daa-1fd41ee06e23">Experts in ISO are encouraged to participate in the
 technical work on CalConnect technologies by participating in
 CalConnect technical committees.</p></clause>
-<clause id="_first_draft" obligation="normative"><title>First draft</title><p id="_115c0417-0621-4c0d-8b41-18dd36580778">A first draft of the standardization deliverable may be created
+<clause id="_first_draft" obligation="normative"><title>First draft</title><p id="_10585a4a-b120-4a1c-8761-b725b405061b">A first draft of the standardization deliverable may be created
 for proposal submission, or may be created in the Committee stage.
 The draft shall be created through a collaboration process between
 experts from both organizations, or at least, the proposing
 organization should have received input from the other organization.</p>
-<p id="_84b7d26d-ae41-4e71-86c0-202afa0d7b62">CalConnect agrees that any draft submitted to ISO
+<p id="_2e3554c4-a875-4caf-be43-46551223bd6c">CalConnect agrees that any draft submitted to ISO
 shall adhere to the requirements detailed in <eref type="inline" bibitemid="CALDOC" citeas="CC/DIR 10002"/>, <eref type="inline" bibitemid="ISODIR2" citeas="ISO/IEC Directives, Part 2"/> and
 applicable internal guidelines of ISO.</p></clause>
-<clause id="_disapproval_and_continuance" obligation="normative"><title>Disapproval and continuance</title><p id="_e39a2060-e658-4678-b58a-60f7b5c088c3">If the project proposal is rejected by the JCG, its output may still be
+<clause id="_disapproval_and_continuance" obligation="normative"><title>Disapproval and continuance</title><p id="_d2544b96-bf89-44ee-b8af-54993bb40b59">If the project proposal is rejected by the JCG, its output may still be
 developed by the project proposer if appropriate, and its output may
 still be proposed to the JCG for co-development in later stages.</p>
-<p id="_25593ad5-d7d7-40bd-9127-4fdb3fb31b9a">At any time, if a ballot to approve the development of a joint work item
+<p id="_0bdaa29d-c604-495b-a3e8-e988cc3dd989">At any time, if a ballot to approve the development of a joint work item
 is disapproved by ISO or CalConnect, each organization may proceed
 to develop the joint work item independently of each other.</p></clause>
-<clause id="_proposal_development_preliminary_stage" obligation="normative"><title>Proposal development: Preliminary stage</title><clause id="_general_4" obligation="normative"><title>General</title><p id="_482cef95-7f46-405d-a0cf-421ef99a24e3">At the first instance where either party wishes to co-develop
+<clause id="_proposal_development_preliminary_stage" obligation="normative"><title>Proposal development: Preliminary stage</title><clause id="_general_4" obligation="normative"><title>General</title><p id="_e6025ba0-2cf5-4182-a7b9-0aeedcc991a5">At the first instance where either party wishes to co-develop
 a project with the other party, it should be raised to the JCG.</p>
-<p id="_ed1519ef-5121-4dec-88d4-c2ad09fac3e3">The JCG shall consult the stakeholders to determine appropriateness
+<p id="_27903dd6-75df-422a-9224-aa22e34fc680">The JCG shall consult the stakeholders to determine appropriateness
 of the project and advise the proposer.</p></clause>
 <clause id="_initiation_by_calconnect" obligation="normative">
   <title>Initiation by CalConnect</title>
-  <p id="_c2eacf26-4a90-4c29-ac9a-b4a4467fea8b">CalConnect may propose to the appropriate ISO TC(s) to
+  <p id="_a1e42701-ee63-4bfe-a9fb-af02ea7193b6">CalConnect may propose to the appropriate ISO TC(s) to
 jointly develop a new or existing CalConnect standard
 to gain recognition as an ISO/CalConnect Standard.</p>
 </clause>
 <clause id="_initiation_by_iso_tc" obligation="normative">
   <title>Initiation by ISO TC</title>
-  <p id="_8de6fc83-e465-476c-a139-0107a2f339bd">If an ISO TC wishes to initiate the joint development of a
+  <p id="_ecf12df8-7212-4268-82e3-5f6f30da7096">If an ISO TC wishes to initiate the joint development of a
 standard, the ISO TC secretariat shall contact the appropriate
 CalConnect TC to gauge mutual interest.</p>
 </clause></clause>
 <clause id="_proposal_submission_proposal_stage" obligation="normative"><title>Proposal submission: Proposal stage</title><clause id="_general_5" obligation="normative">
   <title>General</title>
-  <p id="_c56417d4-598e-4f28-8a38-dc71a44bb28b">When the JCG determines interest within ISO to co-develop the
+  <p id="_7e2f61e1-6b7a-4523-8d92-332ce445d242">When the JCG determines interest within ISO to co-develop the
 proposed project, the project proposer should submit a proposal
 indicating its wish to co-develop the proposed project,
 to be approved by the relevant ISO and CalConnect TCs via ballot.</p>
 </clause>
-<clause id="_initiation_by_calconnect_2" obligation="normative"><title>Initiation by CalConnect</title><p id="_7c9dcf39-2e62-48b7-abb2-56e4bec5238e">CalConnect shall provide a NWIP in accordance with <eref type="inline" bibitemid="ISODIR1C" citeas="ISO/IEC Directives, Part 1, Consolidated ISO Supplement"/> for the
+<clause id="_initiation_by_calconnect_2" obligation="normative"><title>Initiation by CalConnect</title><p id="_8684c839-193c-4525-b110-363ab2689353">CalConnect shall provide a NWIP in accordance with <eref type="inline" bibitemid="ISODIR1C" citeas="ISO/IEC Directives, Part 1, Consolidated ISO Supplement"/> for the
 proposal of new work items.</p>
-<p id="_800473f1-0ae3-4a5c-b94e-1de29df40c52">In addition, the NWIP shall include:</p>
-<ul id="_e6b62ac0-2b81-4e90-a34c-da52e6b4f063">
+<p id="_a54472af-b35d-4bd6-b4db-97d6c32b54e9">In addition, the NWIP shall include:</p>
+<ul id="_f6815758-2d1b-46c1-9dc5-a2a531066a4f">
   <li>
-    <p id="_a4edd731-10d1-458b-b680-17960496b9e6">rationale for using this process; and</p>
+    <p id="_234e98af-d00d-4309-a36d-5197662f8956">rationale for using this process; and</p>
   </li>
   <li>
-    <p id="_6c59a105-53ea-47c4-a59c-2f8faa3646f7">justification of the need for an ISO/CalConnect International
+    <p id="_6f4185e6-072b-48ba-b747-aa0bd940319f">justification of the need for an ISO/CalConnect International
 Standard.</p>
   </li>
 </ul></clause>
-<clause id="_initiation_by_iso_tc_2" obligation="normative"><title>Initiation by ISO TC</title><p id="_5e632b04-d8f9-4a40-85c9-6a1d2e76ebd7">An ISO member shall submit a NWIP to the ISO TC for approval
+<clause id="_initiation_by_iso_tc_2" obligation="normative"><title>Initiation by ISO TC</title><p id="_ac2c0143-d7a2-4cd0-a0e0-42e6ba24083f">An ISO member shall submit a NWIP to the ISO TC for approval
 in accordance with <eref type="inline" bibitemid="ISODIR1C" citeas="ISO/IEC Directives, Part 1, Consolidated ISO Supplement"/>.</p>
-<p id="_51234180-14c9-4fb1-a25b-66fab087cd7f">Concurrently, the corresponding CalConnect TC will submit a
+<p id="_50de3ac2-e6e5-4fad-992a-408eeaa35288">Concurrently, the corresponding CalConnect TC will submit a
 project proposal to the CalConnect TCC, providing the relevant
 information for the project and a statement that the project
 is to be developed jointly with the relevant ISO TC.</p></clause>
-<clause id="_fast_track_proposal_at_iso" obligation="normative"><title>Fast-track proposal at ISO</title><p id="_446043b9-c9a1-4247-84cb-35240c75e05e">When the ISO NWIP is accompanied by an existing CalConnect standard,
+<clause id="_fast_track_proposal_at_iso" obligation="normative"><title>Fast-track proposal at ISO</title><p id="_bd19187e-8023-4617-92b3-92330d1b5a32">When the ISO NWIP is accompanied by an existing CalConnect standard,
 members of the ISO TC will be invited to approve its submission as a DIS.</p>
-<note id="_dcf74e87-4e9f-4801-9df3-4c188a1a97a3">
-  <p id="_292f9422-ab28-4fbe-a484-053ea4bc7ad7">A two-thirds (2/3) majority vote of participating ISO P-members
+<note id="_462151af-7060-4e3a-be26-dd020c66a949">
+  <p id="_b2f4742a-d18c-4c9d-aa02-a137fbaf7091">A two-thirds (2/3) majority vote of participating ISO P-members
 is required for approval (<eref type="inline" bibitemid="ISODIR1C" citeas="ISO/IEC Directives, Part 1, Consolidated ISO Supplement"/>).</p>
 </note></clause>
-<clause id="codevelopment-approval" obligation="normative"><title>Approval of co-development</title><p id="_740c4ef4-1bfc-4c8a-8bd1-726586000d63">If both organizations approve the proposal for joint development,
+<clause id="codevelopment-approval" obligation="normative"><title>Approval of co-development</title><p id="_2bab4fd4-2f03-4d47-95a4-883149c2016e">If both organizations approve the proposal for joint development,
 the project shall be adopted on both sides by a CalConnect
 TC and an ISO TC.</p>
-<p id="_be5d6b8e-fae4-4516-9d2f-698e2bc587e5">The JCG shall then create a joint project group to be the project
+<p id="_01da402f-498d-4c50-bdec-7e768acd6ad2">The JCG shall then create a joint project group to be the project
 owner of the proposed joint work item through the CalConnect TCC and the
 secretariat of the ISO TC, consisting of nominated experts from the
 relevant CalConnect and ISO TCs.</p>
-<p id="_119dca8d-feab-41f0-a320-f4a5a3f70223">ISO and CalConnect will mutually agree on a Convener for the JPG.</p>
-<p id="_3e0d9a09-bc13-4206-8da4-eea07fd78491">This approved project shall be listed in the JCG register of
+<p id="_26a571e4-ca88-4bfe-8e53-be14f3d805d8">ISO and CalConnect will mutually agree on a Convener for the JPG.</p>
+<p id="_a268ec6d-2da1-48d4-b03d-4478a811855d">This approved project shall be listed in the JCG register of
 co-developed projects.</p></clause></clause>
-<clause id="_content_development_preparatory_committee_enquiry_stages" obligation="normative"><title>Content development: Preparatory, Committee, Enquiry stages</title><clause id="_general_6" obligation="normative"><title>General</title><p id="_0609c0bd-8082-420d-b260-a4e528fc478b">The goal of these stages are to create an approved, balloted
+<clause id="_content_development_preparatory_committee_enquiry_stages" obligation="normative"><title>Content development: Preparatory, Committee, Enquiry stages</title><clause id="_general_6" obligation="normative"><title>General</title><p id="_f58631ed-0667-4f98-8eac-4b65c3c80f82">The goal of these stages are to create an approved, balloted
 draft of the joint deliverable by both parties.</p>
-<p id="_d005758f-392d-4a22-8902-d17444a4ed3b">In these stages, members of the joint project group shall
+<p id="_54cf48e0-f660-4998-8324-937b90ac9441">In these stages, members of the joint project group shall
 collaborate closely to ensure efficient and effective
 development of the deliverable of the respective stages.
 The deliverable shall be developed jointly by experts of
 both organizations.</p></clause>
-<clause id="_stage_synchronization" obligation="normative"><title>Stage synchronization</title><p id="_5bc39303-d1e8-4529-9a31-061e6023b1d7">The approval process at CalConnect and ISO shall be adhered to.
+<clause id="_stage_synchronization" obligation="normative"><title>Stage synchronization</title><p id="_2e1d2aa6-baa7-4ffa-b1a0-fd2997a63f12">The approval process at CalConnect and ISO shall be adhered to.
 CalConnect agrees to synchronize its project stage with
 the corresponding ISO project stage.</p>
-<p id="_e7bf963a-ca63-4303-90cb-6cfd563bfa68">Specifically:</p>
-<ul id="_57ac4356-b125-4392-82a2-998b151f125a">
+<p id="_b8f1f71b-bf5a-4cfa-8744-c094acd60160">Specifically:</p>
+<ul id="_859af14c-353f-4663-91cb-8bd7eefdeb7b">
   <li>
-    <p id="_dd4af8a5-20a8-4eff-8716-51f6876b46e1">If a deliverable is approved by ballot at both ISO and CalConnect,
+    <p id="_7a2e76a1-020a-47b5-a3b9-b1775dd2184d">If a deliverable is approved by ballot at both ISO and CalConnect,
 CalConnect will advance the project stage at its
 project group accordingly.</p>
   </li>
   <li>
-    <p id="_079575a9-40f1-4991-89af-9de017484019">If a deliverable is rejected by ballot at either party,
+    <p id="_8bb2ab5e-c45c-4005-8d6d-a48c97ec9447">If a deliverable is rejected by ballot at either party,
 CalConnect will not advance project stage at its
 project group, unless a re-ballot at ISO approves
 advancement of the deliverable.</p>
   </li>
   <li>
-    <p id="_3a493f56-dc23-47d6-a7a3-ee55a00f6ca2">In cases where a development stage is optional and skipped
+    <p id="_79fe27d2-9abe-42a6-80ed-3a326f5f2a99">In cases where a development stage is optional and skipped
 in accordance with <eref type="inline" bibitemid="ISODIR1" citeas="ISO/IEC Directives, Part 1"/> and <eref type="inline" bibitemid="ISODIR1C" citeas="ISO/IEC Directives, Part 1, Consolidated ISO Supplement"/>, CalConnect
 shall set the stage of its project at the corresponding
 stage.</p>
   </li>
 </ul></clause>
-<clause id="_approval_of_a_committee_draft" obligation="normative"><title>Approval of a committee draft</title><p id="_b75e37ba-8b73-41f2-969d-4af7aad5332b">Once consensus is reached within the JPG, the draft is circulated to
+<clause id="_approval_of_a_committee_draft" obligation="normative"><title>Approval of a committee draft</title><p id="_5d691f75-0139-46b9-b621-e00486017af7">Once consensus is reached within the JPG, the draft is circulated to
 the relevant ISO and CalConnect TCs for three-month comment.</p>
-<p id="_8b71e1a3-c6ed-425b-82a8-aca76f44b2bd">The JPG prepares a compilation of comments received from both
+<p id="_233ba0fb-13f2-46b4-9a67-66a14ede97a4">The JPG prepares a compilation of comments received from both
 organizations and develops a revised draft.</p></clause>
-<clause id="approval-dis" obligation="normative"><title>Approval of a draft standard</title><p id="_7949d927-82c6-4c18-92fd-b3d4f5b38e78">Once consensus within the JPG is achieved, the draft is provided to ISO
+<clause id="approval-dis" obligation="normative"><title>Approval of a draft standard</title><p id="_9844db2a-3be5-4119-b972-08096b0d4db4">Once consensus within the JPG is achieved, the draft is provided to ISO
 for DIS ballot and CalConnect for DS ballot.</p>
-<p id="_f678ea63-cba3-441c-8509-5a9e840b8ea9">Once balloting and approval at that stage, from both organizations, is
+<p id="_946c5907-21d2-4c57-a16b-811e58097d08">Once balloting and approval at that stage, from both organizations, is
 completed, the JPG prepares the document for circulation by ISO for a
 two-month FDIS vote (according to <eref type="inline" bibitemid="ISODIR1C" citeas="ISO/IEC Directives, Part 1, Consolidated ISO Supplement"/>, unanimous approval in
 ISO during DIS ballot implies that a further FDIS ballot is not
 necessary).</p>
-<p id="_f61647e5-8f82-4fbf-9125-d916a22069f6">In parallel, CalConnect submits the draft to the CalConnect TCC for FS
+<p id="_b1393493-7dca-4beb-86f5-8fb061cf32e1">In parallel, CalConnect submits the draft to the CalConnect TCC for FS
 ballot.</p></clause>
-<clause id="approval-fdis" obligation="normative"><title>Approval for publication</title><p id="_94a76bda-617a-430e-8dcc-2d2739f5321c">The document is considered approved when:</p>
-<ul id="_d472a0ab-81c3-4830-957e-0243cc5e2934">
+<clause id="approval-fdis" obligation="normative"><title>Approval for publication</title><p id="_3c005181-93e9-4807-ad13-58d751743673">The document is considered approved when:</p>
+<ul id="_741b6c0c-f6a9-47f7-b6ae-df473ce085aa">
   <li>
-    <p id="_0b82d80a-7264-4958-af72-8ae3aad5b4ce">ISO achieves the requisite FDIS approval (or unanimous DIS approval),
+    <p id="_f73845c1-20ba-4714-ad15-e5a072c32e46">ISO achieves the requisite FDIS approval (or unanimous DIS approval),
 in accordance with <eref type="inline" bibitemid="ISODIR1C" citeas="ISO/IEC Directives, Part 1, Consolidated ISO Supplement"/>, and;</p>
   </li>
   <li>
-    <p id="_76a5c379-ad03-4b51-b830-1ba10ff1b468">CalConnect TCC has provided its requisite approval, in accordance
+    <p id="_46805860-342a-4df9-a60b-3ccaa33b1ecc">CalConnect TCC has provided its requisite approval, in accordance
 with <eref type="inline" bibitemid="CALSTD" citeas="CC/DIR 10001"/>.</p>
   </li>
 </ul>
-<p id="_efd41752-097e-44de-84a3-e8f353be8981">Once the document has been approved by both ISO and CalConnect, the
+<p id="_0a8bf728-7c4e-4030-8b23-f54d5d2cd3f1">Once the document has been approved by both ISO and CalConnect, the
 document is published as a joint ISO/CalConnect standard.</p></clause></clause>
-<clause id="process-public-review" obligation="normative"><title>Pre-publication: Public review</title><p id="_feab92f5-6442-4788-8514-dfe8a5f2bb9b">A public review period of 60 days is required for the compliance
+<clause id="process-public-review" obligation="normative"><title>Pre-publication: Public review</title><p id="_0fd18d34-60cc-4d57-9f50-1eea7fe82df5">A public review period of 60 days is required for the compliance
 to <eref type="inline" bibitemid="WTOTBT" citeas="WTO TBT Agreements"/> rules, for which both ISO and CalConnect adhere to.</p>
-<p id="_2c02fa02-93e0-44a0-90d0-8581073e2881">A 60-day public review shall be held in the DIS stage of the ISO deliverable.</p>
-<p id="_a90e48e5-3ad5-415c-8844-56343c2e48f5">Comments to ISO shall be performed according to <eref type="inline" bibitemid="ISODIR1" citeas="ISO/IEC Directives, Part 1"/> and <eref type="inline" bibitemid="ISODIR1C" citeas="ISO/IEC Directives, Part 1, Consolidated ISO Supplement"/>;
+<p id="_5e5526b9-9f81-4bef-8b34-2b26d5418300">A 60-day public review shall be held in the DIS stage of the ISO deliverable.</p>
+<p id="_d91c39b5-8702-405a-98a9-4340289bdd17">Comments to ISO shall be performed according to <eref type="inline" bibitemid="ISODIR1" citeas="ISO/IEC Directives, Part 1"/> and <eref type="inline" bibitemid="ISODIR1C" citeas="ISO/IEC Directives, Part 1, Consolidated ISO Supplement"/>;
 comments to CalConnect shall be performed through CalConnect’s public review procedure.</p>
-<p id="_55ee6b19-ade4-43d9-824e-62461b4aa374">The parties agree to synchronize the dates of review periods for the
+<p id="_079ab320-e385-4e32-a8e1-f0a2746e9918">The parties agree to synchronize the dates of review periods for the
 maximum benefit to the joint work item.</p></clause>
 <clause id="process-publication" obligation="normative"><title>Publication</title><clause id="_as_a_calconnect_standard" obligation="normative">
   <title>As a CalConnect Standard</title>
-  <p id="_14d61485-8349-498c-9a71-ca7ed6453f76">After an ISO ballot on the acceptance of a joint work item as
+  <p id="_d263762c-251f-4e41-a96e-1d126f209a04">After an ISO ballot on the acceptance of a joint work item as
 DIS, FDIS or IS, the joint work item will be published
 as a CalConnect Standard.</p>
 </clause>
 <clause id="process-pub-isocc" obligation="normative">
   <title>As an ISO/CalConnect Standard</title>
-  <p id="_b7c9fbd0-9e4d-4e50-8264-929671dc537c">After an ISO ballot on the acceptance of a joint work item’s status
+  <p id="_83913a38-55c2-40b0-b26d-14f5189afa2f">After an ISO ballot on the acceptance of a joint work item’s status
 to proceed to IS from FDIS, the joint work item will be published by
 ISO and CalConnect as an ISO/CalConnect Standard.</p>
 </clause></clause>
-<clause id="process-abandonment" obligation="normative"><title>Abandonment</title><p id="_8a5e3dc6-0721-4de6-b248-da6b2e27f2a4">A joint work item may be abandoned by one of the two parties if it sees
+<clause id="process-abandonment" obligation="normative"><title>Abandonment</title><p id="_9493ab02-3697-4f9f-bba4-183caf3f74ea">A joint work item may be abandoned by one of the two parties if it sees
 it being inappropriate or is no longer interested or able to contribute
 to the joint work item. Each party is allowed to abandon the joint
 work, which at that point will become sole work of the other party.</p>
-<p id="_5bc20329-1231-404a-b739-c642ac40b7bc">A notice of such must be sent by the abandoning party to the JCG and
+<p id="_836b1e94-d715-4ff9-b1d7-5d8328394030">A notice of such must be sent by the abandoning party to the JCG and
 distributed by both parties to its members.</p>
-<p id="_93025764-e010-42d9-a7a5-9799239cc0d3">The abandoning party, if the abandoned work is carried on by the other
+<p id="_2646f279-f113-4080-a8ca-6483cfa67788">The abandoning party, if the abandoned work is carried on by the other
 party, is required to explicitly agree that the copyright of such work
 is to be waived to the continuing party to allow publication of the document.</p>
-<p id="_a966a680-b273-4795-b9b2-12718da58518">The rejoining an abandoned work item prior to publication, by the abandoning party,
+<p id="_3d03ed08-e72d-40b2-b039-33af9de10320">The rejoining an abandoned work item prior to publication, by the abandoning party,
 is explicitly allowed by this agreement, given a notice is filed at
 the JCG, unless in exceptional circumstances.</p></clause>
 <clause id="_additional_collaborators" obligation="normative">
   <title>Additional collaborators</title>
-  <p id="_b580878f-a7ed-4994-aad5-501bd3088ad6">Parties may bring in additional collaborators under this agreement,
+  <p id="_9602a78f-9842-4902-909b-e04f90635c7c">Parties may bring in additional collaborators under this agreement,
 given it is approved by the JCG, that the provisions of this agreement
 are fully satisfied by agreements present between all collaborators.</p>
 </clause>
 <clause id="_notification" obligation="normative">
   <title>Notification</title>
-  <p id="_3f52ae79-af3c-40f5-89de-813f099c789f">Notification of availability of new documents within CalConnect
+  <p id="_d34a96aa-6348-4c99-a82a-015c6197436b">Notification of availability of new documents within CalConnect
 will be announced to the appropriate ISO TCs and CalConnect TCs.</p>
 </clause>
 <clause id="_availability_of_working_documents" obligation="normative">
   <title>Availability of working documents</title>
-  <p id="_3ba2c5a4-3074-4dfb-bd86-bc71d75d7e4d">Drafts and working documents are available according to
+  <p id="_3c182be4-b306-421f-ba2b-c1b6166b4788">Drafts and working documents are available according to
 each party’s normal practices.</p>
-</clause></annex><annex id="process-adoption" obligation="normative"><title>Adoption process</title><clause id="_general_7" obligation="normative"><title>General</title><p id="_4f71cae7-b3c2-41a8-80b5-d5526901bf33">ISO and CalConnect agree to a coordinated and specified process for the
+</clause></annex><annex id="process-adoption" obligation="normative"><title>Adoption process</title><clause id="_general_7" obligation="normative"><title>General</title><p id="_72b0ced1-7901-47e1-b664-14399bf66b12">ISO and CalConnect agree to a coordinated and specified process for the
 adoption of either party’s standardization work items, where:</p>
-<ul id="_c57b0d71-79c1-4e21-b53c-36d5be7fba60">
+<ul id="_cb293688-422a-4b77-8c4c-ea2f8eab4ed0">
   <li>
-    <p id="_9a55c77c-d9cf-4ea1-9385-78756ee656eb">CalConnect may wish to formally adopt a published ISO International Standard;</p>
+    <p id="_98a52958-9129-4b19-a66c-4fda9b29e980">CalConnect may wish to formally adopt a published ISO International Standard;</p>
   </li>
   <li>
-    <p id="_04aaf428-b5a5-4ded-893e-c7b7db25fd9b">CalConnect may propose that an existing CalConnect standard be
+    <p id="_e0d16130-3bb7-472a-8512-6dd5299e5751">CalConnect may propose that an existing CalConnect standard be
 submitted as a final draft International Standard (FDIS) at ISO.</p>
   </li>
 </ul></clause>
-<clause id="adoption-calconnect" obligation="normative"><title>Adoption of an ISO Standard by CalConnect</title><p id="_0f660988-bfa5-4bf0-9a63-cae956f901b2">CalConnect may wish to formally adopt a published ISO International
+<clause id="adoption-calconnect" obligation="normative"><title>Adoption of an ISO Standard by CalConnect</title><p id="_e66f3791-cb5b-404a-9404-7d636271ae83">CalConnect may wish to formally adopt a published ISO International
 Standard as described in <xref target="principles-adoption-calconnect"/>,</p>
-<p id="_e287d9fe-842d-4110-8945-b7eccb9ef4e0">Such adoption shall be subject to an agreement between CalConnect and
+<p id="_8e83d95a-8e10-4322-b40f-2f9e118c0e8f">Such adoption shall be subject to an agreement between CalConnect and
 the ISO member body in the country where CalConnect has its legal seat
 (ANSI).</p></clause>
-<clause id="adoption-iso" obligation="normative"><title>Adoption of a CalConnect Standard by ISO</title><clause id="_general_8" obligation="normative"><title>General</title><p id="_06022cb1-a4b1-4899-8a21-e30f127c0daf">As described in <xref target="principles-adoption-proposal"/>, a CalConnect
+<clause id="adoption-iso" obligation="normative"><title>Adoption of a CalConnect Standard by ISO</title><clause id="_general_8" obligation="normative"><title>General</title><p id="_608cc863-aea5-4300-bb0d-eb855b748e94">As described in <xref target="principles-adoption-proposal"/>, a CalConnect
 standard may be adopted by ISO.</p>
-<p id="_27df04cc-8b58-4a1f-a7cc-09cf9451eafd">The adoption of a CalConnect standard at ISO is through FDIS fast-track
+<p id="_95e0d558-af58-40ff-bfa7-833395774bb8">The adoption of a CalConnect standard at ISO is through FDIS fast-track
 as described in this clause.</p>
-<p id="_5a7eaed4-cc35-4569-8540-2b7f64dacfde">Adoption by ISO FDIS approval is intended to validate an existing
+<p id="_feea25c9-8a2f-4d0c-866e-9d775d6740e9">Adoption by ISO FDIS approval is intended to validate an existing
 CalConnect standard through ISO’s established member body approval
 mechanism.</p></clause>
-<clause id="_initiation_by_calconnect_3" obligation="normative"><title>Initiation by CalConnect</title><p id="_ce647036-73bc-4019-9229-3768c3b9b474">CalConnect may propose an existing CalConnect standard to be submitted
+<clause id="_initiation_by_calconnect_3" obligation="normative"><title>Initiation by CalConnect</title><p id="_dbf1bd07-9781-427c-9a16-2f027aa83675">CalConnect may propose an existing CalConnect standard to be submitted
 as a final draft International Standard (FDIS) at ISO.</p>
-<p id="_d3b9254b-d3b7-4b92-8d5b-cf9c07b28668">Such requests shall be submitted to the Secretary-General of ISO for
+<p id="_f981aab5-d8c6-4520-9a07-f0e029360212">Such requests shall be submitted to the Secretary-General of ISO for
 acceptance.</p>
-<p id="_0db6d25b-944a-4934-abce-9aaee6ef85d1">The ISO Secretary-General shall then submit a proposal to the relevant
+<p id="_44c7926f-fd3d-4e46-a440-625d71488e1b">The ISO Secretary-General shall then submit a proposal to the relevant
 ISO committee for a 30-day ballot which shall decide, by simple majority
 vote, on:</p>
-<ol id="_5f10ae51-3900-48a3-a855-ba79fd05b0b4" type="arabic">
+<ol id="_cf456d13-34ec-4809-a531-b578f3538e8e" type="arabic">
   <li>
-    <p id="_06830987-788e-48f2-be7b-0a7f1b2fdc7d">the need for an ISO International Standard on the subject; and</p>
+    <p id="_755a072c-af98-4eba-ba4a-5cdf11112611">the need for an ISO International Standard on the subject; and</p>
   </li>
   <li>
-    <p id="_e160e6d4-7662-45ee-8bdd-037a337b83e4">submission of the proposal for FDIS ballot.</p>
+    <p id="_99838452-25d6-420e-923a-69e4aa600933">submission of the proposal for FDIS ballot.</p>
   </li>
 </ol></clause>
-<clause id="_initiation_by_iso" obligation="normative"><title>Initiation by ISO</title><p id="_ec6456b0-3f52-4b15-ba51-ac711e869fd7">Any ISO TC may decide to invite, by simple majority vote, CalConnect to
+<clause id="_initiation_by_iso" obligation="normative"><title>Initiation by ISO</title><p id="_8b972419-0394-427a-9a76-8511a69b984a">Any ISO TC may decide to invite, by simple majority vote, CalConnect to
 offer a particular CalConnect standard for adoption under this
 agreement, provided agreement has been obtained from CalConnect.</p>
-<p id="_8149f174-0574-4003-983b-d64044547880">Where an ISO TC confirms the need for an ISO International Standard,
+<p id="_b16d4754-70bb-4870-8b0e-46b25c2268bd">Where an ISO TC confirms the need for an ISO International Standard,
 but determines that the proposed CalConnect standard should not be
 submitted for FDIS ballot, CalConnect shall be consulted on its
 interest to proceed with the project jointly.</p></clause>
-<clause id="_approval" obligation="normative"><title>Approval</title><p id="_bd81f71d-5c6e-4da3-a0c4-2118ef40f245">Requirements for acceptance shall be those pertaining to the FDIS
+<clause id="_approval" obligation="normative"><title>Approval</title><p id="_f395659f-773f-4a73-9995-68106ad8e71e">Requirements for acceptance shall be those pertaining to the FDIS
 approval stage in <eref type="inline" bibitemid="ISODIR1C" citeas="ISO/IEC Directives, Part 1, Consolidated ISO Supplement"/>.</p>
-<p id="_df576b84-0c06-4783-a3c5-af67201ca3fe">Upon acceptance by CalConnect and the relevant ISO TC, the CalConnect
+<p id="_ac83daf8-d588-49b5-b2ee-0e60e26936b2">Upon acceptance by CalConnect and the relevant ISO TC, the CalConnect
 standard shall be circulated to ISO members for a five-month approval
 vote (to also allow for national public review and, where necessary,
 translation).</p>
-<p id="_3ef4c11d-9cc7-487d-871f-c031a44b4e15">The adoption is considered approved once the FDIS ballot is approved.</p>
-<p id="_ec5487c6-09a5-45ff-bfa0-299d2bbd6c9e">The process described in <xref target="process-pub-isocc"/> also applies.</p></clause></clause></annex><annex id="maintenance" obligation="normative"><title>Maintenance of joint deliverables</title><clause id="_general_9" obligation="normative"><title>General</title><p id="_75c0dcb6-3979-411b-964a-25db8ecfacc1">The project groups in both organizations responsible for
+<p id="_0859b0cd-0bb4-4aa2-bbee-e330f3c69004">The adoption is considered approved once the FDIS ballot is approved.</p>
+<p id="_502fecef-6d3c-4c01-a708-70ee6807c767">The process described in <xref target="process-pub-isocc"/> also applies.</p></clause></clause></annex><annex id="maintenance" obligation="normative"><title>Maintenance of joint deliverables</title><clause id="_general_9" obligation="normative"><title>General</title><p id="_3f3b4701-a735-4b24-b83f-ba002dee70ca">The project groups in both organizations responsible for
 the published deliverable shall work in collaboration to
 address any corrections or necessary amendments.</p>
-<p id="_01fe61d3-09f6-460f-90d0-a7787a9be6a9">The intention is to coordinate the initiation of revisions and to
+<p id="_f6d48d00-0768-49f5-ba32-8714c6cc2c30">The intention is to coordinate the initiation of revisions and to
 maintain, to the greatest extent possible, one common ISO/CalConnect
 Standard on a given subject.</p>
-<p id="_5f9f7644-c3b5-4623-9e51-cf334026bb13">When a joint deliverable is deemed to be updated, both parties agree that each
+<p id="_662724eb-a186-4823-8812-dd6be4290ea8">When a joint deliverable is deemed to be updated, both parties agree that each
 other has the first right of refusal.</p>
-<p id="_b978a3e1-03a0-4c1a-bf6f-e32124124059">The revisions shall be published jointly as described
+<p id="_496a64c2-5298-45ed-94e7-a264d2dde3ec">The revisions shall be published jointly as described
 in <xref target="process-publication"/>.</p></clause>
-<clause id="_systematic_review_and_outcome" obligation="normative"><title>Systematic review and outcome</title><p id="_0732ba3a-b86b-4c6e-961b-902c06e43f66">Joint publications that have been published for four (4) years since
+<clause id="_systematic_review_and_outcome" obligation="normative"><title>Systematic review and outcome</title><p id="_aeb2dc15-29e8-4089-a9b8-ae0f9856008a">Joint publications that have been published for four (4) years since
 their last approval date shall be reviewed in their entirety by the
 responsible JMG, as determined by the JCG.</p>
-<p id="_fbc03318-64e4-4da8-923d-30bbdd82d237">A decision shall be made by both parties at the end of the review
+<p id="_48c3129c-bd7f-499a-be39-06bc60434a9a">A decision shall be made by both parties at the end of the review
 period, on whether to:</p>
-<ol id="_4090cb0a-0697-4b7d-aed7-6b196d9e03b2" type="arabic">
+<ol id="_00d8056a-009b-4edc-a3e2-df77d3fb1c8d" type="arabic">
   <li>
-    <p id="_343045e2-93ec-4bf1-9ebc-24fb3665b194">confirm the standard, for which no change is necessary;</p>
+    <p id="_ee7791c6-8afe-46fa-9263-b85fab7723a5">confirm the standard, for which no change is necessary;</p>
   </li>
   <li>
-    <p id="_c7baf3bb-d79f-4634-bca8-bde5f5a95dd1">revise, as a new joint work item; or</p>
+    <p id="_ea76b8d5-17af-4721-bd80-b5a0decdbc19">revise, as a new joint work item; or</p>
   </li>
   <li>
-    <p id="_809d4d69-7a1c-4e8a-9add-35c18af2568f">withdraw the standard.</p>
+    <p id="_6a137fc4-8ba0-4330-b0f4-7c7bd495df0c">withdraw the standard.</p>
   </li>
 </ol>
-<p id="_601741fe-a270-456f-aba9-43c06494b170">The decided action shall be initiated within five (5) years of the last
+<p id="_8d6bf061-ff3a-4777-85a1-c9478d4c575b">The decided action shall be initiated within five (5) years of the last
 approval date.</p>
-<note id="_bfe10f90-75f8-4454-b397-7260867cbec7">
-  <p id="_adde5c74-85cc-4802-9ab5-3a03dd975d0a">The four (4) years review period provides a one (1) year
+<note id="_910dfeb0-92d5-41a1-ab4a-49a9c6568e00">
+  <p id="_b01b8ab6-0113-4ba4-86c1-dd844c3eaae2">The four (4) years review period provides a one (1) year
 timeframe for which a review decision can be made, in accordance with
 <eref type="inline" bibitemid="ISODIR1C" citeas="ISO/IEC Directives, Part 1, Consolidated ISO Supplement"/> and <eref type="inline" bibitemid="CALSTD" citeas="CC/DIR 10001"/> where a maximum of five (5) years is
 allowed between reviews.</p>
 </note></clause>
-<clause id="_participation" obligation="normative"><title>Participation</title><clause id="_agree_to_jointly_maintain" obligation="normative"><title>Agree to jointly maintain</title><p id="_83e1efd2-384b-4879-ad91-8fe085eb4575">When both the ISO TC and CalConnect agree to jointly revise the
+<clause id="_participation" obligation="normative"><title>Participation</title><clause id="_agree_to_jointly_maintain" obligation="normative"><title>Agree to jointly maintain</title><p id="_9d89d0ed-1165-4c5f-b3d4-14bc6151c3bd">When both the ISO TC and CalConnect agree to jointly revise the
 standard, a joint maintenance group (JMG) is established consisting of
 nominated experts from the relevant CalConnect and ISO TCs.</p>
-<p id="_f15bcf72-5147-4adc-8fa4-4456c8ec7e43">ISO and CalConnect mutually agree on a Convener for the MG.</p></clause>
-<clause id="_non_participation_of_iso_tc" obligation="normative"><title>Non-participation of ISO TC</title><p id="_80c4114e-bc30-49d2-82fc-bfe21858bc28">If CalConnect initiates revision to the document and the relevant ISO
+<p id="_1346f34f-a560-4e12-9058-423b1556c634">ISO and CalConnect mutually agree on a Convener for the MG.</p></clause>
+<clause id="_non_participation_of_iso_tc" obligation="normative"><title>Non-participation of ISO TC</title><p id="_b380e3e9-1675-46c6-b77d-f8a988242475">If CalConnect initiates revision to the document and the relevant ISO
 TC decides not to participate in the revision process, ISO shall ensure
 that the ISO/CalConnect Standard is not revised until CalConnect has
 completed its revision.</p>
-<p id="_32dd03e4-e600-41d5-b374-65ec82624d59">Once the document has been revised, CalConnect may submit the document
+<p id="_1732d46c-3859-4dbd-8dd7-969745de4709">Once the document has been revised, CalConnect may submit the document
 to ISO as a potential new Standard for FDIS fast-track approval to
 supercede the earlier ISO/CalConnect Standard.</p>
-<p id="_b588354f-6328-4f71-af28-cd191a4401c6">Should the revised document not be submitted by CalConnect, or accepted
+<p id="_10738b88-5808-4191-b4ef-8885752431f3">Should the revised document not be submitted by CalConnect, or accepted
 by the relevant ISO Committee, the original ISO FDIS fast track
 Standard shall be withdrawn, unless otherwise agreed by both
 organizations.</p></clause>
-<clause id="_non_participation_of_calconnect" obligation="normative"><title>Non-participation of CalConnect</title><p id="_c312bfa7-bc89-48b4-9606-e263b55869d0">If ISO initiates the revision and CalConnect decides not to participate
+<clause id="_non_participation_of_calconnect" obligation="normative"><title>Non-participation of CalConnect</title><p id="_e98e9b29-9473-4342-ac30-241ad4fefc39">If ISO initiates the revision and CalConnect decides not to participate
 in the process, then ISO may continue to revise the Standard.</p>
-<p id="_959d5bbf-5a97-46fe-9417-9ccfaea320b0">However, any material used from the original ISO/CalConnect Standard
+<p id="_947d6f06-ec0b-4a90-95c6-d4f12e9f5a7f">However, any material used from the original ISO/CalConnect Standard
 will require a separate agreement with CalConnect.</p></clause></clause>
 <clause id="_comment_distribution" obligation="normative">
   <title>Comment distribution</title>
-  <p id="_ebf3244b-594b-4e2d-b1fa-82d08c898636">When a party receives formal comments on the joint work item, it shall
+  <p id="_b9ab857f-d663-492a-a211-07cfbfe1fd18">When a party receives formal comments on the joint work item, it shall
 share it with the other party within 2 weeks of receiving them,
 documented and distributed through the JCG.</p>
 </clause>
 <clause id="_withdrawal" obligation="normative">
   <title>Withdrawal</title>
-  <p id="_c49af9fe-abc2-42d9-b639-568e0734ddd8">When a review determines that a joint published item should be
+  <p id="_a47e09e8-5c19-4959-a8fa-53a190126621">When a review determines that a joint published item should be
 withdrawn, both parties agree that the item to be indicated as
 withdrawn.</p>
 </clause>
 <clause id="_revision_of_deliverables" obligation="normative"><title>Revision of deliverables</title><clause id="_initiation_of_revision_process" obligation="normative">
   <title>Initiation of revision process</title>
-  <p id="_b9c50429-5ac2-487d-a3a1-b157f816848a">Revisions to joint publications can be proposed to the relevant
+  <p id="_6d13005b-2a29-4a7b-bea4-61592529a54b">Revisions to joint publications can be proposed to the relevant
 CalConnect or ISO TC at any time by members of CalConnect or the
 ISO TC.</p>
 </clause>
 <clause id="_amendments_and_full_revisions" obligation="normative">
   <title>Amendments and full revisions</title>
-  <p id="_9776a3a1-7131-4106-86ea-912131679585">Amendments and full revisions of a joint deliverable
+  <p id="_e3dbd0a2-7749-4f4b-a822-a60d86ed5657">Amendments and full revisions of a joint deliverable
 are considered joint new work items, and shall be developed in
 accordance with the procedures in <xref target="process-codevelopment"/>.</p>
 </clause>
 <clause id="_corrections" obligation="normative">
   <title>Corrections</title>
-  <p id="_16b390b1-26c9-4648-ae16-c2a04ed71587">Corrections, such as technical corrigenda, of an ISO/CalConnect
+  <p id="_e961b7b6-e3ae-49cb-a2ad-2c94d423e91c">Corrections, such as technical corrigenda, of an ISO/CalConnect
 standard, shall be jointly developed by the appropriate ISO TC
 and CalConnect TC in accordance with each organizations' internal
 procedures.</p>
@@ -856,90 +856,90 @@ procedures.</p>
 </clause>
 <clause id="_general_10" obligation="normative">
   <title>General</title>
-  <p id="_7241cd96-fa47-496e-a950-2c5198d95d24">Both organizations recognize that a maintenance agency or
+  <p id="_d2d479d7-8ad7-46cb-8d85-8231d3c1ec14">Both organizations recognize that a maintenance agency or
 registration authority is required for the successful implementation of
 certain standardization deliverables resulting from this agreement.</p>
 </clause>
-<clause id="_default_volunteer_role" obligation="normative"><title>Default volunteer role</title><p id="_7cc1c156-65ec-4d3f-91fc-3af58084f27b">For standards developed under this agreement, CalConnect volunteers
+<clause id="_default_volunteer_role" obligation="normative"><title>Default volunteer role</title><p id="_1ab034d6-ad7b-4bf6-9a95-b7eb528be988">For standards developed under this agreement, CalConnect volunteers
 to serve as their maintenance agency or registration authority as
 necessary.</p>
-<p id="_bfdcc098-8eb8-4498-8501-464b935ea2db">CalConnect shall submit a suitable application to ISO once a NWIP
+<p id="_4cb5eb10-b02b-4359-9f49-145eaff94cd5">CalConnect shall submit a suitable application to ISO once a NWIP
 requiring establishment of a maintenance agency or registration
 authority for a joint work item is approved.</p></clause></annex><annex id="deliverable" obligation="normative"><title>Deliverable requirements</title><clause id="_document_layout" obligation="normative">
   <title>Document layout</title>
-  <p id="_4e9d7b79-29e9-4a06-9e14-bea95c5b3668">CalConnect and ISO will establish a consistent layout, including
+  <p id="_10703c41-7cca-4d96-8fbb-6f9a0c68bfcc">CalConnect and ISO will establish a consistent layout, including
 associated supporting information (e.g. foreword, introduction), for
 joint publications.</p>
 </clause>
 <clause id="_trademark_and_copyright_statements" obligation="normative">
   <title>Trademark and copyright statements</title>
-  <p id="_227ae0d3-e794-42a2-8e13-2ae8646c8d0b">Similar to the process applied on national adoption
+  <p id="_57192ede-62c4-48ed-be91-478f81ff1624">Similar to the process applied on national adoption
 of an ISO deliverable, trademarks and copyright statements
 of both organizations shall appear on the document cover page as
 well as in the foreword.</p>
 </clause>
 <clause id="_patent_statement" obligation="normative">
   <title>Patent statement</title>
-  <p id="_fecf3ba1-e602-4544-a40b-a94bd4ac37ae">A suitable patent statement in accordance with the ISO patent policy
+  <p id="_9e240848-1739-42b3-80a4-2eb75db4ade9">A suitable patent statement in accordance with the ISO patent policy
 and the CalConnect patent policy shall be stated in the foreword
 of the document.</p>
 </clause>
 <clause id="_publication_dates" obligation="normative">
   <title>Publication dates</title>
-  <p id="_4242f865-2773-4ee3-be2a-d5f54bf29e75">The edition year and the year of publishing of a joint deliverable
+  <p id="_8384ac89-8a6b-41e7-b824-bff453b802ec">The edition year and the year of publishing of a joint deliverable
 shall be identical in the ISO and CalConnect deliverables.</p>
 </clause>
-<clause id="_cover_page" obligation="normative"><title>Cover page</title><p id="_1131f82e-05db-4cd4-a326-d7447cd1dc99">In ISO and CalConnect publications of the joint publication,
+<clause id="_cover_page" obligation="normative"><title>Cover page</title><p id="_9d409c6c-d1b7-4039-b88b-c5b500b8a8a5">In ISO and CalConnect publications of the joint publication,
 as well as any further adoptions, shall retain the logographic marks
 of both organizations.</p>
-<p id="_279eba07-c2ea-40e4-918e-1434a50c78ce">The joint publication shall also provide a single document identifier
+<p id="_8a7be1a6-cf59-4e73-8a50-f902c15ad47b">The joint publication shall also provide a single document identifier
 on the cover page.</p></clause>
 <clause id="_introduction_part" obligation="normative">
   <title>Introduction part</title>
-  <p id="_2997b5d6-04b7-4280-8a7f-473aec6754bc">The introduction shall state that it is a joint work product
+  <p id="_4f5f9f72-ddba-42e0-95c4-d8c578c9c005">The introduction shall state that it is a joint work product
 between ISO and CalConnect.</p>
 </clause>
-<clause id="_document_identifier_and_references" obligation="normative"><title>Document identifier and references</title><p id="_0cf73028-abbc-4e00-b850-baa0522b3a86">ISO publications published through joint publication under this
+<clause id="_document_identifier_and_references" obligation="normative"><title>Document identifier and references</title><p id="_0c64c44c-64f4-4d39-997e-c43f9bfb6905">ISO publications published through joint publication under this
 agreement will be referenced with the following prefixes:</p>
-<ul id="_822d1126-522c-44c2-bd48-830b4d90d563">
+<ul id="_3d67816b-3d38-4186-84ef-88fb7527e99e">
   <li>
-    <p id="_673e9847-c903-4ba4-9fcf-912e0a908882">"ISO/CC" in ISO documents</p>
+    <p id="_72294c52-a2b1-4a3a-b9e2-ad62c2cb0da8">"ISO/CC" in ISO documents</p>
   </li>
   <li>
-    <p id="_6ed99dd0-0886-4198-947a-ba97bc675a89">"CC/ISO" in CalConnect documents</p>
+    <p id="_a583c72f-cda2-4e2f-8850-eeec3be5e1af">"CC/ISO" in CalConnect documents</p>
   </li>
 </ul>
-<p id="_126e7c14-416a-4606-8d95-255b884e5154">In case that a joint publication is performed under ISO/IEC JTC 1,
+<p id="_28443788-022f-4c96-97d8-44bf2ecd35dd">In case that a joint publication is performed under ISO/IEC JTC 1,
 the resulting prefixes are:</p>
-<ul id="_d7090d52-223e-457c-970d-4be52525f2d0">
+<ul id="_7fee8742-f57c-4a11-8d11-c9380b82b378">
   <li>
-    <p id="_6817de20-af66-44fe-b26a-3ec89e503af9">"ISO/IEC/CC" in ISO and IEC documents;</p>
+    <p id="_65dbf5c4-a83b-47a7-8ce4-7d290516743d">"ISO/IEC/CC" in ISO and IEC documents;</p>
   </li>
   <li>
-    <p id="_4c599ccc-9c43-46c7-a65b-1e95f1d3bb63">"CC/ISO/IEC" in CalConnect documents</p>
+    <p id="_d6d02346-de9f-4e8a-b78c-4edff340934c">"CC/ISO/IEC" in CalConnect documents</p>
   </li>
 </ul>
-<p id="_4d30368b-4e5e-4493-92ea-d57820d6addc">References shall contain sufficient information for those wishing
+<p id="_a99abdc0-61f6-49de-b1fd-909ecf0458f4">References shall contain sufficient information for those wishing
 to obtain the equivalent documents of the other party to be
 able to do so.</p>
-<example id="_de0b26ef-164c-43dd-80b1-fa9da9d85e9f">
-  <p id="_7c14abf1-d1ee-4086-98f9-7e4bfb868b23">In the document identifier "ISO/CC 18001:2018", "ISO/CC" is the prefix,
+<example id="_0ace47d0-32b1-415f-be38-a2a768fe3069">
+  <p id="_80c59afd-35e4-440f-9832-aae55999c412">In the document identifier "ISO/CC 18001:2018", "ISO/CC" is the prefix,
 "18001" the project code, and "2018" the edition date.</p>
 </example>
-<example id="_2b313e04-ca3f-466a-a07f-2bcc996516db">
-  <p id="_93ecd582-18d2-457d-bc00-12b91c8f9725">In the document identifier "ISO/IEC/CC 28001:2018", "ISO/IEC/CC" is the
+<example id="_3c6115e3-e6e0-4166-91ff-7835c0331f99">
+  <p id="_a2689d47-ac88-451f-a921-84db03ac7e18">In the document identifier "ISO/IEC/CC 28001:2018", "ISO/IEC/CC" is the
 prefix, "28001" the project code, and "2018" the edition date.</p>
 </example></clause>
-<clause id="_project_code" obligation="normative"><title>Project code</title><p id="_2ba12a88-d45b-44be-8576-729f5ecbb4e1">A mutually acceptable number will be used for the project code, with
+<clause id="_project_code" obligation="normative"><title>Project code</title><p id="_dfb057e9-e435-41b5-91d3-272c0f16ea15">A mutually acceptable number will be used for the project code, with
 the goal of achieving identical deliverable numbers in ISO and
 CalConnect to prevent potential ambiguity.</p>
-<p id="_b30f002d-e289-4b59-9fe8-46f861ff47de">ISO and CalConnect shall also give consideration to any previous numbering
+<p id="_352ffa44-676a-4b31-91f9-d71cff94799d">ISO and CalConnect shall also give consideration to any previous numbering
 used by ISO or CalConnect to determine the number designation for the
 Standards developed in accordance with this agreement.</p></clause>
-<clause id="_editorial_work" obligation="normative"><title>Editorial work</title><p id="_b754d639-5417-4c2d-9c45-06ca48a89057">ISO and CalConnect will perform final editorial/production work on the
+<clause id="_editorial_work" obligation="normative"><title>Editorial work</title><p id="_d724b331-20de-4262-bed4-61f186a35d10">ISO and CalConnect will perform final editorial/production work on the
 joint work item with approval of the final proof by both parties prior
 to ISO publication.</p>
-<p id="_2f19397f-9705-4bda-b76d-30777126e5f8">CalConnect and ISO will not charge each other for any editing or
+<p id="_473e2c77-e158-4dbb-b4ad-51bc25371956">CalConnect and ISO will not charge each other for any editing or
 production work undertaken in development of the final
 ISO/CalConnect Standard.</p></clause></annex><bibliography><references id="_normative_references" obligation="informative"><title>Normative References</title><bibitem id="CALSTD">
   <formattedref format="application/x-isodoc+xml">
