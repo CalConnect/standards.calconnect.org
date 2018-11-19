@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<csd-standard xmlns="https://www.calconnect.org/standards/csd">
+<bibdata type="directive">
+  <title language="en" format="text/plain">Guidelines for the implementation of the CalConnect patent policy</title>
+  <docidentifier type="csd">CC/DIR/WD 10005:2018</docidentifier>
+  <docnumber>10005</docnumber>
+  <contributor>
+    <role type="author"/>
+    <organization>
+      <name>CalConnect</name>
+    </organization>
+  </contributor>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>CalConnect</name>
+    </organization>
+  </contributor>
+  <language>en</language>
+  <script>Latn</script>
+  <status format="plain">working-draft</status>
+  <copyright>
+    <from>2018</from>
+    <owner>
+      <organization>
+        <name>CalConnect</name>
+      </organization>
+    </owner>
+  </copyright>
+  <editorialgroup>
+    <technical-committee>PUBLISH</technical-committee>
+  </editorialgroup>
+</bibdata><version>
+  <edition>1</edition>
+  <revision-date>2018-11-19</revision-date>
+</version>
+<termdocsource bibitemid="CC10001"/><termdocsource bibitemid="CC10002"/><termdocsource bibitemid="CC10003"/><preface><foreword obligation="informative"><title>Foreword</title><p id="_8f9a8069-7b7a-4a98-8b4f-9095124b65ea">The Calendaring and Scheduling Consortium ("CalConnect") is global
+non-profit organization with the aim to facilitate interoperability of
+collaborative technologies and tools through open standards.</p>
+<p id="_53cc3aa6-163f-4d4f-bd29-6b1a71b07115">CalConnect works closely with international and regional partners,
+of which the full list is available on our website
+(<link target="https://www.calconnect.org/about/liaisons-and-relationships"/>).</p>
+<p id="_e0c3ab3e-8679-4584-876b-611c4cdeaf4e">The procedures used to develop this document and those intended for its
+further maintenance are described in the CalConnect Directives.</p>
+<p id="_ae785679-66a5-478b-947d-d208660ea165">In particular the different approval criteria needed for the different
+types of CalConnect documents should be noted. This document was drafted in
+accordance with the editorial rules of the CalConnect Directives.</p>
+<p id="_f1f2cfc4-9412-4e53-9ac8-8bc45736575c">Attention is drawn to the possibility that some of the elements of this
+document may be the subject of patent rights. CalConnect shall not be
+held responsible for identifying any or all such patent rights. Details
+of any patent rights identified during the development of the document
+will be provided in the Introduction.</p>
+<p id="_abebedb4-af3d-40d0-9962-2585157195f6">Any trade name used in this document is information given for the
+convenience of users and does not constitute an endorsement.</p>
+<p id="_f6720f94-540e-438a-b670-f3333ae068af">This document was prepared by Technical Committee
+<em>PUBLISH</em>.</p>
+<p id="_1f123df9-3ddc-4c63-9285-5f66810f3aa0">This document provides guidance on the implementation of the
+CalConnect patent policy (<eref type="inline" bibitemid="CC10003" citeas="CC/DIR 10003"/>) as applicable
+to internal process and procedures, especially in relation to
+the standardization and publication processes described in
+<eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"/>.</p></foreword><introduction id="_introduction" obligation="informative"><title>Introduction</title><clause id="_general" obligation="informative"><title>General</title><p id="_1bf3f545-28d7-4e51-87ee-cc3e62f70aa7">CalConnect is committed in expanding the realm of standards
+in collaborative technologies with a focus on interoperability
+across the globe and communities of practice.</p>
+<p id="_13fc6606-d4c6-4fee-9af6-0e54955b8ae5">As a proponent of open standards, has adopted a patent policy
+in <eref type="inline" bibitemid="CC10003" citeas="CC/DIR 10003"/> to align IPR practice with major international
+standardization bodies including ISO, IEC and ITU.</p></clause>
+<clause id="_purpose" obligation="informative"><title>Purpose</title><p id="_800bccf3-3675-4246-b3d3-179af80c9682">This document describes guidelines for the implementation of the
+CalConnect patent policy specified in <eref type="inline" bibitemid="CC10003" citeas="CC/DIR 10003"/>
+in the standardization and publication processes described
+in <eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"/>.</p>
+<p id="_8c12f056-c6d3-493c-b845-e129d8ae1519">The intent of this document is to:</p>
+<ul id="_7e924fe9-931f-4681-8d0e-e37fc9212c6b">
+  <li>
+    <p id="_af4f158a-688d-4cce-83b1-2f9bdefef73a">encourage the early disclosure and identification of patents during the
+standardization and publication processes;</p>
+  </li>
+  <li>
+    <p id="_aada6724-8c21-441a-8acc-f85208092e3b">resolve potential patent concerns and rights problems relevant to
+the standardization and publication processes.</p>
+  </li>
+</ul></clause></introduction></preface><sections>
+
+<clause id="_scope" obligation="normative"><title>Scope</title><p id="_c89498df-7c35-44b4-a852-da300d7ab948">This document provides guidelines on the application of
+the CalConnect patent policy (<eref type="inline" bibitemid="CC10003" citeas="CC/DIR 10003"/>) towards the following
+areas of CalConnect:</p>
+<ul id="_ab0aee7f-a22e-4884-852c-1177f8cb64aa">
+  <li>
+    <p id="_417daeb6-13db-45c6-a71f-0d69a56224e4">standardization and publication process (described in <eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"/>);</p>
+  </li>
+  <li>
+    <p id="_e529b1af-0c8b-4164-999c-5a34af5ba134">document requirements (described in <xref target="CC100002"/>).</p>
+  </li>
+</ul>
+<p id="_fd56bcad-757a-4023-8c2d-ac0429cc2f6a">This document does not cover the implementation of requirements
+in CalConnect standards which involve intellectual property rights
+(such as patents).</p></clause>
+
+<terms id="terms" obligation="normative"><title>Terms and definitions</title><term id="term-contribution">
+  <preferred>contribution</preferred>
+  <definition><p id="_a313709e-affd-4594-b5f4-23ea1dbe884d">content submitted to CalConnect intended to be part of a CalConnect
+standardization deliverable</p></definition>
+</term>
+<term id="term-free-of-charge"><preferred>free of charge</preferred><definition><p id="_91b8517c-445f-4313-b16e-3b7e1ea1bc2b">no monetary compensation will be sought from the patent holder (<xref target="term-patent-holder"/>) under licensing arrangements, if any</p></definition>
+
+
+<termnote id="_135ee16e-ece4-42d6-ab53-ad6f401505e5">
+  <p id="_79f82e9a-9a0e-41b4-940f-f1232c9850a8">This term does not indicate that the patent holder is waiving all of its rights with respect to a patent, but only on the issue of monetary compensation.</p>
+</termnote><termnote id="_61ebd1ad-24df-49cd-abe1-3e38adb85d22">
+  <p id="_02dab79d-6695-422c-83e2-0b5ff849fa13">This term means the patent holder will not seek any monetary compensation as part of the licensing arrangement (whether such compensation is called a royalty, a one-time licensing fee, etc.).</p>
+</termnote><termnote id="_41cbc3f3-685c-405d-bce4-9905d5d10f2a">
+  <p id="_7e763b95-a41a-4502-aa59-c987aefa64ef">The patent holder is still entitled to require that the implementer of the relevant deliverable sign a license agreement that contains other reasonable terms and conditions such as those relating to governing law, field of use, warranties, etc.</p>
+</termnote></term>
+<term id="term-patent">
+  <preferred>patent</preferred>
+  <definition><p id="_ed6494e8-dc15-426e-ba46-cbe9ac425b29">claims contained in and identified by in patents, utility models and other similar statutory rights based on inventions (including applications for any of these) solely to the extent that any such claims are essential to the implementation of a CalConnect deliverable</p></definition>
+</term>
+<term id="term-essential-patent">
+  <preferred>essential patent</preferred>
+  <definition><p id="_b0934b3c-1676-4bec-a1d9-a07be4b4cd57">patent (<xref target="term-patent"/>) required to implement a specific CalConnect deliverable.</p></definition>
+</term>
+<term id="term-patent-holder">
+  <preferred>patent holder</preferred>
+  <definition><p id="_561fc081-313a-4b3a-8ae3-08e6a4d3ffa0">person or entity that owns, controls and/or has the ability to license patents (<xref target="term-patent"/>)</p></definition>
+</term>
+<term id="term-reciprocity">
+  <preferred>reciprocity</preferred>
+  <definition><p id="_cc96a657-5614-45b1-91d0-bfaffbe35de5">patent holder (<xref target="term-patent-holder"/>) shall only be required to license any prospective licensee if such prospective licensee will commit to license its patent(s) for implementation of the same relevant CalConnect deliverable free of charge (<xref target="term-free-of-charge"/>) or under reasonable terms and conditions</p></definition>
+</term>
+<term id="term-declaration">
+  <preferred>patent declaration</preferred>
+  <definition><p id="_c2b61bf1-9d2e-47f1-ad0e-5bc3f6b66dc3">notice or acknowledgement that a patent may cover the use of
+a deliverable</p></definition>
+</term>
+<term id="term-patent-information-database">
+  <preferred>patent information database</preferred>
+  <definition><p id="_a18beccd-3ba4-49a8-a361-1891690543cf">database containing patent information relating to
+standardization deliverables</p></definition>
+</term>
+<term id="term-technical-body">
+  <preferred>technical body</preferred>
+  <definition><p id="_43cb8051-e918-4b67-8311-5408a49121a8">technical committees and any other groups that manage
+development of CalConnect standardization deliverables</p></definition>
+</term></terms>
+<clause id="patent-disclosure" obligation="normative"><title>Patent disclosure</title><clause id="_general_2" obligation="normative"><title>General</title><p id="_68405c7f-dc88-4adf-a8a2-181b7db6fd9e">This clause describes the principles of patent disclosure
+of patents that may affect standardization deliverables produced
+by CalConnect.</p>
+<p id="_ca7b8849-4bdb-444c-ad9b-37665b8066a3">This clause applies to any patent disclosed or drawn
+to the attention of CalConnect during the development
+of and subsequent to the approval of deliverables.</p></clause>
+<clause id="_requirements" obligation="normative"><title>Requirements</title><clause id="_participation_obligation" obligation="normative"><title>Participation obligation</title><p id="_5e0d2835-fa7b-4399-afa8-b1d14fb1e099">All parties participating in the standardization activities of CalConnect
+are obligated to inform CalConnect of
+any known patent or to any known pending patent application,
+as mandated by <eref type="inline" bibitemid="CC10003" citeas="CC/DIR 10003"><locality type="clause"><referenceFrom>1</referenceFrom></locality></eref></p>
+<p id="_fd3948e2-f402-4e56-8ba5-a1cddad51ebb">Where such parties include recipients of a draft deliverable at any stage,
+and the patent or patent application could be of the party’s own or
+that of other entities.</p></clause>
+<clause id="_early_disclosure" obligation="normative"><title>Early disclosure</title><p id="_18b6380a-085c-4226-a2f2-1fca80610314">Patent information should be disclosed as early as possible during the development of the deliverable.</p>
+<p id="_55251a0e-4180-4244-b6a2-b7898e0db1e9">Such patent information should be provided in good faith and on a best effort basis.</p>
+<note id="_e0736ffb-a766-49f3-b0f4-f3082cddef82">
+  <p id="_f60b67d1-b8ab-4c75-940e-8d4ceb62f0bf">This might not be possible when the first draft text appears since at this time, the text might be still too vague or subject to subsequent major modifications.</p>
+</note>
+<note id="_d948ac6e-2d83-496f-bf5c-88bba3870e5e">
+  <p id="_6562490b-0ec6-40ca-aa3d-fb954973bf6c">There is no requirement for patent searches.</p>
+</note></clause>
+<clause id="_external_originating_disclosure" obligation="normative">
+  <title>External-originating disclosure</title>
+  <p id="_524eb3d1-f0d0-4896-9ac2-0eaceb7ae6b7">Parties not participating in the standardization activities of CalConnect may also inform CalConnect to any known patent, either their own and/or of any third-party, that may cover a CalConnect deliverable.</p>
+</clause></clause>
+<clause id="_method_of_disclosure" obligation="normative"><title>Method of disclosure</title><clause id="_declaration_form" obligation="normative">
+  <title>Declaration form</title>
+  <p id="_f9f3a637-aa8a-4e59-a288-0637cc46bbc7">When disclosing their own patents, patent holders shall fill in the "Patent Statement and Licensing Declaration Form" (referred to as the "declaration form") as stated in <xref target="patent-form"/>.</p>
+</clause>
+<clause id="_third_party_patent_disclosure" obligation="normative"><title>Third-party patent disclosure</title><p id="_45894fbd-50ac-4344-961c-70c5eba8c501">Any communication drawing the attention to any third-party patent
+should be addressed to CalConnect in writing.</p>
+<p id="_c0149083-8a01-4e75-b647-d40d41e04908">The Executive Director of CalConnect will then request the potential
+patent holder to submit a declaration form, if applicable.</p></clause></clause>
+<clause id="_resolution_to_discriminatory_licensing" obligation="normative"><title>Resolution to discriminatory licensing</title><p id="_d420ecb7-4b58-43a3-8de1-937628e5fea1">If a patent holder is unwilling to license under <eref type="inline" bibitemid="CC10003" citeas="CC/DIR 10003"><locality type="clause"><referenceFrom>2.1</referenceFrom></locality></eref> or <eref type="inline" bibitemid="CC10003" citeas="CC/DIR 10003"><locality type="clause"><referenceFrom>2.2</referenceFrom></locality></eref>, CalConnect will promptly advise the project owner(s) responsible for the affected deliverable so that appropriate action can be taken.</p>
+<p id="_cc0e4770-b8e6-4f1d-8188-26880e89d0ed">Such action shall include, but may not be limited to:</p>
+<ul id="_41c0a551-fdc9-4593-9036-b3d5db024e7a">
+  <li>
+    <p id="_a6518d1c-852c-4f80-b4bb-2711ab0c12f4">a review of the deliverable or its draft in order to remove the potential conflict; or</p>
+  </li>
+  <li>
+    <p id="_3e4b7a6a-e68c-46f1-a4b8-d6a71625b410">to further examine and clarify the technical considerations causing the conflict.</p>
+  </li>
+</ul>
+<note id="_a989c71d-6044-439a-9d48-745a73b7c1b2">
+  <p id="_ca66e894-eda5-4121-938f-d53afe1df3e6">This clause does not differentiate whether identification of the patent took place before or after the approval of the deliverable.</p>
+</note></clause></clause>
+<clause id="patent-statement" obligation="normative"><title>Patent statement and licensing declaration form</title><clause id="_purpose_2" obligation="normative">
+  <title>Purpose</title>
+  <p id="_6ccf6eee-d6d3-410d-ae3c-fb6f55a81c0f">The patent statement and licensing declaration form is provided
+for entities with information on how relavent patents affect
+CalConnect deliverables (such as, patent holders)
+to provide accurate information in the CalConnect patent
+information database.</p>
+</clause>
+<clause id="_procedure" obligation="normative"><title>Procedure</title><p id="_362c360e-ee45-4f7d-b425-a7e7b87d92c5">Entities who wish to report patent information to CalConnect
+shall use the CalConnect patent declaration form, which is available on the CalConnect website (see <xref target="patent-form"/> for illustration purposes).</p>
+<p id="_77262dca-f697-44f2-863d-588e5e9199cd">The completed declaration form should be directly submitted
+to the designated contact provided on the form.</p>
+<p id="_16fa7612-a3ce-4ad0-b82b-85f9d5eacc54">The declaration form also allows patent holders to make a licensing declaration relative to rights in patents required for implementation of a specific deliverable.</p></clause>
+<clause id="_declaration_of_patent_license" obligation="normative"><title>Declaration of patent license</title><p id="_052b898c-fe30-4a7c-bdf1-34ddaba20c03">Specifically, by submitting this declaration form, the submitting party declares, in accordance with the CalConnect patent policy, patents held by it and whose licence would be required to practice or implement part(s) or all of a specific deliverable:</p>
+<ol id="_37e635cc-954c-41ba-b9f6-de4fb7c5b963" type="arabic">
+  <li>
+    <p id="_42bcf57c-ef5c-4c6a-91c3-150f7112e19e">its willingness to license (by selecting option 1 or 2 on the Form); or . its unwillingness to license (by selecting option 3 on the Form).</p>
+  </li>
+</ol></clause>
+<clause id="_additional_information_required_due_to_unwillingness_to_license" obligation="normative"><title>Additional information required due to unwillingness to license</title><p id="_c13fdd06-c24b-47dd-be65-7536b59dc14a">If a patent holder has selected the licensing option 3 on the declaration form, then, for the referenced relevant CalConnect deliverable, CalConnect requires the patent holder to provide certain additional information permitting patent identification.</p>
+<p id="_6ef902e9-ab2b-4bf7-b5a6-205a272279a6">Multiple declaration forms are appropriate if the patent holder wishes to identify several patents and classifies them in different options of the declaration form for the same deliverable or if the patent holder classifies different claims of a complex patent in different options of the declaration form.</p>
+<p id="_a518b07d-8612-4315-9f5b-6e004039fc77">Information contained in a declaration form may be corrected in case of obvious errors, such as a typographical mistake in a standard or patent reference number.</p></clause>
+<clause id="_superseding_license_declarations" obligation="normative"><title>Superseding license declarations</title><p id="_07e22ae4-e40f-4ae4-bb58-a864e276a6fa">The licensing declaration contained in the declaration form remains in force unless it is superseded by another declaration form containing more favorable licensing terms and conditions from a licensee’s perspective reflecting:</p>
+<ol id="_da541ded-fcd9-41c2-b2a7-cfb59c267977" type="arabic">
+  <li>
+    <p id="_858a1986-e927-4892-849f-dcdf9ba71244">a change in commitment from option 3 to either option 1 or option 2;</p>
+  </li>
+  <li>
+    <p id="_8dedc7d4-ee49-40f7-96c2-6a6978167ee0">a change in commitment from option 2 to option 1; or</p>
+  </li>
+  <li>
+    <p id="_da2a7299-b535-423a-9ba4-fd9d44e740dc">un-checking one or more sub-options contained within option 1 or 2.</p>
+  </li>
+</ol>
+<clause id="_contact_information" obligation="normative"><title>Contact information</title><p id="_e0c34628-2bfe-4cad-8b64-4ee8c55b33d1">In completing declaration forms, attention should be given to supplying contact information that will remain valid over time:</p>
+<ul id="_bd588d25-761e-459b-af2e-df4980367bfb">
+  <li>
+    <p id="_2fd7e5bf-9c6c-4a98-9139-dc8bb2ccf01a">"Name", "Department" and "E-mail addresses" should be generic.</p>
+  </li>
+  <li>
+    <p id="_289eb690-f9c7-4ebf-93c0-959f3828e26f">A single point of contact for a particular submitting party is preferred if multiple declaration forms are submitted (particularly for multinational organizations).</p>
+  </li>
+</ul>
+<p id="_83068b0f-e0f2-4bb7-9b10-85b49206866b">For maintaining the currency of information in the CalConnect patent information database, the patent declarer is urged to directly contact CalConnect on any change or corrections to declaration forms submitted,
+especially on the change of contact points.</p></clause></clause>
+<clause id="_conduct_of_meetings" obligation="normative"><title>Conduct of meetings</title><p id="_73ca2ffc-f542-477f-8592-376d22d2bbdd">Early disclosure of patents contributes to the efficiency of the process by which deliverables are established.</p>
+<p id="_e8249a5a-22a5-4576-b43a-0ee2b438ace7">Therefore, each technical body, in the course of the development of a proposed deliverable, will request the disclosure of any known patents essential to the proposed deliverable.</p>
+<p id="_affca7e0-b6b0-43c6-bcd7-d2d14b6ee80f">The leadership of technical body will, ask at an appropriate time in each meeting, whether anyone has knowledge of patents, the use of which may be required to practice or implement the deliverable being considered. The fact that the question was asked shall be recorded in the meeting report, along with any affirmative responses.</p>
+<p id="_8d9c9af5-a4d8-4090-926f-9232459c1a90">As long as CalConnect has received no indication of a patent holder selecting <eref type="inline" bibitemid="CC10003" citeas="CC/DIR 10003"><locality type="clause"><referenceFrom>2.3</referenceFrom></locality></eref>, the deliverable may be approved with normal procedure. It is expected that discussions in technical bodies will include consideration of including patented material in a deliverable, however the technical bodies may not take position regarding the essentiality, scope, validity or specific licensing terms of any claimed patents.</p></clause>
+<clause id="_patent_information_database" obligation="normative"><title>Patent information database</title><p id="_81739d82-1bb3-459f-805b-2a127356aea3">In order to facilitate both the standards-making process and the application of deliverables, CalConnect makes available to the public a patent information database composed of information that was communicated to CalConnect by the means of declaration forms.</p>
+<p id="_7dc8a024-e539-42eb-a4a1-98fbbd8cd9ce">The patent information databases may contain information on specific patents, or may contain no such information but rather a statement about compliance with the patent policy for a particular deliverable.</p>
+<p id="_008c55ed-7384-4711-bdb5-2d574a94441e">The patent information databases are not certified to be either accurate or complete, but only reflect the information that has been communicated to CalConnect.</p>
+<p id="_49613b94-372a-4e0c-a60a-1a3f901f55c5">As such, the patent information databases may be viewed as simply raising a flag to alert users that they may wish to contact the entities who have communicated declaration forms to CalConnect in order to determine if patent licenses must be obtained for use or implementation of a particular deliverable.</p></clause>
+<clause id="_assignment_or_transfer_of_patent_rights" obligation="normative"><title>Assignment or transfer of patent rights</title><p id="_50e590ac-b5ab-48f9-91a2-75c70a1a432a">The rules governing the assignment or transfer of patent rights are contained in the patent statement and licensing declaration forms (see <xref target="patent-form"/>).</p>
+<p id="_fd73cadb-a428-4d60-90d9-570302ed2758">By complying with these rules, the patent holder has discharged in full all of its obligations and liability with regards to the licensing commitments after the transfer or assignment.</p>
+<p id="_2c72543b-30cd-43c0-ba7a-760adfb9c49b">These rules are not intended to place any duty on the patent holder to compel compliance with the licensing commitment by the assignee or transferee after the transfer occurs.</p></clause></clause>
+<clause id="requirements" obligation="normative"><title>Requirements on deliverables</title><clause id="_draft_deliverables" obligation="normative"><title>Draft deliverables</title><p id="_0bea7073-7d8d-4d1f-92b4-252c21708bde">All drafts submitted for comment shall include on the cover page the following text:</p>
+<quote id="_2da5494a-8c36-4484-ac9b-254492ec1652">
+  <p id="_f4954e0d-9d8f-42c5-98bd-fd16db2b0429">Recipients of this draft are obligated to submit notification of any relevant patent rights of which they are aware and to provide supporting documentation (such as, together with comments).</p>
+</quote></clause>
+<clause id="_notification" obligation="normative"><title>Notification</title><p id="_7a04f853-941f-41cb-b2a6-778c14c6c967">A published document for which no patent rights are identified during the preparation thereof shall contain the following notice in the foreword:</p>
+<quote id="_37ed9b5a-3040-4dab-89eb-3e64ae679cf5">
+  <p id="_9ef3b6cc-c883-48fe-b706-260719aca89d">Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. CalConnect [and ISO] [and IEC] shall not be held responsible for identifying any or all such patent rights.</p>
+</quote>
+<p id="_7f29bd4a-baaa-4cb0-a8c3-0822bd0f5f60">A published document for which patent rights have been identified during the preparation thereof shall include the following notice in the introduction:</p>
+<quote id="_374dd5ec-aa26-4b2f-88f3-bd59ae9e941a"><p id="_909103a9-0d7c-4708-b639-311ddd4df7e7">The Calendaring and Scheduling Consortium (CalConnect) [and The International Organization for Standardization (ISO)] [and The International Electrotechnical Commission (IEC)] draws attention to the fact that it is claimed that compliance with this document may involve the use of a patent concerning (…​ subject matter …​) given in (…​ subclause …​).</p>
+<p id="_0293a05d-2a9f-4e59-801d-111838e36749">CalConnect [and ISO] [and IEC] take[s] no position concerning the evidence, validity and scope of this patent right.</p>
+<p id="_1e4eb580-ff79-42a5-82db-a2aef2b15b69">The holder of this patent right has assured CalConnect [and ISO] [and IEC] that he/she is willing to negotiate licences under reasonable and non-discriminatory terms and conditions with applicants throughout the world. In this respect, the statement of the holder of this patent right is registered with CalConnect [and ISO] [and IEC]. Information may be obtained from:</p>
+<p id="_35642da0-1623-49e7-8cb2-665bf586d92e">name of holder of patent right …​</p>
+<p id="_f2a33bfd-a068-41e0-b2fb-045db454d157">address …​</p>
+<p id="_c777789d-fdbd-4e24-b5f6-a0cbfef215cc">Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights other than those identified above. CalConnect [and ISO] [and IEC] shall not be held responsible for identifying any or all such patent rights.</p></quote></clause>
+<clause id="_collaborative_developed_deliverables" obligation="normative">
+  <title>Collaborative developed deliverables</title>
+  <p id="_8ad0fbfe-90dd-4879-842e-50b43a3defa4">Patent declarations in joint deliverables between CalConnect and other organizations apply only to the specific documents indicated in the declaration forms. Declarations do not apply to documents that are altered (such as through adoption).</p>
+</clause></clause>
+
+</sections><annex id="patent-form" obligation="normative"><title>Patent statement and licensing declaration for CalConnect deliverables</title><p id="_f7edff1e-f6d0-44f3-aab0-242c9974b81c">
+  <em>This declaration does not represent an actual grant of a license</em>
+</p>
+<p id="_92954abd-dd40-4bc9-99be-60144897df73">Please submit this form to:</p>
+<p id="_5e9758f2-c3df-4b7b-91df-410a251d0068">Executive Director<br/>
+The Calendaring and Scheduling Consortium, Inc.<br/>
+4390 Chaffin Lane<br/>
+McKinleyville<br/>
+California 95519<br/>
+United States of America<br/>
+Email: <link target="mailto:patents@calconnect.org"/></p>
+<clause id="_patent_holder" obligation="normative">
+  <title>Patent Holder</title>
+  <ul id="_6d995575-ffb8-4f42-93ac-dc2b821f6fb1">
+  <li>
+    <p id="_4ed77d55-0462-48ef-9c90-6cff115aba69">Legal Name: __________________________</p>
+  </li>
+</ul>
+</clause>
+<clause id="_contact_for_license_application" obligation="normative">
+  <title>Contact for license application</title>
+  <ul id="_941716e9-895d-4b56-bce5-40c07ee69af3">
+  <li>
+    <p id="_df694a8b-bed2-4546-8d3a-a441d591ad94">Name &amp; Department __________________________</p>
+  </li>
+  <li>
+    <p id="_be94663a-04d1-4ab9-96f9-8d1b9b515194">Address __________________________</p>
+  </li>
+  <li>
+    <p id="_cfe85c5a-a4fa-4b09-b506-0abf1bc5b783">Tel. __________________________</p>
+  </li>
+  <li>
+    <p id="_5907d54f-468f-4788-ab9c-87651ca4ecef">Fax __________________________</p>
+  </li>
+  <li>
+    <p id="_2fd62a38-6808-4ec9-b35f-55b5ef39ef84">E-mail __________________________</p>
+  </li>
+  <li>
+    <p id="_33858a03-89c0-471b-87b7-91affa85d9fb">URL (optional) __________________________</p>
+  </li>
+</ul>
+</clause>
+<clause id="_document_type" obligation="normative">
+  <title>Document type</title>
+  <ul id="_4e667c14-2cdb-4aae-9de9-d10abe3855bc">
+  <li>
+    <p id="_659b314d-4e9b-49cc-87e8-2acc2115a1a5">CalConnect Deliverable</p>
+  </li>
+  <li>
+    <p id="_bc691cd3-3d30-46ea-81c7-1b97efd431a5">CalConnect co-published Deliverable
+(please return this form to CalConnect and the appropriate
+form to the co-publishing parties)</p>
+  </li>
+</ul>
+</clause>
+<clause id="_patent_information" obligation="normative">
+  <title>Patent information</title>
+  <ul id="_545eeae7-070c-4313-8229-2f9a170dc75b">
+  <li>
+    <p id="_89621efb-ad6a-452a-bcae-1c24bdbd99de">Number  __________________________</p>
+  </li>
+  <li>
+    <p id="_7d822665-ff19-46b0-bfdd-66ef3e23d9bd">Title  __________________________</p>
+  </li>
+</ul>
+</clause>
+<clause id="_licensing_declaration" obligation="normative"><title>Licensing declaration</title><p id="_db9d1dd0-3cf7-4350-9f10-2675c0029bad">The patent holder believes that it holds granted and/or pending applications for patents, the use of which would be required to implement the above document and hereby declares, in accordance with the CalConnect patent policy (see <eref type="inline" bibitemid="CC10003" citeas="CC/DIR 10003"/>), that (check one option only):</p>
+<ol id="_74952c84-6766-4571-a79b-be6f7c44d414" type="arabic">
+  <li>
+    <p id="_65471047-12ef-4911-a544-8f0959e959f0">[ ] The patent holder is prepared to grant a free of charge license to an unrestricted number of applicants on a worldwide, non-discriminatory basis and under other reasonable terms and conditions to make, use, and sell implementations of the above document.</p>
+    <ol id="_b61f1c13-8582-43fd-8cbe-354ba8b93d3a" type="alphabet">
+  <li>
+    <p id="_e6a94f37-ca0a-4c47-8b6d-a20cc66af576">[ ] Also mark here __ if the patent holder’s willingness to license is conditioned on reciprocity for the above document.</p>
+  </li>
+  <li>
+    <p id="_12f32ef3-b701-4917-bd38-af8da76b136c">[ ] Also mark here __ if the patent holder reserves the right to license on reasonable terms and conditions (but not free of charge) to applicants who are only willing to license their patent, whose use would be required to implement the above document, on reasonable terms and conditions (but not free of charge).</p>
+  </li>
+</ol>
+  </li>
+  <li>
+    <p id="_7845470d-668f-4c8b-a2ed-9c28b49b0c52">[ ] The patent holder is prepared to grant a license to an unrestricted number of applicants on a worldwide, non-discriminatory basis and on reasonable terms and conditions to make, use and sell implementations of the above document.</p>
+    <ol id="_df83d45d-48f2-4d70-b8bb-9506f5b49c26" type="alphabet">
+  <li>
+    <p id="_5b791160-d6c3-453e-9f5d-ce7996c298e1">[ ] Also mark here __ if the patent holder’s willingness to license is conditioned on reciprocity for the above document.</p>
+  </li>
+</ol>
+  </li>
+  <li>
+    <p id="_c78d9725-005e-4b7b-adc5-b9d328d600d1">[ ] The patent holder is unwilling to grant licenses in accordance with provisions of either 1 or 2 above.</p>
+  </li>
+</ol>
+<p id="_f4445986-b7f9-4692-93a0-67f0d1a70d5c">In this case, the following information must be provided to CalConnect as part of this declaration:</p>
+<ul id="_1e21cb45-739a-4337-80ed-9cfbd9243f8d">
+  <li>
+    <p id="_edcb630c-7668-4afc-8847-fd207d5af775">granted patent number or patent application number (if pending);</p>
+  </li>
+  <li>
+    <p id="_624cbca4-0d3e-4728-b18d-d87c93cf2b93">an indication of which portions of the above document are affected;</p>
+  </li>
+  <li>
+    <p id="_2c6ee673-2d45-4335-83b3-19a2838d034d">a description of the patents covering the above document.</p>
+  </li>
+</ul>
+<note id="_4ee068e9-73b1-4f1f-83b4-28889b2f0822">
+  <p id="_63da4282-8dca-4cea-b218-6bc8496820d1">Licensing negotiations are left to the parties concerned and are performed outside CalConnect.</p>
+</note></clause>
+<clause id="_patent_information_2" obligation="normative"><title>Patent Information</title><p id="_3ac51c8a-a341-4962-89aa-ba87a6d21ecd">Preferred but not required for options 1 and 2. Required for option 3 (see NOTE).</p>
+<table id="_5545ebc2-7d02-401d-aea5-15a42ef0da21">
+  <thead>
+    <tr>
+      <th align="left">No.</th>
+      <th align="left">Status [granted/ pending]</th>
+      <th align="left">Country</th>
+      <th align="left">Granted patent number or application number (if pending)</th>
+      <th align="left">Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left">1</td>
+      <td align="left"/>
+      <td align="left"/>
+      <td align="left"/>
+      <td align="left"/>
+    </tr>
+    <tr>
+      <td align="left">2</td>
+      <td align="left"/>
+      <td align="left"/>
+      <td align="left"/>
+      <td align="left"/>
+    </tr>
+    <tr>
+      <td align="left">3</td>
+      <td align="left"/>
+      <td align="left"/>
+      <td align="left"/>
+      <td align="left"/>
+    </tr>
+    <tr>
+      <td align="left">4</td>
+      <td align="left"/>
+      <td align="left"/>
+      <td align="left"/>
+      <td align="left"/>
+    </tr>
+    <tr>
+      <td align="left">5</td>
+      <td align="left"/>
+      <td align="left"/>
+      <td align="left"/>
+      <td align="left"/>
+    </tr>
+    <tr>
+      <td align="left">6</td>
+      <td align="left"/>
+      <td align="left"/>
+      <td align="left"/>
+      <td align="left"/>
+    </tr>
+    <tr>
+      <td align="left">7</td>
+      <td align="left"/>
+      <td align="left"/>
+      <td align="left"/>
+      <td align="left"/>
+    </tr>
+    <tr>
+      <td align="left">8</td>
+      <td align="left"/>
+      <td align="left"/>
+      <td align="left"/>
+      <td align="left"/>
+    </tr>
+    <tr>
+      <td align="left">9</td>
+      <td align="left"/>
+      <td align="left"/>
+      <td align="left"/>
+      <td align="left"/>
+    </tr>
+    <tr>
+      <td align="left">10</td>
+      <td align="left"/>
+      <td align="left"/>
+      <td align="left"/>
+      <td align="left"/>
+    </tr>
+  </tbody>
+</table>
+<p id="_0f818152-89e6-48ca-9732-6ecc8db02db0">[ ] Check here if additional patent information is provided on additional pages.</p>
+<note id="_72b13aed-c960-4c4a-b20e-f0d271db9224">
+  <p id="_654a42fb-7edc-4b99-bfd3-b3609db7a7ed">For option 3, the additional minimum information that shall also be provided is listed in the option 3 box above.</p>
+</note></clause>
+<clause id="_signature_include_on_final_page_only" obligation="normative">
+  <title>Signature (include on final page only)</title>
+  <ul id="_30cf30bb-7859-4d88-a094-769787ad431c">
+  <li>
+    <p id="_08da723e-adb0-4742-a254-2f87f56afcaf">Patent Holder __________________________</p>
+  </li>
+  <li>
+    <p id="_79d99a74-26ba-4d19-994f-f1998fcacff8">Name of authorized person __________________________</p>
+  </li>
+  <li>
+    <p id="_42ebf57f-7e4e-4b65-ace7-033c79ffdb3e">Title of authorized person __________________________</p>
+  </li>
+  <li>
+    <p id="_d658af56-cd74-42a9-bb56-ce50d6364ac4">Signature, Place, Date __________________________</p>
+  </li>
+</ul>
+</clause></annex><bibliography><references id="_normative_references" obligation="informative">
+  <title>Normative References</title>
+  <bibitem id="CC10001">
+  <formattedref format="application/x-isodoc+xml">
+    <em>CalConnect Directive: Standardization and publication</em>
+  </formattedref>
+  <docidentifier>CC/DIR 10001</docidentifier>
+</bibitem>
+  <bibitem id="CC10002">
+  <formattedref format="application/x-isodoc+xml">
+    <em>CalConnect Directive: Standard document requirements</em>
+  </formattedref>
+  <docidentifier>CC/DIR 10002</docidentifier>
+</bibitem>
+  <bibitem id="CC10003">
+  <formattedref format="application/x-isodoc+xml">
+    <em>CalConnect Directive: Patent policy</em>
+  </formattedref>
+  <docidentifier>CC/DIR 10003</docidentifier>
+</bibitem>
+</references><references id="_bibliography" obligation="informative">
+  <title>Bibliography</title>
+</references></bibliography>
+</csd-standard>
