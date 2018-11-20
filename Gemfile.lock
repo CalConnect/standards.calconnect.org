@@ -20,9 +20,9 @@ GIT
 
 GIT
   remote: https://github.com/riboseinc/metanorma-csd
-  revision: 6bd2b33c3c9981cd96a4a801602527bd428ca121
+  revision: 5a88f63d158d49eb1176e5eb86342234f8cbddc7
   specs:
-    metanorma-csd (1.0.9)
+    metanorma-csd (1.0.10)
       isodoc (~> 0.9.6)
       metanorma-standoc (~> 1.0.0)
 
@@ -233,7 +233,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    relaton (0.3.0)
+    relaton (0.3.1)
       algoliasearch
       gbbib (~> 0.4.0)
       iecbib (~> 0.2.0)
