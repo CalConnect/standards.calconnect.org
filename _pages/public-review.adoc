@@ -43,7 +43,7 @@ parent: "/"
 ++++
 
 
-== Internal review ends 2019-01-13
+== Pending partner acknowledgement
 
 ++++
 {% assign identifier = "CC/DS 10010:2018" %}
