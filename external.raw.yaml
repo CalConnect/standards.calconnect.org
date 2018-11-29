@@ -586,7 +586,7 @@ root:
     datetype: ''
   - docidentifier: CC/ISO/NP 56001
     doctype: standard
-    title: Directory -- Common profile -- Personal and organizational information
+    title: Directory -- Standardized profile -- Personal and organizational information
     stage: proposal
     revdate: 2018-10-25
     technical_committee: VCARD
@@ -612,7 +612,7 @@ root:
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/IETF 70003:2010
+  - docidentifier: CC/IETF 70002:2010
     doctype: standard
     title: Schema for representing resources for calendaring and scheduling services
     stage: published
@@ -622,17 +622,17 @@ root:
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/IETF 70004:2010
+  - docidentifier: CC/IETF 7808:2010
     doctype: standard
     title: Time Zone Data Distribution Service
     stage: published
     html: https://tools.ietf.org/html/rfc7808
-    revdate: 2010-07-05
+    revdate: 2016-03-01
     technical_committee: TIMEZONE
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/IETF 70005:2010
+  - docidentifier: CC/IETF 70003:2010
     doctype: standard
     title: Timezone XML Specification
     stage: published
@@ -642,7 +642,7 @@ root:
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/IETF 70006:2010
+  - docidentifier: CC/IETF 70004:2010
     doctype: standard
     title: CardDAV Directory Gateway Extension
     stage: published
@@ -652,7 +652,7 @@ root:
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/IETF 70006:2011
+  - docidentifier: CC/IETF 70005:2011
     doctype: standard
     title: Event Publishing Extensions to iCalendar
     stage: published
@@ -662,7 +662,7 @@ root:
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/IETF 70007:2011
+  - docidentifier: CC/IETF 70006:2011
     doctype: standard
     title: Collected Extensions to CalDAV
     stage: published
@@ -672,7 +672,7 @@ root:
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/IETF 70008:2011
+  - docidentifier: CC/IETF 70007:2011
     doctype: standard
     title: CalDAV Managed Attachments
     stage: published
@@ -682,7 +682,7 @@ root:
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/IETF 70009:2012
+  - docidentifier: CC/IETF 70008:2012
     doctype: standard
     title: vCard Representation of Resources
     stage: published
@@ -692,7 +692,7 @@ root:
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/IETF 70010:2012
+  - docidentifier: CC/IETF 70009:2012
     doctype: standard
     title: Automated Service Configuration
     stage: published
@@ -702,7 +702,7 @@ root:
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/IETF 70011:2012
+  - docidentifier: CC/IETF 70010:2012
     doctype: standard
     title: Use of the Prefer Header Field in Web Distributed Authoring and Versioning
       (WebDAV)
@@ -713,7 +713,7 @@ root:
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/IETF 70012:2013
+  - docidentifier: CC/IETF 70011:2013
     doctype: standard
     title: 'VPOLL: Consensus Scheduling Component for iCalendar'
     stage: published
@@ -723,7 +723,7 @@ root:
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/IETF 70013:2013
+  - docidentifier: CC/IETF 70012:2013
     doctype: standard
     title: Objectclass Property for vCard
     stage: published
@@ -733,7 +733,7 @@ root:
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/IETF 70014:2013
+  - docidentifier: CC/IETF 70013:2013
     doctype: standard
     title: Schedulable Objectclass for vCard
     stage: published
@@ -743,7 +743,7 @@ root:
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/IETF 70015:2013
+  - docidentifier: CC/IETF 70014:2013
     doctype: standard
     title: Improved Support for iCalendar Relationships
     stage: published
@@ -753,7 +753,7 @@ root:
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/IETF 70016:2014
+  - docidentifier: CC/IETF 70015:2014
     doctype: standard
     title: 'WebDAV: User Notifications'
     stage: published
@@ -763,7 +763,7 @@ root:
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/IETF 70017:2014
+  - docidentifier: CC/IETF 70016:2014
     doctype: standard
     title: WebDAV Resource Sharing
     stage: published
