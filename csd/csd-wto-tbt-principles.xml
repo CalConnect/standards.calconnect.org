@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<csd-standard xmlns="https://www.calconnect.org/standards/csd">
+<bibdata type="report">
+  <title language="en" format="text/plain">Alignment to international principles — WTO TBT principles for the Development of International Standards, Guides and Recommendations</title>
+  <docidentifier type="csd">CC/R/WD 10100:2018</docidentifier>
+  <docnumber>10100</docnumber>
+  <contributor>
+    <role type="author"/>
+    <organization>
+      <name>CalConnect</name>
+    </organization>
+  </contributor>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>CalConnect</name>
+    </organization>
+  </contributor>
+  <language>en</language>
+  <script>Latn</script>
+  <status format="plain">working-draft</status>
+  <copyright>
+    <from>2018</from>
+    <owner>
+      <organization>
+        <name>CalConnect</name>
+      </organization>
+    </owner>
+  </copyright>
+  <editorialgroup>
+    <technical-committee>PUBLISH</technical-committee>
+  </editorialgroup>
+</bibdata><version>
+  <edition>1</edition>
+  <revision-date>2018-11-26T00:00:00Z</revision-date>
+  
+</version>
+<preface><foreword obligation="informative"><title>Foreword</title><p id="_7aeef9a1-f7e9-47f8-907e-22751d0a0088">The Calendaring and Scheduling Consortium ("CalConnect") is global non-profit
+organization with the aim of facilitating interoperability of technologies across
+user-centric systems and applications.</p>
+<p id="_162a0ad9-3296-4fac-8ace-4c8916a1a53f">CalConnect works closely with liaison partners including international
+organizations such as ISO, OASIS and M3AAWG.</p>
+<p id="_a1284df5-5d06-4fa3-9b78-37ab4e9b0012">The procedures used to develop this document and those intended for its further
+maintenance are described in the CalConnect Directives, and in this case, also aligned
+with the procedures used at M3AAWG.</p>
+<p id="_55fae93a-6928-46d1-992b-c51700bfca54">In particular the different approval criteria needed for the different types of
+CalConnect documents should be noted. This document was drafted in accordance with the
+editorial rules of the CalConnect Directives.</p>
+<p id="_c1bff877-a7b0-4574-a77b-0503a97d2c50">Attention is drawn to the possibility that some of the elements of this
+document may be the subject of patent rights. CalConnect shall not be held responsible
+for identifying any or all such patent rights. Details of any patent rights
+identified during the development of the document will be in the Introduction
+and/or on the CalConnect list of patent declarations received (see
+www.calconnect.com/patents).</p>
+<p id="_99dcfd0c-cab6-47b1-a2c5-223af225c471">Any trade name used in this document is information given for the convenience
+of users and does not constitute an endorsement.</p>
+<p id="_fa9705e6-d3cf-45a8-b55c-659eab8554b1">This document was prepared by Technical Committee <em>PUBLISH</em>.</p></foreword><introduction id="_introduction" obligation="informative"><title>Introduction</title><p id="_f3501615-3226-4c84-8daf-2ac180a29423">Amongst CalConnect’s goals is to facilitate interoperable technologies
+across geographical and geopolitical barriers.</p>
+<p id="_45fc0109-3d26-4eea-b536-bef4075d8477">As an international standardizing body, CalConnect has agreed to operate
+in accordance to principles stated in the WTO TBT Agreement (<eref type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"/>)
+to facilitate the reduction of trade barriers worldwide.</p>
+<p id="_689de91d-f449-4d63-81d7-70f0ea22b6a9">In particular, this document provides description on how CalConnect
+implements the TBT principles for international standardization bodies
+stated in the "Decision of the Committee on Principles for the Development of International Standards, Guides and Recommendations with relation to Articles 2, 5 and Annex 3 of the Agreement" of <eref type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"/>.</p></introduction></preface><sections>
+
+<clause id="_scope" obligation="normative"><title>Scope</title><p id="_157dd956-6788-447a-a60d-8f33596584af">This document describes the alignment of CalConnect practices and
+processes in their alignment to WTO TBT Principles, stated in
+the "Decision of the Committee on Principles for the Development of International Standards, Guides and Recommendations with relation to Articles 2, 5 and Annex 3 of the Agreement" of <eref type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"/>.</p>
+<p id="_0a8a10bd-08ff-4f2e-8b6c-8a0f91d62316">Actual practices in the CalConnect standardization process are
+described in CalConnect directives. The goal of this document
+is to describe how current practices align to the principles;
+this document does not modify current or demand any
+additional practice.</p></clause>
+
+<clause id="terms" obligation="normative"><title>Terms and definitions</title><terms id="_terms_and_definitions" obligation="normative"><title>Terms and definitions</title><term id="_international_standardizing_body">
+  <preferred>international standardizing body</preferred>
+  <definition><p id="_5413d10f-2355-47ca-965e-b7be1499872d">body that publishes international standards</p></definition>
+</term>
+<term id="_calconnect_participants">
+  <preferred>CalConnect participants</preferred>
+  <definition><p id="_43c8f701-d6ab-4f7a-a2ad-7d9c99452d03">participants in CalConnect activities, including all members of CalConnect,
+experts participating on behalf of CalConnect liaison and partnership organizations</p></definition>
+</term></terms>
+<definitions id="abbrev">
+  <dl id="_5bb59984-62d7-4564-9caa-d6ff0a40099e">
+  <dt>WTO</dt>
+  <dd>
+    <p id="_0df363e9-e05a-47c5-9bfc-cd87fbd18250">World Trade Organization</p>
+  </dd>
+  <dt>TBT</dt>
+  <dd>
+    <p id="_711d70b7-b783-4a4b-8609-a1dc3cbc1067">Technical Barriers to Trade</p>
+  </dd>
+</dl>
+</definitions></clause>
+<clause id="_wto_tbt_principle_1_transparency" obligation="normative"><title>WTO TBT principle 1: Transparency</title><clause id="_principles" obligation="normative"><title>Principles</title><quote id="_1300c474-f2a3-41d5-b2b9-130ad5fb2813"><source type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>1</referenceFrom></locality><locality type="paragraph"><referenceFrom>1</referenceFrom></locality></source><author>World Trade Organization</author><p id="_1060421f-cea3-4e64-b168-075024a7974e">All essential information regarding current work programmes, as well as on proposals for standards, guides and recommendations under consideration and on the final results should be made easily accessible to at least all interested parties in the territories of at least all WTO Members.</p>
+<p id="_59cb9bc3-0950-4910-8f4f-96f88568787a">Procedures should be established so that adequate time and opportunities are provided for written comments. The information on these procedures should be effectively disseminated.</p></quote>
+<p id="_1a04a1b1-3d19-4c39-be1e-a9826bfb0db4">Essential information regarding the current work programs at CalConnect,
+as well as proposals for standardization work items, covering all
+standards, guides and recommendations, are made readily accessible
+on the Internet at the (<eref type="inline" bibitemid="CDR" citeas="CalConnect document registry"/>) free of charge.
+This website is available to all WTO Members with Internet access.</p>
+<p id="_c9b8c87a-e5ea-4b93-b2eb-f0415c0a0f08">The CalConnect standardization processes and procedures are described
+in CalConnect directives (see <eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"/>, <eref type="inline" bibitemid="CC10002" citeas="CC/DIR 10002"/> and <eref type="inline" bibitemid="CC10003" citeas="CC/DIR 10003"/>),
+which fulfill the requirements and are publicly available on <eref type="inline" bibitemid="CDR" citeas="CalConnect document registry"/>.</p></clause>
+<clause id="_requirements" obligation="normative"><title>Requirements</title><p id="_df62ec18-5ca4-4103-84ee-4c50b4653c1a">The WTO TBT decision specifically states that "essential information"
+should be provided according to the following requirements.</p>
+<clause id="_early_notice_of_standards_development" obligation="normative"><title>Early notice of standards development</title><quote id="_b043cd7e-07fd-43bb-95d1-bdfb9acdd10e">
+  <source type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>1.a.</referenceFrom></locality></source>
+  <author>World Trade Organization</author>
+  <p id="_6162c496-f15e-41f9-aafd-7c40e45276ae">a. the publication of a notice at an early appropriate stage, in such a manner as to enable interested parties to become acquainted with it, that the international standardizing body proposes to develop a particular standard;</p>
+</quote>
+<p id="_067e3a85-c3c9-457b-b881-fc9e0e6cd08a"><eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"><locality type="clause"><referenceFrom>6.6.1.3.a</referenceFrom></locality></eref> specifies that an accepted standardization
+project proposal shall be listed in the CalConnect project registry.</p></clause>
+<clause id="_notification_to_members_of_standardizing_body" obligation="normative"><title>Notification to members of standardizing body</title><quote id="_381ffd69-3a2c-40b4-935b-f4db4debbffc">
+  <source type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>1.b.</referenceFrom></locality></source>
+  <author>World Trade Organization</author>
+  <p id="_b4a583d2-8e2b-4a29-8f67-b017074058e2">b. the notification or other communication through established mechanisms to members of the international standardizing body, providing a brief description of the scope of the draft standard, including its objective and rationale. Such communications shall take place at an early appropriate stage, when amendments can still be introduced and comments taken into account;</p>
+</quote>
+<p id="_a61ace66-b046-42e2-bc9e-326b77e2515e"><eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"><locality type="clause"><referenceFrom>6.6.1.3.b</referenceFrom></locality></eref> specifies that an accepted standardization
+project proposal shall be announced to CalConnect members at an early enough stage
+to facilitate amendments and comments.</p></clause>
+<clause id="draft-availability" obligation="normative"><title>Draft availability to members</title><quote id="_58d3a4f1-5921-4907-a6a8-79107e14a225">
+  <source type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>1.c.</referenceFrom></locality></source>
+  <author>World Trade Organization</author>
+  <p id="_6feec166-5166-44ad-b95c-44961b31fd57">c. upon request, the prompt provision to members of the international standardizing body of the text of the draft standard;</p>
+</quote>
+<ul id="_327005c2-3e6a-4cee-9696-b48eb0b16de5">
+  <li>
+    <p id="_7ca6fc17-f7d5-4858-951a-639323ef9228"><eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"><locality type="clause"><referenceFrom>6.6.7.b</referenceFrom></locality></eref> specifies that an a new draft version at the Preparatory
+stage should be announced to all TCs;</p>
+  </li>
+  <li>
+    <p id="_1aa426af-4590-41ce-a678-b05e796fdd7e"><eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"><locality type="clause"><referenceFrom>6.6.7.c</referenceFrom></locality></eref> specifies that an a new draft version at a development
+stage may be announced to the CalConnect-wide membership for comments; and</p>
+  </li>
+</ul></clause>
+<clause id="_adequate_time_for_membership_comments" obligation="normative"><title>Adequate time for membership comments</title><quote id="_cc7aff7e-5273-456d-8ca2-dc8b59447bba">
+  <source type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>1.d.</referenceFrom></locality></source>
+  <author>World Trade Organization</author>
+  <p id="_d91ac5c7-daae-4247-bae3-3898618208ac">d. the provision of an adequate period of time for interested parties in the territory of at least all members of the international standardizing body to make comments in writing and take these written comments into account in the further consideration of the standard;</p>
+</quote>
+<p id="_b19bf869-270a-401c-b335-263b763a5b0c"><eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"><locality type="clause"><referenceFrom>7</referenceFrom></locality></eref> specifies that a public review period of 60 days
+is open to all interested parties prior to adoption of a standard.</p></clause>
+<clause id="_prompt_publication_notice" obligation="normative"><title>Prompt publication notice</title><quote id="_dee370a4-30be-4252-8cde-7e7df145bba1">
+  <source type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>1.e.</referenceFrom></locality></source>
+  <author>World Trade Organization</author>
+  <p id="_50f884f5-6cc4-4e23-a1d5-b77eb8045d66">e. the prompt publication of a standard upon adoption; and</p>
+</quote>
+<p id="_254cb17e-683d-4890-9a5c-c33f3f0817f2"><eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"><locality type="clause"><referenceFrom>6.6.9.1</referenceFrom></locality></eref> specifies that a standard once approved and published
+will be made available on the public <eref type="inline" bibitemid="CDR" citeas="CalConnect document registry"/>.</p></clause>
+<clause id="_publication_of_work_program" obligation="normative"><title>Publication of work program</title><quote id="_320d9e46-1cb4-42ca-acd8-7f69fcfda2f5">
+  <source type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>1.f.</referenceFrom></locality></source>
+  <author>World Trade Organization</author>
+  <p id="_8272fda2-d296-4ff0-9f66-32673709396e">f. to publish periodically a work programme containing information on the standards currently being prepared and adopted.</p>
+</quote>
+<p id="_3d192a14-4ba6-4653-8845-5bf97e0cbafc"><eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"><locality type="clause"><referenceFrom>6.6.9.3</referenceFrom></locality></eref> specifies that all CalConnect projects are
+registered in the public <eref type="inline" bibitemid="CDR" citeas="CalConnect document registry"/>.</p></clause>
+<clause id="_availability_over_the_internet" obligation="normative"><title>Availability over the Internet</title><quote id="_3556802d-96bd-4071-881f-51b6002b317b">
+  <source type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>1</referenceFrom></locality><locality type="paragraph"><referenceFrom>2</referenceFrom></locality></source>
+  <author>World Trade Organization</author>
+  <p id="_9c0edb62-d7c3-4a59-8e15-db8bf62f4e28">It is recognized that the publication and communication of notices, notifications, draft standards, comments, adopted standards or work programmes electronically, via the Internet, where feasible, can provide a useful means of ensuring the timely provision of information. At the same time, it is also recognized that the requisite technical means may not be available in some cases, particularly with regard to developing countries. Accordingly, it is important that procedures are in place to enable hard copies of such documents to be made available upon request.</p>
+</quote>
+<p id="_514e73bf-17eb-45b5-918f-3b4c2b5f6e6f">Publication and communication of notices, notifications, draft standards, comments, adopted standards or work programmes of CalConnect are all performed through the Internet.</p>
+<p id="_272eecb5-2c32-40e3-8178-3d44e52f1322">The postal address of CalConnect is given on all CalConnect documents
+for which hard copies of such documents can be requested through
+a fair monetary sum, as determined by the Executive Director on a case by case basis.</p></clause></clause></clause>
+<clause id="_openness" obligation="normative">
+  <title>Openness</title>
+  <clause id="_non_discrimination_in_participation" obligation="normative"><title>Non-discrimination in participation</title><quote id="_b95c2b4f-a50e-419f-8b5a-3529709b04bd"><source type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>2</referenceFrom></locality><locality type="paragraph"><referenceFrom>1</referenceFrom></locality></source><author>World Trade Organization</author><p id="_1ec1f235-ad53-4faa-a49c-68d0d2b27fe8">Membership of an international standardizing body should be open on a non-discriminatory basis to relevant bodies of at least all WTO Members. This would include openness without discrimination with respect to the participation at the policy development level and at every stage of standards development, such as the:</p>
+<ol id="_500a39dc-bf94-4428-a899-32747ac9f018" type="loweralpha">
+  <li>
+    <p id="_949445a0-dec4-4252-8df9-2259e715bc59">proposal and acceptance of new work items;</p>
+  </li>
+  <li>
+    <p id="_6734f949-938d-4d02-b0be-416209b2eb3a">technical discussion on proposals;</p>
+  </li>
+  <li>
+    <p id="_ac5da7de-7460-43ee-a42b-bcbdac3e0f10">submission of comments on drafts in order that they can be taken into account;</p>
+  </li>
+  <li>
+    <p id="_30201eb3-e6ed-4b84-85d9-daeec6d4a4d2">reviewing existing standards;</p>
+  </li>
+  <li>
+    <p id="_5ebbd9f1-eb0f-4b82-aa13-21eb6db8c4bc">voting and adoption of standards; and</p>
+  </li>
+  <li>
+    <p id="_6dcc7748-3b11-4993-bd1b-ce337f370623">dissemination of the adopted standards.</p>
+  </li>
+</ol></quote>
+<p id="_fb60dff7-9990-4653-9038-ef58ac430365">CalConnect is an international standards body that welcomes participation
+from commercial, non-commercial, governmental bodies and individuals
+through its membership system (see <eref type="inline" bibitemid="CCMEMBERS" citeas="CalConnect members"/>).</p>
+<p id="_2b9fa299-bb9f-4c7c-a9a5-cae11ca5734b">Development of CalConnect policies are driven by the Board of Directors
+at CalConnect, which hold elected positions within the membership, and
+their enactment and approval widely involve the CalConnect membership.</p>
+<p id="_112b7c17-d718-4d53-b516-b822301428ac">As described in <eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"/>, CalConnect members are allowed to
+participate in every stage of standards development:</p>
+<ol id="_2f03d2f7-9c20-4558-ae91-aff2b69cfa60" type="arabic">
+  <li>
+    <p id="_864237e8-961a-4c0d-9fb6-274ee3963740">full members are allowed to propose new work items (<eref type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>2.a</referenceFrom></locality></eref>),
+participate in standards development activities (<eref type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>2.b-d</referenceFrom></locality></eref>),
+vote on adoption of standards (<eref type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>2.e</referenceFrom></locality></eref>),
+and disseminate standards within the membership organization (<eref type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>2.f</referenceFrom></locality></eref>);</p>
+  </li>
+  <li>
+    <p id="_b670cfd9-ddca-4667-958c-23efb9101c2c">supporting members are allowed to receive notification of newly proposed standards
+and submit their comments during the public review period (<eref type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>2.c</referenceFrom></locality></eref>),
+and disseminate the adopted standards within the organization (<eref type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>2.f</referenceFrom></locality></eref>);</p>
+  </li>
+  <li>
+    <p id="_28e01f42-ef69-4a2b-8bec-1bab7f6f2f0d">external liaison and partnership organizations are allowed varied participation
+rights depending on the particular agreement CalConnect has with them, for example,
+ISO/TCs that CalConnect liaisons with are allowed to fully participate in the
+CalConnect standardization process.</p>
+  </li>
+</ol>
+<quote id="_fb1ddf5f-6e06-43e8-804a-b1a677ef0776">
+  <source type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>2</referenceFrom></locality><locality type="paragraph"><referenceFrom>2</referenceFrom></locality></source>
+  <author>World Trade Organization</author>
+  <p id="_6aa3882b-34d3-42d1-aacf-518c19fd85c9">Any interested member of the international standardizing body, including especially developing country Members, with an interest in a specific standardization activity should be provided with meaningful opportunities to participate at all stages of standard development. It is noted that with respect to standardizing bodies within the territory of a WTO Member that have accepted the Code of Good Practice for the Preparation, Adoption and Application of Standards by Standardizing Bodies (Annex 3 of the TBT Agreement) participation in a particular international standardization activity takes place, wherever possible, through one delegation representing all standardizing bodies in the territory that have adopted, or expected to adopt, standards for the subject-matter to which the international standardization activity relates. This is illustrative of the importance of participation in the international standardizing process accommodating all relevant interests.</p>
+</quote>
+<p id="_a0ada52e-db78-4849-9272-0abaa6882064">CalConnect operates under a non-discrimination principle such that membership
+categories do not distinguish the origin of organizations between developing and
+developed countries.</p>
+<p id="_cb915a5a-1382-4195-84c4-1af8458cd856">This practice effectively allows participation of having one
+delegation representing multiple standardizing bodies at CalConnect
+international standardization activities as a single member, as specified in
+the last paragraph in (<eref type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>2</referenceFrom></locality></eref>).</p></clause>
+</clause>
+<clause id="_impartiality_and_consensus" obligation="normative"><title>Impartiality and consensus</title><quote id="_7b2d44fb-83f5-4e4b-bc9e-5fb21bf495e1">
+  <source type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>3</referenceFrom></locality><locality type="paragraph"><referenceFrom>1</referenceFrom></locality></source>
+  <author>World Trade Organization</author>
+  <p id="_cc84df11-e71a-4b6c-813d-bcb36a1c247b">All relevant bodies of WTO Members should be provided with meaningful opportunities to contribute to the elaboration of an international standard so that the standard development process will not give privilege to, or favour the interests of, a particular supplier/s, country/ies or region/s. Consensus procedures should be established that seek to take into account the views of all parties concerned and to reconcile any conflicting arguments.</p>
+</quote>
+<p id="_26453ac8-65fd-4de7-82f1-f3c8fa0ae604">CalConnect standardization processes is consensus-based and does not
+provide privilege to any particular entity. <eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"/> fully describes
+the CalConnect standardization processes, which employs a bottom-up
+consensus process.</p>
+<p id="_6d2d7222-024f-49d6-9a5e-29bb1a8797b9">In particular, the application of requirements of <eref type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>3</referenceFrom></locality></eref>:</p>
+<quote id="_6b59909b-b498-46d3-a4b4-995ec7bdc1c1"><source type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>3</referenceFrom></locality><locality type="paragraph"><referenceFrom>2</referenceFrom></locality></source><author>World Trade Organization</author><p id="_27b33c9c-d493-46e1-83ae-7a5e565dae74">Impartiality should be accorded throughout all the standards development process with respect to, among other things:</p>
+<ol id="_40c2a802-1049-490d-abca-d72e07ed38cf" type="loweralpha">
+  <li>
+    <p id="_182b6442-a371-4de1-9ffd-861c4eb26b23">access to participation in work;</p>
+  </li>
+  <li>
+    <p id="_912eb205-1ffc-4ec6-ad64-8c14752cf9fe">submission of comments on drafts;</p>
+  </li>
+  <li>
+    <p id="_0cb9fe8c-4f98-4a3f-b492-115305bccf54">consideration of views expressed and comments made;</p>
+  </li>
+  <li>
+    <p id="_0f40f243-e3ec-4cc1-89ae-a275ef9a1581">decision-making through consensus;</p>
+  </li>
+  <li>
+    <p id="_c6412fbf-4051-4b8c-a9c2-0d5958a011c3">obtaining of information and documents;</p>
+  </li>
+  <li>
+    <p id="_5d059b3f-9258-47a9-844e-73fec138882c">dissemination of the international standard;</p>
+  </li>
+  <li>
+    <p id="_aaddbd30-40ad-4d0e-b87f-b11d2262d7e1">fees charged for documents;</p>
+  </li>
+  <li>
+    <p id="_61aac465-7689-4d35-844b-635b9a979728">right to transpose the international standard into a regional or national standard; and</p>
+  </li>
+  <li>
+    <p id="_8df36340-5ca3-4e96-9c00-2d1d6ab45001">revision of the international standard.</p>
+  </li>
+</ol></quote>
+<ol id="_ba763281-435c-41f0-b216-bf8e0e145689" type="arabic">
+  <li>
+    <p id="_84336bcf-e7b3-4ab3-bd91-25ec9460be46">Participation of work is at the TC-level as specified in <eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"><locality type="clause"><referenceFrom>6.4</referenceFrom></locality></eref>,
+which is open to all full members of CalConnect (aligns with <eref type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>3.a</referenceFrom></locality></eref>);</p>
+  </li>
+  <li>
+    <p id="_c8258527-0804-4820-b1b2-c9b816bf9cd4">Submission of comments at stages relevant to comments, including
+the Committee stage <eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"><locality type="clause"><referenceFrom>6.6.4</referenceFrom></locality></eref>, Approval stage <eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"><locality type="clause"><referenceFrom>6.6.4</referenceFrom></locality></eref>
+as well as the Pre-publication stages <eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"><locality type="clause"><referenceFrom>6.6.8</referenceFrom></locality></eref> are open to all
+eligible bodies (aligns with <eref type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>3.b</referenceFrom></locality></eref>);</p>
+  </li>
+  <li>
+    <p id="_d7f7bf06-dea9-457e-8c50-2e70db310bcd">The CalConnect commenting process (<eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"><locality type="clause"><referenceFrom>8.1</referenceFrom></locality></eref>)
+specifies that comments are considered by the TCC and the TC that owns the
+standardization work item. Comments and feedback are judged according to
+their technical contributions in an impartial way
+(<eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"><locality type="clause"><referenceFrom>8.4</referenceFrom></locality></eref>) (aligns with <eref type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>3.c</referenceFrom></locality></eref>).</p>
+  </li>
+  <li>
+    <p id="_0f0bb0de-32e6-4605-8b19-14e38a2538f0">The CalConnect standardization process is fully based on a
+bottom-up consensus model resolved via balloting (<eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"><locality type="clause"><referenceFrom>8.1</referenceFrom></locality></eref>),
+with the scope being the technical body in charge, in this case
+the owning TC at the earlier stages, the TCC and the membership body
+at later stages (aligns with <eref type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>3.d</referenceFrom></locality></eref>);</p>
+  </li>
+  <li>
+    <p id="_019848c6-3e12-46cb-bab6-1c4aef9758bc">CalConnect standardization work items and their information can
+be obtained directly from the <eref type="inline" bibitemid="CDR" citeas="CalConnect document registry"/> (aligns with <eref type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>3.e</referenceFrom></locality></eref>).</p>
+  </li>
+  <li>
+    <p id="_2c0f0b43-0b2e-495b-a954-479ef6309d93">CalConnect standardization work items and their information can
+be disseminated to the membership organization <eref type="inline" bibitemid="CDR" citeas="CalConnect document registry"/> (aligns with <eref type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>3.f</referenceFrom></locality></eref>).</p>
+  </li>
+  <li>
+    <p id="_ae71d6a1-13ab-4fb9-b312-267acc47ec8e">CalConnect standardization work items are provided free-of-charge (<eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"><locality type="clause"><referenceFrom>8.4</referenceFrom></locality></eref>) (aligns with <eref type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>3.g</referenceFrom></locality></eref>).</p>
+  </li>
+  <li>
+    <p id="_ab5d801d-b24d-425f-b4e6-db3c8ca8fb08">CalConnect allows regional or national standards bodies to transpose
+a CalConnect standard into a regional or national standard,
+under an official, non-discriminatory and mutually-beneficial arrangement
+in accordance with the following requirements:
+(aligns with  <eref type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>3.h</referenceFrom></locality></eref>)</p>
+    <ol id="_26e7e250-3e94-415a-9fbc-774c19d0255e" type="alphabet">
+  <li>
+    <p id="_94b12e86-57da-4f19-ab66-8d1d47f13a1a">The arrangement must be officially settled by both parties prior to transposition;</p>
+  </li>
+  <li>
+    <p id="_d32e16a1-ef2f-4e07-b4ea-77e9eab71acb">The relationship between the transposed CalConnect standard and the
+regional or national standard must be made clear to the reader, whether
+the transposition is:</p>
+    <ul id="_eddbcb6b-e4f5-4075-8b82-bad19f3fc9e3">
+  <li>
+    <p id="_1ca821a9-6ed2-4518-bc1f-7eea4778e521">identical (identical intention and content);</p>
+  </li>
+  <li>
+    <p id="_f9acc9a1-7d8b-4f1a-a3d8-32b9e79bb3a0">equivalent (identical intention but with minor modifications); or</p>
+  </li>
+  <li>
+    <p id="_f298ae40-5948-47a6-b3f2-0d55ef614de5">unequal (identical intention, but with major modifications)</p>
+  </li>
+</ul>
+  </li>
+</ol>
+  </li>
+  <li>
+    <p id="_4d390d4c-d31a-4426-9670-6d60e9e90130">CalConnect standardization work items are revised by the owning TC
+according to <eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"><locality type="clause"><referenceFrom>11</referenceFrom></locality></eref>, of which participation is open to all
+full members (aligns with <eref type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>3.i</referenceFrom></locality></eref>).</p>
+  </li>
+</ol></clause>
+<clause id="_effectiveness_and_relevance" obligation="normative"><title>Effectiveness and relevance</title><quote id="_04588c21-62db-47c5-a1e6-18ebd3128af7">
+  <source type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>4</referenceFrom></locality><locality type="paragraph"><referenceFrom>1</referenceFrom></locality></source>
+  <author>World Trade Organization</author>
+  <p id="_083b55b1-b785-4035-a684-f4bc76172bbf">In order to serve the interests of the WTO membership in facilitating international trade and preventing unnecessary trade barriers, international standards need to be relevant and to effectively respond to regulatory and market needs, as well as scientific and technological developments in various countries. They should not distort the global market, have adverse effects on fair competition, or stifle innovation and technological development. In addition, they should not give preference to the characteristics or requirements of specific countries or regions when different needs or interests exist in other countries or regions. Whenever possible, international standards should be performance based rather than based on design or descriptive characteristics.</p>
+</quote>
+<p id="_038f6268-8935-416e-ab22-649e2c60c55c">CalConnect is a membership-driven international standards organization that
+aims to facilitate interoperability of technical systems, often through
+standardization of innovative technologies
+(<eref type="inline" bibitemid="CCMISSION" citeas="Introduction to CalConnect">"Introduction to CalConnect: Overview"</eref>).</p>
+<p id="_09a5fdda-8fd4-425d-925c-5f8603b566b7">Membership at CalConnect is open to all WTO members, and its standards
+are widely impacting on a global scale (<eref type="inline" bibitemid="CCMEMBERS" citeas="CalConnect members"/>).</p>
+<p id="_33856056-e89c-440d-b2d6-e0386c8e3198">Standards created by CalConnect are performance-based, as in based
+on sets of requirements rather than based on descriptive characteristics
+(<eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"><locality type="clause"><referenceFrom>5.2</referenceFrom></locality></eref>).</p>
+<quote id="_58ec6f22-6400-4fab-a130-db73b26d6f10"><source type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>4</referenceFrom></locality><locality type="paragraph"><referenceFrom>2</referenceFrom></locality></source><author>World Trade Organization</author><p id="_1508e223-8ecc-479c-acde-f041b6e063f1">Accordingly, it is important that international standardizing bodies:</p>
+<ol id="_5e364a8c-57c2-44fa-a6cb-76e36d04b80b" type="arabic">
+  <li>
+    <p id="_c114e0e1-8609-46ea-b0e7-5a5b74bc91bc">take account of relevant regulatory or market needs, as feasible and appropriate, as well as scientific and technological developments in the elaboration of standards;</p>
+  </li>
+  <li>
+    <p id="_4949eefe-e750-4acb-97d0-cb38429740d0">put in place procedures aimed at identifying and reviewing standards that have become obsolete, inappropriate or ineffective for various reasons; and</p>
+  </li>
+  <li>
+    <p id="_ca948f26-fdbd-4a97-ae3a-5ec44fa1f0cf">put in place procedures aimed at improving communication with the World Trade Organization.</p>
+  </li>
+</ol></quote>
+<p id="_b7a88ba0-3110-4dc4-9f55-80aed2c45d42">CalConnect standardization work item initiation requirements (<eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"><locality type="clause"><referenceFrom>6.6.1.2.c</referenceFrom><referenceTo>d</referenceTo></locality></eref>)
+aligns with <eref type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>4.a</referenceFrom></locality></eref>.</p>
+<p id="_e140ba56-65e8-4f18-a602-04bc43b8a4b6"><eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"><locality type="clause"><referenceFrom>11.1</referenceFrom></locality></eref> specifies the mandatory review period
+for every CalConnect standard to be reviewed for relevance,
+which aligns with <eref type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>4.b</referenceFrom></locality></eref>.</p>
+<p id="_1023a478-b1c4-43f0-acb8-0fe43e1fca42">In order to improve communication with the World Trade Organization,
+CalConnect is a signatory of the <eref type="inline" bibitemid="WTOTBTCode" citeas="WTO TBT Code of Good Practice"/> and is listed on the <eref type="inline" bibitemid="WTOISOSIG" citeas="WTO ISO Standards Information Gateway"/>.
+The CalConnect standardization work program is provided at the <eref type="inline" bibitemid="CDR" citeas="CalConnect document registry"/> with regular updates, and is also linked from the <eref type="inline" bibitemid="WTOISOSIG" citeas="WTO ISO Standards Information Gateway"/>.</p></clause>
+<clause id="_coherence" obligation="normative"><title>Coherence</title><quote id="_9c8415bb-7bb8-4e0e-bd8b-81efe298cdad">
+  <source type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>5</referenceFrom></locality></source>
+  <author>World Trade Organization</author>
+  <p id="_cd481af9-997b-43cc-9131-198883974db4">In order to avoid the development of conflicting international standards, it is important that international standardizing bodies avoid duplication of, or overlap with, the work of other international standardizing bodies. In this respect, cooperation and coordination with other relevant international bodies is essential.</p>
+</quote>
+<p id="_4862cc02-6fbf-4675-a069-2c85104b11e3">CalConnect maintains a number of liaisons and partnerships with
+other international standardization bodies including ISO, OASIS
+and M3AAWG in order to:</p>
+<ul id="_e9a1d1e9-c20c-495b-8bec-f3278ff0204f">
+  <li>
+    <p id="_f1004421-608d-4049-af2e-9321976ec41d">coordinate to prevent duplication of work on standardization topics;</p>
+  </li>
+  <li>
+    <p id="_fcbc0d98-f613-4e70-9e44-cc5deb5776be">cooperate and collaborate on standardization topics.</p>
+  </li>
+</ul></clause>
+<clause id="_development_dimension" obligation="normative"><title>Development dimension</title><quote id="_d7aef9ae-c1cf-4126-a5e3-4e818e011fba">
+  <source type="inline" bibitemid="WTOTBTP" citeas="WTO TBT Principles"><locality type="clause"><referenceFrom>6</referenceFrom></locality></source>
+  <author>World Trade Organization</author>
+  <p id="_6960e3f5-8670-469a-9536-22e5cb2c185c">Constraints on developing countries, in particular, to effectively participate in standards development, should be taken into consideration in the standards development process. Tangible ways of facilitating developing countries' participation in international standards development should be sought. The impartiality and openness of any international standardization process requires that developing countries are not excluded de facto from the process. With respect to improving participation by developing countries, it may be appropriate to use technical assistance, in line with Article 11 of the TBT Agreement. Provisions for capacity building and technical assistance within international standardizing bodies are important in this context.</p>
+</quote>
+<p id="_c9d462c5-74d6-4bf2-b0c4-d479d0f0e258">CalConnect adheres to the principles that participation in
+the standardization process should be fair and be based on
+technical and market merit, regardless of the origin of the
+participant.</p>
+<p id="_97ccb50f-bd88-415c-bbe4-fde5e84e9649">To this end, CalConnect adopts the following practices
+that are beneficial to developing countries:</p>
+<ul id="_fce9dc00-24d2-42ba-bdbd-31dd9ef6cd36">
+  <li>
+    <p id="_6f5160ba-67f3-484b-8d6f-5e7d4508e286">Our standards facilitates the ease of international trade;</p>
+  </li>
+  <li>
+    <p id="_36002b82-d879-4294-9cc0-b036f03c1df7">Our standards are open and free, available on the <eref type="inline" bibitemid="CDR" citeas="CalConnect document registry"/> through the Internet;</p>
+  </li>
+  <li>
+    <p id="_6344f398-4c6a-42a4-b256-e187058f2464">Contribution to standards can be done over phone, email or the Internet;</p>
+  </li>
+  <li>
+    <p id="_26899ee6-56cc-4d89-8dbf-9bec0e33c7de">Non-members can get directly in touch about a standardization subject matter at certain events, including CalConnect Hackathons;</p>
+  </li>
+  <li>
+    <p id="_6c5fd020-f854-48dc-bda0-063632f534ac">Our general mailing list is open for all interested in the subject;</p>
+  </li>
+  <li>
+    <p id="_6c76c434-85b6-4e70-8d42-2bd674edc576">Our public commenting process (<eref type="inline" bibitemid="CC10001" citeas="CC/DIR 10001"><locality type="clause"><referenceFrom>8</referenceFrom></locality></eref>) is open to everyone;</p>
+  </li>
+  <li>
+    <p id="_97970e48-124d-4440-9dec-bdab95a1b270">Our supporting membership category provides a large discount
+compared to full membership allowing smaller organizations
+and those from developing countries to participate and obtain
+visibility in the standardization process;</p>
+  </li>
+  <li>
+    <p id="_c39caf1c-65ec-446f-ae63-30b0a8372b2d">Full membership fees for commercial entities are considered purely
+on organizational revenue allows organizations with revenue coming from
+developing countries to benefit from a lower membership fee.</p>
+  </li>
+</ul></clause>
+</sections><bibliography><references id="_normative_references" obligation="informative">
+  <title>Normative References</title>
+  <bibitem id="WTOTBTP">
+  <formattedref format="application/x-isodoc+xml"><em>,Annex 2: Decision of the Committee on Principles for the Development of International Standards, Guides and Recommendations with relation to Articles 2, 5 and Annex 3 of the Agreement; Decisions and recommendations adopted by the TBT Committee since 1 January 1995: Annexes to Part 1; _WTO Agreements Series: Technical Barriers to Trade</em>, World Trade Organization</formattedref>
+  <docidentifier>WTO TBT Principles</docidentifier>
+</bibitem>
+  <bibitem id="CC10001">
+  <formattedref format="application/x-isodoc+xml">
+    <em>CalConnect Directive: Standardization and publication</em>
+  </formattedref>
+  <docidentifier>CC/DIR 10001</docidentifier>
+</bibitem>
+  <bibitem id="CC10002">
+  <formattedref format="application/x-isodoc+xml">
+    <em>CalConnect Directive: Document requirements</em>
+  </formattedref>
+  <docidentifier>CC/DIR 10002</docidentifier>
+</bibitem>
+  <bibitem id="CC10003">
+  <formattedref format="application/x-isodoc+xml">
+    <em>CalConnect Directive: Intellectual property rights policy</em>
+  </formattedref>
+  <docidentifier>CC/DIR 10003</docidentifier>
+</bibitem>
+</references><references id="_bibliography" obligation="informative">
+  <title>Bibliography</title>
+  <bibitem id="CDR">
+  <formattedref format="application/x-isodoc+xml"><em>CalConnect document registry</em>, <link target="https://www.calendarstandards.org"/></formattedref>
+  <docidentifier>CalConnect document registry</docidentifier>
+</bibitem>
+  <bibitem id="CCMEMBERS">
+  <formattedref format="application/x-isodoc+xml"><em>CalConnect members</em>, <link target="https://www.calconnect.org/membership-categories-and-fees"/></formattedref>
+  <docidentifier>CalConnect members</docidentifier>
+</bibitem>
+  <bibitem id="CCMISSION">
+  <formattedref format="application/x-isodoc+xml"><em>Introduction to CalConnect</em>, <link target="https://www.calconnect.org/about"/></formattedref>
+  <docidentifier>Introduction to CalConnect</docidentifier>
+</bibitem>
+  <bibitem id="WTOISOSIG">
+  <formattedref format="application/x-isodoc+xml"><em>WTO ISO Standards Information Gateway</em>, <link target="https://tbtcode.iso.org/"/></formattedref>
+  <docidentifier>WTO ISO Standards Information Gateway</docidentifier>
+</bibitem>
+  <bibitem id="WTOTBTCode">
+  <formattedref format="application/x-isodoc+xml"><em>WTO TBT Code of Good Practice</em>, <link target="https://www.wto.org/english/tratop_e/tbt_e/tbt_e.htm"/></formattedref>
+  <docidentifier>WTO TBT Code of Good Practice</docidentifier>
+</bibitem>
+</references></bibliography>
+</csd-standard>
