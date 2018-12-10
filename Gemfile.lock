@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/riboseinc/relaton-cli
-  revision: 21d9ba69701a33118589310a9b415df373cf6866
+  revision: 9d7cbb64d5a70cb4ed7a0715f80c8a95613ed22f
   specs:
     relaton-cli (0.1.4)
       liquid
@@ -16,12 +16,6 @@ GEM
       httpclient (~> 2.8, >= 2.8.3)
       json (>= 1.5.1)
     asciidoctor (1.5.8)
-    asciidoctor-rfc (0.9.2)
-      asciidoctor (~> 1.5.7)
-      htmlentities (~> 4.3.4)
-      nokogiri
-      ruby-jing
-      thread_safe
     asciimath (1.0.6)
     camertron-eprun (1.1.1)
     cldr-plurals-runtime-rb (1.0.1)
@@ -101,6 +95,8 @@ GEM
       jekyll (>= 2.3.0)
     jekyll-feed (0.11.0)
       jekyll (~> 3.3)
+    jekyll-paginate-v2 (2.0.0)
+      jekyll (~> 3.0)
     jekyll-sass-converter (1.5.2)
       sass (~> 3.4)
     jekyll-seo-tag (2.5.0)
@@ -115,21 +111,22 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
     mercenary (0.3.6)
-    metanorma (0.3.2)
+    metanorma (0.3.4)
+      asciidoctor
     metanorma-acme (1.0.6)
       asciidoctor (~> 1.5.7)
       htmlentities (~> 4.3.4)
       isodoc (~> 0.9.0)
       metanorma-standoc (~> 1.0.8)
       ruby-jing
-    metanorma-cli (1.0.8)
-      asciidoctor-rfc (~> 0.9.0)
+    metanorma-cli (1.0.9)
       isodoc (~> 0.9.0)
       metanorma (~> 0.3.0)
       metanorma-acme (~> 1.0.1)
       metanorma-csand (~> 1.0.5)
       metanorma-csd (~> 1.0.5)
       metanorma-gb (~> 1.0.5)
+      metanorma-ietf (~> 1.0)
       metanorma-iso (~> 1.0.6)
       metanorma-m3d (~> 1.0.6)
       metanorma-mpfd (~> 0.1.0)
@@ -158,6 +155,9 @@ GEM
       isodoc (~> 0.9.1)
       metanorma-iso (~> 1.0.1)
       twitter_cldr
+    metanorma-ietf (1.0.0)
+      isodoc (~> 0.9.6)
+      metanorma-standoc (~> 1.0.0)
     metanorma-iso (1.0.11)
       asciidoctor (~> 1.5.7)
       iev (~> 0.2.0)
@@ -220,7 +220,7 @@ GEM
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (3.0.3)
-    rake (12.3.1)
+    rake (12.3.2)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -266,8 +266,8 @@ DEPENDENCIES
   jekyll (~> 3.8.4)
   jekyll-asciidoc
   jekyll-feed (~> 0.6)
+  jekyll-paginate-v2
   metanorma-cli
-  metanorma-csd
   minima (~> 2.0)
   relaton-cli!
   tzinfo-data

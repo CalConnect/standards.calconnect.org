@@ -1,10 +1,10 @@
 source "https://rubygems.org"
 
-gem "relaton-cli", git: "https://github.com/riboseinc/relaton-cli"
 gem "metanorma-cli"
-gem "metanorma-csd"
+# gem "metanorma-csd", path: "~/src/relaton-cli"
 
 # gem "metanorma-cli", path: "~/src/metanorma-cli"
+gem "relaton-cli", git: "https://github.com/riboseinc/relaton-cli"
 # gem "relaton-cli", path: "~/src/relaton-cli"
 
 # __________________ JEKYLL BELOW __________________
@@ -30,6 +30,7 @@ gem "minima", "~> 2.0"
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.6"
   gem "jekyll-asciidoc"
+  gem "jekyll-paginate-v2"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

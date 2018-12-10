@@ -1,2 +1,2 @@
-{% assign document = site.data.standards.root.items | where:"docidentifier",identifier | first %}
+{% assign document = site.documents | where:"docidentifier",identifier | first %}
 {% include document.html %}

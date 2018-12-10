@@ -1,0 +1,9 @@
+---
+layout: page
+---
+{% assign document = page %}
+<h1>{{ document.docidentifier }}</h1>
+<h2>{{ document.title }}</h2>
+
+{% include document.html %}
+{{ content }}

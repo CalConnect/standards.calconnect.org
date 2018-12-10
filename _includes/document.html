@@ -37,11 +37,11 @@
 {%- endif -%}
 {%- endunless -%}
 
-{%- unless document.relaton == blank or document.relaton == nil -%}
-{%- if document.relaton contains '://' -%}
-{%- assign relatonuri = document.relaton -%}
+{%- unless document.rxl == blank or document.rxl == nil -%}
+{%- if document.rxl contains '://' -%}
+{%- assign rxluri = document.rxl -%}
 {%- else -%}
-{%- assign relatonuri = document.relaton | prepend: "/" -%}
+{%- assign rxluri = document.rxl | prepend: "/" -%}
 {%- endif -%}
 {%- endunless -%}
 
@@ -92,10 +92,10 @@
   </div>
   {%- endunless -%}
 
-  {%- unless document.relaton == blank or document.relaton == nil -%}
+  {%- unless document.rxl == blank or document.rxl == nil -%}
   <div class="doc-bib">
-    <div class="doc-bib-relaton">
-      <a href="{{ relatonuri }}">Relaton XML</a>
+    <div class="doc-bib-rxl">
+      <a href="{{ rxluri }}">Relaton XML</a>
     </div>
   </div>
   {%- endunless -%}
@@ -128,4 +128,4 @@
 {%- assign pdfuri = nil -%}
 {%- assign docuri = nil -%}
 {%- assign xmluri = nil -%}
-{%- assign relatonuri = nil -%}
+{%- assign rxluri = nil -%}
