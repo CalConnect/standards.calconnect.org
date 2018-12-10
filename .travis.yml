@@ -18,6 +18,7 @@ before_install:
 before_script:
   - bundle
   - plantuml -testdot
+  - make update-init update-modules
 script:
   - make _site
 install:
