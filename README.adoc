@@ -10,7 +10,7 @@ CalConnect deliverables, including its Standards and
 other public documents.
 
 This repository provides all necessary information for the
-https://www.calendarstandards.org site.
+https://standards.calconnect.org site.
 
 The site is managed by TC PUBLISH.
 
@@ -20,7 +20,11 @@ The site is managed by TC PUBLISH.
 [source,sh]
 ----
 # removes all generated CSD files
-make dist-clean
+make distclean
+
+# makes everything except _site
+# (if we're using `make serve`, we don't need to pre-build)
+make all
 
 # generates all required files for Jekyll and runs `jekyll build`
 make _site
@@ -30,33 +34,45 @@ make _site
 
 === General
 
-There are two types of entries in this site:
+There are two types of input entries to this site:
 
 . CSD document entries
 
 . Relaton entries (pure bibliographic entries)
 
+All input is placed under the `_input/` directory.
 
-=== CSD document entries
 
-This repository accepts CSD document entries in CSD XML format, all stored under the `csd/` directory.
+=== Input: CSD document entries
+
+This repository accepts CSD document entries in CSD XML format, all stored under the `_input/csd/` directory,
+and gets generated into the `csd/` directory.
 
 NOTE: The CSD XML format is described https://github.com/riboseinc/metanorma-csd[here].
 
 Every CSD XML document is embedded with metadata information in Relaton format, including title, identifier(s), author(s) and date information.
 
-. For every CSD XML document under `csd/`, a Relaton XML is generated of the same base filename, using the `metanorma -R foo.rxl foo.xml` command from the https://github.com/riboseinc/metanorma-cli[`metanorma-cli` gem]. For example, for a CSD XML file `csd/csd-patent-policy.xml`, the created Relaton XML file is `csd/csd-pateht-policy.rxl`.
+. Every CSD XML document under `_input/csd/` is copied to the output directory `csd/`.
+
+. A Relaton XML is generated of the same base filename, using the `metanorma -R foo.rxl foo.xml` command from the https://github.com/riboseinc/metanorma-cli[`metanorma-cli` gem]. For example, for a CSD XML file `csd/csd-patent-policy.xml`, the created Relaton XML file is `csd/csd-pateht-policy.rxl`.
 
 . Every CSD XML document under `csd/` is also used to generate the proper output formats using the `metanorma` command, including PDF, HTML and Word. All of these output files are placed in the same directory, `csd/`.
 
-. All of the Relaton XML entries from the `csd/` directory is combined into a `/relaton-csd.xml`, which is a Relaton collection of all CSD documents. This relies on usage of the `relaton concatenate` command from the https://github.com/riboseinc/relaton-cli/[`relaton-cli` gem].
+. All of the Relaton XML entries from the `csd/` directory is provided in the `bib/` directory, with individual Relaton XML (`.rxl`) and Relaton YAML (`.yaml`) files. This relies on usage of the `relaton` commands from the https://github.com/riboseinc/relaton-cli/[`relaton-cli` gem].
 
-** In addition, the `relaton concatenate` command detects the existence of related output files for the CSD entry, such as the PDF, HTML, Word files, and links them into their corresponding entry in `csd/foo.rxl` and `/relaton-csd.xml`.
+** In addition, the `relaton concatenate` command detects the existence of related output files for the CSD entry, such as the PDF, HTML, Word files, and links them into their corresponding entry in `csd/foo.rxl`.
+
+. All bibliographic information for these CSD files are also provided in the `bib/` directory (as described in the next section).
 
 
-=== Bibliographic entries
+=== Input: Bibliographic entries
 
-Bibliographic entries in Relaton format are entered in `relaton-ext.yaml`.
+Bibliographic entries in Relaton format are entered in:
+
+* `_input/external.yaml` for externally managed (i.e. non CSD) files
+* `_input/admin.yaml` for administrative files
+
+All bibliographic information is generated into the `bib/` directory.
 
 NOTE: Relaton is a bibliographic model developed for ISO 690, the International Standard for citations. Relaton currently supports Relaton-XML (`.xml` or `.rxl`) and Relaton-YAML (`.yaml`) formats. More details about Relaton can be found https://github.com/riboseinc/relaton-models[here].
 
@@ -66,9 +82,9 @@ These are entries that are either:
 
 * does not provide a public draft (in CSD XML) but would like the entry to be displayed in this site.
 
-NOTE: The filename suffix of `-ext` indicates that the actual documents are managed outside of this repository (i.e. they are not generated using information provided in this repository).
+NOTE: The filename prefix of `external` indicates that the actual documents are managed outside of this repository (i.e. they are not generated using information provided in this repository).
 
-The basic structure of `relaton-ext.yaml` is in a format called "`Relaton-YAML`", and looks like this.
+The basic structure of `_input/%.yaml` is in a format called "`Relaton-YAML`", and looks like this.
 
 [source,yaml]
 ----
@@ -86,7 +102,7 @@ root:
       ...
 ----
 
-* The `relaton-ext.yaml` file specifies a "`bibliographic group`" using a Relaton Collection. This YAML file represents a collection of bibliographic entries.
+The `_input/%.yaml` file specifies a "`bibliographic group`" using a Relaton Collection. This YAML file represents a collection of bibliographic entries.
 
 * Each bibliographic entry is placed under the `items` key.
 
@@ -105,25 +121,57 @@ root:
 ** `revdate: 2018-10-25` is the date when the document was last updated. It is optional and accepts the ISO 8601-1 date format. A full date-time could be provided, but the "`time`" is not rendered in the index. It has a data type of "`date`".
 
 
-. The `relaton-ext.yaml` document is read. The `relaton yaml2xml` command from the https://github.com/riboseinc/relaton-cli/[`relaton-cli` gem] does the following:
+The `_input/%.yaml` document is read. The `relaton yaml2xml` command from the https://github.com/riboseinc/relaton-cli/[`relaton-cli` gem] does the following:
 
-** splits off each entry into its own Relaton XML file in a specified directory (`relaton-ext/*.rxl`)
-** converts the Relaton YAML collection into a Relaton XML collection called `relaton-ext.xml`
+* splits off each entry into its own Relaton XML file in a specified directory (`bib/*.rxl`)
+
+* converts the Relaton YAML collection into a Relaton XML collection called `_input/%.rxl`
+
+NOTE: While `_input/admin.yaml` and `_input/external.yaml` are static input files, the `_input/csd.yaml` (and `_input/csd.rxl`) files are dynamically built from documents in the `_input/csd` directory.
 
 
 === Combining document and pure bibliographic entries
 
-All `relaton-ext/*.rxl` files are then copied into `csd/` so that all Relaton XML files are in the same directory.
+All `csd/*.rxl` files are copied into `bib/` so that all Relaton XML files are in the same directory.
 
-The `relaton concatenate` command is again used to:
+The `relaton concatenate` command is used to:
 
-* Combine the `csd/*.rxl` entries into `index.xml`, this time including both CSD-extracted and pure bibliographic entries in the same Relaton XML collection
+* Combine the `csd/*.rxl` entries into `_input/csd.xml`, including all CSD-extracted bibliographic entries in the Relaton XML collection
 
-* Sorting of the entries based on document number (the numeric portion of the document identifier, say, `13001` of `CC/DIR/WD 13001:2018`)
+The `relaton xml2yaml` command is used to:
+
+* Convert the `_input/csd.rxl` entries into `_input/csd.yaml`, and also split the bibliographic entries into `bib/*.yaml`
+
+
+
+=== Sorting of entries
+
+Sorting of the entries is by reverse sort order of the `revdate` attribute of documents.
+
+//TODO: (the numeric portion of the document identifier, say, `13001` of `CC/DIR/WD 13001:2018`)
 
 
 === Rendering of HTML
 
+https://jekyllrb.com/[Jekyll] is used to compile the HTML site from the Relaton files in `bib/` and `csd/` directories.
+
+In particular, our `Makefile` builds a new directory `_documents` from the data from `bib/`,
+as a Jekyll collection:
+
+* Jekyll collections don't support YAML files (files that end with `.yaml`). The `Makefile` converts them into
+AsciiDoc files (`.adoc`) by changing the file extension and adding the `---` at the end of each file.
+
+* The Jekyll collection, called `documents`, is used in the following pages:
+
+** `_pages/administrative.adoc`
+** `_pages/standards.adoc`
+** `_pages/public-review.adoc`
+** `_pages/administrative.adoc`
+
+* In `_config.yml`, it specifies that the `document` collection uses the layout `document`
+  which allows rendering a separate page per document.
+
+////
 The `relaton xml2html` command is used to transform the `/index.xml` Relaton collection file into `/index.html`.
 
 The template and styling used for the transformation are customizable, and are located in `/templates`:
@@ -133,17 +181,46 @@ The template and styling used for the transformation are customizable, and are l
 * `templates/_document.liquid` is the Liquid template for each document entry in the Index page
 
 * `templates/index-style.css` is the CSS used to style the Index page
-
+////
 
 == Usage
 
+=== Install
+
+You will need to have Ruby 2.3+ installed.
+
+[source,sh]
+----
+bundle
+make update-init
+----
+
+
 === How to add/remove entries?
 
-* Bibliographic entry: simply add an entry in `relaton-ext.yaml` under the `items:` key.
+* Bibliographic entry: add an entry in `_input/external.yaml` under the `items:` key.
 
-* CSD document entry: simply add your CSD XML file to `csd/`.
+* CSD document entry: add your CSD XML file to the https://github.com/CalConnect/published-csd[`published-csd`] repo (push it), and update the submodule `_input/csd` here. It can be done here as easy as `make update-modules`:
+--
+[source,sh]
+----
+pushd ~/published-csd/
+cp ../csd-doc/my-csd-xml.xml .
+git add my-csd-xml.xml
+git commit -m 'Add my-csd-xml.xml'
+git push
+popd
 
-On the next run of `make clean all` you will see your entry added to `/index.html`.
+pushd ~/standards.calconnect.org
+make update-module
+git add _input/csd
+git commit -m 'Update to use latest CSD documents'
+git push
+----
+
+--
+
+On the next run of `make clean _site` you will see your entry added to the site.
 
 
 === Deployment
