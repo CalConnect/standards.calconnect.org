@@ -18,6 +18,7 @@ ifeq ($(SED_INFO),1)
 	# macOS
   SED_COMMAND := sed -i ""
 else
+	# Linux
   SED_COMMAND := sed -i --
 endif
 
@@ -30,9 +31,6 @@ RXL_COL_OUTPUT_2 := $(wildcard _input/*.rxl)
 MN_ARTIFACTS := .tmp.xml *_images
 
 all: _documents $(CSD_OUTPUT_HTML)
-
-sed:
-	$(SED_COMMAND) 's+CalConnect+HELLO+g' README.adoc
 
 clean:
 	rm -f $(INDEX_OUTPUT)
