@@ -171,18 +171,6 @@ AsciiDoc files (`.adoc`) by changing the file extension and adding the `---` at 
 * In `_config.yml`, it specifies that the `document` collection uses the layout `document`
   which allows rendering a separate page per document.
 
-////
-The `relaton xml2html` command is used to transform the `/index.xml` Relaton collection file into `/index.html`.
-
-The template and styling used for the transformation are customizable, and are located in `/templates`:
-
-* `templates/_index.liquid` is the Liquid template for the Index page
-
-* `templates/_document.liquid` is the Liquid template for each document entry in the Index page
-
-* `templates/index-style.css` is the CSS used to style the Index page
-////
-
 == Usage
 
 === Install
