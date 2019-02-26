@@ -48,10 +48,6 @@ _site: all
 
 distclean: clean clean-csd
 
-$(CSD_OUTPUT_DIR)/images:
-	mkdir -p $@
-	cp -a $(CSD_INPUT_DIR)/images/* $@
-
 # Make collection YAML files into adoc files
 _documents: $(RXL_COL_OUTPUT)
 	mkdir -p $@
@@ -60,7 +56,7 @@ _documents: $(RXL_COL_OUTPUT)
 		$(MAKE) $@/$${FN//yaml/adoc}; \
 	done
 
-_documents/%.adoc: bib/%.yaml
+_documents/%.adoc: $(BIB_OUTPUT_DIR)/%.yaml
 	cp $< $@ && \
 	echo "---" >> $@;
 
@@ -83,6 +79,9 @@ _input/csd.rxl: $(CSD_OUTPUT_RXL)
 	  $(CSD_OUTPUT_DIR) $@; \
 	$(SED_COMMAND) 's+$(CSD_INPUT_DIR)+csd+g' $@
 
+_input/%.rxl: _input/%.yaml
+	bundle exec relaton yaml2xml $<
+
 _input/csd.yaml: _input/csd.rxl
 	bundle exec relaton xml2yaml $<
 
@@ -94,25 +93,28 @@ _input/csd.yaml: _input/csd.rxl
 #    into `bib/*.yaml` files with RXL links.
 # 4. Run `relaton yaml2xml` to split the concatenated `bibcoll/%.yaml`
 #    back into `bib/*.rxl` files.
-$(BIBCOLL_OUTPUT_DIR)/%.rxl: _input/%.yaml $(BIB_OUTPUT_DIR) $(BIBCOLL_OUTPUT_DIR)
-	bundle exec relaton yaml2xml \
-		-x rxl \
-		-o $(BIB_OUTPUT_DIR) \
-		$<; \
-	bundle exec relaton concatenate \
-	  -t $(CSD_REGISTRY_NAME) \
-		-g $(NAME_ORG) \
-	  $(BIB_OUTPUT_DIR) $@; \
-	bundle exec relaton xml2yaml \
-		-o $(BIB_OUTPUT_DIR) \
-		$@;
-	bundle exec relaton yaml2xml \
-		-x rxl \
-		-o $(BIB_OUTPUT_DIR) \
-		$(patsubst %.rxl,%.yaml,$@)
+$(BIBCOLL_OUTPUT_DIR)/%.rxl: _input/%.rxl $(BIB_OUTPUT_DIR) $(BIBCOLL_OUTPUT_DIR)
+	bundle exec relaton split \
+		$< \
+		$(BIB_OUTPUT_DIR) \
+		-x rxl; \
+	bundle exec relaton split \
+		$< \
+		$(BIB_OUTPUT_DIR) \
+		-x yaml; \
+	# bundle exec relaton concatenate \
+	#   -t $(CSD_REGISTRY_NAME) \
+	# 	-g $(NAME_ORG) \
+	#   $(BIB_OUTPUT_DIR) $@; \
+	# bundle exec relaton xml2yaml \
+	# 	-o $(BIB_OUTPUT_DIR) \
+	# 	$@;
+	# bundle exec relaton yaml2xml \
+	# 	-x rxl \
+	# 	-o $(BIB_OUTPUT_DIR) \
+	# 	$(patsubst %.rxl,%.yaml,$@)
 
-# TODO: remove the "/images" part once our Metanorma XML can embed all images
-$(CSD_OUTPUT_DIR)/%.html $(CSD_OUTPUT_DIR)/%.pdf $(CSD_OUTPUT_DIR)/%.doc $(CSD_OUTPUT_DIR)/%.rxl $(CSD_OUTPUT_DIR)/%.xml: $(CSD_OUTPUT_DIR)/images
+$(CSD_OUTPUT_DIR)/%.html $(CSD_OUTPUT_DIR)/%.pdf $(CSD_OUTPUT_DIR)/%.doc $(CSD_OUTPUT_DIR)/%.rxl $(CSD_OUTPUT_DIR)/%.xml:
 	cp $(CSD_INPUT_DIR)/$(notdir $*).xml $(CSD_OUTPUT_DIR) && \
 	cd $(CSD_OUTPUT_DIR) && \
 	bundle exec metanorma -t csd -R $*.rxl -x html,pdf,doc,xml $*.xml
