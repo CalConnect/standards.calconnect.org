@@ -85,14 +85,6 @@ _input/%.rxl: _input/%.yaml
 _input/csd.yaml: _input/csd.rxl
 	bundle exec relaton xml2yaml $<
 
-# Steps:
-# 1. Split the `_input/%.yaml` into `bib/*.rxl` files.
-# 2. Run `relaton concatenate` to combine the bib/*.rxl files, allowing
-#    detection of the RXL link, into `bibcoll/%.xml`.
-# 3. Run `relaton xml2yaml` to split the concatenated collection `bibcoll/%.rxl`
-#    into `bib/*.yaml` files with RXL links.
-# 4. Run `relaton yaml2xml` to split the concatenated `bibcoll/%.yaml`
-#    back into `bib/*.rxl` files.
 $(BIBCOLL_OUTPUT_DIR)/%.rxl: _input/%.rxl $(BIB_OUTPUT_DIR) $(BIBCOLL_OUTPUT_DIR)
 	bundle exec relaton split \
 		$< \
@@ -101,18 +93,7 @@ $(BIBCOLL_OUTPUT_DIR)/%.rxl: _input/%.rxl $(BIB_OUTPUT_DIR) $(BIBCOLL_OUTPUT_DIR
 	bundle exec relaton split \
 		$< \
 		$(BIB_OUTPUT_DIR) \
-		-x yaml; \
-	# bundle exec relaton concatenate \
-	#   -t $(CSD_REGISTRY_NAME) \
-	# 	-g $(NAME_ORG) \
-	#   $(BIB_OUTPUT_DIR) $@; \
-	# bundle exec relaton xml2yaml \
-	# 	-o $(BIB_OUTPUT_DIR) \
-	# 	$@;
-	# bundle exec relaton yaml2xml \
-	# 	-x rxl \
-	# 	-o $(BIB_OUTPUT_DIR) \
-	# 	$(patsubst %.rxl,%.yaml,$@)
+		-x yaml;
 
 $(CSD_OUTPUT_DIR):
 	mkdir -p $@
