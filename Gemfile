@@ -5,7 +5,7 @@ gem "metanorma-cli"
 
 # gem "metanorma-cli", path: "~/src/metanorma-cli"
 # gem "relaton-cli"
-gem "relaton-cli", git: "https://github.com/riboseinc/relaton-cli"
+gem "relaton-cli", git: "https://github.com/metanorma/relaton-cli"
 # gem "relaton-cli", path: "~/src/relaton-cli"
 
 # __________________ JEKYLL BELOW __________________
