@@ -1,6 +1,6 @@
 GIT
-  remote: https://github.com/riboseinc/relaton-cli
-  revision: 65f3cd64c599715eda1e0922b9a548809a9059a9
+  remote: https://github.com/metanorma/relaton-cli
+  revision: a3d894fc21c626c89e8d431f1e607351aaae8a3e
   specs:
     relaton-cli (0.1.9)
       liquid
@@ -21,7 +21,7 @@ GEM
     cldr-plurals-runtime-rb (1.0.1)
     cnccs (0.1.3)
     colorator (1.1.0)
-    concurrent-ruby (1.1.4)
+    concurrent-ruby (1.1.5)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -294,4 +294,4 @@ DEPENDENCIES
   tzinfo-data
 
 BUNDLED WITH
-   1.17.3
+   2.0.1
