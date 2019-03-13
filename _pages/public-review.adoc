@@ -19,17 +19,7 @@ parent: "/"
 ++++
 
 ++++
-{% assign identifier = "CC/DIR/FDS 10001:2018" %}
-{% include find-doc.html %}
-++++
-
-++++
-{% assign identifier = "CC/DIR/FDS 10002:2018" %}
-{% include find-doc.html %}
-++++
-
-++++
-{% assign identifier = "CC/DIR/DS 10003:2018" %}
+{% assign identifier = "CC/R/DS 10100:2019" %}
 {% include find-doc.html %}
 ++++
 
@@ -37,7 +27,13 @@ parent: "/"
 == Internal review in progress
 
 ++++
-{% assign identifier = "CC/DS 10010:2018" %}
+{% assign identifier = "CC/DIR/DS 10005:2019" %}
+{% include find-doc.html %}
+++++
+
+
+++++
+{% assign identifier = "CC/FDS 10010:2019" %}
 {% include find-doc.html %}
 ++++
 
