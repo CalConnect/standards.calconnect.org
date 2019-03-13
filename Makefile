@@ -41,7 +41,7 @@ clean:
 build-csd: $(CSD_OUTPUT_HTML)
 
 clean-csd:
-	rm -rf $(CSD_OUTPUT_DIR)
+	rm -rf $(CSD_OUTPUT_HTML) $(CSD_OUTPUT_PDF) $(CSD_OUTPUT_DOC) $(CSD_OUTPUT_RXL)
 
 _site: all
 	bundle exec jekyll build
