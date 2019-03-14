@@ -817,15 +817,5 @@ root:
     language: ''
     script: ''
     datetype: ''
-  - docidentifier: CC/Adm 1602:2016
-    doctype: administrative
-    title: Report on Interoperability Test Event XXXV (CD 1602)
-    stage: published
-    pdf: pubdocs/ioptestevent35rpt.pdf
-    revdate: 2016-02-17
-    technical_committee: CALCONNECT
-    language: ''
-    script: ''
-    datetype: ''
   doctype:
   author: 'CalConnect : The Calendaring and Scheduling Consortium'
