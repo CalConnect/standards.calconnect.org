@@ -1,23 +1,11 @@
 language: ruby
-sudo: required
 cache: bundler
 rvm:
-  - 2.5.1
-env:
-  global:
-    - JAVA_OPTS="java.awt.headless=true"
-    - PLANTUML_URL=http://sourceforge.net/projects/plantuml/files/plantuml.jar/download
-    # - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+  - 2.5.4
 before_install:
-  - travis_retry sudo apt-get update
-  - travis_retry sudo apt-get install -y curl git make ruby-bundler ruby-dev libxml2-dev libxslt-dev npm
-  - travis_retry gem install bundler
-  - travis_retry gem install nokogiri -v '1.8.5'
-  - sudo bash -c "curl -L https://github.com/riboseinc/plantuml-install/raw/master/ubuntu.sh | bash"
-  - travis_retry npm install -g --save --save-exact puppeteer --unsafe-perm=true
+  - travis_retry sudo apt-get update; sudo bash -c "curl -L https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/ubuntu.sh | bash"
 before_script:
   - bundle
-  - plantuml -testdot
   - make update-init update-modules
 script:
   - make _site
