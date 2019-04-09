@@ -86,8 +86,6 @@ GEM
       jekyll (>= 2.3.0)
     jekyll-feed (0.12.1)
       jekyll (>= 3.7, < 5.0)
-    jekyll-paginate-v2 (2.1.0)
-      jekyll (~> 3.0)
     jekyll-sass-converter (1.5.2)
       sass (~> 3.4)
     jekyll-seo-tag (2.6.0)
@@ -283,7 +281,6 @@ DEPENDENCIES
   jekyll (~> 3.8.5)
   jekyll-asciidoc
   jekyll-feed (~> 0.6)
-  jekyll-paginate-v2
   metanorma-cli
   minima (~> 2.0)
   relaton-cli
