@@ -4,8 +4,9 @@ rvm:
   - 2.5.4
 before_install:
   - travis_retry sudo apt-get update
-  - sudo bash -c "curl -L https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/ubuntu.sh | bash"
-  - export NODE_PATH=$(npm root -g)
+env:
+  global:
+    - NODE_PATH=$(npm root -g)
 before_script:
   - gem install bundler
   - bundle
@@ -13,6 +14,8 @@ before_script:
 script:
   - make _site
 install:
+  - sudo bash -c "curl -L https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/ubuntu.sh | bash"
+before_deploy:
   - pip install --user awscli
 deploy:
   - provider: s3
