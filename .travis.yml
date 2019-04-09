@@ -3,7 +3,9 @@ cache: bundler
 rvm:
   - 2.5.4
 before_install:
-  - travis_retry sudo apt-get update; sudo bash -c "curl -L https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/ubuntu.sh | bash"
+  - travis_retry sudo apt-get update
+  - sudo bash -c "curl -L https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/ubuntu.sh | bash"
+  - export NODE_PATH=$(npm root -g)
 before_script:
   - gem install bundler
   - bundle
