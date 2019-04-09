@@ -23,18 +23,16 @@ else
 endif
 
 NAME_ORG := "CalConnect : The Calendaring and Scheduling Consortium"
-CSD_REGISTRY_NAME := "CalConnect Document Registry: Standards"
-ADMIN_REGISTRY_NAME := "CalConnect Document Registry: Administrative Documents"
+CSD_REGISTRY_NAME := "CalConnect Document Registry"
 INDEX_OUTPUT := index.xml admin.rxl external.rxl
 RXL_COL_OUTPUT := _input/csd.yaml bibcoll/csd.rxl bibcoll/admin.rxl bibcoll/external.rxl
-RXL_COL_OUTPUT_2 := $(wildcard _input/*.rxl)
 MN_ARTIFACTS := .tmp.xml *_images
 
 all: _documents $(CSD_OUTPUT_HTML)
 
 clean:
 	rm -f $(INDEX_OUTPUT)
-	rm -rf _site _documents $(RXL_COL_OUTPUT) $(RXL_COL_OUTPUT_2)
+	rm -rf _site _documents $(RXL_COL_OUTPUT)
 	rm -rf $(MN_ARTIFACTS)
 	rm -rf $(BIB_OUTPUT_DIR) $(BIBCOLL_OUTPUT_DIR)
 
