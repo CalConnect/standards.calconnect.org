@@ -13,7 +13,7 @@ before_script:
   - bundle
   - make update-init update-modules
 script:
-  - make all
+  - make _site
 before_deploy:
   - pip install --user awscli
 deploy:
