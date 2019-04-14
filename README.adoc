@@ -15,6 +15,19 @@ https://standards.calconnect.org site.
 The site is managed by TC PUBLISH.
 
 
+== Sites
+
+[cols="a,a,a",options="header"]
+|===
+|Site | Git branch | URL
+
+|Production | `master`  | https://standards.calconnect.org
+|Staging    | `staging` | https://staging.standards.calconnect.org
+
+|===
+
+All sites are automatically deployed from their respective branches.
+
 == Building the index
 
 [source,sh]
