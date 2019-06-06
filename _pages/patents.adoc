@@ -1,0 +1,35 @@
+---
+layout: page
+title: Patent information database
+parent: "/"
+---
+:page-liquid:
+
+== Purpose
+
+This patent information database is created in accordance with
+Clause 5.7 of link:/csd/cc-10005.html[CC/DIR 10005] ("Patent information database").
+
+[quote]
+____
+In order to facilitate both the standards-making process and the application of deliverables, CalConnect makes available to the public a patent information database composed of information that was communicated to CalConnect by the means of declaration forms.
+
+The patent information databases may contain information on specific patents, or may contain no such information but rather a statement about compliance with the patent policy for a particular deliverable.
+
+The patent information databases are not certified to be either accurate or complete, but only reflect the information that has been communicated to CalConnect.
+
+As such, the patent information databases may be viewed as simply raising a flag to alert users that they may wish to contact the entities who have communicated declaration forms to CalConnect in order to determine if patent licenses must be obtained for use or implementation of a particular deliverable.
+____
+
+
+== Procedures
+
+To file a patent notice, please refer to:
+link:/csd/cc-10005.html[CC/DIR 10005 -- "Guidelines for the implementation of the CalConnect patent policy"].
+
+
+== Patent information
+
+No patents have been filed yet.
+
+

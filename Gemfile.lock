@@ -25,7 +25,7 @@ GEM
       gb-agencies (~> 0.0.1)
       iso-bib-item (~> 0.4.2)
     git (1.5.0)
-    html2doc (0.8.10)
+    html2doc (0.8.11)
       asciimath (~> 1.0.7)
       htmlentities (~> 4.3.4)
       image_size
@@ -45,7 +45,7 @@ GEM
       iso-bib-item (~> 0.4.2)
     iev (0.2.2)
       nokogiri
-    image_size (2.0.0)
+    image_size (2.0.1)
     iso-639 (0.2.8)
     iso-bib-item (0.4.5)
       isoics (~> 0.1.6)
@@ -55,7 +55,7 @@ GEM
       algoliasearch
       iecbib (~> 0.2.1)
       iso-bib-item (~> 0.4.2)
-    isodoc (0.9.22)
+    isodoc (0.9.23)
       asciimath
       html2doc (~> 0.8.6)
       htmlentities (~> 4.3.4)
@@ -88,8 +88,8 @@ GEM
       jekyll (>= 3.7, < 5.0)
     jekyll-sass-converter (1.5.2)
       sass (~> 3.4)
-    jekyll-seo-tag (2.6.0)
-      jekyll (~> 3.3)
+    jekyll-seo-tag (2.6.1)
+      jekyll (>= 3.3, < 5.0)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
     json (2.2.0)
@@ -109,7 +109,7 @@ GEM
       isodoc (~> 0.9.0)
       metanorma-standoc (~> 1.1.0)
       ruby-jing
-    metanorma-cli (1.1.7)
+    metanorma-cli (1.1.8)
       git (~> 1.5)
       isodoc (~> 0.9.0)
       metanorma (~> 0.3.9)
@@ -149,7 +149,7 @@ GEM
       isodoc (~> 0.9.1)
       metanorma-iso (~> 1.1.0)
       twitter_cldr (~> 4.4.4)
-    metanorma-ietf (1.0.1)
+    metanorma-ietf (1.0.2)
       isodoc (~> 0.9.6)
       metanorma-standoc (~> 1.1.0)
     metanorma-iso (1.1.5)
@@ -177,7 +177,7 @@ GEM
       metanorma-standoc (~> 1.1.0)
       nokogiri
       twitter_cldr
-    metanorma-nist (0.0.8)
+    metanorma-nist (0.0.9)
       asciidoctor (~> 1.5.7)
       htmlentities (~> 4.3.4)
       isodoc (~> 0.9.0)
@@ -197,7 +197,7 @@ GEM
       isodoc (~> 0.9.0)
       metanorma-standoc (~> 1.1.0)
       nokogiri
-    metanorma-standoc (1.1.8)
+    metanorma-standoc (1.1.9)
       asciidoctor (~> 1.5.7)
       concurrent-ruby
       html2doc (~> 0.8.0)
@@ -224,14 +224,14 @@ GEM
       jekyll (~> 3.5)
       jekyll-feed (~> 0.9)
       jekyll-seo-tag (~> 2.1)
-    nistbib (0.1.2)
-      iso-bib-item (~> 0.4.2)
+    nistbib (0.1.9)
+      relaton-bib (~> 0.1.6)
     nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     optout (0.0.2)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
-    public_suffix (3.0.3)
+    public_suffix (3.1.0)
     rake (12.3.2)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
@@ -244,6 +244,9 @@ GEM
       iso-bib-item (~> 0.4.2)
       isobib (~> 0.4.0)
       nistbib (~> 0.1.1)
+    relaton-bib (0.1.6)
+      addressable
+      nokogiri (~> 1.8.4)
     relaton-cli (0.1.10)
       liquid
       relaton (~> 0.3)
