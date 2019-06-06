@@ -5,7 +5,7 @@ parent: "/"
 ---
 :page-liquid:
 
-== Purpose
+== Patent information database
 
 This patent information database is created in accordance with
 Clause 5.7 of link:/csd/cc-10005.html[CC/DIR 10005] ("Patent information database").

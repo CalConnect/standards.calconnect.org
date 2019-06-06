@@ -6,7 +6,9 @@ parent: "/"
 :page-liquid:
 {% assign depth = "4" %}
 
-== Pending publication
+== Public review
+
+=== Pending publication
 
 ++++
 {% assign identifier = "CC/FDS 18011:2018" %}
@@ -19,7 +21,7 @@ parent: "/"
 ++++
 
 
-== Internal review in progress
+=== Internal review in progress
 
 ++++
 {% assign identifier = "CC/FDS 10010:2019" %}

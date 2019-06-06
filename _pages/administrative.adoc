@@ -4,6 +4,9 @@ title: Administrative documents
 parent: "/"
 ---
 :page-liquid:
+
+== Administrative documents
+
 {% assign sorted = site.documents | where:"doctype","administrative" | sort: 'revdate' | reverse %}
 ++++
 {% for document in sorted %}
