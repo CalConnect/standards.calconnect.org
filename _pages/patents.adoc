@@ -41,6 +41,4 @@ link:/csd/cc-10005.html[CC/DIR 10005 -- "Guidelines for the implementation of th
 
 == Patent information
 
-No patents have been filed yet.
-
-
+No patent information has been filed yet.
