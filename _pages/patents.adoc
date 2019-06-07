@@ -1,11 +1,14 @@
 ---
 layout: page
-title: Patent information database
+title: Patent Information Database
 parent: "/"
 ---
 :page-liquid:
 
-== Patent information database
+== Patent Information Database
+
+The CalConnect Patent Information Database is a public register for the disclosure of
+potential patent information relating to CalConnect standardization deliverables.
 
 This patent information database is created in accordance with
 Clause 5.7 of link:/csd/cc-10005.html[CC/DIR 10005] ("Patent information database").
@@ -13,18 +16,26 @@ Clause 5.7 of link:/csd/cc-10005.html[CC/DIR 10005] ("Patent information databas
 [quote]
 ____
 In order to facilitate both the standards-making process and the application of deliverables, CalConnect makes available to the public a patent information database composed of information that was communicated to CalConnect by the means of declaration forms.
-
-The patent information databases may contain information on specific patents, or may contain no such information but rather a statement about compliance with the patent policy for a particular deliverable.
-
-The patent information databases are not certified to be either accurate or complete, but only reflect the information that has been communicated to CalConnect.
-
-As such, the patent information databases may be viewed as simply raising a flag to alert users that they may wish to contact the entities who have communicated declaration forms to CalConnect in order to determine if patent licenses must be obtained for use or implementation of a particular deliverable.
 ____
+
+
+== Intended usage
+
+In some cases, this database will provide information on specific patents, or
+statements about patent policy compliance for particular deliverables.
+
+The patent information database is not certified to be either accurate or complete,
+but only reflect the information that has been communicated to CalConnect.
+
+As such, the patent information database may be viewed as simply raising a flag to alert users
+that they may wish to contact the entities who have communicated declaration forms to CalConnect
+in order to determine if patent licenses must be obtained for use or implementation of a
+particular deliverable.
 
 
 == Procedures
 
-To file a patent notice, please refer to:
+To file a patent information notice, please refer to:
 link:/csd/cc-10005.html[CC/DIR 10005 -- "Guidelines for the implementation of the CalConnect patent policy"].
 
 
