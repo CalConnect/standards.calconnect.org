@@ -22,7 +22,7 @@ else
   SED_COMMAND := sed -i --
 endif
 
-NAME_ORG := "CalConnect : The Calendaring and Scheduling Consortium"
+NAME_ORG := "CalConnect"
 CSD_REGISTRY_NAME := "CalConnect Document Registry"
 INDEX_OUTPUT := index.xml admin.rxl external.rxl
 RXL_COL_OUTPUT := _input/csd.yaml bibcoll/csd.rxl bibcoll/admin.rxl bibcoll/external.rxl

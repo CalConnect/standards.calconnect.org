@@ -8,10 +8,10 @@ order: 1
 
 == Introduction
 
-This is the Calendaring and Scheduling Consortium's Public Document Registry.
+This is CalConnect's Public Document Registry.
 
-The Calendaring and Scheduling Consortium ("`CalConnect`") is global non-profit
-organization with the aim of facilitating interoperability of technologies across
+CalConnect is a global non-profit organization with the aim of
+facilitating interoperability of technologies across
 user-centric systems and applications.
 
 CalConnect works closely with liaison partners including international

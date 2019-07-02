@@ -102,7 +102,7 @@ The basic structure of `_input/%.yaml` is in a format called "`Relaton-YAML`", a
 [source,yaml]
 ----
 root:
-  author: The Calendaring and Scheduling Consortium
+  author: CalConnect
   title: CalConnect Standards Registry
   items:
     - technical_committee: PUBLISH
