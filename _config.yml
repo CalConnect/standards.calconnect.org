@@ -59,9 +59,7 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-  - "*.yaml"
   - "*.raw.rxl"
-
 
 pagination:
   collection: 'posts'
