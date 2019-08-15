@@ -25,10 +25,10 @@ endif
 NAME_ORG := "CalConnect"
 CSD_REGISTRY_NAME := "CalConnect Document Registry"
 INDEX_OUTPUT := index.xml admin.rxl external.rxl
-RXL_COL_OUTPUT := _input/csd.yaml bibcoll/csd.rxl bibcoll/admin.rxl bibcoll/external.rxl
+RXL_COL_OUTPUT := bibcoll/csd.rxl bibcoll/admin.rxl bibcoll/external.rxl
 MN_ARTIFACTS := .tmp.xml *_images
 
-all: _documents $(CSD_OUTPUT_HTML)
+all: _documents $(CSD_OUTPUT_HTML) $(BIBCOLL_OUTPUT_DIR)/index.rxl $(BIBCOLL_OUTPUT_DIR)/index.yaml
 
 clean:
 	rm -f $(INDEX_OUTPUT)
@@ -47,7 +47,7 @@ _site: all
 distclean: clean clean-csd
 
 # Make collection YAML files into adoc files
-_documents: $(RXL_COL_OUTPUT)
+_documents: _input/csd.yaml $(RXL_COL_OUTPUT)
 	mkdir -p $@
 	for filename in bib/*.yaml; do \
 		FN=$${filename##*/}; \
@@ -81,6 +81,15 @@ _input/%.rxl: _input/%.yaml
 	bundle exec relaton yaml2xml $<
 
 _input/csd.yaml: _input/csd.rxl
+	bundle exec relaton xml2yaml $<
+
+$(BIBCOLL_OUTPUT_DIR)/index.rxl: $(RXL_COL_OUTPUT)
+	bundle exec relaton concatenate \
+	  -t $(CSD_REGISTRY_NAME) \
+		-g $(NAME_ORG) \
+	  $(BIB_OUTPUT_DIR) $@
+
+$(BIBCOLL_OUTPUT_DIR)/index.yaml: $(BIBCOLL_OUTPUT_DIR)/index.rxl
 	bundle exec relaton xml2yaml $<
 
 $(BIBCOLL_OUTPUT_DIR)/%.rxl: _input/%.rxl $(BIB_OUTPUT_DIR) $(BIBCOLL_OUTPUT_DIR)
