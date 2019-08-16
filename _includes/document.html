@@ -37,12 +37,13 @@
 {%- endif -%}
 {%- endunless -%}
 
-{%- assign rxluri = nil -%}
-{%- if document.rxl and document.rxl contains "://" -%}
+{%- unless document.rxl == blank or document.rxl == nil -%}
+{%- if document.rxl contains '://' -%}
 {%- assign rxluri = document.rxl -%}
 {%- else -%}
-{%- assign rxluri = document.bib_rxl || document.rxl | prepend: "/" -%}
+{%- assign rxluri = document.rxl | prepend: "/" -%}
 {%- endif -%}
+{%- endunless -%}
 
   <div class="doc-line">
     <div class="doc-identifier">
