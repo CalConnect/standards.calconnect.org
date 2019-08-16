@@ -34,14 +34,15 @@ RELATON_INDEX_OUTPUT := $(BIB_OUTPUT_DIR)/index.rxl $(BIB_OUTPUT_DIR)/index.yaml
 all: _documents $(CSD_OUTPUT_HTML) $(RELATON_INDEX_OUTPUT)
 
 clean:
-	rm -rf _site _documents $(RXL_COL_OUTPUT)
+	rm -rf _site _documents
 	rm -rf $(MN_ARTIFACTS)
+	rm -rf _input/*.rxl
 	rm -rf $(BIB_OUTPUT_DIR)
 
 build-csd: $(CSD_OUTPUT_HTML)
 
 clean-csd:
-	rm -rf $(CSD_OUTPUT_HTML) $(CSD_OUTPUT_PDF) $(CSD_OUTPUT_DOC) $(CSD_OUTPUT_RXL)
+	rm -rf $(CSD_OUTPUT_DIR) _input/csd.yaml
 
 _site: all
 	bundle exec jekyll build
@@ -132,7 +133,7 @@ $(CSD_OUTPUT_DIR):
 $(CSD_OUTPUT_DIR)/%.html $(CSD_OUTPUT_DIR)/%.pdf $(CSD_OUTPUT_DIR)/%.doc $(CSD_OUTPUT_DIR)/%.rxl $(CSD_OUTPUT_DIR)/%.xml:
 	cp $(CSD_INPUT_DIR)/$(notdir $*).xml $(CSD_OUTPUT_DIR) && \
 	cd $(CSD_OUTPUT_DIR) && \
-	bundle exec metanorma -t csd -R $*.rxl -x html,pdf,doc,xml $*.xml
+	bundle exec metanorma -t csd -x html,pdf,doc,xml,rxl $*.xml
 
 # This empty target is necessary so that make detects changes in _input/*.yaml
 _input/%.yaml:
