@@ -80,10 +80,10 @@ _input/csd.rxl: $(CSD_OUTPUT_DIR) $(CSD_OUTPUT_RXL)
 	$(SED_COMMAND) 's+$(CSD_INPUT_DIR)+csd+g' $@
 
 _input/%.rxl: _input/%.yaml
-	bundle exec relaton yaml2xml $<
+	bundle exec relaton yaml2xmlnew $<
 
 _input/csd.yaml: _input/csd.rxl
-	bundle exec relaton xml2yaml $<
+	bundle exec relaton xml2yamlnew $<
 
 $(BIB_OUTPUT_DIR)/index.rxl: $(BIB_XML_OUTPUT_DIR)
 	bundle exec relaton concatenate \
@@ -110,7 +110,7 @@ $(BIB_XML_OUTPUT_DIR): $(RXL_COL_OUTPUT)
 
 # TODO: comment out once https://github.com/metanorma/relaton-cli/issues/62 is fixed
 $(BIB_OUTPUT_DIR)/index.yaml: $(BIB_OUTPUT_DIR)/index.rxl
-	bundle exec relaton xml2yaml $<
+	bundle exec relaton xml2yamlnew $<
 
 $(BIB_YAML_OUTPUT_DIR): $(RXL_COL_OUTPUT)
 	mkdir -p $@; \
