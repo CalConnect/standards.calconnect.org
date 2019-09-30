@@ -13,10 +13,11 @@ jobs:
     name: Build site
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
       - name: Setup prerequisites
         run: |
           sudo apt-get update
-          sudo apt-get install -y curl make libxml2-dev libxslt-dev npm openssl
+          sudo apt-get install -y curl make libxml2-dev libxslt-dev openssl
       - name: Setup snaps
         run: |
           sudo snap install yq
@@ -25,13 +26,11 @@ jobs:
       - name: Setup Metanorma locally
         run: |
           curl -L https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/ubuntu.sh | sudo bash
-          cd ${GITHUB_WORKSPACE}
       - name: Use Ruby
         uses: actions/setup-ruby@v1
         with:
           ruby-version: '2.6'
           architecture: 'x64'
-      - uses: actions/checkout@master
       - name: Setup git submodules
         # env:
         #   MLGT_DATA_DEPLOY_KEY: ${{ secrets.MLGT_DATA_DEPLOY_KEY }}
