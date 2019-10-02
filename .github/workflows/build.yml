@@ -31,8 +31,6 @@ jobs:
       - name: Setup Metanorma locally
         run: |
           curl -L https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/ubuntu.sh | sudo bash
-          echo 'export NVM_DIR=~/.nvm' >> ~/.bash_profile
-          echo 'source ~/.nvm/nvm.sh' >> ~/.bash_profile
       - name: Setup git submodules
         # env:
         #   MLGT_DATA_DEPLOY_KEY: ${{ secrets.MLGT_DATA_DEPLOY_KEY }}
@@ -52,5 +50,7 @@ jobs:
         env:
           JAVA_OPTS: "java.awt.headless=true"
         run: |
+          export NVM_DIR=~/.nvm
+          source ~/.nvm/nvm.sh
           nvm --version
           make _site
