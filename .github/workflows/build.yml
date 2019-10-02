@@ -19,7 +19,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y curl make libxml2-dev libxslt-dev libicu-dev zlib1g-dev openssl
           curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-          bash install_nvm.sh
           source ~/.profile
       - name: Use Ruby
         uses: actions/setup-ruby@v1
