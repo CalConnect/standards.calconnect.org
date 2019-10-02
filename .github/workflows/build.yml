@@ -53,6 +53,5 @@ jobs:
         env:
           JAVA_OPTS: "java.awt.headless=true"
         run: |
-          env |grep NVM_DIR
           # nvm use mn-node
           make _site
