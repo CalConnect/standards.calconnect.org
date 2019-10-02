@@ -31,6 +31,7 @@ jobs:
       - name: Setup Metanorma locally
         run: |
           curl -L https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/ubuntu.sh | sudo bash
+          nvm --version
       - name: Setup git submodules
         # env:
         #   MLGT_DATA_DEPLOY_KEY: ${{ secrets.MLGT_DATA_DEPLOY_KEY }}
@@ -50,7 +51,5 @@ jobs:
         env:
           JAVA_OPTS: "java.awt.headless=true"
         run: |
-          curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-          source ~/.profile
           nvm use mn-node
           make _site
