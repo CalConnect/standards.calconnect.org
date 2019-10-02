@@ -31,6 +31,7 @@ jobs:
       - name: Setup Metanorma locally
         run: |
           curl -L https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/ubuntu.sh | sudo bash
+          source ~/.bashrc
           nvm --version
       - name: Setup git submodules
         # env:
@@ -51,5 +52,5 @@ jobs:
         env:
           JAVA_OPTS: "java.awt.headless=true"
         run: |
-          nvm use mn-node
+          # nvm use mn-node
           make _site
