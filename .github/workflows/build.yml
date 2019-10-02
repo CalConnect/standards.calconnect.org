@@ -30,6 +30,7 @@ jobs:
           sudo snap install node --classic --channel=10/stable
       - name: Setup Metanorma locally
         run: |
+          touch ~/.bash_profile
           curl -L https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/ubuntu.sh | sudo bash
           source ~/.bashrc
           nvm --version
