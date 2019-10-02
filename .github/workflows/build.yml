@@ -30,9 +30,9 @@ jobs:
           sudo snap install node --classic --channel=10/stable
       - name: Setup Metanorma locally
         run: |
-          touch ~/.bash_profile
           curl -L https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/ubuntu.sh | sudo bash
-          source ~/.bashrc
+          export NVM_DIR=~/.nvm
+          source ~/.nvm/nvm.sh
           nvm --version
       - name: Setup git submodules
         # env:
@@ -53,5 +53,6 @@ jobs:
         env:
           JAVA_OPTS: "java.awt.headless=true"
         run: |
+          env |grep NVM_DIR
           # nvm use mn-node
           make _site
