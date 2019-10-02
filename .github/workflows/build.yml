@@ -17,7 +17,12 @@ jobs:
       - name: Setup prerequisites
         run: |
           sudo apt-get update
-          sudo apt-get install -y curl make libxml2-dev libxslt-dev openssl
+          sudo apt-get install -y curl make libxml2-dev libxslt-dev libicu-dev zlib1g-dev openssl
+      - name: Use Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6'
+          architecture: 'x64'
       - name: Setup snaps
         run: |
           sudo snap install yq
@@ -26,11 +31,6 @@ jobs:
       - name: Setup Metanorma locally
         run: |
           curl -L https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/ubuntu.sh | sudo bash
-      - name: Use Ruby
-        uses: actions/setup-ruby@v1
-        with:
-          ruby-version: '2.6'
-          architecture: 'x64'
       - name: Setup git submodules
         # env:
         #   MLGT_DATA_DEPLOY_KEY: ${{ secrets.MLGT_DATA_DEPLOY_KEY }}
@@ -47,5 +47,8 @@ jobs:
       #   env:
       #     METANORMA_DOCKER: metanorma/mn:latest
       - name: Build site
+        env:
+          JAVA_OPTS: "java.awt.headless=true"
         run: |
+          nvm use mn-node
           make _site
