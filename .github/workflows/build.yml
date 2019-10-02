@@ -54,5 +54,4 @@ jobs:
           JAVA_OPTS: "java.awt.headless=true"
         run: |
           nvm --version
-          # nvm use mn-node
           make _site
