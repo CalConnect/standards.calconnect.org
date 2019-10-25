@@ -1,2 +1,2 @@
-{% assign document = site.documents | where:"docidentifier",identifier | first %}
+{% assign document = site.documents | where:"docid.id",identifier | first %}
 {% include document.html %}

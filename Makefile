@@ -82,7 +82,7 @@ $(BIB_COLL_OUTPUT_DIR):
 _input/csd.rxl: $(CSD_OUTPUT_DIR) $(CSD_OUTPUT_RXL)
 	${PREFIX_CMD} relaton concatenate \
 	  -t $(CSD_REGISTRY_NAME) \
-		-g $(NAME_ORG) \
+		-g $(NAME_ORG) -n \
 	  $(CSD_OUTPUT_DIR) $@; \
 	$(SED_COMMAND) 's+$(CSD_INPUT_DIR)+csd+g' $@
 
@@ -95,7 +95,7 @@ _input/csd.yaml: _input/csd.rxl
 $(BIB_OUTPUT_DIR)/index.rxl: $(BIB_XML_OUTPUT_DIR)
 	${PREFIX_CMD} relaton concatenate \
 	  -t $(CSD_REGISTRY_NAME) \
-		-g $(NAME_ORG) \
+		-g $(NAME_ORG) -n \
 	  $(BIB_XML_OUTPUT_DIR) $@
 
 $(BIB_XML_OUTPUT_DIR): $(RXL_COL_OUTPUT)
@@ -104,7 +104,7 @@ $(BIB_XML_OUTPUT_DIR): $(RXL_COL_OUTPUT)
 	${PREFIX_CMD} relaton split \
 		$$coll \
 		$(BIB_XML_OUTPUT_DIR) \
-		-x rxl; \
+		-x rxl -n; \
 	done
 
 # TODO: uncomment once https://github.com/metanorma/relaton-cli/issues/62 is fixed
@@ -125,7 +125,7 @@ $(BIB_YAML_OUTPUT_DIR): $(RXL_COL_OUTPUT)
 	${PREFIX_CMD} relaton split \
 		$$coll \
 		$(BIB_YAML_OUTPUT_DIR) \
-		-x yaml; \
+		-x yaml -n; \
 	done
 
 $(BIB_COLL_OUTPUT_DIR)/%.rxl:	_input/%.rxl $(BIB_COLL_OUTPUT_DIR)
