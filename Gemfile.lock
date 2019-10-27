@@ -206,7 +206,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
-    relaton (0.5.8)
+    relaton (0.5.9)
       relaton-gb (~> 0.6.0)
       relaton-iec (~> 0.4.0)
       relaton-ietf (~> 0.6.0)
