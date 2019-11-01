@@ -1,1145 +1,2130 @@
 ---
 root:
   title: 'CalConnect Document Registry: Administrative Documents'
-  author: 'CalConnect : The Calendaring and Scheduling Consortium'
   items:
   - id: CC/Adm0401-2004
-    title: July 2004 CalConnect Interoperability Test Rules and Test Scenarios V1.0
-      (CD 0401)
+    title:
+    - type: title-main
+      content: July 2004 CalConnect Interoperability Test Rules and Test Scenarios
+        V1.0 (CD 0401)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: July 2004 CalConnect Interoperability Test Rules and Test Scenarios
+        V1.0 (CD 0401)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0401%20July%202004%20CalConnect%20Interoperability%20Test%20Rules%20and%20Test%20Scenarios%20V1.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0401:2004
-    date:
-      type: published
-      value: '2004-07-30'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2004-07-30
+    revdate: 2004-07-30
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm0402-2004
-    title: July 2004 CalConnect Interoperability Test Results Spreadsheet V1.0 (CD
-      0402)
+    title:
+    - type: title-main
+      content: July 2004 CalConnect Interoperability Test Results Spreadsheet V1.0
+        (CD 0402)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: July 2004 CalConnect Interoperability Test Results Spreadsheet V1.0
+        (CD 0402)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0402%20July%202004%20CalConnect%20Interoperability%20Test%20Results%20Spreadsheet%20V1.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0402:2004
-    date:
-      type: published
-      value: '2004-07-30'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2004-07-30
+    revdate: 2004-07-30
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm0403-2004
-    title: July 2004 CalConnect Interoperability Test Report V1.0 (CD 0403)
+    title:
+    - type: title-main
+      content: July 2004 CalConnect Interoperability Test Report V1.0 (CD 0403)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: July 2004 CalConnect Interoperability Test Report V1.0 (CD 0403)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0403%20July%202004%20CalConnect%20Interoperability%20Test%20Report%20V1.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0403:2004
-    date:
-      type: published
-      value: '2004-07-30'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2004-07-30
+    revdate: 2004-07-30
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm0404-2004
-    title: Report on Roundtable I (CD 0404)
+    title:
+    - type: title-main
+      content: Report on Roundtable I (CD 0404)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable I (CD 0404)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable1rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0404:2004
-    date:
-      type: published
-      value: '2004-09-25'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2004-09-25
+    revdate: 2004-09-25
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm0501-2005
-    title: January 2005 CalConnect Interoperability Test Scenarios V1.0 (CD 0501)
+    title:
+    - type: title-main
+      content: January 2005 CalConnect Interoperability Test Scenarios V1.0 (CD 0501)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: January 2005 CalConnect Interoperability Test Scenarios V1.0 (CD 0501)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0501%20January%202005%20CalConnect%20Interoperability%20Test%20Scenarios%20V1.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0501:2005
-    date:
-      type: published
-      value: '2005-01-12'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2005-01-12
+    revdate: 2005-01-12
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm0502-2005
-    title: January 2005 CalConnect Interoperability Test Report V1.0 (CD 0502)
+    title:
+    - type: title-main
+      content: January 2005 CalConnect Interoperability Test Report V1.0 (CD 0502)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: January 2005 CalConnect Interoperability Test Report V1.0 (CD 0502)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0502%20January%202005%20CalConnect%20Interoperability%20Test%20Report%20V1.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0502:2005
-    date:
-      type: published
-      value: '2005-01-12'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2005-01-12
+    revdate: 2005-01-12
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm0503-2005
-    title: June 2005 CalConnect Interoperability Test Scenarios V1.0 (CD 0503)
+    title:
+    - type: title-main
+      content: June 2005 CalConnect Interoperability Test Scenarios V1.0 (CD 0503)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: June 2005 CalConnect Interoperability Test Scenarios V1.0 (CD 0503)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0503%20June%202005%20CalConnect%20Interoperability%20Test%20Scenarios%20V1.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0503:2005
-    date:
-      type: published
-      value: '2005-06-18'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2005-06-18
+    revdate: 2005-06-18
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm0504-2005
-    title: June 2005 CalConnect Interoperability Test Report V1.0 (CD 0504)
+    title:
+    - type: title-main
+      content: June 2005 CalConnect Interoperability Test Report V1.0 (CD 0504)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: June 2005 CalConnect Interoperability Test Report V1.0 (CD 0504)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0504%20June%202005%20CalConnect%20Interoperability%20Test%20Report%20V1.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0504:2005
-    date:
-      type: published
-      value: '2005-06-18'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2005-06-18
+    revdate: 2005-06-18
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm0505-2005
-    title: Results from First Recurrence Questionnaire V1.0 (CD 0505)
+    title:
+    - type: title-main
+      content: Results from First Recurrence Questionnaire V1.0 (CD 0505)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Results from First Recurrence Questionnaire V1.0 (CD 0505)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0505%20Results%20from%20First%20Recurrence%20Questionnaire%20V1.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0505:2005
-    date:
-      type: published
-      value: '2005-07-21'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2005-07-21
+    revdate: 2005-07-21
+    editorialgroup:
+      technical_committee:
+        name: RECURR
+    doctype: administrative
   - id: CC/Adm0506-2005
-    title: September 2005 CalConnect Interoperability Test Report V1.0 (CD 0506)
+    title:
+    - type: title-main
+      content: September 2005 CalConnect Interoperability Test Report V1.0 (CD 0506)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: September 2005 CalConnect Interoperability Test Report V1.0 (CD 0506)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0506%20September%202005%20CalConnect%20Interoperability%20Test%20Report%20V1.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0506:2005
-    date:
-      type: published
-      value: '2005-09-14'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2005-09-14
+    revdate: 2005-09-14
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm0508-2005
-    title: Overview of The Calendaring and Scheduling Consortium V1.0 (CD 0508)
+    title:
+    - type: title-main
+      content: Overview of The Calendaring and Scheduling Consortium V1.0 (CD 0508)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Overview of The Calendaring and Scheduling Consortium V1.0 (CD 0508)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0508%20Overview%20of%20The%20Calendaring%20and%20Scheduling%20Consortium%20V1.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0508:2005
-    date:
-      type: published
-      value: '2005-10-11'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2005-10-11
+    revdate: 2005-10-11
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm0509-2005
-    title: Educause 2005 Overview of The Calendaring and Scheduling Consortium V1.0
-      (CD 0509)
+    title:
+    - type: title-main
+      content: Educause 2005 Overview of The Calendaring and Scheduling Consortium
+        V1.0 (CD 0509)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Educause 2005 Overview of The Calendaring and Scheduling Consortium
+        V1.0 (CD 0509)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0509%20Educause%202005%20Overview%20of%20The%20Calendaring%20and%20Scheduling%20Consortium%20V1.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0509:2005
-    date:
-      type: published
-      value: '2005-09-26'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2005-09-26
+    revdate: 2005-09-26
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm0510-2005
-    title: Report on TIMEZONE Questionnaire Results V1.0 (CD 0510)
+    title:
+    - type: title-main
+      content: Report on TIMEZONE Questionnaire Results V1.0 (CD 0510)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on TIMEZONE Questionnaire Results V1.0 (CD 0510)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0510%20Report%20on%20TIMEZONE%20Questionnaire%20Results%20V1.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0510:2005
-    date:
-      type: published
-      value: '2005-10-03'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2005-10-03
+    revdate: 2005-10-03
+    editorialgroup:
+      technical_committee:
+        name: TIMEZONE
+    doctype: administrative
   - id: CC/Adm0511-2005
-    title: Report on Roundtable II (CD 0511)
+    title:
+    - type: title-main
+      content: Report on Roundtable II (CD 0511)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable II (CD 0511)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable2rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0511:2005
-    date:
-      type: published
-      value: '2005-01-13'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2005-01-13
+    revdate: 2005-01-13
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm0512-2005
-    title: Report on Roundtable III (CD 0512)
+    title:
+    - type: title-main
+      content: Report on Roundtable III (CD 0512)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable III (CD 0512)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable3rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0512:2005
-    date:
-      type: published
-      value: '2005-06-03'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2005-06-03
+    revdate: 2005-06-03
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm0513-2005
-    title: Report on Roundtable IV (CD 0513)
+    title:
+    - type: title-main
+      content: Report on Roundtable IV (CD 0513)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable IV (CD 0513)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable4rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0513:2005
-    date:
-      type: published
-      value: '2005-09-15'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2005-09-15
+    revdate: 2005-09-15
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm0603-2006
-    title: January 2006 CalConnect Interoperability Test Report V1.0 (CD 0603)
+    title:
+    - type: title-main
+      content: January 2006 CalConnect Interoperability Test Report V1.0 (CD 0603)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: January 2006 CalConnect Interoperability Test Report V1.0 (CD 0603)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0603%20January%202006%20CalConnect%20Interoperability%20Test%20Report%20V1.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0603:2006
-    date:
-      type: published
-      value: '2006-02-09'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2006-02-09
+    revdate: 2006-02-09
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm0605-2006
-    title: OMA DS Briefing April 2006 V1.0 (CD 0605)
+    title:
+    - type: title-main
+      content: OMA DS Briefing April 2006 V1.0 (CD 0605)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: OMA DS Briefing April 2006 V1.0 (CD 0605)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0605%20OMA%20DS%20Briefing%20April%202006%20V1.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0605:2006
-    date:
-      type: published
-      value: '2006-04-05'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2006-04-05
+    revdate: 2006-04-05
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm0607-2006
-    title: May 2006 CalConnect Interoperability Test Report V1.1 (CD 0607)
+    title:
+    - type: title-main
+      content: May 2006 CalConnect Interoperability Test Report V1.1 (CD 0607)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: May 2006 CalConnect Interoperability Test Report V1.1 (CD 0607)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0607%20May%202006%20CalConnect%20Interoperability%20Test%20Report%20V1.1.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0607:2006
-    date:
-      type: published
-      value: '2006-06-12'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2006-06-12
+    revdate: 2006-06-12
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm0608-2006
-    title: The Open Group Federated Freebusy Challenge Demo V1.0 (CD 0608)
+    title:
+    - type: title-main
+      content: The Open Group Federated Freebusy Challenge Demo V1.0 (CD 0608)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: The Open Group Federated Freebusy Challenge Demo V1.0 (CD 0608)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0608%20The%20Open%20Group%20Federated%20Freebusy%20Challenge%20Demo%20V1.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0608:2006
-    date:
-      type: published
-      value: '2006-07-17'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2006-07-17
+    revdate: 2006-07-17
+    editorialgroup:
+      technical_committee:
+        name: FREEBUSY
+    doctype: administrative
   - id: CC/Adm0609-2006
-    title: Report on Mobile Calendaring Questionnaire V2 Results V1.0 (CD 0609)
+    title:
+    - type: title-main
+      content: Report on Mobile Calendaring Questionnaire V2 Results V1.0 (CD 0609)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Mobile Calendaring Questionnaire V2 Results V1.0 (CD 0609)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0609%20Report%20on%20Mobile%20Calendaring%20Questionnaire%20V2%20Results%20V1.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0609:2006
-    date:
-      type: published
-      value: '2006-07-24'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2006-07-24
+    revdate: 2006-07-24
+    editorialgroup:
+      technical_committee:
+        name: MOBILE
+    doctype: administrative
   - id: CC/Adm0610-2006
-    title: Calendaring and Scheduling Glossary of Terms V1.0 (Obsoleted by CD1102)
-      (CD 0610)
+    title:
+    - type: title-main
+      content: Calendaring and Scheduling Glossary of Terms V1.0 (Obsoleted by CD1102)
+        (CD 0610)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Calendaring and Scheduling Glossary of Terms V1.0 (Obsoleted by CD1102)
+        (CD 0610)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0610%20Calendaring%20and%20Scheduling%20Glossary%20of%20Terms%20V1.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0610:2006
-    date:
-      type: published
-      value: '2006-10-24'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2006-10-24
+    revdate: 2006-10-24
+    editorialgroup:
+      technical_committee:
+        name: USECASE
+    doctype: administrative
   - id: CC/Adm0612-2006
-    title: September 2006 CalConnect Interoperability Test Report V1.2 (CD 0612)
+    title:
+    - type: title-main
+      content: September 2006 CalConnect Interoperability Test Report V1.2 (CD 0612)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: September 2006 CalConnect Interoperability Test Report V1.2 (CD 0612)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0612%20September%202006%20CalConnect%20Interoperability%20Test%20Report%20V1.2.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0612:2006
-    date:
-      type: published
-      value: '2006-12-06'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2006-12-06
+    revdate: 2006-12-06
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm0613-2006
-    title: Report on Roundtable V (CD 0613)
+    title:
+    - type: title-main
+      content: Report on Roundtable V (CD 0613)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable V (CD 0613)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable5rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0613:2006
-    date:
-      type: published
-      value: '2006-01-12'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2006-01-12
+    revdate: 2006-01-12
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm0614-2006
-    title: Report on Roundtable VI (CD 0614)
+    title:
+    - type: title-main
+      content: Report on Roundtable VI (CD 0614)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable VI (CD 0614)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable6rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0614:2006
-    date:
-      type: published
-      value: '2006-05-23'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2006-05-23
+    revdate: 2006-05-23
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm0615-2006
-    title: Report on Roundtable VII (CD 0615)
+    title:
+    - type: title-main
+      content: Report on Roundtable VII (CD 0615)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable VII (CD 0615)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable7rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0615:2006
-    date:
-      type: published
-      value: '2006-09-29'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2006-09-29
+    revdate: 2006-09-29
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm0710-2007
-    title: September 2007 CalConnect Interoperability Test Report V2.0 (CD 0710)
+    title:
+    - type: title-main
+      content: September 2007 CalConnect Interoperability Test Report V2.0 (CD 0710)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: September 2007 CalConnect Interoperability Test Report V2.0 (CD 0710)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0710%20September%202007%20CalConnect%20Interoperability%20Test%20Report%20V2.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0710:2007
-    date:
-      type: published
-      value: '2007-12-14'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2007-12-14
+    revdate: 2007-12-14
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm0711-2007
-    title: Report on Roundtable VIII (CD 0711)
+    title:
+    - type: title-main
+      content: Report on Roundtable VIII (CD 0711)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable VIII (CD 0711)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable8rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0711:2007
-    date:
-      type: published
-      value: '2007-02-02'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2007-02-02
+    revdate: 2007-02-02
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm0712-2007
-    title: Report on Roundtable IX (CD 0712)
+    title:
+    - type: title-main
+      content: Report on Roundtable IX (CD 0712)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable IX (CD 0712)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable9rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0712:2007
-    date:
-      type: published
-      value: '2007-05-11'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2007-05-11
+    revdate: 2007-05-11
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm0713-2007
-    title: Report on Roundtable X (CD 0713)
+    title:
+    - type: title-main
+      content: Report on Roundtable X (CD 0713)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable X (CD 0713)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable10rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0713:2007
-    date:
-      type: published
-      value: '2007-09-21'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2007-09-21
+    revdate: 2007-09-21
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm0714-2007
-    title: "VCARD WKSP\tReport on CalConnect vCard Workshop September 18 2007 (CD
-      0714)"
+    title:
+    - type: title-main
+      content: "VCARD WKSP\tReport on CalConnect vCard Workshop September 18 2007
+        (CD 0714)"
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: "VCARD WKSP\tReport on CalConnect vCard Workshop September 18 2007
+        (CD 0714)"
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/vcardworkshopreport.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0714:2007
-    date:
-      type: published
-      value: '2007-09-18'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2007-09-18
+    revdate: 2007-09-18
+    editorialgroup:
+      technical_committee:
+        name: 
+    doctype: administrative
   - id: CC/Adm0801-2008
-    title: CalConnect Technical Preview Roundtable XI V1.0 (CD 0801)
+    title:
+    - type: title-main
+      content: CalConnect Technical Preview Roundtable XI V1.0 (CD 0801)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: CalConnect Technical Preview Roundtable XI V1.0 (CD 0801)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0801%20CalConnect%20Technical%20Preview%20Roundtable%20XI%20V1.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0801:2008
-    date:
-      type: published
-      value: '2008-02-06'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2008-02-06
+    revdate: 2008-02-06
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm0802-2008
-    title: February 2008 CalConnect Interoperability Test Report V2.0 (CD 0802)
+    title:
+    - type: title-main
+      content: February 2008 CalConnect Interoperability Test Report V2.0 (CD 0802)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: February 2008 CalConnect Interoperability Test Report V2.0 (CD 0802)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0802%20February%202008%20CalConnect%20Interoperability%20Test%20Report%20V2.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0802:2008
-    date:
-      type: published
-      value: '2008-04-09'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2008-04-09
+    revdate: 2008-04-09
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm0803-2008
-    title: February 2008 CalConnect Mobile Interoperability Test Report V2.0 (CD 0803)
+    title:
+    - type: title-main
+      content: February 2008 CalConnect Mobile Interoperability Test Report V2.0 (CD
+        0803)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: February 2008 CalConnect Mobile Interoperability Test Report V2.0 (CD
+        0803)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0803%20February%202008%20CalConnect%20Mobile%20Interoperability%20Test%20Report%20V2.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0803:2008
-    date:
-      type: published
-      value: '2008-04-09'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2008-04-09
+    revdate: 2008-04-09
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm0804-2008
-    title: June 2008 CalConnect Interoperability Test Report V1.3 (CD 0804)
+    title:
+    - type: title-main
+      content: June 2008 CalConnect Interoperability Test Report V1.3 (CD 0804)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: June 2008 CalConnect Interoperability Test Report V1.3 (CD 0804)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0804%20June%202008%20CalConnect%20Interoperability%20Test%20Report%20V1.3.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0804:2008
-    date:
-      type: published
-      value: '2008-08-31'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2008-08-31
+    revdate: 2008-08-31
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm0806-2008
-    title: CalConnect Technical Preview Roundtable XIII V1.0 (CD 0806)
+    title:
+    - type: title-main
+      content: CalConnect Technical Preview Roundtable XIII V1.0 (CD 0806)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: CalConnect Technical Preview Roundtable XIII V1.0 (CD 0806)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0806%20CalConnect%20Technical%20Preview%20Roundtable%20XIII%20V1.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0806:2008
-    date:
-      type: published
-      value: '2008-10-08'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2008-10-08
+    revdate: 2008-10-08
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm0807-2008
-    title: October 2008 CalConnect Interoperability Test Report V1.1 (CD 0807)
+    title:
+    - type: title-main
+      content: October 2008 CalConnect Interoperability Test Report V1.1 (CD 0807)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: October 2008 CalConnect Interoperability Test Report V1.1 (CD 0807)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0807%20October%202008%20CalConnect%20Interoperability%20Test%20Report%20V1.1.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0807:2008
-    date:
-      type: published
-      value: '2008-10-08'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2008-10-08
+    revdate: 2008-10-08
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm0808-2009
-    title: November 2008 CalConnect Mobile Interoperability Test Report V2.0 (CD 0808)
+    title:
+    - type: title-main
+      content: November 2008 CalConnect Mobile Interoperability Test Report V2.0 (CD
+        0808)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: November 2008 CalConnect Mobile Interoperability Test Report V2.0 (CD
+        0808)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0808%20November%202008%20CalConnect%20Mobile%20Interoperability%20Test%20Report%20V2.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0808:2009
-    date:
-      type: published
-      value: '2009-02-19'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2009-02-19
+    revdate: 2009-02-19
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm0809-2008
-    title: Report on Roundtable XI (CD 0809)
+    title:
+    - type: title-main
+      content: Report on Roundtable XI (CD 0809)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable XI (CD 0809)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable11rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0809:2008
-    date:
-      type: published
-      value: '2008-02-08'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2008-02-08
+    revdate: 2008-02-08
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm0810-2008
-    title: Report on Roundtable XII (CD 0810)
+    title:
+    - type: title-main
+      content: Report on Roundtable XII (CD 0810)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable XII (CD 0810)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable12rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0810:2008
-    date:
-      type: published
-      value: '2008-06-06'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2008-06-06
+    revdate: 2008-06-06
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm0811-2008
-    title: Report on Roundtable XIII (CD 0811)
+    title:
+    - type: title-main
+      content: Report on Roundtable XIII (CD 0811)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable XIII (CD 0811)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable13rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0811:2008
-    date:
-      type: published
-      value: '2008-10-10'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2008-10-10
+    revdate: 2008-10-10
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm0812-2008
-    title: Meet CalConnect 2008 (CD 0812)
+    title:
+    - type: title-main
+      content: Meet CalConnect 2008 (CD 0812)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Meet CalConnect 2008 (CD 0812)
+      language: en
+      script: Latn
+      format: text/plain
     link:
-      type: html
-      content: http://www.calconnect.org/pubdocs/CD0812%20Meet%20CalConnect%202008%20V1.0.zip
-    type: administrative
+      type: pdf
+      content: ''
+    type: standard
     docid:
       id: CC/Adm 0812:2008
-    date:
-      type: published
-      value: '2008-11-07'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2008-11-07
+    revdate: 2008-11-07
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm0901-2009
-    title: Report on Roundtable XIV (CD 0901)
+    title:
+    - type: title-main
+      content: Report on Roundtable XIV (CD 0901)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable XIV (CD 0901)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable14rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0901:2009
-    date:
-      type: published
-      value: '2009-02-06'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2009-02-06
+    revdate: 2009-02-06
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm0902-2009
-    title: February 2009 CalConnect Interoperability Test Report V2.0 (CD 0902)
+    title:
+    - type: title-main
+      content: February 2009 CalConnect Interoperability Test Report V2.0 (CD 0902)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: February 2009 CalConnect Interoperability Test Report V2.0 (CD 0902)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0902%20February%202009%20CalConnect%20Interoperability%20Test%20Report%20V2.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0902:2009
-    date:
-      type: published
-      value: '2009-04-14'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2009-04-14
+    revdate: 2009-04-14
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm0908-2009
-    title: Report on Roundtable XV (CD 0908)
+    title:
+    - type: title-main
+      content: Report on Roundtable XV (CD 0908)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable XV (CD 0908)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable15rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0908:2009
-    date:
-      type: published
-      value: '2009-06-11'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2009-06-11
+    revdate: 2009-06-11
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm0909-2009
-    title: June 2009 CalConnect Interoperability Test Report V2.0 (CD 0909)
+    title:
+    - type: title-main
+      content: June 2009 CalConnect Interoperability Test Report V2.0 (CD 0909)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: June 2009 CalConnect Interoperability Test Report V2.0 (CD 0909)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0909%20June%202009%20CalConnect%20Interoperability%20Test%20Report%20V2.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0909:2009
-    date:
-      type: published
-      value: '2009-08-30'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2009-08-30
+    revdate: 2009-08-30
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm0910-2009
-    title: Report on Roundtable XVI (CD 0910)
+    title:
+    - type: title-main
+      content: Report on Roundtable XVI (CD 0910)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable XVI (CD 0910)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable16rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0910:2009
-    date:
-      type: published
-      value: '2009-10-19'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2009-10-19
+    revdate: 2009-10-19
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm0911-2009
-    title: October 2009 CalConnect Interoperability Test Report V2.0 (CD 0911)
+    title:
+    - type: title-main
+      content: October 2009 CalConnect Interoperability Test Report V2.0 (CD 0911)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: October 2009 CalConnect Interoperability Test Report V2.0 (CD 0911)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD0911%20October%202009%20CalConnect%20Interoperability%20Test%20Report%20V2.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 0911:2009
-    date:
-      type: published
-      value: '2009-11-24'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2009-11-24
+    revdate: 2009-11-24
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm1001-2010
-    title: Report on Roundtable XVII (CD 1001)
+    title:
+    - type: title-main
+      content: Report on Roundtable XVII (CD 1001)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable XVII (CD 1001)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable17rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1001:2010
-    date:
-      type: published
-      value: '2010-02-10'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2010-02-10
+    revdate: 2010-02-10
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm1002-2010
-    title: February 2010 CalConnect Interoperability Test Report V1.1 (CD 1002)
+    title:
+    - type: title-main
+      content: February 2010 CalConnect Interoperability Test Report V1.1 (CD 1002)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: February 2010 CalConnect Interoperability Test Report V1.1 (CD 1002)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD1002%20February%202010%20CalConnect%20Interoperability%20Test%20Report%20V1.1.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1002:2010
-    date:
-      type: published
-      value: '2010-03-25'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2010-03-25
+    revdate: 2010-03-25
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm1005-2010
-    title: Report on Roundtable XVIII (CD 1005)
+    title:
+    - type: title-main
+      content: Report on Roundtable XVIII (CD 1005)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable XVIII (CD 1005)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable18rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1005:2010
-    date:
-      type: published
-      value: '2010-06-02'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2010-06-02
+    revdate: 2010-06-02
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm1009-2010
-    title: May 2010 CalConnect Interoperability Test Event Report V1.0 (CD 1009)
+    title:
+    - type: title-main
+      content: May 2010 CalConnect Interoperability Test Event Report V1.0 (CD 1009)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: May 2010 CalConnect Interoperability Test Event Report V1.0 (CD 1009)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD1009%20May%202010%20CalConnect%20Interoperability%20Test%20Event%20Report%20V1.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1009:2010
-    date:
-      type: published
-      value: '2010-07-19'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2010-07-19
+    revdate: 2010-07-19
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm1010-2010
-    title: TC MOBILE Interoperability Test Event Report V1.0 (CD 1010)
+    title:
+    - type: title-main
+      content: TC MOBILE Interoperability Test Event Report V1.0 (CD 1010)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: TC MOBILE Interoperability Test Event Report V1.0 (CD 1010)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD1010%20TC%20MOBILE%20Interoperability%20Test%20Event%20Report%20V1.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1010:2010
-    date:
-      type: published
-      value: '2010-09-10'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2010-09-10
+    revdate: 2010-09-10
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm1013-2010
-    title: Report on Roundtable XIX (CD 1013)
+    title:
+    - type: title-main
+      content: Report on Roundtable XIX (CD 1013)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable XIX (CD 1013)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable19rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1013:2010
-    date:
-      type: published
-      value: '2010-10-20'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2010-10-20
+    revdate: 2010-10-20
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm1014-2011
-    title: October 2010 CalConnect Interoperability Test Event Report V1.0 (CD 1014)
+    title:
+    - type: title-main
+      content: October 2010 CalConnect Interoperability Test Event Report V1.0 (CD
+        1014)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: October 2010 CalConnect Interoperability Test Event Report V1.0 (CD
+        1014)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/CD1014%20October%202010%20CalConnect%20Interoperability%20Test%20Event%20Report%20V1.0.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1014:2011
-    date:
-      type: published
-      value: '2011-01-11'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2011-01-11
+    revdate: 2011-01-11
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm1103-2011
-    title: Report on Roundtable XX (CD 1103)
+    title:
+    - type: title-main
+      content: Report on Roundtable XX (CD 1103)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable XX (CD 1103)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable20rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1103:2011
-    date:
-      type: published
-      value: '2011-03-16'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2011-03-16
+    revdate: 2011-03-16
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm1105-2011
-    title: Report on Roundtable XXI (CD 1105)
+    title:
+    - type: title-main
+      content: Report on Roundtable XXI (CD 1105)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable XXI (CD 1105)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable21rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1105:2011
-    date:
-      type: published
-      value: '2011-06-20'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2011-06-20
+    revdate: 2011-06-20
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm1106-2011
-    title: Report on Roundtable XXII (CD 1106)
+    title:
+    - type: title-main
+      content: Report on Roundtable XXII (CD 1106)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable XXII (CD 1106)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable22rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1106:2011
-    date:
-      type: published
-      value: '2011-11-07'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2011-11-07
+    revdate: 2011-11-07
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm1201-2012
-    title: Report on Roundtable XXIII (CD 1201)
+    title:
+    - type: title-main
+      content: Report on Roundtable XXIII (CD 1201)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable XXIII (CD 1201)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable23rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1201:2012
-    date:
-      type: published
-      value: '2012-02-15'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2012-02-15
+    revdate: 2012-02-15
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm1203-2012
-    title: Report on Roundtable XXIV (CD 1203)
+    title:
+    - type: title-main
+      content: Report on Roundtable XXIV (CD 1203)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable XXIV (CD 1203)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable24rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1203:2012
-    date:
-      type: published
-      value: '2012-06-01'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2012-06-01
+    revdate: 2012-06-01
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm1204-2012
-    title: Report on Roundtable XXV (CD 1204)
+    title:
+    - type: title-main
+      content: Report on Roundtable XXV (CD 1204)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable XXV (CD 1204)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable25rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1204:2012
-    date:
-      type: published
-      value: '2012-10-18'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2012-10-18
+    revdate: 2012-10-18
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm1302-2013
-    title: Report on Roundtable XXVI (CD 1302)
+    title:
+    - type: title-main
+      content: Report on Roundtable XXVI (CD 1302)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable XXVI (CD 1302)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable26rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1302:2013
-    date:
-      type: published
-      value: '2013-02-20'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2013-02-20
+    revdate: 2013-02-20
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm1303-2013
-    title: Report on Interoperability Test Event XXVI (CD 1303)
+    title:
+    - type: title-main
+      content: Report on Interoperability Test Event XXVI (CD 1303)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Interoperability Test Event XXVI (CD 1303)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/ioptestevent26rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1303:2013
-    date:
-      type: published
-      value: '2013-02-20'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2013-02-20
+    revdate: 2013-02-20
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm1304-2013
-    title: Report on Roundtable XXVII (CD 1304)
+    title:
+    - type: title-main
+      content: Report on Roundtable XXVII (CD 1304)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable XXVII (CD 1304)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable27rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1304:2013
-    date:
-      type: published
-      value: '2013-07-08'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2013-07-08
+    revdate: 2013-07-08
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm1305-2013
-    title: Report on Interoperability Test Event XXVII (CD 1305)
+    title:
+    - type: title-main
+      content: Report on Interoperability Test Event XXVII (CD 1305)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Interoperability Test Event XXVII (CD 1305)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/ioptestevent27rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1305:2013
-    date:
-      type: published
-      value: '2013-07-10'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2013-07-10
+    revdate: 2013-07-10
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm1306-2013
-    title: Report on Roundtable XXVIII (CD 1306)
+    title:
+    - type: title-main
+      content: Report on Roundtable XXVIII (CD 1306)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable XXVIII (CD 1306)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable28rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1306:2013
-    date:
-      type: published
-      value: '2013-10-10'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2013-10-10
+    revdate: 2013-10-10
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm1307-2013
-    title: Report on Interoperability Test Event XXVIII (CD 1307)
+    title:
+    - type: title-main
+      content: Report on Interoperability Test Event XXVIII (CD 1307)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Interoperability Test Event XXVIII (CD 1307)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/ioptestevent28rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1307:2013
-    date:
-      type: published
-      value: '2013-10-24'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2013-10-24
+    revdate: 2013-10-24
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm1401-2014
-    title: Report on Roundtable XXIX (CD 1401)
+    title:
+    - type: title-main
+      content: Report on Roundtable XXIX (CD 1401)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Roundtable XXIX (CD 1401)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/roundtable29rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1401:2014
-    date:
-      type: published
-      value: '2014-02-26'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2014-02-26
+    revdate: 2014-02-26
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm1402-2014
-    title: Report on Interoperability Test Event XXIX (CD 1402)
+    title:
+    - type: title-main
+      content: Report on Interoperability Test Event XXIX (CD 1402)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Interoperability Test Event XXIX (CD 1402)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/ioptestevent29rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1402:2014
-    date:
-      type: published
-      value: '2014-02-28'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2014-02-28
+    revdate: 2014-02-28
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm1403-2014
-    title: Workshop on the Veterans Administration Scheduling System Challenge (CD
-      1403)
+    title:
+    - type: title-main
+      content: Workshop on the Veterans Administration Scheduling System Challenge
+        (CD 1403)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Workshop on the Veterans Administration Scheduling System Challenge
+        (CD 1403)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/vachallengeworkshopreport.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1403:2014
-    date:
-      type: published
-      value: '2014-05-20'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2014-05-20
+    revdate: 2014-05-20
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm1404-2014
-    title: Report on Interoperability Test Event at CalConnect XXX (CD 1404)
+    title:
+    - type: title-main
+      content: Report on Interoperability Test Event at CalConnect XXX (CD 1404)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Interoperability Test Event at CalConnect XXX (CD 1404)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/ioptestevent30rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1404:2014
-    date:
-      type: published
-      value: '2014-06-09'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2014-06-09
+    revdate: 2014-06-09
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm1405-2014
-    title: Report on CalConnect Conference XXX (CD 1405)
+    title:
+    - type: title-main
+      content: Report on CalConnect Conference XXX (CD 1405)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on CalConnect Conference XXX (CD 1405)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/conference30rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1405:2014
-    date:
-      type: published
-      value: '2014-06-09'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2014-06-09
+    revdate: 2014-06-09
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm1406-2014
-    title: Report on CalConnect Conference XXXI (CD 1406)
+    title:
+    - type: title-main
+      content: Report on CalConnect Conference XXXI (CD 1406)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on CalConnect Conference XXXI (CD 1406)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/conference31rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1406:2014
-    date:
-      type: published
-      value: '2014-10-16'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2014-10-16
+    revdate: 2014-10-16
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm1407-2014
-    title: Report on Interoperability Test Event at CalConnect XXXI (CD 1407)
+    title:
+    - type: title-main
+      content: Report on Interoperability Test Event at CalConnect XXXI (CD 1407)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Interoperability Test Event at CalConnect XXXI (CD 1407)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/ioptestevent31rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1407:2014
-    date:
-      type: published
-      value: '2014-10-31'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2014-10-31
+    revdate: 2014-10-31
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm1501-2015
-    title: Report on CalConnect Conference XXXII (CD 1501)
+    title:
+    - type: title-main
+      content: Report on CalConnect Conference XXXII (CD 1501)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on CalConnect Conference XXXII (CD 1501)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/conference32rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1501:2015
-    date:
-      type: published
-      value: '2015-02-18'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2015-02-18
+    revdate: 2015-02-18
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm1502-2015
-    title: Report on Interoperability Test Event XXXII (CD 1502)
+    title:
+    - type: title-main
+      content: Report on Interoperability Test Event XXXII (CD 1502)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Interoperability Test Event XXXII (CD 1502)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/ioptestevent32rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1502:2015
-    date:
-      type: published
-      value: '2015-02-18'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2015-02-18
+    revdate: 2015-02-18
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm1503-2015
-    title: Report on CalConnect Conference XXXIII (CD 1503)
+    title:
+    - type: title-main
+      content: Report on CalConnect Conference XXXIII (CD 1503)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on CalConnect Conference XXXIII (CD 1503)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/conference33rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1503:2015
-    date:
-      type: published
-      value: '2015-06-22'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2015-06-22
+    revdate: 2015-06-22
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm1504-2015
-    title: Report on Interoperability Test Event XXXIII (CD 1504)
+    title:
+    - type: title-main
+      content: Report on Interoperability Test Event XXXIII (CD 1504)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Interoperability Test Event XXXIII (CD 1504)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/ioptestevent33rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1504:2015
-    date:
-      type: published
-      value: '2015-06-23'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2015-06-23
+    revdate: 2015-06-23
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm1505-2015
-    title: Report on Interoperability Test Event XXXIV (CD 1505)
+    title:
+    - type: title-main
+      content: Report on Interoperability Test Event XXXIV (CD 1505)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on Interoperability Test Event XXXIV (CD 1505)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/ioptestevent34rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1505:2015
-    date:
-      type: published
-      value: '2015-06-19'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2015-06-19
+    revdate: 2015-06-19
+    editorialgroup:
+      technical_committee:
+        name: IOPTEST
+    doctype: administrative
   - id: CC/Adm1506-2015
-    title: Report on CalConnect Conference XXXIV (CD 1506)
+    title:
+    - type: title-main
+      content: Report on CalConnect Conference XXXIV (CD 1506)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on CalConnect Conference XXXIV (CD 1506)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/conference34rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1506:2015
-    date:
-      type: published
-      value: '2015-10-23'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2015-10-23
+    revdate: 2015-10-23
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
   - id: CC/Adm1601-2016
-    title: Report on CalConnect Conference XXXV (CD 1601)
+    title:
+    - type: title-main
+      content: Report on CalConnect Conference XXXV (CD 1601)
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Report on CalConnect Conference XXXV (CD 1601)
+      language: en
+      script: Latn
+      format: text/plain
     link:
       type: pdf
       content: pubdocs/conference35rpt.pdf
-    type: administrative
+    type: standard
     docid:
       id: CC/Adm 1601:2016
-    date:
-      type: published
-      value: '2016-02-03'
-    docstatus:
-      stage: published
-    fetched: '2019-09-25'
+      type: CC
+    version:
+      revision_date: 2016-02-03
+    revdate: 2016-02-03
+    editorialgroup:
+      technical_committee:
+        name: CALCONNECT
+    doctype: administrative
+  doctype: 
+  author: 'CalConnect : The Calendaring and Scheduling Consortium'
