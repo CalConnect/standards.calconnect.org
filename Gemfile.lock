@@ -14,7 +14,7 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
     eventmachine (1.2.7)
-    faraday (0.17.0)
+    faraday (0.17.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.1)
     forwardable-extended (2.6.0)
@@ -196,7 +196,7 @@ GEM
       jekyll-feed (~> 0.9)
       jekyll-seo-tag (~> 2.1)
     multipart-post (2.1.1)
-    nokogiri (1.10.5)
+    nokogiri (1.10.7)
       mini_portile2 (~> 2.4.0)
     optout (0.0.2)
     pathutil (0.16.2)
@@ -206,7 +206,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
-    relaton (0.5.10)
+    relaton (0.5.19)
       relaton-calconnect (~> 0.1.0)
       relaton-gb (~> 0.6.0)
       relaton-iec (~> 0.4.0)
@@ -218,34 +218,34 @@ GEM
     relaton-bib (0.3.12)
       addressable
       nokogiri
-    relaton-calconnect (0.1.0)
+    relaton-calconnect (0.1.2)
       faraday
       relaton-iso-bib (~> 0.3.0)
-    relaton-cli (0.3.11)
+    relaton-cli (0.3.19)
       liquid
       relaton (~> 0.5)
       thor
-    relaton-gb (0.6.7)
+    relaton-gb (0.6.8)
       cnccs (~> 0.1.1)
       gb-agencies (~> 0.0.1)
       relaton-iso-bib (~> 0.3.0)
-    relaton-iec (0.4.10)
+    relaton-iec (0.4.12)
       addressable
       relaton-iso-bib (~> 0.3.0)
-    relaton-ietf (0.6.8)
+    relaton-ietf (0.6.10)
       relaton-bib (~> 0.3.0)
     relaton-iev (0.1.1)
       relaton (~> 0.5.0)
-    relaton-iso (0.6.9)
+    relaton-iso (0.6.10)
       relaton-iec (~> 0.4.0)
       relaton-iso-bib (~> 0.3.0)
     relaton-iso-bib (0.3.12)
       isoics (~> 0.1.6)
       relaton-bib (~> 0.3.0)
       ruby_deep_clone (~> 0.8.0)
-    relaton-itu (0.3.7)
+    relaton-itu (0.3.11)
       relaton-iso-bib (~> 0.3.0)
-    relaton-nist (0.3.8)
+    relaton-nist (0.3.9)
       relaton-bib (~> 0.3.0)
       rubyzip
     relaton-ogc (0.1.4)
@@ -294,4 +294,4 @@ DEPENDENCIES
   tzinfo-data
 
 BUNDLED WITH
-   2.0.1
+   2.0.2
