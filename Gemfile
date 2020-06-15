@@ -1,11 +1,6 @@
 source "https://rubygems.org"
 
 gem "metanorma-cli"
-# gem "metanorma-cli", path: "~/src/metanorma-cli"
-#
-gem "relaton-cli", "~> 0.3.0"
-# gem "relaton-cli", git: "https://github.com/metanorma/relaton-cli", tag: "v0.1.10"
-# gem "relaton-cli", path: "~/src/relaton-cli"
 
 # __________________ JEKYLL BELOW __________________
 
@@ -17,7 +12,7 @@ gem "relaton-cli", "~> 0.3.0"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "~> 3.8.5"
+gem "jekyll", "~> 3.8"
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 gem "minima", "~> 2.0"

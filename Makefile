@@ -87,10 +87,10 @@ _input/csd.rxl: $(CSD_OUTPUT_DIR) $(CSD_OUTPUT_RXL)
 	$(SED_COMMAND) 's+$(CSD_INPUT_DIR)+csd+g' $@
 
 _input/%.rxl: _input/%.yaml
-	${PREFIX_CMD} relaton yaml2xmlnew $<
+	${PREFIX_CMD} relaton yaml2xml $<
 
 _input/csd.yaml: _input/csd.rxl
-	${PREFIX_CMD} relaton xml2yamlnew $<
+	${PREFIX_CMD} relaton xml2yaml $<
 
 $(BIB_OUTPUT_DIR)/index.rxl: $(BIB_XML_OUTPUT_DIR)
 	${PREFIX_CMD} relaton concatenate \
@@ -107,17 +107,11 @@ $(BIB_XML_OUTPUT_DIR): $(RXL_COL_OUTPUT)
 		-x rxl -n; \
 	done
 
-# TODO: uncomment once https://github.com/metanorma/relaton-cli/issues/62 is fixed
-#
-# $(BIB_OUTPUT_DIR)/index.yaml: $(BIB_YAML_OUTPUT_DIR)
-# 	${PREFIX_CMD} relaton concatenate \
-# 	  -t $(CSD_REGISTRY_NAME) \
-# 		-g $(NAME_ORG) \
-# 	  $(BIB_YAML_OUTPUT_DIR) $@
-
-# TODO: comment out once https://github.com/metanorma/relaton-cli/issues/62 is fixed
-$(BIB_OUTPUT_DIR)/index.yaml: $(BIB_OUTPUT_DIR)/index.rxl
-	${PREFIX_CMD} relaton xml2yamlnew $<
+$(BIB_OUTPUT_DIR)/index.yaml: $(BIB_YAML_OUTPUT_DIR)
+	${PREFIX_CMD} relaton concatenate \
+	  -t $(CSD_REGISTRY_NAME) \
+		-g $(NAME_ORG) \
+	  $(BIB_YAML_OUTPUT_DIR) $@
 
 $(BIB_YAML_OUTPUT_DIR): $(RXL_COL_OUTPUT)
 	mkdir -p $@; \
@@ -128,10 +122,10 @@ $(BIB_YAML_OUTPUT_DIR): $(RXL_COL_OUTPUT)
 		-x yaml -n; \
 	done
 
-$(BIB_COLL_OUTPUT_DIR)/%.rxl:	_input/%.rxl $(BIB_COLL_OUTPUT_DIR)
+$(BIB_COLL_OUTPUT_DIR)/%.rxl:	_input/%.rxl | $(BIB_COLL_OUTPUT_DIR)
 	cp $< $@;
 
-$(BIB_COLL_OUTPUT_DIR)/%.yaml:	_input/%.yaml $(BIB_COLL_OUTPUT_DIR)
+$(BIB_COLL_OUTPUT_DIR)/%.yaml:	_input/%.yaml | $(BIB_COLL_OUTPUT_DIR)
 	cp $< $@;
 
 $(CSD_OUTPUT_DIR):
