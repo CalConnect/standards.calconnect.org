@@ -620,9 +620,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/R 0904:2011
@@ -842,9 +839,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/R 1012:2011
@@ -872,9 +866,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/R 1102:2013
@@ -901,9 +892,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/R 1104:2018
@@ -990,9 +978,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 6321:2009
@@ -1018,9 +1003,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 6352:2011
@@ -1044,9 +1026,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 6638:2012
@@ -1070,9 +1049,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 6868:2013
@@ -1096,9 +1072,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 7095:2014
@@ -1122,9 +1095,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 7265:2013
@@ -1148,9 +1118,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 7529:2013
@@ -1174,9 +1141,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 7808:2010
@@ -1200,9 +1164,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 7809:2013
@@ -1226,9 +1187,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 7953:2006
@@ -1252,9 +1210,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 7986:2010
@@ -1266,38 +1221,7 @@ root:
       technical_committee:
         name: EVENTPUB
     doctype: standard
-  - id: CC/ISO/WD19160-6
-    title:
-    - type: title-intro
-      content: Addressing
-      language: en
-      script: Latn
-      format: text/plain
-    - type: title-main
-      content: Digital interchange models
-      language: en
-      script: Latn
-      format: text/plain
-    - type: main
-      content: Addressing – Digital interchange models
-      language: en
-      script: Latn
-      format: text/plain
-    link:
-      type: pdf
-      content: ''
-    type: standard
-    docid:
-      id: CC/ISO/WD 19160-6
-      type: CC
-    version:
-      revision_date: 2018-10-04
-    revdate: 2018-10-04
-    editorialgroup:
-      technical_committee:
-        name: VCARD
-    doctype: standard
-  - id: CC/ISO/NP34000
+  - id: CC/ISO/WD34000
     title:
     - type: title-intro
       content: Date and time
@@ -1314,21 +1238,46 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
-      id: CC/ISO/NP 34000
+      id: CC/ISO/WD 34000
       type: CC
     version:
-      revision_date: 2018-10-25
-    revdate: 2018-10-25
+      revision_date: 2020-06-10
+    revdate: 2020-06-10
     editorialgroup:
       technical_committee:
         name: DATETIME
     doctype: standard
-  - id: CC/ISO/NP34002
+  - id: CC/ISO/PWI34100
+    title:
+    - type: title-intro
+      content: Date and time
+      language: en
+      script: Latn
+      format: text/plain
+    - type: title-main
+      content: Reference time scales
+      language: en
+      script: Latn
+      format: text/plain
+    - type: main
+      content: Date and time – Reference time scales
+      language: en
+      script: Latn
+      format: text/plain
+    type: standard
+    docid:
+      id: CC/ISO/PWI 34200
+      type: CC
+    version:
+      revision_date: 2020-06-10
+    revdate: 2020-06-10
+    editorialgroup:
+      technical_committee:
+        name: DATETIME
+    doctype: standard
+  - id: CC/ISO/PWI34200
     title:
     - type: title-intro
       content: Date and time
@@ -1345,21 +1294,18 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
-      id: CC/ISO/NP 34002
+      id: CC/ISO/PWI 34200
       type: CC
     version:
-      revision_date: 2018-10-25
-    revdate: 2018-10-25
+      revision_date: 2020-06-10
+    revdate: 2020-06-10
     editorialgroup:
       technical_committee:
         name: DATETIME
     doctype: standard
-  - id: CC/ISO/NP34003
+  - id: CC/ISO/AWI34300
     title:
     - type: title-intro
       content: Date and time
@@ -1376,16 +1322,13 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
-      id: CC/ISO/NP 34003
+      id: CC/ISO/AWI 34300
       type: CC
     version:
-      revision_date: 2018-10-25
-    revdate: 2018-10-25
+      revision_date: 2020-06-10
+    revdate: 2020-06-10
     editorialgroup:
       technical_committee:
         name: DATETIME
@@ -1402,9 +1345,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF/DS 34010
@@ -1416,7 +1356,7 @@ root:
       technical_committee:
         name: CALENDAR
     doctype: standard
-  - id: CC/ISO/NP36001
+  - id: CC/ISO/AWI36100
     title:
     - type: title-intro
       content: Standardization documents
@@ -1424,35 +1364,27 @@ root:
       script: Latn
       format: text/plain
     - type: title-main
-      content: Metanorma
-      language: en
-      script: Latn
-      format: text/plain
-    - type: title-part
       content: Document metamodel
       language: en
       script: Latn
       format: text/plain
     - type: main
-      content: Standardization documents – Metanorma – Document metamodel
+      content: Standardization documents – Document metamodel
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
-      id: CC/ISO/NP 36001
+      id: CC/ISO/NP 36100
       type: CC
     version:
-      revision_date: 2018-10-25
-    revdate: 2018-10-25
+      revision_date: 2020-06-10
+    revdate: 2020-06-10
     editorialgroup:
       technical_committee:
         name: VCARD
     doctype: standard
-  - id: CC/ISO/NP36002
+  - id: CC/ISO/PWI36200
     title:
     - type: title-intro
       content: Standardization documents
@@ -1460,35 +1392,55 @@ root:
       script: Latn
       format: text/plain
     - type: title-main
-      content: Metanorma
+      content: Metadata
       language: en
       script: Latn
       format: text/plain
-    - type: title-part
+    - type: main
+      content: Standardization documents – Metadata
+      language: en
+      script: Latn
+      format: text/plain
+    type: standard
+    docid:
+      id: CC/ISO/PWI 36200
+      type: CC
+    version:
+      revision_date: 2020-06-10
+    revdate: 2020-06-10
+    editorialgroup:
+      technical_committee:
+        name: VCARD
+    doctype: standard
+  - id: CC/ISO/PWI36300
+    title:
+    - type: title-intro
+      content: Standardization documents
+      language: en
+      script: Latn
+      format: text/plain
+    - type: title-main
       content: Representation in XML
       language: en
       script: Latn
       format: text/plain
     - type: main
-      content: Standardization documents – Metanorma – Representation in XML
+      content: Standardization documents – Representation in XML
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
-      id: CC/ISO/NP 36002
+      id: CC/ISO/PWI 36300
       type: CC
     version:
-      revision_date: 2018-10-25
-    revdate: 2018-10-25
+      revision_date: 2020-06-10
+    revdate: 2020-06-10
     editorialgroup:
       technical_committee:
         name: VCARD
     doctype: standard
-  - id: CC/ISO/NP56001
+  - id: CC/ISO/NP56100
     title:
     - type: title-intro
       content: Directory
@@ -1510,16 +1462,13 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
-      id: CC/ISO/NP 56001
+      id: CC/ISO/NP 56100
       type: CC
     version:
-      revision_date: 2018-10-25
-    revdate: 2018-10-25
+      revision_date: 2020-06-10
+    revdate: 2020-06-10
     editorialgroup:
       technical_committee:
         name: VCARD
@@ -1536,9 +1485,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70001
@@ -1562,9 +1508,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70002:2010
@@ -1588,9 +1531,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70003:2010
@@ -1614,9 +1554,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70004:2010
@@ -1640,9 +1577,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70005:2011
@@ -1666,9 +1600,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70006:2011
@@ -1692,9 +1623,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70007:2011
@@ -1718,9 +1646,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70008:2012
@@ -1744,9 +1669,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70009:2012
@@ -1772,9 +1694,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70010:2012
@@ -1798,9 +1717,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70011:2013
@@ -1824,9 +1740,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70012:2013
@@ -1850,9 +1763,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70013:2013
@@ -1876,9 +1786,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70014:2013
@@ -1902,9 +1809,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70015:2014
@@ -1928,9 +1832,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70016:2014
@@ -1954,9 +1855,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70017:2015
@@ -1980,9 +1878,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70018:2015
@@ -2006,9 +1901,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70019:2015
@@ -2032,9 +1924,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70020:2016
@@ -2058,9 +1947,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70021:2016
@@ -2084,9 +1970,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70022:2016
@@ -2110,9 +1993,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70023:2017
@@ -2136,9 +2016,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70024:2017
@@ -2162,9 +2039,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70025:2017
@@ -2188,9 +2062,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70026:2018
@@ -2214,9 +2085,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/IETF 70027:2010
@@ -2228,5 +2096,5 @@ root:
       technical_committee:
         name: EVENTPUB
     doctype: standard
-  doctype: 
+  doctype:
   author: 'CalConnect : The Calendaring and Scheduling Consortium'

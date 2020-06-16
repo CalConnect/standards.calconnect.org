@@ -96,7 +96,7 @@
   <div class="doc-title">
     <h{{ depth | plus: 1 }}>
       {%- if htmluri == blank or htmluri == nil -%}
-        {{ document.title.content }}
+        {{ document.title[0].content }}
       {%- else -%}
         <a href="{{ htmluri }}">{{ document.title.content }}</a>
       {%- endif -%}

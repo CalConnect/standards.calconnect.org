@@ -1094,9 +1094,6 @@ root:
       language: en
       script: Latn
       format: text/plain
-    link:
-      type: pdf
-      content: ''
     type: standard
     docid:
       id: CC/Adm 0812:2008
