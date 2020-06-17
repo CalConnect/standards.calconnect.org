@@ -1,6 +1,6 @@
 <div class="document">
-{%- if document.status.stage == "publish" -%}
-{% assign stagetag = document.status.stage %}
+{%- if document.docstatus.stage.value == "publish" -%}
+{% assign stagetag = document.docstatus.stage.value %}
 {%- else -%}
 {% assign stagetag = "updated" %}
 {%- endif -%}
@@ -103,9 +103,9 @@
     </h{{ depth | plus: 1 }}>
   </div>
 
-  <div class="doc-info {{ document.docstatus.stage | downcase }}">
-    <div class="doc-stage {{ document.docstatus.stage | downcase }}">
-      {{ document.docstatus.stage }}
+  <div class="doc-info {{ document.docstatus.stage.value | downcase }}">
+    <div class="doc-stage {{ document.docstatus.stage.value | downcase }}">
+      {{ document.docstatus.stage.value }}
     </div>
     {%- unless document.revdate == blank or document.revdate == nil -%}
     <div class="doc-dates">
