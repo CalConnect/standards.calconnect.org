@@ -45,9 +45,15 @@ jobs:
           # eval "$(ssh-agent -s)"
           # ssh-add - <<< "${MLGT_DATA_DEPLOY_KEY}"
           make update-init update-modules
-      - name: Update gems
-        run: |
-          bundle install --jobs 4 --retry 3
+      - name: Use Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.6'
+          bundler-cache: true
+          bundler: '2.2.31'
+      # - name: Update gems
+      #   run: |
+      #     bundle install --jobs 4 --retry 3
       - name: Setup npm
         run: |
           npm install
