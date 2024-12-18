@@ -24,39 +24,15 @@ jobs:
     name: Build site
     runs-on: ubuntu-latest
     steps:
-      - name: Setup prerequisites
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y curl make libxml2-dev libxslt-dev npm openssl
-      - name: Setup snaps
-        run: |
-          sudo snap install yq
-          sudo snap install aws-cli --classic
-          sudo snap install node --classic --channel=10/stable
-      - name: Setup Metanorma locally
-        run: |
-          curl -L https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/ubuntu.sh | sudo bash
-      - uses: actions/checkout@master
-      - name: Setup git submodules
-        # env:
-        #   MLGT_DATA_DEPLOY_KEY: ${{ secrets.MLGT_DATA_DEPLOY_KEY }}
-        #   GIT_SSH_COMMAND: "ssh -o StrictHostKeyChecking=no"
-        run: |
-          # eval "$(ssh-agent -s)"
-          # ssh-add - <<< "${MLGT_DATA_DEPLOY_KEY}"
-          make update-init update-modules
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
       - name: Use Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.6'
           bundler-cache: true
           bundler: '2.2.31'
-      # - name: Update gems
-      #   run: |
-      #     bundle install --jobs 4 --retry 3
-      - name: Setup npm
-        run: |
-          npm install
       - name: Build site
         run: |
           make _site
