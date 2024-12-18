@@ -133,7 +133,7 @@ $(CSD_OUTPUT_DIR):
 $(CSD_OUTPUT_DIR)/%.html $(CSD_OUTPUT_DIR)/%.pdf $(CSD_OUTPUT_DIR)/%.doc $(CSD_OUTPUT_DIR)/%.rxl $(CSD_OUTPUT_DIR)/%.xml:
 	cp $(CSD_INPUT_DIR)/$(notdir $*).xml $(CSD_OUTPUT_DIR) && \
 	cd $(CSD_OUTPUT_DIR) && \
-	${PREFIX_CMD} metanorma -t csd -x html,pdf,doc,xml,rxl $*.xml
+	${PREFIX_CMD} metanorma --agree-to-terms -t csd -x html,pdf,doc,xml,rxl $*.xml
 
 # This empty target is necessary so that make detects changes in _input/*.yaml
 _input/%.yaml:
