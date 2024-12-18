@@ -34,7 +34,7 @@ jobs:
           sudo snap install aws-cli --classic
           sudo snap install node --classic --channel=10/stable
       - name: Use Ruby
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.6'
           architecture: 'x64'
