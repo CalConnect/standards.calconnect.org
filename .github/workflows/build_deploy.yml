@@ -38,6 +38,7 @@ jobs:
         with:
           ruby-version: '2.6'
           architecture: 'x64'
+          bundler: '2.2.31'
       - uses: actions/checkout@master
       - name: Setup git submodules
         # env:
@@ -49,7 +50,6 @@ jobs:
           make update-init update-modules
       - name: Update gems
         run: |
-          gem install bundler -v "~> 2"
           bundle install --jobs 4 --retry 3
       - name: Setup npm
         run: |
