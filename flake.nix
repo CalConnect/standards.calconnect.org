@@ -55,6 +55,7 @@
           jre
           ripgrep
           wget
+          yq
         ];
       };
     });
