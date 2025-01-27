@@ -1,0 +1,98 @@
+#!/usr/bin/env bash
+
+# Get all repositories in an organization that match a prefix
+# (default: CalConnect/cc-)
+
+ORG="${ORG:-CalConnect}"
+PREFIX="${PREFIX:-cc-}"
+
+log() {
+  echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $*"
+} >&2
+
+err() {
+  printf "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: \e[1;31mError:\e[m %b\n" "$*"
+} >&2
+
+ecdo() {
+  log "Running: $*"
+  "$@"
+}
+
+get-page() {
+  local page="${1:-1}"
+
+  # The header and the `--include` flag are for pagination support.
+  command curl \
+    --include \
+    -s \
+    "https://api.github.com/orgs/$ORG/repos?page=${page}" \
+    --header "Accept: application/vnd.github+json" | \
+    process-pagination
+}
+
+# Parse curl headers, look for link: <http://...?page=2>; rel="next",
+# and get next page if it exists.
+process-pagination() {
+  local next_page=
+  local is_past_headers=
+
+  while read -r line
+  do
+    if [[ -n $is_past_headers ]]
+    then
+      echo "$line"
+      continue
+    fi
+
+    if [[ "$line" =~ ^link:.*page=([0-9]+).*\>\;\ rel=\"next\" ]]
+    then
+      next_page="${BASH_REMATCH[1]}"
+      continue
+    fi
+
+    # Start of actual JSON, flag it.
+    if [[ "$line" =~ ^\[ ]]
+    then
+      is_past_headers=1
+      echo "$line"
+    fi
+
+    continue
+  done
+
+  if [[ -n $next_page ]]
+  then
+    get-page "$next_page"
+  fi
+}
+
+# Paginated results are in separate arrays,
+# so slurp them into one for a more uniform experience.
+slurp-into-one-array() {
+  command jq -s '[.[][]]'
+}
+
+# Filter out only repositories that are prefixed with $PREFIX
+filter-prefix() {
+  local prefix="$PREFIX"
+
+  # command jq "[.[] | select(.name | startswith(\"$PREFIX\"))]"
+  command jq --arg prefix "$prefix" 'map(select(.name | startswith($prefix)))'
+}
+
+# Filter out only repositories that have a non-zero size
+# Repos with no commits have zero size.
+filter-size() {
+  command jq 'map(select(.size > 0))'
+}
+
+main() {
+  # Start from page 1.
+  get-page 1 \
+    | slurp-into-one-array \
+    | filter-prefix \
+    | filter-size
+}
+
+main "$@"
