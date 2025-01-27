@@ -1,0 +1,101 @@
+#!/usr/bin/env bash
+
+# Add all repositories in an ORG organization that match a PREFIX
+# (default: `CalConnect/cc-`)
+# ... to the DOCS_SUBDIR directory (default: `src-documents`) as submodules.
+
+log() {
+  echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $*"
+} >&2
+
+err() {
+  printf "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: \e[1;31mError:\e[m %b\n" "$*"
+} >&2
+
+# Bookkeeping
+REPO_URLS=()
+SUCCESSES=()
+FAILURES=()
+
+# Print a summary of the downloads
+print_summary() {
+  log "Submoduled ${#SUCCESSES[@]} out of ${#REPO_URLS[@]} repos"
+  if [[ "${#FAILURES[@]}" -gt 0 ]]
+  then
+    err "Failed to submodule ${#FAILURES[@]} repos"
+    for failure in "${FAILURES[@]}"
+    do
+      err "${failure}"
+    done
+  fi
+}
+
+ecdo() {
+  log "Running: $*"
+  "$@"
+}
+
+trap print_summary EXIT
+
+main() {
+  ORG="${ORG:-CalConnect}"
+  PREFIX="${PREFIX:-cc-}"
+  DOCS_SUBDIR="${DOCS_SUBDIR:-src-documents}"
+
+  # Create the subdirectory for all the document repositories.
+  if [[ ! -d "${DOCS_SUBDIR}" ]]; then
+    echo >&2 "Creating ${DOCS_SUBDIR} directory..."
+    mkdir -p "${DOCS_SUBDIR}"
+  fi
+
+  # Using .clone_url instead of .ssh_url, since there's no need to
+  # push changes to those repos.
+  while read -r repo_url; do
+    REPO_URLS+=("${repo_url}")
+  done < <(scripts/get-all-cc-repos | jq -r '.[].clone_url')
+
+  log "Found ${#REPO_URLS[@]} URLs"
+
+  add-submodules
+}
+
+add-submodules() {
+  local item
+  local repo_name
+
+  # Add all the repositories as submodules.
+  # Skip if the directory already exists.
+  for item in "${REPO_URLS[@]}"
+  do
+    repo_name="${item}"
+    repo_name="${repo_name##*/}"
+    repo_name="${repo_name%.git}"
+
+    if [[ -d "${DOCS_SUBDIR}/${repo_name}" ]]
+    then
+      log "Skipping ${item} as it already exists in ${DOCS_SUBDIR}"
+      continue
+    fi
+
+    log "Adding ${item} to ${DOCS_SUBDIR}"
+    if ecdo command git submodule add "${item}" "${DOCS_SUBDIR}/${repo_name}"
+    then
+      SUCCESSES+=("${item}")
+    else
+      err "Failed to submodule ${item}"
+      FAILURES+=("${item}")
+    fi
+  done
+
+  if [[ "${#FAILURES[@]}" -gt 0 ]]
+  then
+    err "Failed to submodule ${#FAILURES[@]} repos"
+    for failure in "${FAILURES[@]}"
+    do
+      err "${failure}"
+    done
+    return 1
+  fi
+}
+
+main "$@"
