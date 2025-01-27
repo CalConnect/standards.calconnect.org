@@ -2,6 +2,7 @@
 metanorma:
   source:
     files:
+    # TODO: list of all standards doc sources
 
   collection:
     organization: "CalConnect"
