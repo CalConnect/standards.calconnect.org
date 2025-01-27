@@ -1,7 +1,13 @@
 # Direnv
 .direnv/
 
+# Relaton
+relaton
+iev
+
 # Metanorma / jekyll
+*.err.html
+*.abort
 _site
 .sass-cache
 .jekyll-cache/
@@ -16,3 +22,6 @@ bib/
 bibcoll/
 csd/
 .vscode/
+
+# This is not a Gem, so lock file should be checked in.
+# Gemfile.lock
