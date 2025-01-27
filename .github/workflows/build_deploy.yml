@@ -30,12 +30,10 @@ jobs:
       - name: Use Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.6'
           bundler-cache: true
-          bundler: '2.2.31'
       - name: Build site
         run: |
-          make _site
+          bundle exec metanorma site generate
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
