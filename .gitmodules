@@ -4,3 +4,162 @@
 [submodule "cc-admin-documents"]
 	path = src-documents/cc-admin-documents
 	url = https://github.com/CalConnect/cc-admin-documents
+[submodule "src-documents/cc-presentation-framework"]
+	path = src-documents/cc-presentation-framework
+	url = https://github.com/CalConnect/cc-presentation-framework.git
+[submodule "src-documents/cc-calspam-bcp"]
+	path = src-documents/cc-calspam-bcp
+	url = https://github.com/CalConnect/cc-calspam-bcp.git
+[submodule "src-documents/cc-directive-standardization-publication"]
+	path = src-documents/cc-directive-standardization-publication
+	url = https://github.com/CalConnect/cc-directive-standardization-publication.git
+[submodule "src-documents/cc-directive-document-requirements"]
+	path = src-documents/cc-directive-document-requirements
+	url = https://github.com/CalConnect/cc-directive-document-requirements.git
+[submodule "src-documents/cc-directive-patent-policy"]
+	path = src-documents/cc-directive-patent-policy
+	url = https://github.com/CalConnect/cc-directive-patent-policy.git
+[submodule "src-documents/cc-iso-psdo-agreement"]
+	path = src-documents/cc-iso-psdo-agreement
+	url = https://github.com/CalConnect/cc-iso-psdo-agreement.git
+[submodule "src-documents/cc-vobject-i18n"]
+	path = src-documents/cc-vobject-i18n
+	url = https://github.com/CalConnect/cc-vobject-i18n.git
+[submodule "src-documents/cc-vobject-vformat"]
+	path = src-documents/cc-vobject-vformat
+	url = https://github.com/CalConnect/cc-vobject-vformat.git
+[submodule "src-documents/cc-dst-recommendations"]
+	path = src-documents/cc-dst-recommendations
+	url = https://github.com/CalConnect/cc-dst-recommendations.git
+[submodule "src-documents/cc-citation-models"]
+	path = src-documents/cc-citation-models
+	url = https://github.com/CalConnect/cc-citation-models.git
+[submodule "src-documents/cc-ical-relations"]
+	path = src-documents/cc-ical-relations
+	url = https://github.com/CalConnect/cc-ical-relations.git
+[submodule "src-documents/cc-icalendar-series"]
+	path = src-documents/cc-icalendar-series
+	url = https://github.com/CalConnect/cc-icalendar-series.git
+[submodule "src-documents/cc-subscription-upgrade"]
+	path = src-documents/cc-subscription-upgrade
+	url = https://github.com/CalConnect/cc-subscription-upgrade.git
+[submodule "src-documents/cc-vpoll"]
+	path = src-documents/cc-vpoll
+	url = https://github.com/CalConnect/cc-vpoll.git
+[submodule "src-documents/cc-transcription-systems"]
+	path = src-documents/cc-transcription-systems
+	url = https://github.com/CalConnect/cc-transcription-systems.git
+[submodule "src-documents/cc-wto-tbt-principles"]
+	path = src-documents/cc-wto-tbt-principles
+	url = https://github.com/CalConnect/cc-wto-tbt-principles.git
+[submodule "src-documents/cc-standard-doc"]
+	path = src-documents/cc-standard-doc
+	url = https://github.com/CalConnect/cc-standard-doc.git
+[submodule "src-documents/cc-lightweight-doc"]
+	path = src-documents/cc-lightweight-doc
+	url = https://github.com/CalConnect/cc-lightweight-doc.git
+[submodule "src-documents/cc-directive-ipr-policy"]
+	path = src-documents/cc-directive-ipr-policy
+	url = https://github.com/CalConnect/cc-directive-ipr-policy.git
+[submodule "src-documents/cc-directive-ipr-guidelines"]
+	path = src-documents/cc-directive-ipr-guidelines
+	url = https://github.com/CalConnect/cc-directive-ipr-guidelines.git
+[submodule "src-documents/cc-digital-addresses"]
+	path = src-documents/cc-digital-addresses
+	url = https://github.com/CalConnect/cc-digital-addresses.git
+[submodule "src-documents/cc-general-recurrence"]
+	path = src-documents/cc-general-recurrence
+	url = https://github.com/CalConnect/cc-general-recurrence.git
+[submodule "src-documents/cc-datetime-explicit"]
+	path = src-documents/cc-datetime-explicit
+	url = https://github.com/CalConnect/cc-datetime-explicit.git
+[submodule "src-documents/cc-calendar-systems"]
+	path = src-documents/cc-calendar-systems
+	url = https://github.com/CalConnect/cc-calendar-systems.git
+[submodule "src-documents/cc-itip-participants"]
+	path = src-documents/cc-itip-participants
+	url = https://github.com/CalConnect/cc-itip-participants.git
+[submodule "src-documents/cc-vpatch"]
+	path = src-documents/cc-vpatch
+	url = https://github.com/CalConnect/cc-vpatch.git
+[submodule "src-documents/cc-vpath"]
+	path = src-documents/cc-vpath
+	url = https://github.com/CalConnect/cc-vpath.git
+[submodule "src-documents/cc-vobject-integrity"]
+	path = src-documents/cc-vobject-integrity
+	url = https://github.com/CalConnect/cc-vobject-integrity.git
+[submodule "src-documents/cc-calendar-vocab"]
+	path = src-documents/cc-calendar-vocab
+	url = https://github.com/CalConnect/cc-calendar-vocab.git
+[submodule "src-documents/cc-dav-push"]
+	path = src-documents/cc-dav-push
+	url = https://github.com/CalConnect/cc-dav-push.git
+[submodule "src-documents/cc-event-uri"]
+	path = src-documents/cc-event-uri
+	url = https://github.com/CalConnect/cc-event-uri.git
+[submodule "src-documents/cc-caldav-audit"]
+	path = src-documents/cc-caldav-audit
+	url = https://github.com/CalConnect/cc-caldav-audit.git
+[submodule "src-documents/cc-cal-resource-vcard"]
+	path = src-documents/cc-cal-resource-vcard
+	url = https://github.com/CalConnect/cc-cal-resource-vcard.git
+[submodule "src-documents/cc-caldav-attachments"]
+	path = src-documents/cc-caldav-attachments
+	url = https://github.com/CalConnect/cc-caldav-attachments.git
+[submodule "src-documents/cc-caldav-sync"]
+	path = src-documents/cc-caldav-sync
+	url = https://github.com/CalConnect/cc-caldav-sync.git
+[submodule "src-documents/cc-calendar-dev-resources"]
+	path = src-documents/cc-calendar-dev-resources
+	url = https://github.com/CalConnect/cc-calendar-dev-resources.git
+[submodule "src-documents/cc-collection-query"]
+	path = src-documents/cc-collection-query
+	url = https://github.com/CalConnect/cc-collection-query.git
+[submodule "src-documents/cc-event-publishing-extensions"]
+	path = src-documents/cc-event-publishing-extensions
+	url = https://github.com/CalConnect/cc-event-publishing-extensions.git
+[submodule "src-documents/cc-iTip-rewrite"]
+	path = src-documents/cc-iTip-rewrite
+	url = https://github.com/CalConnect/cc-iTip-rewrite.git
+[submodule "src-documents/cc-ical-tasks"]
+	path = src-documents/cc-ical-tasks
+	url = https://github.com/CalConnect/cc-ical-tasks.git
+[submodule "src-documents/cc-icalendar-patch"]
+	path = src-documents/cc-icalendar-patch
+	url = https://github.com/CalConnect/cc-icalendar-patch.git
+[submodule "src-documents/cc-icalendar-vinstance"]
+	path = src-documents/cc-icalendar-vinstance
+	url = https://github.com/CalConnect/cc-icalendar-vinstance.git
+[submodule "src-documents/cc-ischedule"]
+	path = src-documents/cc-ischedule
+	url = https://github.com/CalConnect/cc-ischedule.git
+[submodule "src-documents/cc-jscalendar"]
+	path = src-documents/cc-jscalendar
+	url = https://github.com/CalConnect/cc-jscalendar.git
+[submodule "src-documents/cc-jscontact"]
+	path = src-documents/cc-jscontact
+	url = https://github.com/CalConnect/cc-jscontact.git
+[submodule "src-documents/cc-server-info"]
+	path = src-documents/cc-server-info
+	url = https://github.com/CalConnect/cc-server-info.git
+[submodule "src-documents/cc-serverside-subscriptions"]
+	path = src-documents/cc-serverside-subscriptions
+	url = https://github.com/CalConnect/cc-serverside-subscriptions.git
+[submodule "src-documents/cc-streaming-cal-contacts-data"]
+	path = src-documents/cc-streaming-cal-contacts-data
+	url = https://github.com/CalConnect/cc-streaming-cal-contacts-data.git
+[submodule "src-documents/cc-useful-alarm-extensions"]
+	path = src-documents/cc-useful-alarm-extensions
+	url = https://github.com/CalConnect/cc-useful-alarm-extensions.git
+[submodule "src-documents/cc-valarm-extensions"]
+	path = src-documents/cc-valarm-extensions
+	url = https://github.com/CalConnect/cc-valarm-extensions.git
+[submodule "src-documents/cc-vcard-objectclass"]
+	path = src-documents/cc-vcard-objectclass
+	url = https://github.com/CalConnect/cc-vcard-objectclass.git
+[submodule "src-documents/cc-vcard-schedulable"]
+	path = src-documents/cc-vcard-schedulable
+	url = https://github.com/CalConnect/cc-vcard-schedulable.git
+[submodule "src-documents/cc-documents-register"]
+	path = src-documents/cc-documents-register
+	url = https://github.com/CalConnect/cc-documents-register.git
