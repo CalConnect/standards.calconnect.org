@@ -1,0 +1,9 @@
+---
+metanorma:
+  source:
+    files:
+    # TODO: list of all admin doc sources
+
+  collection:
+    organization: "CalConnect"
+    name: "CalConnect Administrative Documents"
