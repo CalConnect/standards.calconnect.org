@@ -1,3 +1,7 @@
+# Direnv
+.direnv/
+
+# Metanorma / jekyll
 _site
 .sass-cache
 .jekyll-cache/
