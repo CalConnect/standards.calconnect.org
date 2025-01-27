@@ -1,3 +1,6 @@
 [submodule "_input/csd"]
 	path = _input/csd
 	url = https://github.com/CalConnect/published-csd
+[submodule "cc-admin-documents"]
+	path = src-documents/cc-admin-documents
+	url = https://github.com/CalConnect/cc-admin-documents
