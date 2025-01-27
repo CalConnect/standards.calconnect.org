@@ -1,0 +1,181 @@
+#!/usr/bin/env bash
+
+# Get all adoc paths of a certain doctype in a directory
+# (default: src-documents)
+#
+
+
+log() {
+  echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $*"
+} >&2
+
+err() {
+  printf "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: \e[1;31mError:\e[m %b\n" "$*"
+} >&2
+
+ecdo() {
+  log "Running: $*"
+  "$@"
+}
+
+DOCTYPE=""
+FAILED_ADOCS=()
+SUCCESS_ADOCS=()
+ADOC_REFERENCES=()
+
+print-summary() {
+  local readable_docs=$(( ${#ADOC_REFERENCES[@]} - ${#FAILED_ADOCS[@]} ))
+  log "There are ${#ADOC_REFERENCES[@]} documents in total."
+  log "Successfully picked ${#SUCCESS_ADOCS[@]} out of ${readable_docs} readable documents that are of :doctype: ${DOCTYPE}."
+  if [[ "${#FAILED_ADOCS[@]}" -gt 0 ]]
+  then
+    err "Failed to process ${#FAILED_ADOCS[@]} documents:"
+    for failure in "${FAILED_ADOCS[@]}"
+    do
+      err "  ${failure}"
+    done
+  fi
+}
+
+trap print-summary EXIT
+
+METANORMA_YAML_PATHS=()
+
+get-all-metanorma-yaml-paths() {
+  local src_dir="${1:?Missing source directory}"
+
+  while read -r yml
+  do
+    METANORMA_YAML_PATHS+=("$yml")
+  done < <(find "$src_dir" -type f -name 'metanorma.y*ml')
+
+  log "Found ${#METANORMA_YAML_PATHS[@]} metanorma YAML files"
+}
+
+get-all-sources-from-metanorma-yaml() {
+  local yml="${1:?Missing metanorma YAML file}"
+  local path_prefix="${yml%/*}"
+
+  # log "pathPrefix is $pathPrefix"
+  # Only proceed if 'files' is not null (should be an array)
+  <"$yml" yq -r ".metanorma.source.files | select(null != .) | map(\"${path_prefix}/\" + .)"
+
+}
+
+get-all-sources-from-metanorma-yamls() {
+  for yml in "${METANORMA_YAML_PATHS[@]}"
+  do
+    get-all-sources-from-metanorma-yaml "$yml"
+  done
+}
+
+# Only search within the first n lines of the document
+DOC_SEARCH_FIRST_N_LINES="${DOC_SEARCH_FIRST_N_LINES:-100}"
+
+COMMON_DOCTYPES=(
+  standard
+  directive
+  guide
+  specification
+  report
+  amendment
+  technical-corrigendum
+  administrative
+  international-standard
+  internet-draft
+  advisory
+)
+
+# See: https://github.com/CalConnect/VCARD/blob/4d17cb269cbe48cff9603d293e1374bc81fba7f1/presentations/20180926-calconnect-mn-authoring/index.adoc?plain=1#L220
+
+#   :doctype: can be standard, directive, guide, specification, report,
+#   amendment, technical-corrigendum.
+#
+# But these are also seen in the wild:
+#   administrative | international-standard | internet-draft | advisory
+#
+doc-is-of-doctype() {
+  local doc="${1:?Missing asciidoc path}"
+  local doctype="${2:?Missing doctype: standard | directive | guide | specification | report | amendment | technical-corrigendum | administrative | international-standard | internet-draft | advisory}"
+
+  <"$doc" \
+    head -n "${DOC_SEARCH_FIRST_N_LINES}" \
+    | grep -q ":doctype: $doctype"
+}
+
+doc-is-of-common-doctypes() {
+  local doc="${1:?Missing asciidoc path}"
+
+  for doctype in "${COMMON_DOCTYPES[@]}"
+  do
+    if doc-is-of-doctype "$doc" "$doctype"
+    then
+      return 0
+    fi
+  done
+
+  local actual_doctype
+  actual_doctype=$(
+    <"$doc" head -n "${DOC_SEARCH_FIRST_N_LINES}" \
+      | grep ":doctype:" \
+      | cut -d' ' -f2-
+  )
+
+  err "Document $doc is not of any common doctypes, got \`$actual_doctype'."
+  err "List of common doctypes: ${COMMON_DOCTYPES[*]}"
+
+  return 1
+}
+
+# Paginated results are in separate arrays,
+# so slurp them into one for a more uniform experience.
+slurp-into-one-list() {
+  command jq -s -r '[.[][]] | .[]'
+}
+
+# Filter out all the documents that are of a certain doctype
+filter-docs-of-doctype() {
+  local doctype="${1:?Missing doctype}"
+  local doc
+
+  for doc in "${ADOC_REFERENCES[@]}"
+  do
+    if [[ -r "${doc}" ]]
+    then
+      if doc-is-of-doctype "$doc" "$doctype"
+      then
+        SUCCESS_ADOCS+=("$doc")
+        echo "$doc"
+      fi
+    else
+      err "Document $doc is not readable"
+      FAILED_ADOCS+=("$doc")
+    fi
+  done
+}
+
+# Bookkeeping
+record-adoc-references() {
+  while read -r line
+  do
+    ADOC_REFERENCES+=("$line")
+    echo "$line"
+  done < <( get-all-sources-from-metanorma-yamls \
+    | slurp-into-one-list
+  )
+}
+
+main() {
+  log "Starting"
+  local subdir="${1:-src-documents}"
+  local doctype="${2:-administrative}"
+
+  DOCTYPE="$doctype"
+
+  get-all-metanorma-yaml-paths "${subdir:?Missing doc subdir}"
+
+  record-adoc-references
+  filter-docs-of-doctype "${doctype:?Missing doctype}"
+}
+
+main "$@"
