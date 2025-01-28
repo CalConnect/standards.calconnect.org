@@ -1,9 +1,20 @@
----
 metanorma:
   source:
     files:
-    # TODO: list of all standards doc sources
-
+      - src-documents/cc-iTip-rewrite/sources/cc-51008.adoc
+      - src-documents/cc-vpoll/sources/cc-51006.adoc
+      - src-documents/cc-transcription-systems/sources/cc-24229.adoc
+      - src-documents/cc-itip-participants/sources/cc-51011.adoc
+      - src-documents/cc-vobject-vformat/sources/cc-51008/document.adoc
+      - src-documents/cc-subscription-upgrade/sources/cc-51005.adoc
+      - src-documents/cc-calendar-vocab/sources/cc-51000/document.adoc
+      - src-documents/cc-icalendar-series/sources/cc-51003.adoc
+      - src-documents/cc-vobject-integrity/sources/cc-51002.adoc
+      - src-documents/cc-ical-relations/sources/cc-51004.adoc
+      - src-documents/cc-ical-tasks/sources/cc-11001.adoc
+      - src-documents/cc-admin-documents/sources/cc-0606-timezone-registry/document.adoc
+      - src-documents/cc-admin-documents/sources/cc-0703-caldav-scheduling-reqs/document.adoc
+      - src-documents/cc-dav-push/sources/cc-70025.adoc
   collection:
     organization: "CalConnect"
     name: "CalConnect Standards Documents"
