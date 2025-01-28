@@ -33,7 +33,11 @@ jobs:
           bundler-cache: true
       - name: Build site
         run: |
-          bundle exec metanorma site generate
+          # These two jobs could be made parallel:
+          make build-admin
+          make build-standard
+
+          make _site
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
