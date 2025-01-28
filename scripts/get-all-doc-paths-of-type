@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
-# Get all adoc paths of a certain doctype in a directory
+# Get all adoc paths of a certain :doctype: and :mn-document-class: in a
+# directory
 # (default: src-documents)
 #
 
 
 log() {
-  echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $*"
+  printf "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: %b\n" "$*"
 } >&2
 
 err() {
@@ -18,18 +19,26 @@ ecdo() {
   "$@"
 }
 
-DOCTYPE=""
+DOC_TYPE="${DOC_TYPE:-}"
+DOC_CLASS="${DOC_CLASS:-}"
 FAILED_ADOCS=()
 SUCCESS_ADOCS=()
 ADOC_REFERENCES=()
 
 print-summary() {
+  if [[ -z "${DOC_TYPE}" || -z "${DOC_CLASS}" ]]
+  then
+    show_usage
+    return
+  fi
+
   local readable_docs=$(( ${#ADOC_REFERENCES[@]} - ${#FAILED_ADOCS[@]} ))
-  log "There are ${#ADOC_REFERENCES[@]} documents in total."
-  log "Successfully picked ${#SUCCESS_ADOCS[@]} out of ${readable_docs} readable documents that are of :doctype: ${DOCTYPE}."
+
+  log "There are \e[1m${#ADOC_REFERENCES[@]}\e[m documents in total."
+  log "Successfully picked \e[1m${#SUCCESS_ADOCS[@]}\e[m out of \e[1m${readable_docs}\e[m readable documents that are of :mn-document-class: \e[1m${DOC_CLASS}\e[m and :doctype: \e[1m${DOC_TYPE}\e[m."
   if [[ "${#FAILED_ADOCS[@]}" -gt 0 ]]
   then
-    err "Failed to process ${#FAILED_ADOCS[@]} documents:"
+    err "Failed to process \e[1m${#FAILED_ADOCS[@]}\e[m documents:"
     for failure in "${FAILED_ADOCS[@]}"
     do
       err "  ${failure}"
@@ -72,7 +81,7 @@ get-all-sources-from-metanorma-yamls() {
 # Only search within the first n lines of the document
 DOC_SEARCH_FIRST_N_LINES="${DOC_SEARCH_FIRST_N_LINES:-100}"
 
-COMMON_DOCTYPES=(
+COMMON_DOC_TYPES=(
   standard
   directive
   guide
@@ -94,35 +103,44 @@ COMMON_DOCTYPES=(
 # But these are also seen in the wild:
 #   administrative | international-standard | internet-draft | advisory
 #
-doc-is-of-doctype() {
+doc-is-of-doc-type() {
   local doc="${1:?Missing asciidoc path}"
-  local doctype="${2:?Missing doctype: standard | directive | guide | specification | report | amendment | technical-corrigendum | administrative | international-standard | internet-draft | advisory}"
+  local doc_type="${2:?Missing doctype: standard | directive | guide | specification | report | amendment | technical-corrigendum | administrative | international-standard | internet-draft | advisory}"
 
   <"$doc" \
     head -n "${DOC_SEARCH_FIRST_N_LINES}" \
-    | grep -q ":doctype: $doctype"
+    | grep -q ":doctype: $doc_type"
 }
 
-doc-is-of-common-doctypes() {
+doc-is-of-doc-class() {
+  local doc="${1:?Missing asciidoc path}"
+  local doc_class="${2:?Missing mn-document-class}"
+
+  <"$doc" \
+    head -n "${DOC_SEARCH_FIRST_N_LINES}" \
+    | grep -q ":mn-document-class: $doc_class"
+}
+
+doc-is-of-common-doc_types() {
   local doc="${1:?Missing asciidoc path}"
 
-  for doctype in "${COMMON_DOCTYPES[@]}"
+  for doc_type in "${COMMON_DOC_TYPES[@]}"
   do
-    if doc-is-of-doctype "$doc" "$doctype"
+    if doc-is-of-doc-type "$doc" "$doc_type"
     then
       return 0
     fi
   done
 
-  local actual_doctype
-  actual_doctype=$(
+  local actual_doc_type
+  actual_doc_type=$(
     <"$doc" head -n "${DOC_SEARCH_FIRST_N_LINES}" \
       | grep ":doctype:" \
       | cut -d' ' -f2-
   )
 
-  err "Document $doc is not of any common doctypes, got \`$actual_doctype'."
-  err "List of common doctypes: ${COMMON_DOCTYPES[*]}"
+  err "Document $doc is not of any common doc types, got \`$actual_doc_type'."
+  err "List of common doc types: ${COMMON_DOC_TYPES[*]}"
 
   return 1
 }
@@ -133,16 +151,16 @@ slurp-into-one-list() {
   command jq -s -r '[.[][]] | .[]'
 }
 
-# Filter out all the documents that are of a certain doctype
-filter-docs-of-doctype() {
-  local doctype="${1:?Missing doctype}"
+# Filter out all the documents that are of a certain :mn-document-class:
+# and a certain :doctype:.
+filter-docs() {
   local doc
 
   for doc in "${ADOC_REFERENCES[@]}"
   do
     if [[ -r "${doc}" ]]
     then
-      if doc-is-of-doctype "$doc" "$doctype"
+      if filter-doc "$doc"
       then
         SUCCESS_ADOCS+=("$doc")
         echo "$doc"
@@ -154,28 +172,88 @@ filter-docs-of-doctype() {
   done
 }
 
+
+
+# If $DOC_CLASS is set, only include documents that are of that :mn-document-class:.
+# If $DOC_TYPE is set, only include documents that are of that :doctype:.
+filter-doc() {
+  local doc="${1:?Missing asciidoc path}"
+
+  if [[ -n "${DOC_CLASS}" ]] && \
+    ! doc-is-of-doc-class "$doc" "${DOC_CLASS}"
+  then
+    return 1
+  fi
+
+  if [[ -n "${DOC_TYPE}" ]] && \
+    ! doc-is-of-doc-type "$doc" "${DOC_TYPE}"
+  then
+    return 1
+  fi
+
+  return 0
+}
+
 # Bookkeeping
 record-adoc-references() {
   while read -r line
   do
     ADOC_REFERENCES+=("$line")
-    echo "$line"
   done < <( get-all-sources-from-metanorma-yamls \
     | slurp-into-one-list
   )
 }
 
-main() {
-  log "Starting"
-  local subdir="${1:-src-documents}"
-  local doctype="${2:-administrative}"
+show_usage() {
+  cat <<EOF
+Usage: $0 [subdir]
 
-  DOCTYPE="$doctype"
+  Get all adoc paths of a certain :doctype: and :mn-document-class: in a directory
+
+Parameters:
+  subdir  The directory to search for metanorma YAML files (default: src-documents)
+
+Mandatory environment variables:
+  DOC_TYPE    The :doctype: to filter by
+  DOC_CLASS   The :mn-document-class: to filter by
+
+EOF
+
+  }
+
+main() {
+  local subdir="${1:-src-documents}"
+
+  DOC_TYPE="${DOC_TYPE-administrative}"
+  DOC_CLASS="${DOC_CLASS-cc}"
+
+  if [[ "$1" == "-h" || "$1" == "--help" ]]
+  then
+    show_usage
+    exit 0
+  fi
+
+  if [[ ! -d "${subdir}" ]]
+  then
+    err "Directory ${subdir} does not exist"
+    exit 1
+  fi
+
+  if [[ -z "${DOC_TYPE:-}" ]]
+  then
+    err "DOC_TYPE is not set"
+    exit 1
+  fi
+
+  if [[ -z "${DOC_CLASS:-}" ]]
+  then
+    err "DOC_CLASS is not set"
+    exit 1
+  fi
 
   get-all-metanorma-yaml-paths "${subdir:?Missing doc subdir}"
-
   record-adoc-references
-  filter-docs-of-doctype "${doctype:?Missing doctype}"
+  filter-docs
 }
 
 main "$@"
