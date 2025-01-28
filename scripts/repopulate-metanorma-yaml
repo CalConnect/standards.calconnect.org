@@ -1,0 +1,118 @@
+#!/usr/bin/env bash
+
+# Given:
+#
+#   :doctype:,
+#   :mn-document-class:,
+#   path to metanorma adoc files,
+#   a target metanorma YAML file,
+#
+# populate the YAML's `metanorma.source.files` with a list of adoc file paths
+# that are of the specified `:mn-document-class:` and `:doctype:`.
+#
+
+
+log() {
+  printf "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: %b\n" "$*"
+} >&2
+
+err() {
+  printf "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: \e[1;31mError:\e[m %b\n" "$*"
+} >&2
+
+ecdo() {
+  log "Running: $*"
+  "$@"
+}
+
+DOC_TYPE="${DOC_TYPE:-}"
+DOC_CLASS="${DOC_CLASS:-}"
+
+show_usage() {
+  cat <<'EOF'
+Usage: $0 SUBDIR TARGET_YAML
+
+  Populate the YAML's `metanorma.source.files` with a list of adoc file paths
+  that are of the specified `:mn-document-class:` and `:doctype:`.
+
+Parameters:
+  SUBDIR          The directory to search for metanorma YAML files
+                  (default: src-documents)
+
+  TARGET_YAML     The metanorma YAML file where its `metanorma.source.files`
+                  is to be populated with the list of adoc file paths
+                  (relative to the metanorma YAML file).
+
+Mandatory environment variables:
+  DOC_TYPE        The :doctype: to filter by
+  DOC_CLASS       The :mn-document-class: to filter by
+
+EOF
+
+}
+
+# Populate the target YAML file with the list of adoc file paths
+populate-target-yaml() {
+  local target="$1"
+  local adocs_json
+
+  local tmp_file
+  tmp_file=$(mktemp)
+
+  adocs_json=$(scripts/get-all-doc-paths-of-type "${subdir}" "${DOC_TYPE}" "${DOC_CLASS}" | jq -R . | jq -s .)
+
+  # Add the adoc file paths to the target
+  yq \
+    --argjson d "$adocs_json" \
+    '.metanorma.source.files = $d' \
+    "${target}" \
+    --yaml-roundtrip > "${tmp_file}"
+
+  mv "${tmp_file}" "${target}"
+}
+
+main() {
+  local subdir="${1:-src-documents}"
+  local target="${2:?Missing target metanorma YAML file}"
+
+  DOC_TYPE="${DOC_TYPE-administrative}"
+  DOC_CLASS="${DOC_CLASS-cc}"
+
+  log "DOC_TYPE is ${DOC_TYPE}"
+  log "DOC_CLASS is ${DOC_CLASS}"
+
+  if [[ "$1" == "-h" || "$1" == "--help" ]]
+  then
+    show_usage
+    exit 0
+  fi
+
+  if [[ ! -d "${subdir}" ]]
+  then
+    err "Directory ${subdir} does not exist"
+    exit 1
+  fi
+
+  if [[ -z "${DOC_TYPE:-}" ]]
+  then
+    err "DOC_TYPE is not set"
+    exit 1
+  fi
+
+  if [[ -z "${DOC_CLASS:-}" ]]
+  then
+    err "DOC_CLASS is not set"
+    exit 1
+  fi
+
+  if [[ ! -r "${target}" ]]
+  then
+    err "Target file ${target} is not readable."
+    exit 1
+  fi
+
+  populate-target-yaml "${target}"
+  # scripts/get-all-doc-paths-of-type
+}
+
+main "$@"
