@@ -44,4 +44,4 @@ update-init:
 
 .PHONY: update-modules
 update-modules:
-	git submodule foreach git pull origin master
+	git submodule foreach git pull origin main
