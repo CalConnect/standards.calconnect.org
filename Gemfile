@@ -1,7 +1,6 @@
 source "https://rubygems.org"
 
 gem "metanorma-cli"
-gem "unitsml" # for metanorma
 
 # __________________ JEKYLL BELOW __________________
 
