@@ -31,9 +31,6 @@ build: build-standards build-admin
 _site: build
 	bundle exec jekyll build
 
-.PHONY: distclean
-distclean: clean clean-csd
-
 .PHONY: serve
 serve:
 	bundle exec jekyll serve
