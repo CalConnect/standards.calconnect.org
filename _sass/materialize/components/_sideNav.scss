@@ -72,15 +72,15 @@
       float: left;
       height: variables.$sidenav-item-height;
       line-height: variables.$sidenav-line-height;
-      margin: 0 (variables.$sidenav-padding * 2) 0 0;
-      width: variables.$sidenav-item-height / 2;
+      margin: 0 calc(variables.$sidenav-padding * 2) 0 0;
+      width: calc(variables.$sidenav-item-height / 2);
       color: rgba(0,0,0,.54);
     }
   }
 
 
   .divider {
-    margin: (variables.$sidenav-padding / 2) 0 0 0;
+    margin: calc(variables.$sidenav-padding / 2) 0 0 0;
   }
 
   .subheader {
@@ -99,8 +99,8 @@
   .user-view,
   .userView {
     position: relative;
-    padding: (variables.$sidenav-padding * 2) (variables.$sidenav-padding * 2) 0;
-    margin-bottom: variables.$sidenav-padding / 2;
+    padding: calc(variables.$sidenav-padding * 2) calc(variables.$sidenav-padding * 2) 0;
+    margin-bottom: calc(variables.$sidenav-padding / 2);
 
     & > a {
       &:hover { background-color: transparent; }
@@ -130,7 +130,7 @@
     .name,
     .email {
       font-size: variables.$sidenav-font-size;
-      line-height: variables.$sidenav-line-height / 2;
+      line-height: calc(variables.$sidenav-line-height / 2);
     }
 
     .name {

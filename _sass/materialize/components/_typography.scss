@@ -8,22 +8,29 @@ a {
 html{
   line-height: 1.5;
 
-  @media only screen and (min-width: 0) {
-    font-size: 14px;
-  }
-
-  @media only screen and (min-width: variables.$medium-screen) {
-    font-size: 14.5px;
-  }
-
-  @media only screen and (min-width: variables.$large-screen) {
-    font-size: 15px;
-  }
-
   font-family: 'Ek Mukta',Arial,Helvetica,sans-serif;
   font-weight: normal;
   color: variables.$off-black;
 }
+
+@media only screen and (min-width: 0) {
+  html{
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: variables.$medium-screen) {
+  html{
+    font-size: 14.5px;
+  }
+}
+
+@media only screen and (min-width: variables.$large-screen) {
+  html{
+    font-size: 15px;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 400;
 	line-height: 1.1;
@@ -31,12 +38,12 @@ h1, h2, h3, h4, h5, h6 {
 
 // Header Styles
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
-h1 { font-size: variables.$h1-fontsize; line-height: 110%; margin: (variables.$h1-fontsize / 2) 0 (variables.$h1-fontsize / 2.5) 0;}
-h2 { font-size: variables.$h2-fontsize; line-height: 110%; margin: (variables.$h2-fontsize / 2) 0 (variables.$h2-fontsize / 2.5) 0;}
-h3 { font-size: variables.$h3-fontsize; line-height: 110%; margin: (variables.$h3-fontsize / 2) 0 (variables.$h3-fontsize / 2.5) 0;}
-h4 { font-size: variables.$h4-fontsize; line-height: 110%; margin: (variables.$h4-fontsize / 2) 0 (variables.$h4-fontsize / 2.5) 0;}
-h5 { font-size: variables.$h5-fontsize; line-height: 110%; margin: (variables.$h5-fontsize / 2) 0 (variables.$h5-fontsize / 2.5) 0;}
-h6 { font-size: variables.$h6-fontsize; line-height: 110%; margin: (variables.$h6-fontsize / 2) 0 (variables.$h6-fontsize / 2.5) 0;}
+h1 { font-size: variables.$h1-fontsize; line-height: 110%; margin: calc(variables.$h1-fontsize / 2) 0 calc(variables.$h1-fontsize / 2.5) 0;}
+h2 { font-size: variables.$h2-fontsize; line-height: 110%; margin: calc(variables.$h2-fontsize / 2) 0 calc(variables.$h2-fontsize / 2.5) 0;}
+h3 { font-size: variables.$h3-fontsize; line-height: 110%; margin: calc(variables.$h3-fontsize / 2) 0 calc(variables.$h3-fontsize / 2.5) 0;}
+h4 { font-size: variables.$h4-fontsize; line-height: 110%; margin: calc(variables.$h4-fontsize / 2) 0 calc(variables.$h4-fontsize / 2.5) 0;}
+h5 { font-size: variables.$h5-fontsize; line-height: 110%; margin: calc(variables.$h5-fontsize / 2) 0 calc(variables.$h5-fontsize / 2.5) 0;}
+h6 { font-size: variables.$h6-fontsize; line-height: 110%; margin: calc(variables.$h6-fontsize / 2) 0 calc(variables.$h6-fontsize / 2.5) 0;}
 
 // Text Styles
 em { font-style: italic; }
@@ -50,8 +57,8 @@ small { font-size: 75%; }
   font-weight: 300;
   $i: 0;
   @while $i <= variables.$intervals {
-    @media only screen and (min-width : 360 + ($i * variables.$interval-size)) {
-      font-size: 1.2rem * (1 + (.02 * $i));
+    @media only screen and (min-width : calc(360px + ($i * variables.$interval-size))) {
+      font-size: calc(1.2rem * (1 + (.02 * $i)));
     }
     $i: $i + 1;
   }

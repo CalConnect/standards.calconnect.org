@@ -94,7 +94,9 @@
 
   &.btn-large {
     &.halfway-fab {
-      bottom: -(variables.$button-floating-large-size) / 2;
+      // NOTE: This expression can't be used in a calculation. (Sass::CompileError)
+      // bottom: calc(-(variables.$button-floating-large-size) / 2);
+      bottom: calc(-1 * variables.$button-floating-large-size / 2);
     }
 
     width: variables.$button-floating-large-size;
@@ -112,7 +114,9 @@
 
     position: absolute;
     right: 24px;
-    bottom: -(variables.$button-floating-size) / 2;
+    // NOTE: This expression can't be used in a calculation. (Sass::CompileError)
+    // bottom: calc(-(variables.$button-floating-size) / 2);
+    bottom: calc(-1 * variables.$button-floating-size / 2);
   }
 
   display: inline-block;
