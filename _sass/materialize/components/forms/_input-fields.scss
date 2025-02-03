@@ -160,7 +160,7 @@ textarea.materialize-textarea {
   // Gutter spacing
   &.col {
     label {
-      left: variables.$gutter-width / 2;
+      left: calc(variables.$gutter-width / 2);
     }
 
     .prefix ~ label,

@@ -43,7 +43,7 @@
       color: variables.$dropdown-color;
       display: block;
       line-height: 22px;
-      padding: ((variables.$dropdown-item-height - 22) / 2) 16px;
+      padding: calc((variables.$dropdown-item-height - 22px) / 2) 16px;
     }
 
     & > span > label {

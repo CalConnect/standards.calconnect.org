@@ -281,61 +281,61 @@ ul.staggered-list li {
 /*********************
   Media Query Classes
 **********************/
-.hide-on-small-only, .hide-on-small-and-down {
-  @media #{variables.$small-and-down} {
+@media #{variables.$small-and-down} {
+  .hide-on-small-only, .hide-on-small-and-down {
     display: none !important;
   }
 }
-.hide-on-med-and-down {
-  @media #{variables.$medium-and-down} {
+@media #{variables.$medium-and-down} {
+  .hide-on-med-and-down {
     display: none !important;
   }
 }
-.hide-on-med-and-up {
-  @media #{variables.$medium-and-up} {
+@media #{variables.$medium-and-up} {
+  .hide-on-med-and-up {
     display: none !important;
   }
 }
-.hide-on-med-only {
-  @media only screen and (min-width: variables.$small-screen) and (max-width: variables.$medium-screen) {
+@media only screen and (min-width: variables.$small-screen) and (max-width: variables.$medium-screen) {
+  .hide-on-med-only {
     display: none !important;
   }
 }
-.hide-on-large-only {
-  @media #{variables.$large-and-up} {
+@media #{variables.$large-and-up} {
+  .hide-on-large-only {
     display: none !important;
   }
 }
-.show-on-large {
-  @media #{variables.$large-and-up} {
+@media #{variables.$large-and-up} {
+  .show-on-large {
     display: block !important;
   }
 }
-.show-on-medium {
-  @media only screen and (min-width: variables.$small-screen) and (max-width: variables.$medium-screen) {
+@media only screen and (min-width: variables.$small-screen) and (max-width: variables.$medium-screen) {
+  .show-on-medium {
     display: block !important;
   }
 }
-.show-on-small {
-  @media #{variables.$small-and-down} {
+@media #{variables.$small-and-down} {
+  .show-on-small {
     display: block !important;
   }
 }
-.show-on-medium-and-up {
-  @media #{variables.$medium-and-up} {
+@media #{variables.$medium-and-up} {
+  .show-on-medium-and-up {
     display: block !important;
   }
 }
-.show-on-medium-and-down {
-  @media #{variables.$medium-and-down} {
+@media #{variables.$medium-and-down} {
+  .show-on-medium-and-down {
     display: block !important;
   }
 }
 
 
 // Center text on mobile
-.center-on-small-only {
-  @media #{variables.$small-and-down} {
+@media #{variables.$small-and-down} {
+  .center-on-small-only {
     text-align: center;
   }
 }
