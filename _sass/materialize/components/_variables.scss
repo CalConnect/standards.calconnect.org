@@ -106,7 +106,7 @@ $card-link-color-light: color.adjust($card-link-color, $lightness: 20%) !default
 // ==========================================================================
 
 $carousel-height: 400px !default;
-$carousel-item-height: $carousel-height / 2 !default;
+$carousel-item-height: calc($carousel-height / 2) !default;
 $carousel-item-width: $carousel-item-height !default;
 
 
@@ -234,8 +234,8 @@ $medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width 
 
 $num-cols: 12 !default;
 $gutter-width: 1.5rem !default;
-$element-top-margin: $gutter-width/3 !default;
-$element-bottom-margin: ($gutter-width*2)/3 !default;
+$element-top-margin: calc($gutter-width / 3) !default;
+$element-bottom-margin: calc(($gutter-width * 2) / 3) !default;
 
 
 // 14. Navigation Bar
@@ -325,7 +325,7 @@ $footer-copyright-bg-color: $primary-color !default;
 
 $range : $large-screen - $small-screen !default;
 $intervals: 20 !default;
-$interval-size: $range / $intervals !default;
+$interval-size: calc($range / $intervals) !default;
 
 
 // 24. Collections

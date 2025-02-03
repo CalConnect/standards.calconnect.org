@@ -39,11 +39,11 @@ nav ul a span.badge {
 
 // Line height centering
 .collection-item span.badge {
-  margin-top: calc(#{variables.$collection-line-height / 2} - #{variables.$badge-height / 2});
+  margin-top: calc(variables.$collection-line-height / 2 - variables.$badge-height / 2);
 }
 .collapsible span.badge {
-  margin-top: calc(#{variables.$collapsible-line-height / 2} - #{variables.$badge-height / 2});
+  margin-top: calc(variables.$collapsible-line-height / 2 - variables.$badge-height / 2);
 }
 .side-nav span.badge {
-  margin-top: calc(#{variables.$sidenav-line-height / 2} - #{variables.$badge-height / 2});
+  margin-top: calc(variables.$sidenav-line-height / 2 - variables.$badge-height / 2);
 }
