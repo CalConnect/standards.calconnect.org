@@ -60,6 +60,7 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - "*.raw.rxl"
+  - src-documents/
 
 pagination:
   collection: 'posts'
