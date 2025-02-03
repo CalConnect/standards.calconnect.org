@@ -1,10 +1,12 @@
+@use "../variables";
+
 /* Text Inputs + Textarea
    ========================================================================== */
 
 /* Style Placeholders */
 
 ::placeholder {
-  color: $placeholder-text-color;
+  color: variables.$placeholder-text-color;
 }
 
 /* Text inputs */
@@ -26,40 +28,40 @@ textarea.materialize-textarea {
   // General Styles
   background-color: transparent;
   border: none;
-  border-bottom: $input-border;
+  border-bottom: variables.$input-border;
   border-radius: 0;
   outline: none;
-  height: $input-height;
+  height: variables.$input-height;
   width: 100%;
-  font-size: $input-font-size;
-  margin: $input-margin;
-  padding: $input-padding;
+  font-size: variables.$input-font-size;
+  margin: variables.$input-margin;
+  padding: variables.$input-padding;
   box-shadow: none;
   box-sizing: content-box;
-  transition: $input-transition;
+  transition: variables.$input-transition;
 
   // Disabled input style
   &:disabled,
   &[readonly="readonly"] {
-    color: $input-disabled-color;
-    border-bottom: $input-disabled-border;
+    color: variables.$input-disabled-color;
+    border-bottom: variables.$input-disabled-border;
   }
 
   // Disabled label style
   &:disabled+label,
   &[readonly="readonly"]+label {
-    color: $input-disabled-color;
+    color: variables.$input-disabled-color;
   }
 
   // Focused input style
   &:focus:not([readonly]) {
-    border-bottom: 1px solid $input-focus-color;
-    box-shadow: 0 1px 0 0 $input-focus-color;
+    border-bottom: 1px solid variables.$input-focus-color;
+    box-shadow: 0 1px 0 0 variables.$input-focus-color;
   }
 
   // Focused label style
   &:focus:not([readonly])+label {
-    color: $input-focus-color;
+    color: variables.$input-focus-color;
   }
 
   // Valid Input Style
@@ -111,22 +113,22 @@ textarea.materialize-textarea {
 
 /* Validation Sass Placeholders */
 %valid-input-style {
-  border-bottom: 1px solid $input-success-color;
-  box-shadow: 0 1px 0 0 $input-success-color;
+  border-bottom: 1px solid variables.$input-success-color;
+  box-shadow: 0 1px 0 0 variables.$input-success-color;
 }
 %invalid-input-style {
-  border-bottom: $input-invalid-border;
-  box-shadow: 0 1px 0 0 $input-error-color;
+  border-bottom: variables.$input-invalid-border;
+  box-shadow: 0 1px 0 0 variables.$input-error-color;
 }
 %custom-success-message {
   content: attr(data-success);
-  color: $input-success-color;
+  color: variables.$input-success-color;
   opacity: 1;
   transform: translateY(9px);
 }
 %custom-error-message {
   content: attr(data-error);
-  color: $input-error-color;
+  color: variables.$input-error-color;
   opacity: 1;
   transform: translateY(9px);
 }
@@ -158,12 +160,12 @@ textarea.materialize-textarea {
   // Gutter spacing
   &.col {
     label {
-      left: $gutter-width / 2;
+      left: variables.$gutter-width / 2;
     }
 
     .prefix ~ label,
     .prefix ~ .validate ~ label {
-      width: calc(100% - 3rem - #{$gutter-width});
+      width: calc(100% - 3rem - #{variables.$gutter-width});
     }
   }
 
@@ -171,7 +173,7 @@ textarea.materialize-textarea {
   margin-top: 1rem;
 
   label {
-    color: $input-border-color;
+    color: variables.$input-border-color;
     position: absolute;
     top: 0;
     left: 0;
@@ -193,11 +195,11 @@ textarea.materialize-textarea {
   // Prefix Icons
   .prefix {
     position: absolute;
-    width: $input-height;
+    width: variables.$input-height;
     font-size: 2rem;
     transition: color .2s;
 
-    &.active { color: $input-focus-color; }
+    &.active { color: variables.$input-focus-color; }
   }
 
   .prefix ~ input,
@@ -212,14 +214,14 @@ textarea.materialize-textarea {
 
   .prefix ~ label { margin-left: 3rem; }
 
-  @media #{$medium-and-down} {
+  @media #{variables.$medium-and-down} {
     .prefix ~ input {
       width: 86%;
       width: calc(100% - 3rem);
     }
   }
 
-  @media #{$small-and-down} {
+  @media #{variables.$small-and-down} {
     .prefix ~ input {
       width: 80%;
       width: calc(100% - 3rem);
@@ -243,7 +245,7 @@ textarea.materialize-textarea {
   }
 
   &:focus {
-    background-color: $input-background;
+    background-color: variables.$input-background;
     border: 0;
     box-shadow: none;
     color: #444;
@@ -277,7 +279,7 @@ textarea.materialize-textarea {
 // Default textarea
 textarea {
   width: 100%;
-  height: $input-height;
+  height: variables.$input-height;
   background-color: transparent;
 
   &.materialize-textarea {
@@ -295,7 +297,7 @@ textarea {
     overflow-y: hidden; /* prevents scroll bar flash */
     padding: .8rem 0 1.6rem 0; /* prevents text jump on Enter keypress */
     resize: none;
-    min-height: $input-height;
+    min-height: variables.$input-height;
   }
 }
 
@@ -315,8 +317,8 @@ textarea {
 
 /* Autocomplete */
 .autocomplete-content {
-  margin-top: -1 * $input-margin-bottom;
-  margin-bottom: $input-margin-bottom;
+  margin-top: -1 * variables.$input-margin-bottom;
+  margin-bottom: variables.$input-margin-bottom;
   display: block;
   opacity: 1;
   position: static;
@@ -325,8 +327,8 @@ textarea {
     .highlight { color: #444; }
 
     img {
-      height: $dropdown-item-height - 10;
-      width: $dropdown-item-height - 10;
+      height: variables.$dropdown-item-height - 10;
+      width: variables.$dropdown-item-height - 10;
       margin: 5px 15px;
     }
   }

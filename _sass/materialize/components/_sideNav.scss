@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "variables";
+
 .side-nav {
   position: fixed;
   width: 300px;
@@ -9,7 +12,7 @@
   height: calc(100% + 60px);
   height: -moz-calc(100%); //Temporary Firefox Fix
   padding-bottom: 60px;
-  background-color: $sidenav-bg-color;
+  background-color: variables.$sidenav-bg-color;
   z-index: 999;
   overflow-y: auto;
   will-change: transform;
@@ -33,19 +36,19 @@
 
   li {
     float: none;
-    line-height: $sidenav-line-height;
+    line-height: variables.$sidenav-line-height;
 
     &.active { background-color: rgba(0,0,0,.05); }
   }
 
   li > a {
-    color: $sidenav-font-color;
+    color: variables.$sidenav-font-color;
     display: block;
-    font-size: $sidenav-font-size;
+    font-size: variables.$sidenav-font-size;
     font-weight: 500;
-    height: $sidenav-item-height;
-    line-height: $sidenav-line-height;
-    padding: 0 ($sidenav-padding * 2);
+    height: variables.$sidenav-item-height;
+    line-height: variables.$sidenav-line-height;
+    padding: 0 (variables.$sidenav-padding * 2);
 
     &:hover { background-color: rgba(0,0,0,.05);}
 
@@ -55,28 +58,28 @@
 
     &.btn,
     &.btn-large,
-    &.btn-floating { color: $button-raised-color; }
-    &.btn-flat { color: $button-flat-color; }
+    &.btn-floating { color: variables.$button-raised-color; }
+    &.btn-flat { color: variables.$button-flat-color; }
 
     &.btn:hover,
-    &.btn-large:hover { background-color: lighten($button-raised-background, 5%); }
-    &.btn-floating:hover { background-color: $button-raised-background; }
+    &.btn-large:hover { background-color: color.adjust(variables.$button-raised-background, $lightness: 5%); }
+    &.btn-floating:hover { background-color: variables.$button-raised-background; }
 
     & > i,
     & > [class^="mdi-"], li > a > [class*="mdi-"],
     & > i.material-icons {
       float: left;
-      height: $sidenav-item-height;
-      line-height: $sidenav-line-height;
-      margin: 0 ($sidenav-padding * 2) 0 0;
-      width: $sidenav-item-height / 2;
+      height: variables.$sidenav-item-height;
+      line-height: variables.$sidenav-line-height;
+      margin: 0 (variables.$sidenav-padding * 2) 0 0;
+      width: variables.$sidenav-item-height / 2;
       color: rgba(0,0,0,.54);
     }
   }
 
 
   .divider {
-    margin: ($sidenav-padding / 2) 0 0 0;
+    margin: (variables.$sidenav-padding / 2) 0 0 0;
   }
 
   .subheader {
@@ -87,16 +90,16 @@
     cursor: initial;
     pointer-events: none;
     color: rgba(0,0,0,.54);
-    font-size: $sidenav-font-size;
+    font-size: variables.$sidenav-font-size;
     font-weight: 500;
-    line-height: $sidenav-line-height;
+    line-height: variables.$sidenav-line-height;
   }
 
   .user-view,
   .userView {
     position: relative;
-    padding: ($sidenav-padding * 2) ($sidenav-padding * 2) 0;
-    margin-bottom: $sidenav-padding / 2;
+    padding: (variables.$sidenav-padding * 2) (variables.$sidenav-padding * 2) 0;
+    margin-bottom: variables.$sidenav-padding / 2;
 
     & > a {
       &:hover { background-color: transparent; }
@@ -125,8 +128,8 @@
 
     .name,
     .email {
-      font-size: $sidenav-font-size;
-      line-height: $sidenav-line-height / 2;
+      font-size: variables.$sidenav-font-size;
+      line-height: variables.$sidenav-line-height / 2;
     }
 
     .name {
@@ -166,7 +169,7 @@
 }
 
 // Fixed sideNav hide on smaller
-@media #{$medium-and-down} {
+@media #{variables.$medium-and-down} {
   .side-nav {
     &.fixed {
       transform: translateX(-105%);
@@ -177,12 +180,12 @@
     }
 
     a {
-      padding: 0 $sidenav-padding;
+      padding: 0 variables.$sidenav-padding;
     }
 
     .user-view,
     .userView {
-      padding: $sidenav-padding $sidenav-padding 0;
+      padding: variables.$sidenav-padding variables.$sidenav-padding 0;
     }
   }
 }
@@ -190,9 +193,9 @@
 
 .side-nav .collapsible-body > ul:not(.collapsible) > li.active,
 .side-nav.fixed .collapsible-body > ul:not(.collapsible) > li.active {
-  background-color: $primary-color;
+  background-color: variables.$primary-color;
   a {
-    color: $sidenav-bg-color;
+    color: variables.$sidenav-bg-color;
   }
 }
 .side-nav .collapsible-body {
