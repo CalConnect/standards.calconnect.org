@@ -1,12 +1,15 @@
+@use "sass:color";
+@use "variables";
+
 // shared styles
 .btn,
 .btn-flat {
-  border: $button-border;
-  border-radius: $button-radius;
+  border: variables.$button-border;
+  border-radius: variables.$button-radius;
   display: inline-block;
-  height: $button-height;
-  line-height: $button-height;
-  padding: $button-padding;
+  height: variables.$button-height;
+  line-height: variables.$button-height;
+  padding: variables.$button-padding;
   text-transform: uppercase;
   vertical-align: middle;
   // Gets rid of tap active state
@@ -27,14 +30,14 @@
 .btn-large[disabled],
 .btn-flat[disabled] {
   pointer-events: none;
-  background-color: $button-disabled-background !important;
+  background-color: variables.$button-disabled-background !important;
   box-shadow: none;
-  color: $button-disabled-color !important;
+  color: variables.$button-disabled-color !important;
   cursor: default;
 
   &:hover {
-    background-color: $button-disabled-background !important;
-    color: $button-disabled-color !important;
+    background-color: variables.$button-disabled-background !important;
+    color: variables.$button-disabled-color !important;
   }
 }
 
@@ -43,11 +46,11 @@
 .btn-floating,
 .btn-large,
 .btn-flat {
-  font-size: $button-font-size;
+  font-size: variables.$button-font-size;
   outline: 0;
 
   i {
-    font-size: $button-icon-font-size;
+    font-size: variables.$button-icon-font-size;
     line-height: inherit;
   }
 }
@@ -56,15 +59,15 @@
 .btn,
 .btn-floating {
   &:focus {
-    background-color: darken($button-raised-background, 10%);
+    background-color: color.adjust(variables.$button-raised-background, $lightness: -10%);
   }
 }
 
 // Raised Button
 .btn {
   text-decoration: none;
-  color: $button-raised-color;
-  background-color: $button-raised-background;
+  color: variables.$button-raised-color;
+  background-color: variables.$button-raised-background;
   text-align: center;
   letter-spacing: .5px;
   @extend .z-depth-1;
@@ -72,7 +75,7 @@
   cursor: pointer;
 
   &:hover {
-    background-color: $button-raised-background-hover;
+    background-color: variables.$button-raised-background-hover;
     @extend .z-depth-1-half;
   }
 }
@@ -80,7 +83,7 @@
 // Floating button
 .btn-floating {
   &:hover {
-    background-color: $button-floating-background-hover;
+    background-color: variables.$button-floating-background-hover;
     @extend .z-depth-1-half;
   }
 
@@ -90,13 +93,13 @@
 
   &.btn-large {
     &.halfway-fab {
-      bottom: -$button-floating-large-size / 2;
+      bottom: -(variables.$button-floating-large-size) / 2;
     }
 
-    width: $button-floating-large-size;
-    height: $button-floating-large-size;
+    width: variables.$button-floating-large-size;
+    height: variables.$button-floating-large-size;
     i {
-      line-height: $button-floating-large-size;
+      line-height: variables.$button-floating-large-size;
     }
   }
 
@@ -108,20 +111,20 @@
 
     position: absolute;
     right: 24px;
-    bottom: -$button-floating-size / 2;
+    bottom: -(variables.$button-floating-size) / 2;
   }
 
   display: inline-block;
-  color: $button-floating-color;
+  color: variables.$button-floating-color;
   position: relative;
   overflow: hidden;
   z-index: 1;
-  width: $button-floating-size;
-  height: $button-floating-size;
-  line-height: $button-floating-size;
+  width: variables.$button-floating-size;
+  height: variables.$button-floating-size;
+  line-height: variables.$button-floating-size;
   padding: 0;
-  background-color: $button-floating-background;
-  border-radius: $button-floating-radius;
+  background-color: variables.$button-floating-background;
+  border-radius: variables.$button-floating-radius;
   @extend .z-depth-1;
   transition: .3s;
   cursor: pointer;
@@ -131,15 +134,15 @@
     width: inherit;
     display: inline-block;
     text-align: center;
-    color: $button-floating-color;
-    font-size: $button-large-icon-font-size;
-    line-height: $button-floating-size;
+    color: variables.$button-floating-color;
+    font-size: variables.$button-large-icon-font-size;
+    line-height: variables.$button-floating-size;
   }
 }
 
 // button fix
 button.btn-floating {
-  border: $button-border;
+  border: variables.$button-border;
 }
 
 // Fixed Action Button
@@ -177,7 +180,7 @@ button.btn-floating {
     }
 
     padding: 0;
-    height: $button-floating-large-size;
+    height: variables.$button-floating-large-size;
 
     ul {
       display: flex;
@@ -201,7 +204,7 @@ button.btn-floating {
           background-color: transparent;
           box-shadow: none;
           color: #fff;
-          line-height: $button-floating-large-size;
+          line-height: variables.$button-floating-large-size;
           z-index: 1;
 
           i {
@@ -242,10 +245,10 @@ button.btn-floating {
     top: 0;
     left: 0;
     z-index: -1;
-    width: $button-floating-size;
-    height: $button-floating-size;
-    background-color: $button-floating-background;
-    border-radius: $button-floating-radius;
+    width: variables.$button-floating-size;
+    height: variables.$button-floating-size;
+    background-color: variables.$button-floating-background;
+    border-radius: variables.$button-floating-radius;
     transform: scale(0);
   }
 }
@@ -254,7 +257,7 @@ button.btn-floating {
 .btn-flat {
   box-shadow: none;
   background-color: transparent;
-  color: $button-flat-color;
+  color: variables.$button-flat-color;
   cursor: pointer;
   transition: background-color .2s;
 
@@ -269,7 +272,7 @@ button.btn-floating {
 
   &.disabled {
     background-color: transparent !important;
-    color: $button-flat-disabled-color !important;
+    color: variables.$button-flat-disabled-color !important;
     cursor: default;
   }
 }
@@ -277,11 +280,11 @@ button.btn-floating {
 // Large button
 .btn-large {
   @extend .btn;
-  height: $button-large-height;
-  line-height: $button-large-height;
+  height: variables.$button-large-height;
+  line-height: variables.$button-large-height;
 
   i {
-    font-size: $button-large-icon-font-size;
+    font-size: variables.$button-large-icon-font-size;
   }
 }
 

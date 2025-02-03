@@ -1,3 +1,6 @@
+@use "sass:string";
+@use "variables";
+
 .container {
   margin: 0 auto;
   max-width: 1140px;
@@ -15,15 +18,15 @@
           flex: 1;
       }
 
-      @media #{$medium-and-down} {
+      @media #{variables.$medium-and-down} {
           display: block;
       }
   }
 }
 
 .container .row {
-  margin-left: (-1 * $gutter-width / 2);
-  margin-right: (-1 * $gutter-width / 2);
+  margin-left: (-1 * variables.$gutter-width / 2);
+  margin-right: (-1 * variables.$gutter-width / 2);
 }
 
 .section {
@@ -76,7 +79,7 @@
   .col {
     float: left;
     box-sizing: border-box;
-    padding: 0 $gutter-width / 2;
+    padding: 0 variables.$gutter-width / 2;
     min-height: 1px;
 
     &[class*="push-"],
@@ -85,8 +88,8 @@
     }
 
     $i: 1;
-    @while $i <= $num-cols {
-      $perc: unquote((100 / ($num-cols / $i)) + "%");
+    @while $i <= variables.$num-cols {
+      $perc: string.unquote((100 / (variables.$num-cols / $i)) + "%");
       &.s#{$i} {
         width: $perc;
         @include reset-offset;
@@ -95,17 +98,17 @@
     }
 
     $i: 1;
-    @while $i <= $num-cols {
-      $perc: unquote((100 / ($num-cols / $i)) + "%");
+    @while $i <= variables.$num-cols {
+      $perc: string.unquote((100 / (variables.$num-cols / $i)) + "%");
       @include grid-classes("s", $i, $perc);
       $i: $i + 1;
     }
 
-    @media #{$medium-and-up} {
+    @media #{variables.$medium-and-up} {
 
       $i: 1;
-      @while $i <= $num-cols {
-        $perc: unquote((100 / ($num-cols / $i)) + "%");
+      @while $i <= variables.$num-cols {
+        $perc: string.unquote((100 / (variables.$num-cols / $i)) + "%");
         &.m#{$i} {
           width: $perc;
           @include reset-offset;
@@ -114,18 +117,18 @@
       }
 
       $i: 1;
-      @while $i <= $num-cols {
-        $perc: unquote((100 / ($num-cols / $i)) + "%");
+      @while $i <= variables.$num-cols {
+        $perc: string.unquote((100 / (variables.$num-cols / $i)) + "%");
         @include grid-classes("m", $i, $perc);
         $i: $i + 1;
       }
     }
 
-    @media #{$large-and-up} {
+    @media #{variables.$large-and-up} {
 
       $i: 1;
-      @while $i <= $num-cols {
-        $perc: unquote((100 / ($num-cols / $i)) + "%");
+      @while $i <= variables.$num-cols {
+        $perc: string.unquote((100 / (variables.$num-cols / $i)) + "%");
         &.l#{$i} {
           width: $perc;
           @include reset-offset;
@@ -134,18 +137,18 @@
       }
 
       $i: 1;
-      @while $i <= $num-cols {
-        $perc: unquote((100 / ($num-cols / $i)) + "%");
+      @while $i <= variables.$num-cols {
+        $perc: string.unquote((100 / (variables.$num-cols / $i)) + "%");
         @include grid-classes("l", $i, $perc);
         $i: $i + 1;
       }
     }
 
-    @media #{$extra-large-and-up} {
+    @media #{variables.$extra-large-and-up} {
 
       $i: 1;
-      @while $i <= $num-cols {
-        $perc: unquote((100 / ($num-cols / $i)) + "%");
+      @while $i <= variables.$num-cols {
+        $perc: string.unquote((100 / (variables.$num-cols / $i)) + "%");
         &.xl#{$i} {
           width: $perc;
           @include reset-offset;
@@ -154,8 +157,8 @@
       }
 
       $i: 1;
-      @while $i <= $num-cols {
-        $perc: unquote((100 / ($num-cols / $i)) + "%");
+      @while $i <= variables.$num-cols {
+        $perc: string.unquote((100 / (variables.$num-cols / $i)) + "%");
         @include grid-classes("xl", $i, $perc);
         $i: $i + 1;
       }
