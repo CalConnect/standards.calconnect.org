@@ -1,3 +1,6 @@
+@use "color";
+@use "variables";
+
 // Badges
 span.badge {
   min-width: 3rem;
@@ -5,9 +8,9 @@ span.badge {
   margin-left: 14px;
   text-align: center;
   font-size: 1rem;
-  line-height: $badge-height;
-  height: $badge-height;
-  color: color('grey', 'darken-1');
+  line-height: variables.$badge-height;
+  height: variables.$badge-height;
+  color: color.color('grey', 'darken-1');
   float: right;
   box-sizing: border-box;
 
@@ -15,7 +18,7 @@ span.badge {
     font-weight: 300;
     font-size: 0.8rem;
     color: #fff;
-    background-color: $badge-bg-color;
+    background-color: variables.$badge-bg-color;
     border-radius: 2px;
   }
   &.new:after {
@@ -30,17 +33,17 @@ nav ul a span.badge {
   display: inline-block;
   float: none;
   margin-left: 4px;
-  line-height: $badge-height;
-  height: $badge-height;
+  line-height: variables.$badge-height;
+  height: variables.$badge-height;
 }
 
 // Line height centering
 .collection-item span.badge {
-  margin-top: calc(#{$collection-line-height / 2} - #{$badge-height / 2});
+  margin-top: calc(#{variables.$collection-line-height / 2} - #{variables.$badge-height / 2});
 }
 .collapsible span.badge {
-  margin-top: calc(#{$collapsible-line-height / 2} - #{$badge-height / 2});
+  margin-top: calc(#{variables.$collapsible-line-height / 2} - #{variables.$badge-height / 2});
 }
 .side-nav span.badge {
-  margin-top: calc(#{$sidenav-line-height / 2} - #{$badge-height / 2});
+  margin-top: calc(#{variables.$sidenav-line-height / 2} - #{variables.$badge-height / 2});
 }

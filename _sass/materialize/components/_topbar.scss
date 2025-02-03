@@ -1,26 +1,29 @@
+@use "color";
+@use "variables";
+
 #topbar-inner {
-    background-color: color('grey', 'darken-3');
+    background-color: color.color('grey', 'darken-3');
     font-size: 0.8em;
 
-    @media #{$medium-and-down} {
+    @media #{variables.$medium-and-down} {
       .hidden-xs {
           display: none;
       }
     }
 
     #titleBar > a {
-        color: color('grey', 'lighten-6');
+        color: color.color('grey', 'lighten-6');
         display: block;
         font-family: 'Ek Mukta',Arial,Helvetica,sans-serif;
         font-weight: 200;
         letter-spacing: 2px;
         font-variant-caps: small-caps;
 
-        @media #{$medium-and-up} {
+        @media #{variables.$medium-and-up} {
             font-size: 18px;
         }
 
-        @media #{$medium-and-down} {
+        @media #{variables.$medium-and-down} {
             text-align: center;
         }
     }
