@@ -8,11 +8,13 @@ else
 endif
 
 .PHONY: all
-all: _site
+all: prep _site
 
 .PHONY: clean
 clean:
 	rm -rf _site
+
+JEKYLL_BUNDLE = JEKYLL=1 bundle
 
 # TODO: Use this to generate make targets for each category
 CATEGORIES := admin standards
@@ -28,12 +30,27 @@ build-admin:
 .PHONY: build
 build: build-standards build-admin
 
-_site: build
-	bundle exec jekyll build
+.PHONY: prep
+prep: prep-jekyll prep-metanorma
+
+.PHONY: prep-metanorma
+prep-metanorma:
+	bundle install
+
+.PHONY: prep-jekyll
+prep-jekyll:
+	$(JEKYLL_BUNDLE) install
+
+.PHONY: jekyll
+jekyll:
+	$(JEKYLL_BUNDLE) exec jekyll build
+
+_site: jekyll
+	$(JEKYLL_BUNDLE) exec jekyll build
 
 .PHONY: serve
 serve:
-	bundle exec jekyll serve
+	$(JEKYLL_BUNDLE) exec jekyll serve
 
 .PHONY: update-init
 update-init:
