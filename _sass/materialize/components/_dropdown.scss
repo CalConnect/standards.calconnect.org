@@ -1,5 +1,6 @@
 @use "sass:color";
 @use "variables";
+@use "global";
 
 .dropdown-content {
   @extend .z-depth-1;
@@ -68,4 +69,3 @@
   left: 0;
   height: 18px;
 }
-
