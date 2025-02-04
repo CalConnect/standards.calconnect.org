@@ -109,11 +109,23 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: jekyll-site
+      - name: Debug
+        run: |
+          ls -l
+          ls -l _site || :
+          ls -l _site/administrative || :
+          ls -l _site/standards || :
       - name: Download docs artifacts
         uses: actions/download-artifact@v4
         with:
           pattern: '*-docs'
           merge-multiple: true
+      - name: Debug
+        run: |
+          ls -l
+          ls -l _site || :
+          ls -l _site/administrative || :
+          ls -l _site/standards || :
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
