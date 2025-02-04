@@ -21,11 +21,11 @@ CATEGORIES := admin standards
 
 .PHONY: build-standards
 build-standards:
-	$(PREFIX_CMD) metanorma site generate -o _site/documents/standards -c metanorma-standards.yml
+	$(PREFIX_CMD) metanorma site generate -o _site/standards -c metanorma-standards.yml
 
 .PHONY: build-admin
 build-admin:
-	$(PREFIX_CMD) metanorma site generate -o _site/documents/admin -c metanorma-admin.yml
+	$(PREFIX_CMD) metanorma site generate -o _site/administrative -c metanorma-admin.yml
 
 .PHONY: build
 build: build-standards build-admin
