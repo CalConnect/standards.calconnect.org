@@ -46,6 +46,11 @@ jobs:
       - name: Build site
         run: |
           make build-admin
+      - name: Save artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: admin-docs
+          path: _site/administrative
 
   build-standards:
     name: Build standards docs
@@ -63,6 +68,11 @@ jobs:
       - name: Build site
         run: |
           make build-standards
+      - name: Save artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: standards-docs
+          path: _site/standards
 
   build-site:
     name: Build site
@@ -81,16 +91,29 @@ jobs:
       - name: Build site
         run: |
           make _site
+      - name: Save artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: jekyll-site
+          path: _site
 
   upload-artifact:
     name: Upload pages artifact
     needs: [build-site, build-admin, build-standards]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      # NOTE: Order is important.
+      # Downloading _site/ first ensures metanorma-generated docs are not
+      # overwritten.
+      - name: Download Jekyll artifacts
+        uses: actions/download-artifact@v4
         with:
-          submodules: 'recursive'
-          depth: 1
+          name: jekyll-site
+      - name: Download docs artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: '*-docs'
+          merge-multiple: true
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
