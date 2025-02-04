@@ -1,0 +1,198 @@
+#!/usr/bin/env bash
+
+DEBUG="${DEBUG:-}"
+VERSION=0.0.1
+DEPENDENCIES=(
+  scripts/hash_files
+  scripts/metacacher
+  .github/workflows/build_deploy.yml
+)
+
+debug() {
+  [[ -n "${DEBUG:-}" ]] || return
+  printf "\e[2mdebug:\e[1m %b\e[m\n" "$*"
+} >&2
+
+err() {
+  printf "\e[1;31mError:\e[m %b\n" "$*"
+} >&2
+
+# Make sure to echo random strings so as to always invalidate the cache.
+die() {
+  # Echo some random strings for cache key
+  echo "error-$(openssl rand -base64 12)"
+  if [[ $# -gt 0 ]]; then
+    err "$@"
+  fi
+  exit 1
+}
+
+RUBY_DEPENDENCIES=(
+  .tool-versions
+  Gemfile
+  Gemfile.lock
+)
+
+METANORMA_DEPENDENCIES=(
+  "${RUBY_DEPENDENCIES[@]}"
+)
+
+JEKYLL_DEPENDENCIES=(
+  "${RUBY_DEPENDENCIES[@]}"
+  favicon.ico
+  favicon.png
+  robots.txt
+  _includes
+  _input
+  _layouts
+  _pages
+  _sass
+  assets
+  fonts
+  iev
+  js
+  pubdocs
+  relaton
+)
+
+parse_command() {
+  case "$1" in
+    jekyll)
+      shift
+
+      local jekyll_yaml="${1:-${JEKYLL_YAML:-_config.yml}}"
+      if [[ ! -r "$jekyll_yaml" ]]; then
+        die "$jekyll_yaml not found or not readable."
+      fi
+
+      DEPENDENCIES+=("$jekyll_yaml")
+      DEPENDENCIES+=("${JEKYLL_DEPENDENCIES[@]}")
+
+      hash_files "${DEPENDENCIES[@]}"
+
+      ;;
+    metanorma)
+      shift
+
+      local metanorma_yaml="${1:-${METANORMA_YAML:-metanorma.yml}}"
+      if [[ ! -r "$metanorma_yaml" ]]; then
+        die "$metanorma_yaml not found or not readable."
+      fi
+
+      DEPENDENCIES+=("$metanorma_yaml")
+      DEPENDENCIES+=("${METANORMA_DEPENDENCIES[@]}")
+
+      while read -r file; do
+        if [[ -r "$file" ]]; then
+          DEPENDENCIES+=("$file")
+        fi
+      done < <(yq -r '.metanorma.source.files[]' "$metanorma_yaml")
+
+      hash_files "${DEPENDENCIES[@]}"
+
+      ;;
+    version)
+      echo "$0 v$VERSION"
+      die
+      ;;
+    *)
+      print_usage
+      die
+      # ???
+      ;;
+  esac
+}
+
+
+if command -v shasum >/dev/null 2>&1
+then
+  sum() {
+    shasum -a 256 "$@" | cut -d' ' -f1
+  }
+else
+  sum() {
+    sha256sum "$@" | cut -d' ' -f1
+  }
+fi
+
+# See: https://github.com/actions/runner/blob/deprecated_master/src/Misc/expressionFunc/hashFiles/src/hashFiles.ts
+hash_files() {
+  _hash_files "$@"
+  # scripts/hash_files "$@"
+}
+
+_hash_files() {
+  local result=
+  local hashed_dirs=0
+  local hashed_files=0
+
+  for dir_or_file in "$@"
+  do
+    if [[ -d "$dir_or_file" ]]; then
+      debug "Hashing ${dir_or_file} (dir)"
+      while read -r fd
+      do
+        debug "Hashing ${fd} (file under dir: ${dir_or_file})"
+        hashed_files=$((hashed_files + 1))
+        result=$(sum <<<"${result}$(sum "${fd}")")
+      done < <(find "${dir_or_file}" -type f)
+      hashed_dirs=$((hashed_dirs + 1))
+    elif [[ -f "${dir_or_file}" ]]; then
+      debug "Hashing ${dir_or_file} (file)"
+      hashed_files=$((hashed_files + 1))
+      result=$(sum <<<"${result}$(sum "${dir_or_file}")")
+    else
+      debug "Hashing ${dir_or_file} (not found)"
+      # Missing file not a fatal error
+      err "${dir_or_file} not found."
+    fi
+  done
+
+  debug "Hash: $result (args: $*)"
+  debug "Hash summary: Files: $hashed_files, Dirs: $hashed_dirs"
+  echo "$result"
+}
+
+print_usage() {
+  cat <<EOF
+Usage: $0 jekyll    PATH/TO/CONFIG.YML
+       $0 metanorma PATH/TO/METANORMA.YML
+
+EOF
+} >&2
+
+PREREQUISITES=(
+  yq
+  openssl
+)
+
+# Enumerate all missing prerequisites before echoing random strings to ensure
+# cache invalidation.
+check_prerequisites() {
+  local missing=()
+
+  for dep in "${PREREQUISITES[@]}"; do
+    if ! command -v "${dep}" &>/dev/null; then
+      missing+=("${dep}")
+    fi
+  done
+
+  if [[ ${#missing[@]} -eq 0 ]]; then
+    return
+  fi
+
+  err "The following prerequisites are not found: "
+  for dep in "${missing[@]}"; do
+    err "  - $dep"
+  done
+  die
+}
+
+# Reads metanorma.yml to get a list of file dependencies.
+main() {
+  check_prerequisites
+
+  parse_command "$@"
+}
+
+main "$@"
