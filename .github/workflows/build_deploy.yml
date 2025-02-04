@@ -32,6 +32,7 @@ jobs:
   #
   build-admin:
     name: Build admin docs
+    needs: build-site
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -48,6 +49,7 @@ jobs:
 
   build-standards:
     name: Build standards docs
+    needs: build-site
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -64,7 +66,6 @@ jobs:
 
   build-site:
     name: Build site
-    needs: [build-admin, build-standards]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -80,6 +81,16 @@ jobs:
       - name: Build site
         run: |
           make _site
+
+  upload-artifact:
+    name: Upload pages artifact
+    needs: [build-site, build-admin, build-standards]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+          depth: 1
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
@@ -90,7 +101,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     if: ${{ github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
-    needs: build-site
+    # needs: [build-admin, build-standards]
+    needs: upload-artifact
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
