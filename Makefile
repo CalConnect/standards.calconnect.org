@@ -27,6 +27,15 @@ build-standards:
 build-admin:
 	$(PREFIX_CMD) metanorma site generate -o _site/administrative -c metanorma-admin.yml
 
+.PHONY: build-all-parallel
+build-all-parallel: _site build-parallel
+
+.PHONY: build-parallel
+build-parallel:
+	make build-standards & \
+	make build-admin & \
+	wait
+
 .PHONY: build
 build: build-standards build-admin
 
