@@ -415,10 +415,10 @@
   border-radius: 50%;
   transform: scale(.9);
   background-color: variables.$datepicker-selected;
+  color: #ffffff;
   &.picker__day--outfocus {
     background-color: variables.$datepicker-selected-outfocus;
   }
-  color: #ffffff;
 }
 
 .picker__footer {
