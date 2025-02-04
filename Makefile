@@ -46,7 +46,6 @@ jekyll:
 	$(JEKYLL_BUNDLE) exec jekyll build
 
 _site: jekyll
-	$(JEKYLL_BUNDLE) exec jekyll build
 
 .PHONY: serve
 serve:
