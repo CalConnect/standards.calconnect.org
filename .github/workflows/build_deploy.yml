@@ -42,7 +42,7 @@ jobs:
       - name: Calculate cache key
         id: cache-key
         run: |
-          echo "::set-output name=cache-key::$(scripts/metacacher metanorma metanorma-admin.yml)"
+          echo "cache-key=$(scripts/metacacher metanorma metanorma-admin.yml)" >> $GITHUB_OUTPUT
       - name: Restore cache
         id: cache
         uses: actions/cache@v4
@@ -76,7 +76,7 @@ jobs:
       - name: Calculate cache key
         id: cache-key
         run: |
-          echo "::set-output name=cache-key::$(scripts/metacacher metanorma metanorma-standards.yml)"
+          echo "cache-key=$(scripts/metacacher metanorma metanorma-standards.yml)" >> $GITHUB_OUTPUT
       - name: Restore cache
         id: cache
         uses: actions/cache@v4
@@ -109,7 +109,7 @@ jobs:
       - name: Calculate cache key
         id: cache-key
         run: |
-          echo "::set-output name=cache-key::$(scripts/metacacher jekyll _config.yml)"
+          echo "cache-key=$(scripts/metacacher jekyll _config.yml)" >> $GITHUB_OUTPUT
       - name: Restore cache
         id: cache
         uses: actions/cache@v4
