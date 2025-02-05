@@ -141,12 +141,11 @@ def hash_files(args)
 end
 
 def print_usage
-  STDERR.puts <<EOF
-Usage: #{$0} jekyll    PATH/TO/CONFIG.YML
-       #{$0} metanorma PATH/TO/METANORMA.YML
-       #{$0} version
-
-EOF
+  STDERR.puts <<~EOF
+    Usage: #{$0} jekyll    PATH/TO/CONFIG.YML
+           #{$0} metanorma PATH/TO/METANORMA.YML
+           #{$0} version
+  EOF
 end
 
 
