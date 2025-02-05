@@ -8,15 +8,15 @@ require 'digest'
 
 def debug(*args)
   return if (ENV['DEBUG'] || '').empty?
-  printf("\e[2mdebug:\e[1m %s\e[m\n", args.map(&:to_s).join(' '))
+  STDERR.printf("\e[2mdebug:\e[1m %s\e[m\n", args.map(&:to_s).join(' '))
 end
 
 def err(*args)
-  printf("\e[1;31mError:\e[m %s\n", args.map(&:to_s).join(' '))
+  STDERR.printf("\e[1;31mError:\e[m %s\n", args.map(&:to_s).join(' '))
 end
 
 def print_usage
-  puts <<~USAGE
+  STDERR.puts <<~USAGE
     Usage: #{$0} FILE_OR_DIR...
   USAGE
 end
