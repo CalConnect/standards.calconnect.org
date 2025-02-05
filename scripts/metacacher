@@ -3,11 +3,9 @@
 DEBUG = ENV['DEBUG'] || ''
 VERSION = '0.0.1'
 
-@dependencies = %w(
-  scripts/hash_files
-  scripts/metacacher
-  .github/workflows/build_deploy.yml
-)
+# Path to `hash_files`.
+# Can be changed by setting $HASH_FILES_BIN.
+HASH_FILES_BIN = ENV['HASH_FILES_BIN'] || 'scripts/hash_files'
 
 def debug(*args)
   return if (ENV['DEBUG'] || '').empty?
@@ -32,6 +30,14 @@ def die(*args)
   end
   exit 1
 end
+
+# By default, the fingerprint depends on hash_files as well as the script 
+# itself.
+@dependencies = [
+  HASH_FILES_BIN,
+  $0,
+  '.github/workflows/build_deploy.yml',
+]
 
 RUBY_DEPENDENCIES = %w(
   .tool-versions
@@ -102,7 +108,7 @@ end
 
 def hash_files(args)
   require 'open3'
-  stdout_str, stderr_str, status = Open3.capture3("scripts/hash_files", *args)
+  stdout_str, stderr_str, status = Open3.capture3(HASH_FILES_BIN, *args)
 
   # Re-echo stdout and stderr
   STDERR.puts stderr_str
