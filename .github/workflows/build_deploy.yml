@@ -21,17 +21,17 @@ concurrency:
 
 jobs:
   #
-  # For each document category (admin, standards, etc.),
+  # For each document category (administrative, standard, etc.),
   # build using `metanorma site generate`.
   #
   # At the very end, integrate them all with Jekyll.
   #
   # NOTE: Try to parallelize the build process as much as possible.
-  # This is currently done by building the admin and standards docs in
+  # This is currently done by building the admin and standard docs in
   # parallel.
   #
-  build-admin:
-    name: Build admin docs
+  build-administrative:
+    name: Build administrative docs
     needs: build-site
     runs-on: ubuntu-latest
     steps:
@@ -42,7 +42,7 @@ jobs:
       - name: Calculate cache key
         id: cache-key
         run: |
-          echo "cache-key=$(scripts/metacacher metanorma metanorma-admin.yml)" >> $GITHUB_OUTPUT
+          echo "cache-key=$(scripts/metacacher metanorma metanorma-administrative.yml)" >> $GITHUB_OUTPUT
       - name: Restore cache
         id: cache
         uses: actions/cache@v4
@@ -57,15 +57,15 @@ jobs:
       - name: Build site
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
-          make build-admin
+          make build-administrative
       - name: Save artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: admin-docs
+          name: administrative-docs
           path: _site/administrative
 
-  build-standards:
-    name: Build standards docs
+  build-standard:
+    name: Build standard docs
     needs: build-site
     runs-on: ubuntu-latest
     steps:
@@ -76,11 +76,12 @@ jobs:
       - name: Calculate cache key
         id: cache-key
         run: |
-          echo "cache-key=$(scripts/metacacher metanorma metanorma-standards.yml)" >> $GITHUB_OUTPUT
+          echo "cache-key=$(scripts/metacacher metanorma metanorma-standard.yml)" >> $GITHUB_OUTPUT
       - name: Restore cache
         id: cache
         uses: actions/cache@v4
         with:
+          # 'standards' instead of 'standard' to match link in index.adoc
           path: _site/standards
           key: ${{ steps.cache-key.outputs.cache-key }}
       - name: Use Ruby
@@ -91,11 +92,12 @@ jobs:
       - name: Build site
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
-          make build-standards
+          make build-standard
       - name: Save artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: standards-docs
+          name: standard-docs
+          # 'standards' instead of 'standard' to match link in index.adoc
           path: _site/standards
 
   build-site:
@@ -135,7 +137,7 @@ jobs:
 
   upload-artifact:
     name: Upload pages artifact
-    needs: [build-site, build-admin, build-standards]
+    needs: [build-site, build-administrative, build-standard]
     runs-on: ubuntu-latest
     steps:
       # NOTE: Order is important.
@@ -152,10 +154,11 @@ jobs:
           ls -l _site || :
           ls -l _site/administrative || :
           ls -l _site/standards || :
-      - name: Download Standards docs artifacts
+      - name: Download Standard docs artifacts
         uses: actions/download-artifact@v4
         with:
-          name: standards-docs
+          name: standard-docs
+          # 'standards' instead of 'standard' to match link in index.adoc
           path: _site/standards
       - name: Download Administrative docs artifacts
         uses: actions/download-artifact@v4
