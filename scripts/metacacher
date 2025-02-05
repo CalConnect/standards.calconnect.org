@@ -36,8 +36,17 @@ end
 @dependencies = [
   HASH_FILES_BIN,
   $0,
-  '.github/workflows/build_deploy.yml',
 ]
+
+# If we are running in a GitHub workflow, add the workflow file as a 
+# dependency.
+if ENV['GITHUB_WORKFLOW_REF'].kind_of? String
+
+  # Extract relative path for the workflow file
+  @dependencies << ENV['GITHUB_WORKFLOW_REF']
+    .sub(%r{^.*(\.github/workflows)}, '\1')
+    .sub(%r{@refs/.*$}, '')
+end
 
 RUBY_DEPENDENCIES = %w(
   .tool-versions
