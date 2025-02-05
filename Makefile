@@ -16,28 +16,42 @@ clean:
 
 JEKYLL_BUNDLE = JEKYLL=1 bundle
 
-# TODO: Use this to generate make targets for each category
-CATEGORIES := admin standards
+# This is used to generate `make` targets for each doc type.
+DOC_TYPES := administrative standard
 
-.PHONY: build-standards
-build-standards:
-	$(PREFIX_CMD) metanorma site generate -o _site/standards -c metanorma-standards.yml
+# Selectively define the output directory based on the doc type.
+# Here, the doc type `standard` will output to `standards`, and all others will
+# be left as is.
+define site_output
+$(if $(filter standard,$(1)),standards,$(1))
+endef
 
-.PHONY: build-admin
-build-admin:
-	$(PREFIX_CMD) metanorma site generate -o _site/administrative -c metanorma-admin.yml
+define DOC_TYPE_TASKS
+.PHONY: repopulate-metanormal-yaml-$(doc_type)
+repopulate-metanormal-yaml-$(doc_type):
+	DOC_TYPE=$(doc_type) DOC_CLASS=cc scripts/repopulate-metanorma-yaml src-documents metanorma-$(doc_type).yml
+
+.PHONY: build-$(doc_type)
+build-$(doc_type):
+	$(PREFIX_CMD) metanorma site generate -o _site/$(call site_output,$(doc_type)) -c metanorma-$(doc_type).yml
+endef
+
+$(foreach doc_type,$(DOC_TYPES),$(eval $(DOC_TYPE_TASKS)))
+
+.PHONY: repopulate-metanormal-yamls
+repopulate-metanormal-yamls: $(addprefix repopulate-metanormal-yaml-,$(DOC_TYPES))
 
 .PHONY: build-all-parallel
 build-all-parallel: _site build-parallel
 
 .PHONY: build-parallel
 build-parallel:
-	make build-standards & \
-	make build-admin & \
+	make build-standard & \
+	make build-administrative & \
 	wait
 
 .PHONY: build
-build: build-standards build-admin
+build: $(addprefix build-,$(DOC_TYPES))
 
 .PHONY: prep
 prep: prep-jekyll prep-metanorma
