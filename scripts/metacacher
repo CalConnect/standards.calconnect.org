@@ -104,53 +104,9 @@ parse_command() {
 }
 
 
-if command -v shasum >/dev/null 2>&1
-then
-  sum() {
-    shasum -a 256 "$@" | cut -d' ' -f1
-  }
-else
-  sum() {
-    sha256sum "$@" | cut -d' ' -f1
-  }
-fi
-
 # See: https://github.com/actions/runner/blob/deprecated_master/src/Misc/expressionFunc/hashFiles/src/hashFiles.ts
 hash_files() {
-  _hash_files "$@"
-  # scripts/hash_files "$@"
-}
-
-_hash_files() {
-  local result=
-  local hashed_dirs=0
-  local hashed_files=0
-
-  for dir_or_file in "$@"
-  do
-    if [[ -d "$dir_or_file" ]]; then
-      debug "Hashing ${dir_or_file} (dir)"
-      while read -r fd
-      do
-        debug "Hashing ${fd} (file under dir: ${dir_or_file})"
-        hashed_files=$((hashed_files + 1))
-        result=$(sum <<<"${result}$(sum "${fd}")")
-      done < <(find "${dir_or_file}" -type f)
-      hashed_dirs=$((hashed_dirs + 1))
-    elif [[ -f "${dir_or_file}" ]]; then
-      debug "Hashing ${dir_or_file} (file)"
-      hashed_files=$((hashed_files + 1))
-      result=$(sum <<<"${result}$(sum "${dir_or_file}")")
-    else
-      debug "Hashing ${dir_or_file} (not found)"
-      # Missing file not a fatal error
-      err "${dir_or_file} not found."
-    fi
-  done
-
-  debug "Hash: $result (args: $*)"
-  debug "Hash summary: Files: $hashed_files, Dirs: $hashed_dirs"
-  echo "$result"
+  scripts/hash_files "$@"
 }
 
 print_usage() {
