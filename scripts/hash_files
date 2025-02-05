@@ -1,0 +1,78 @@
+#!/usr/bin/env ruby
+
+# See: https://github.com/actions/runner/blob/deprecated_master/src/Misc/expressionFunc/hashFiles/src/hashFiles.ts
+
+VERSION = '0.0.1'
+
+require 'digest'
+
+def debug(*args)
+  return if (ENV['DEBUG'] || '').empty?
+  printf("\e[2mdebug:\e[1m %s\e[m\n", args.map(&:to_s).join(' '))
+end
+
+def err(*args)
+  printf("\e[1;31mError:\e[m %s\n", args.map(&:to_s).join(' '))
+end
+
+def print_usage
+  puts <<~USAGE
+    Usage: #{$0} FILE_OR_DIR...
+  USAGE
+end
+
+def main(*args)
+  if args.empty?
+    print_usage
+    exit 1
+  end
+  hash_files(*args)
+end
+
+
+def sum(*arg)
+  h = Digest::SHA256.new
+  arg.each do |a|
+    h.update(File.read(a))
+  end
+  h.hexdigest
+end
+
+# List all files within a directory, recursively
+def find(dir)
+  Dir.glob("#{dir}/**/*").select { |f| File.file?(f) }
+end
+
+def hash_files(*args)
+  result = Digest::SHA256.new
+  hashed_dirs = 0
+  hashed_files = 0
+
+  args.each do |dir_or_file|
+    if File.directory?(dir_or_file)
+      debug "Hashing #{dir_or_file} (dir)"
+      find(dir_or_file).each do |fd|
+        debug "Hashing #{fd} (file under dir: #{dir_or_file})"
+        hashed_files += 1
+        result.update(sum(fd))
+      end
+
+      hashed_dirs += 1
+    elsif File.file?(dir_or_file)
+      debug "Hashing #{dir_or_file} (file)"
+      hashed_files += 1
+
+      result.update(sum(dir_or_file))
+    else
+      debug "Hashing #{dir_or_file} (not found)"
+      # Missing file not a fatal error
+      err "#{dir_or_file} not found."
+    end
+  end
+
+debug "Hash: #{result.hexdigest} (args: #{args.join(' ')})"
+  debug "Hash summary: Files: #{hashed_files}, Dirs: #{hashed_dirs}"
+  puts result.hexdigest
+end
+
+main(*ARGV)
