@@ -15,6 +15,10 @@ def err(*args)
   STDERR.printf("\e[1;31mError:\e[m %s\n", args.map(&:to_s).join(' '))
 end
 
+def warning(*args)
+  STDERR.printf("\e[1;38:5:208mWarning:\e[m %s\n", args.map(&:to_s).join(' '))
+end
+
 def print_usage
   STDERR.puts <<~USAGE
     Usage: #{$0} FILE_OR_DIR...
@@ -66,7 +70,7 @@ def hash_files(*args)
     else
       debug "Hashing #{dir_or_file} (not found)"
       # Missing file not a fatal error
-      err "#{dir_or_file} not found."
+      warning "#{dir_or_file} not found.  Skipping."
     end
   end
 
