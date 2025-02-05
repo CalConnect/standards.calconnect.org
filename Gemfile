@@ -34,6 +34,5 @@ if ! ENV['JEKYLL'].nil? && ! ENV['JEKYLL'].empty?
 else
 
   gem "metanorma-cli", "~> 1.11.5" 
-  gem "unitsml" # for metanorma
 
 end
