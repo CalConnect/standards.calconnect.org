@@ -79,6 +79,10 @@ JEKYLL_DEPENDENCIES = RUBY_DEPENDENCIES + %w(
   relaton
 )
 
+def get_fingerprint(*segments)
+  segments.join('-')
+end
+
 def parse_command(args)
   case args[0]
   when 'jekyll' then
@@ -92,7 +96,10 @@ def parse_command(args)
       @dependencies << jekyll_yaml
       @dependencies += JEKYLL_DEPENDENCIES
 
-      hash_files @dependencies
+      puts get_fingerprint(
+        'jekyll',
+        hash_files(@dependencies),
+      )
 
   when 'metanorma' then
       args.shift
@@ -108,7 +115,10 @@ def parse_command(args)
       require 'yaml'
       @dependencies += YAML.load_file(metanorma_yaml).dig('metanorma', 'source', 'files')
 
-      hash_files @dependencies
+      puts get_fingerprint(
+        'metanorma',
+        hash_files(@dependencies),
+      )
 
   when 'version' then
       puts "#{$0} v#{VERSION}"
@@ -125,9 +135,9 @@ def hash_files(args)
   require 'open3'
   stdout_str, stderr_str, status = Open3.capture3(HASH_FILES_BIN, *args)
 
-  # Re-echo stdout and stderr
+  # Re-echo stderr
   STDERR.puts stderr_str
-  puts stdout_str
+  stdout_str
 end
 
 def print_usage
