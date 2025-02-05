@@ -31,12 +31,18 @@ def die(*args)
   exit 1
 end
 
-# By default, the fingerprint depends on hash_files as well as the script 
-# itself.
-@dependencies = [
-  HASH_FILES_BIN,
-  $0,
-]
+# By default, the fingerprint does not depend on hash_files nor the script 
+# itself, so as to keep the hash stable.
+# But it can be configured (by $HASH_META) to depend on them.
+@dependencies = []
+
+META_HASH = ENV['HASH_META'] || ''
+if META_HASH != 'false' &&
+  ! META_HASH.empty?
+
+  @dependencies << HASH_FILES_BIN
+  @dependencies << $0
+end
 
 # If we are running in a GitHub workflow, add the workflow file as a 
 # dependency.
