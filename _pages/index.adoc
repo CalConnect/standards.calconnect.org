@@ -24,7 +24,7 @@ are provided on this site.
 Documents in this registry are provided in the following formats:
 
 * accessible formats, such as in HTML, inasmuch possible (`.html`);
-* https://www.metanorma.com/software/metanorma-csd/[Metanorma-CSD XML standardization document] format (`.xml`);
+* https://www.metanorma.com/software/metanorma-cc/[Metanorma-CC XML standardization document] format (`.xml`);
 * PDF (`.pdf`) and Word (`.doc`) formats are also available for Metanorma-generated documents;
 
 NOTE: Older documents may only be provided in PDF format.
