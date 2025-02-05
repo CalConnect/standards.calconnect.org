@@ -109,17 +109,23 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: jekyll-site
+          path: _site
       - name: Debug
         run: |
           ls -l
           ls -l _site || :
           ls -l _site/administrative || :
           ls -l _site/standards || :
-      - name: Download docs artifacts
+      - name: Download Standards docs artifacts
         uses: actions/download-artifact@v4
         with:
-          pattern: '*-docs'
-          merge-multiple: true
+          pattern: standards-docs
+          path: _site/standards
+      - name: Download Administrative docs artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: admin-docs
+          path: _site/administrative
       - name: Debug
         run: |
           ls -l
