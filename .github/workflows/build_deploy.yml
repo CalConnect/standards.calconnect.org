@@ -39,6 +39,9 @@ jobs:
         with:
           submodules: 'recursive'
           depth: 1
+      - name: Debug environment
+        run: |
+          ruby -e 'pp ENV'
       - name: Use Ruby
         uses: ruby/setup-ruby@v1
         with:
