@@ -216,12 +216,6 @@ jobs:
         with:
           name: jekyll-site
           path: _site
-      - name: Debug
-        run: |
-          ls -l
-          ls -l _site || :
-          ls -l _site/administrative || :
-          ls -l _site/standards || :
       - name: Download Standard docs artifacts
         uses: actions/download-artifact@v4
         with:
@@ -233,12 +227,6 @@ jobs:
         with:
           name: administrative-docs
           path: _site/administrative
-      - name: Debug
-        run: |
-          ls -l
-          ls -l _site || :
-          ls -l _site/administrative || :
-          ls -l _site/standards || :
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
