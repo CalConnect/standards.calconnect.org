@@ -18,3 +18,5 @@ metanorma:
   collection:
     organization: "CalConnect"
     name: "CalConnect Standards Documents"
+  template:
+    path: ../../_relaton_templates

@@ -128,3 +128,5 @@ metanorma:
   collection:
     organization: "CalConnect"
     name: "CalConnect Administrative Documents"
+  template:
+    path: ../../_relaton_templates
