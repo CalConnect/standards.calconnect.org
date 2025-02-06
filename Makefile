@@ -40,12 +40,6 @@ REPOPULATING_DOC_TYPES := \
 
 
 
-# Selectively define the output directory based on the doc type.
-# Here, the doc type `standard` will output to `standards`, and all others will
-# be left as is.
-define site_output
-$(if $(filter standard,$(1)),standards,$(if $(filter report,$(1)),reports,$(if $(filter specification,$(1)),specifications,$(if $(filter directive,$(1)),directives,$(1)))))
-endef
 
 define DOC_TYPE_TASKS
 .PHONY: repopulate-metanorma-yaml-$(doc_type)
@@ -54,7 +48,7 @@ repopulate-metanorma-yaml-$(doc_type):
 
 .PHONY: build-$(doc_type)
 build-$(doc_type):
-	pushd src-documents; $(PREFIX_CMD) metanorma site generate -o _site/$(call site_output,$(doc_type)) -c ./metanorma-$(doc_type).yml
+	pushd src-documents; $(PREFIX_CMD) metanorma site generate -o _site/$(doc_type) -c ./metanorma-$(doc_type).yml
 endef
 
 $(foreach doc_type,$(DOC_TYPES),$(eval $(DOC_TYPE_TASKS)))

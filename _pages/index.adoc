@@ -34,7 +34,7 @@ Bibliographic details for every document can be downloaded in the Relaton XML fo
 
 == Document categories
 
-* link:/standards[CalConnect Standards]
+* link:/standard[CalConnect Standards]
 
 * link:/public-review[CalConnect Standards under public review]
 
