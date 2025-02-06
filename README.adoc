@@ -1,7 +1,7 @@
 = CalConnect Standards Registry
 
-image:https://travis-ci.com/CalConnect/standards.calconnect.org.svg?branch=master[
-	Build Status, link="https://travis-ci.com/CalConnect/standards.calconnect.org"]
+image:https://github.com/CalConnect/standards.calconnect.org/actions/workflows/build_deploy.yml/badge.svg[
+	Build Status, link="https://github.com/CalConnect/standards.calconnect.org/actions/workflows/build_deploy.yml"]
 
 == Introduction
 
@@ -22,7 +22,7 @@ The site is managed by TC PUBLISH.
 |Site | Git branch | URL
 
 |Production | `master`  | https://standards.calconnect.org
-|Staging    | `staging` | https://staging.standards.calconnect.org
+// |Staging    | `staging` | https://staging.standards.calconnect.org
 
 |===
 
@@ -61,13 +61,13 @@ All input is placed under the `_input/` directory.
 This repository accepts CSD document entries in CSD XML format, all stored under the `_input/csd/` directory,
 and gets generated into the `csd/` directory.
 
-NOTE: The CSD XML format is described https://github.com/riboseinc/metanorma-csd[here].
+NOTE: The CSD XML format is described https://github.com/metanorma/metanorma-cc[here^].
 
 Every CSD XML document is embedded with metadata information in Relaton format, including title, identifier(s), author(s) and date information.
 
 . Every CSD XML document under `_input/csd/` is copied to the output directory `csd/`.
 
-. A Relaton XML is generated of the same base filename, using the `metanorma -R foo.rxl foo.xml` command from the https://github.com/riboseinc/metanorma-cli[`metanorma-cli` gem]. For example, for a CSD XML file `csd/csd-patent-policy.xml`, the created Relaton XML file is `csd/csd-pateht-policy.rxl`.
+. A Relaton XML is generated of the same base filename, using the `metanorma -R foo.rxl foo.xml` command from the https://github.com/metanorma/metanorma-cli[`metanorma-cli` gem^]. For example, for a CSD XML file `csd/csd-patent-policy.xml`, the created Relaton XML file is `csd/csd-pateht-policy.rxl`.
 
 . Every CSD XML document under `csd/` is also used to generate the proper output formats using the `metanorma` command, including PDF, HTML and Word. All of these output files are placed in the same directory, `csd/`.
 
@@ -87,7 +87,7 @@ Bibliographic entries in Relaton format are entered in:
 
 All bibliographic information is generated into the `bib/` directory.
 
-NOTE: Relaton is a bibliographic model developed for ISO 690, the International Standard for citations. Relaton currently supports Relaton-XML (`.xml` or `.rxl`) and Relaton-YAML (`.yaml`) formats. More details about Relaton can be found https://github.com/riboseinc/relaton-models[here].
+NOTE: Relaton is a bibliographic model developed for ISO 690, the International Standard for citations. Relaton currently supports Relaton-XML (`.xml` or `.rxl`) and Relaton-YAML (`.yaml`) formats. More details about Relaton can be found https://github.com/relaton/relaton-models[here^].
 
 These are entries that are either:
 
@@ -134,7 +134,7 @@ The `_input/%.yaml` file specifies a "`bibliographic group`" using a Relaton Col
 ** `revdate: 2018-10-25` is the date when the document was last updated. It is optional and accepts the ISO 8601-1 date format. A full date-time could be provided, but the "`time`" is not rendered in the index. It has a data type of "`date`".
 
 
-The `_input/%.yaml` document is read. The `relaton yaml2xml` command from the https://github.com/riboseinc/relaton-cli/[`relaton-cli` gem] does the following:
+The `_input/%.yaml` document is read. The `relaton yaml2xml` command from the https://github.com/relaton/relaton-cli/[`relaton-cli` gem^] does the following:
 
 * splits off each entry into its own Relaton XML file in a specified directory (`bib/*.rxl`)
 
@@ -166,7 +166,7 @@ Sorting of the entries is by reverse sort order of the `revdate` attribute of do
 
 === Rendering of HTML
 
-https://jekyllrb.com/[Jekyll] is used to compile the HTML site from the Relaton files in `bib/` and `csd/` directories.
+https://jekyllrb.com[Jekyll^] is used to compile the HTML site from the Relaton files in `bib/` and `csd/` directories.
 
 In particular, our `Makefile` builds a new directory `_documents` from the data from `bib/`,
 as a Jekyll collection:
@@ -201,7 +201,7 @@ make update-init
 
 * Bibliographic entry: add an entry in `_input/external.yaml` under the `items:` key.
 
-* CSD document entry: add your CSD XML file to the https://github.com/CalConnect/published-csd[`published-csd`] repo (push it), and update the submodule `_input/csd` here. It can be done here as easy as `make update-modules`:
+* CSD document entry: add your CSD XML file to the https://github.com/CalConnect/document-register[`document-register`^] repo (push it), and update the submodule `_input/csd` here. It can be done here as easy as `make update-modules`:
 --
 [source,sh]
 ----
@@ -229,4 +229,3 @@ On the next run of `make clean _site` you will see your entry added to the site.
 Please push all changes to the `staging` branch, and changes will be automatically deployed and reflected on the staging site.
 
 If your changes are to be made public to the production site, please contact TC PUBLISH.
-
