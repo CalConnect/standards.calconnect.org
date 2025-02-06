@@ -21,6 +21,7 @@ ecdo() {
 
 DOC_TYPE="${DOC_TYPE:-}"
 DOC_CLASS="${DOC_CLASS:-}"
+BASE_DIR="${BASE_DIR:-}"
 FAILED_ADOCS=()
 SUCCESS_ADOCS=()
 ADOC_REFERENCES=()
@@ -57,6 +58,12 @@ get-all-metanorma-yaml-paths() {
   do
     METANORMA_YAML_PATHS+=("$yml")
   done < <(find "$src_dir" -type f -name 'metanorma.y*ml')
+
+  # Strip the base directory from the paths
+  if [[ -n "${BASE_DIR:-}" ]]
+  then
+    METANORMA_YAML_PATHS=("${METANORMA_YAML_PATHS[@]/#"$BASE_DIR"/}")
+  fi
 
   log "Found ${#METANORMA_YAML_PATHS[@]} metanorma YAML files"
 }
@@ -213,6 +220,10 @@ Usage: $0 [subdir]
 Parameters:
   subdir  The directory to search for metanorma YAML files (default: src-documents)
 
+Optional environment variables:
+  BASE_DIR    Its value will be stripped from the paths in the metanorma YAML files
+              (default: empty)
+
 Mandatory environment variables:
   DOC_TYPE    The :doctype: to filter by
   DOC_CLASS   The :mn-document-class: to filter by
@@ -236,6 +247,12 @@ main() {
   if [[ ! -d "${subdir}" ]]
   then
     err "Directory ${subdir} does not exist"
+    exit 1
+  fi
+
+  if [[ -n "${BASE_DIR:-}" && ! -d "${BASE_DIR}" ]]
+  then
+    err "BASE_DIR is set but does not exist"
     exit 1
   fi
 
