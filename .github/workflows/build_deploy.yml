@@ -67,7 +67,6 @@ jobs:
     strategy:
       matrix:
         doc_type:
-          - site
           - administrative
           - directive
           - pending-publication
