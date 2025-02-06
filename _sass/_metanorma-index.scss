@@ -1,0 +1,269 @@
+@charset "UTF-8";
+@use 'sass:color';
+
+/*
+    1. HTML & Body
+*/
+body {
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  color: #1d1d1d;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.4em;
+  background-color: #ffffff;
+}
+
+main {
+  margin: 0 6em;
+}
+
+/*
+    3.2 Links
+*/
+main {
+  a, a:visited {
+    text-decoration: none;
+    color: #485094;
+  }
+
+  a:hover {
+    color: color.adjust(#485094, $lightness: 15%);
+  }
+}
+
+/*
+    3.3 Lists
+*/
+ul {
+  margin-left: 1.2em;
+}
+
+ol {
+  margin-left: 1.2em;
+}
+
+ul > li {
+  list-style: none;
+}
+
+ul > li:before {
+  content: "—";
+  display: inline-block;
+  width: 1em;
+  margin-left: -1.2em;
+}
+
+li p {
+  display: inline;
+}
+
+li:first-child {
+  margin-top: 1em;
+}
+
+/*
+    3.4 Rules
+*/
+.rule {
+  width: 100%;
+  height: 1px;
+  background-color: #0e1a85;
+  margin: 2em 0;
+}
+
+h2 p {
+  display: inline;
+}
+
+/*
+    Paragraphs
+*/
+p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+@page {
+  margin: 2cm 1cm 2cm 1cm;
+}
+
+@media print {
+  h1 {
+    page-break-before: always;
+  }
+  .container {
+    padding-left: 0;
+  }
+  nav {
+    position: relative;
+    width: auto;
+    font-size: 0.9em;
+    overflow: auto;
+    padding: 0;
+    margin-right: 0;
+    background-color: white;
+  }
+}
+
+
+.document {
+  padding-top: 5px;
+  border-bottom: 1px solid #0e1a85;
+}
+
+.document:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.doc-line {
+  padding-top: 2em;
+}
+
+.doc-line:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.doc-line {
+  .doc-identifier, .doc-type-wrap {
+    float: left;
+  }
+  .doc-edition, .doc-type-wrap {
+    padding-top: 0.75rem;
+  }
+}
+
+.doc-published,
+.doc-updated,
+.doc-identifier,
+.doc-stage,
+.doc-type, h2, h3 {
+  display: inline-block;
+}
+
+.doc-type-wrap {
+  margin-left: 1em;
+}
+
+.doc-type {
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 0.85em;
+  line-height: 1em;
+  margin-right: 10px;
+  color: white;
+  text-transform: uppercase;
+}
+
+$doctype-colors-list:(
+  standard: #0AC442,
+  governance: #540D6E,
+  guide: #D183C9,
+  specification: #65AFFF,
+  report: #3A405A,
+  amendment: #F26430,
+  corrigendum: #C84630,
+  administrative: #BFAE48,
+  advisory: #33658A
+);
+
+@each $key,$val in $doctype-colors-list{
+  .doc-type.#{$key} {
+    background-color: #{$val};
+  }
+}
+
+$docstage-colors-list:(
+  proposal: #39A0ED,
+  // working-draft: #1BB5A5,
+  working-draft: #2D7393,
+  // committee-draft: #0DAB76,
+  committee-draft: #2A6B7C,
+  draft-standard: #1C7F7A,
+  final-draft: #53C170,
+  // published: #139A43,
+  published: #069E2D,
+  withdrawn: #004E64,
+  cancelled: #2E382E,
+);
+
+@each $key,$val in $docstage-colors-list{
+  .doc-info.#{$key} {
+    color: #{$val};
+  }
+}
+
+.doc-stage {
+  text-transform: uppercase;
+  font-size: 1em;
+  line-height: 1em;
+}
+
+.doc-info {
+  padding-top: 0;
+  padding-bottom: 10px;
+  font-size: 0.9em;
+  line-height: 1em;
+  float: left;
+}
+
+.doc-dates {
+  padding-top: 5px;
+  display: inline-block;
+  margin-left: 0.5em;
+}
+
+.doc-abstract {
+  float: left;
+}
+
+.doc-access, .doc-bib {
+  display: block;
+  float: right;
+}
+
+.doc-access > div {
+  float: left;
+  margin: 5px 10px;
+}
+
+.doc-bib > div {
+  float: left;
+  margin: 5px 10px;
+}
+
+/*
+.doc-updated:before {
+  content: "(revised: "
+}
+
+.doc-updated:after {
+  content: ")";
+}*/
+
+
+.doc-stage:before {
+  content: "STAGE: "
+}
+
+
+@media only screen and (max-width: 900px) {
+  .doc-dates, .doc-type, .doc-stage {
+    margin-bottom: 5px;
+  }
+
+  main {
+    margin: 0 10px;
+  }
+
+  .document {
+    overflow: hidden;
+    padding-bottom: 10px;
+  }
+}
