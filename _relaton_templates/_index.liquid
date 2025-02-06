@@ -6,7 +6,9 @@
   <body>
     {% render 'header' %}
     <main>
-      {% render 'document' for documents %}
+      <div class="container">
+        {% render 'document' for documents %}
+      </div>
     </main>
 
     {% render 'footer' %}
