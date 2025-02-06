@@ -4,7 +4,7 @@ SHELL := /bin/bash
 ifdef METANORMA_DOCKER
   PREFIX_CMD := echo "Running via docker..."; docker run -v "$$(pwd)":/metanorma/ $(METANORMA_DOCKER)
 else
-  PREFIX_CMD := echo "Running locally..."; bundle exec
+  PREFIX_CMD := echo "Running locally..."; BUNDLE_GEMFILE=src-documents/Gemfile bundle exec
 endif
 
 .PHONY: all
@@ -14,7 +14,7 @@ all: prep _site
 clean:
 	rm -rf _site
 
-JEKYLL_BUNDLE = JEKYLL=1 bundle
+JEKYLL_BUNDLE = bundle
 
 # This is used to generate `make` targets for each doc type.
 DOC_TYPES := \
@@ -84,7 +84,7 @@ prep: prep-jekyll prep-metanorma
 
 .PHONY: prep-metanorma
 prep-metanorma:
-	bundle install
+	BUNDLE_GEMFILE=src-documents/Gemfile bundle install
 
 .PHONY: prep-jekyll
 prep-jekyll:
