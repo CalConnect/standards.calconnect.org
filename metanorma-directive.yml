@@ -1,0 +1,13 @@
+metanorma:
+  source:
+    files:
+      - src-documents/cc-directive-ipr-guidelines/sources/cc-10005.adoc
+      - src-documents/cc-directive-patent-policy/sources/cc-10003.adoc
+      - src-documents/cc-directive-ipr-policy/sources/cc-10006.adoc
+      - src-documents/cc-directive-document-requirements/sources/cc-10002.adoc
+      - src-documents/cc-directive-standardization-publication/sources/cc-10001.adoc
+  collection:
+    organization: "CalConnect"
+    name: "Directives"
+  template:
+    path: ../../_relaton_templates
