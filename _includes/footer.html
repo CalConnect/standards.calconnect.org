@@ -8,17 +8,14 @@
                             <li class="sub-list">
                                 <a href="/">Home</a>
                                 <ul class="menu nav">
-                                    {% assign pages = site.pages | where: "parent", "/" | sort: "order" %}
-                                    {% for page in pages %}
-                                    {% assign content_size = page.content | strip | size %}
-                                        <li>
-                                            {% if content_size == 0 %}
-                                                <a href="/Table-of-Contents#{{ page.title | replace:' ', '_' | downcase }}">{{ page.title }}</a>
-                                            {% else %}
-                                                <a href="{{ page.url }}">{{ page.title }}</a>
-                                            {% endif %}
-                                        </li>
-                                    {% endfor %}
+                                    <li><a href="/standards/">Standards</a></li>
+                                    <li><a href="/public-review/">Public review</a></li>
+                                    <li><a href="/pending-publication/">Pending Publication</a></li>
+                                    <li><a href="/reports/">Reports</a></li>
+                                    <li><a href="/specifications/">Specifications</a></li>
+                                    <li><a href="/administrative/">Administrative documents</a></li>
+                                    <li><a href="/directives/">Directives</a></li>
+                                    <li><a href="/patents/">Patent Information Database</a></li>
                                 </ul>
                             </li>
                         </ul>
