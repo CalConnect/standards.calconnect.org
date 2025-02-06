@@ -42,11 +42,11 @@ Bibliographic details for every document can be downloaded in the Relaton XML fo
 
 * link:/administrative[CalConnect Administrative documents]
 
-// * link:/directive[CalConnect Directive documents]
+* link:/directive[CalConnect Directive documents]
 
-// * link:/report[CalConnect Reports]
+* link:/report[CalConnect Reports]
 
-// * link:/specification[CalConnect Specifications]
+* link:/specification[CalConnect Specifications]
 
 
 == Disclaimer
