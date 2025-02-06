@@ -16,10 +16,6 @@ body {
   background-color: #ffffff;
 }
 
-main {
-  margin: 0 6em;
-}
-
 /*
     3.2 Links
 */
@@ -49,19 +45,8 @@ ul > li {
   list-style: none;
 }
 
-ul > li:before {
-  content: "—";
-  display: inline-block;
-  width: 1em;
-  margin-left: -1.2em;
-}
-
 li p {
   display: inline;
-}
-
-li:first-child {
-  margin-top: 1em;
 }
 
 /*
@@ -256,10 +241,6 @@ $docstage-colors-list:(
 @media only screen and (max-width: 900px) {
   .doc-dates, .doc-type, .doc-stage {
     margin-bottom: 5px;
-  }
-
-  main {
-    margin: 0 10px;
   }
 
   .document {
