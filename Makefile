@@ -4,7 +4,7 @@ SHELL := /bin/bash
 ifdef METANORMA_DOCKER
   PREFIX_CMD := echo "Running via docker..."; docker run -v "$$(pwd)":/metanorma/ $(METANORMA_DOCKER)
 else
-  PREFIX_CMD := echo "Running locally..."; BUNDLE_GEMFILE=src-documents/Gemfile bundle exec
+  PREFIX_CMD := echo "Running locally..."; bundle exec
 endif
 
 .PHONY: all
@@ -54,7 +54,7 @@ repopulate-metanorma-yaml-$(doc_type):
 
 .PHONY: build-$(doc_type)
 build-$(doc_type):
-	$(PREFIX_CMD) metanorma site generate -o _site/$(call site_output,$(doc_type)) -c src-documents/metanorma-$(doc_type).yml
+	pushd src-documents; $(PREFIX_CMD) metanorma site generate -o _site/$(call site_output,$(doc_type)) -c ./metanorma-$(doc_type).yml
 endef
 
 $(foreach doc_type,$(DOC_TYPES),$(eval $(DOC_TYPE_TASKS)))
