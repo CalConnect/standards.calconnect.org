@@ -17,6 +17,6 @@ metanorma:
       - src-documents/cc-dav-push/sources/cc-70025.adoc
   collection:
     organization: "CalConnect"
-    name: "CalConnect Standards Documents"
+    name: "Standards"
   template:
     path: ../../_relaton_templates

@@ -5,6 +5,6 @@ metanorma:
       - src-documents/cc-general-recurrence/sources/cc-18012.adoc
   collection:
     organization: "CalConnect"
-    name: "CalConnect Documents Pending Publication"
+    name: "Pending Publication"
   template:
     path: ../../_relaton_templates

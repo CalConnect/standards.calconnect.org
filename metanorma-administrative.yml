@@ -127,6 +127,6 @@ metanorma:
       - src-documents/cc-admin-documents/sources/cc-1903-report-conference-46/document.adoc
   collection:
     organization: "CalConnect"
-    name: "CalConnect Administrative Documents"
+    name: "Administrative Documents"
   template:
     path: ../../_relaton_templates
