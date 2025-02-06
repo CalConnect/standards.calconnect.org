@@ -129,4 +129,4 @@ metanorma:
     organization: "CalConnect"
     name: "Administrative Documents"
   template:
-    path: ../../_relaton_templates
+    path: ../../../_relaton_templates

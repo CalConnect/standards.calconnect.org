@@ -6,4 +6,4 @@ metanorma:
     organization: "CalConnect"
     name: "Documents under Internal Review"
   template:
-    path: ../../_relaton_templates
+    path: ../../../_relaton_templates
