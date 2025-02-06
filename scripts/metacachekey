@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+# This script aims to provide a fingerprinting mechanism for Metanorma and 
+# Jekyll builds.
+
 DEBUG = ENV['DEBUG'] || ''
 VERSION = '0.0.1'
 
