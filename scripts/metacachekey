@@ -116,7 +116,16 @@ def parse_command(args)
       @dependencies += METANORMA_DEPENDENCIES
 
       require 'yaml'
-      @dependencies += YAML.load_file(metanorma_yaml).dig('metanorma', 'source', 'files')
+      loaded_yaml = YAML.load_file(metanorma_yaml)
+
+      # Look under `metanorma.source.files` for dependencies
+      @dependencies += loaded_yaml.dig('metanorma', 'source', 'files') || []
+
+      # Look under `metanorma.template` for dependencies
+      %w(path stylesheet).each do |template_data_key|
+        template_data = loaded_yaml.dig('metanorma', 'template', template_data_key)
+        @dependencies << template_data if ! template_data.nil?
+      end
 
       puts get_fingerprint(
         'metanorma',
