@@ -18,6 +18,13 @@ JEKYLL_BUNDLE = JEKYLL=1 bundle
 
 # This is used to generate `make` targets for each doc type.
 DOC_TYPES := administrative standard public-review pending-publication
+# This is used to generate `metanorma.source.files` for each doc type,
+# which is the same as `DOC_TYPES` except for `public-review` and
+# `pending-publication`.
+REPOPULATING_DOC_TYPES := \
+	administrative \
+	standard \
+
 
 # Selectively define the output directory based on the doc type.
 # Here, the doc type `standard` will output to `standards`, and all others will
@@ -39,7 +46,7 @@ endef
 $(foreach doc_type,$(DOC_TYPES),$(eval $(DOC_TYPE_TASKS)))
 
 .PHONY: repopulate-metanorma-yamls
-repopulate-metanorma-yamls: $(addprefix repopulate-metanorma-yaml-,$(DOC_TYPES))
+repopulate-metanorma-yamls: $(addprefix repopulate-metanorma-yaml-,$(REPOPULATING_DOC_TYPES))
 
 .PHONY: build-all-parallel
 build-all-parallel: _site build-parallel
