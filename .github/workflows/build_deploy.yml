@@ -60,23 +60,20 @@ jobs:
   # build using `metanorma site generate`.
   #
   build-docs:
-    name: Build ${{ matrix.doc_type.name }} docs
+    name: Build ${{ matrix.doc_type }} docs
     runs-on: ubuntu-latest
     container:
       image: metanorma/metanorma:latest
     strategy:
       matrix:
         doc_type:
-          - name: administrative
-          - name: directive
-          - name: pending-publication
-          - name: public-review
-          - name: report
-            site_name: reports
-          - name: specification
-            site_name: specifications
-          - name: standard
-            site_name: standards
+          - administrative
+          - directive
+          - pending-publication
+          - public-review
+          - report
+          - specification
+          - standard
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -89,10 +86,10 @@ jobs:
         with:
           destination: artifact
           agree-to-terms: true
-          output-dir: _site/${{ matrix.doc_type.site_name || matrix.doc_type.name }}
-          artifact-name: metanorma-${{ matrix.doc_type.name }}-docs
+          output-dir: _site/${{ matrix.doc_type }}
+          artifact-name: metanorma-${{ matrix.doc_type }}-docs
           source-path: src-documents
-          config-file: metanorma-${{ matrix.doc_type.name }}.yml
+          config-file: metanorma-${{ matrix.doc_type }}.yml
 
   #
   # At the very end, integrate them all with Jekyll.
