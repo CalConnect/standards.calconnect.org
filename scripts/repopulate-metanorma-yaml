@@ -20,6 +20,17 @@ err() {
   printf "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: \e[1;31mError:\e[m %b\n" "$*"
 } >&2
 
+_debug() {
+  printf "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: \e[1;33mDebug:\e[m %b\n" "$*"
+} >&2
+
+debug() {
+  if [[ -n "${DEBUG}" ]]
+  then
+    _debug "$@"
+  fi
+} >&2
+
 ecdo() {
   log "Running: $*"
   "$@"
@@ -27,6 +38,7 @@ ecdo() {
 
 DOC_TYPE="${DOC_TYPE:-}"
 DOC_CLASS="${DOC_CLASS:-}"
+BASE_DIR="${BASE_DIR:-}"
 
 show_usage() {
   cat <<'EOF'
@@ -42,6 +54,11 @@ Parameters:
   TARGET_YAML     The metanorma YAML file where its `metanorma.source.files`
                   is to be populated with the list of adoc file paths
                   (relative to the metanorma YAML file).
+
+Optional environment variables:
+  BASE_DIR        Its value will be stripped from the paths in the metanorma
+                  YAML files
+                  (default: empty)
 
 Mandatory environment variables:
   DOC_TYPE        The :doctype: to filter by
@@ -59,7 +76,36 @@ populate-target-yaml() {
   local tmp_file
   tmp_file=$(mktemp)
 
-  adocs_json=$(scripts/get-all-doc-paths-of-type "${subdir}" "${DOC_TYPE}" "${DOC_CLASS}" | jq -R . | jq -s .)
+  adoc_paths=()
+
+  while read -r line
+  do
+    adoc_paths+=("$line")
+  done < <(\
+    # Technically, these env vars are already set in the parent shell.
+    # Just to be explicit here.
+    DOC_TYPE="${DOC_TYPE}" \
+    DOC_CLASS="${DOC_CLASS}" \
+    scripts/get-all-doc-paths-of-type "${subdir}" | jq -R .)
+
+  if [[ -n "${BASE_DIR}" ]]
+  then
+    debug "Stripping ${BASE_DIR} from the paths"
+
+    # Basically adoc_paths.map{|p| p.gsub(%r{^"#{BASE_DIR}/}, '"')}
+    adoc_paths=("${adoc_paths[@]/#\"${BASE_DIR%/}\//\"}")
+
+    if [[ -n "${DEBUG:-}" ]]
+    then
+      for adoc in "${adoc_paths[@]}"
+      do
+        _debug "Stripped path: ${adoc}"
+      done
+    fi
+  fi
+
+  # Slurp back into a JSON array
+  adocs_json=$(for a in "${adoc_paths[@]}"; do echo "$a"; done | jq -s .)
 
   # Add the adoc file paths to the target
   yq \
