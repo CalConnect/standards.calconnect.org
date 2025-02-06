@@ -205,7 +205,12 @@ jobs:
 
   upload-artifact:
     name: Upload pages artifact
-    needs: [build-site, build-administrative, build-standard]
+    needs:
+      - build-site
+      - build-administrative
+      - build-pending-publication
+      - build-public-review
+      - build-standard
     runs-on: ubuntu-latest
     steps:
       # NOTE: Order is important.
@@ -216,6 +221,16 @@ jobs:
         with:
           name: jekyll-site
           path: _site
+      - name: Download Public Review docs artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: public-review-docs
+          path: _site/public-review
+      - name: Download Pending Publication docs artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: pending-publication-doc
+          path: _site/pending-publication
       - name: Download Standard docs artifacts
         uses: actions/download-artifact@v4
         with:
