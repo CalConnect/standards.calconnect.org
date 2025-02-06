@@ -43,118 +43,27 @@ make all
 make _site
 ----
 
-== Structure (and how it works)
+== Structure
 
 === General
 
-There are two types of input entries to this site:
+Run the following command to update the list of CC documents in the site:
 
-. CSD document entries
+```sh
+make repopulate-metanorma-yamls
 
-. Relaton entries (pure bibliographic entries)
+# Behind the scene,
 
-All input is placed under the `_input/` directory.
+DOC_TYPE=standard \
+DOC_CLASS=cc \
+  scripts/repopulate-metanorma-yaml src-documents  src-documents/metanorma-standard.yml
 
+DOC_TYPE=administrative \
+DOC_CLASS=cc \
+  scripts/repopulate-metanorma-yaml src-documents  src-documents/metanorma-administrative.yml
 
-=== Input: CSD document entries
-
-This repository accepts CSD document entries in CSD XML format, all stored under the `_input/csd/` directory,
-and gets generated into the `csd/` directory.
-
-NOTE: The CSD XML format is described https://github.com/metanorma/metanorma-cc[here^].
-
-Every CSD XML document is embedded with metadata information in Relaton format, including title, identifier(s), author(s) and date information.
-
-. Every CSD XML document under `_input/csd/` is copied to the output directory `csd/`.
-
-. A Relaton XML is generated of the same base filename, using the `metanorma -R foo.rxl foo.xml` command from the https://github.com/metanorma/metanorma-cli[`metanorma-cli` gem^]. For example, for a CSD XML file `csd/csd-patent-policy.xml`, the created Relaton XML file is `csd/csd-pateht-policy.rxl`.
-
-. Every CSD XML document under `csd/` is also used to generate the proper output formats using the `metanorma` command, including PDF, HTML and Word. All of these output files are placed in the same directory, `csd/`.
-
-. All of the Relaton XML entries from the `csd/` directory is provided in the `bib/` directory, with individual Relaton XML (`.rxl`) and Relaton YAML (`.yaml`) files. This relies on usage of the `relaton` commands from the https://github.com/riboseinc/relaton-cli/[`relaton-cli` gem].
-
-** In addition, the `relaton concatenate` command detects the existence of related output files for the CSD entry, such as the PDF, HTML, Word files, and links them into their corresponding entry in `csd/foo.rxl`.
-
-. All bibliographic information for these CSD files are also provided in the `bib/` directory (as described in the next section).
-
-
-=== Input: Bibliographic entries
-
-Bibliographic entries in Relaton format are entered in:
-
-* `_input/external.yaml` for externally managed (i.e. non CSD) files
-* `_input/admin.yaml` for administrative files
-
-All bibliographic information is generated into the `bib/` directory.
-
-NOTE: Relaton is a bibliographic model developed for ISO 690, the International Standard for citations. Relaton currently supports Relaton-XML (`.xml` or `.rxl`) and Relaton-YAML (`.yaml`) formats. More details about Relaton can be found https://github.com/relaton/relaton-models[here^].
-
-These are entries that are either:
-
-* managed outside of this repository (i.e. they are not generated using information provided in this repository)
-
-* does not provide a public draft (in CSD XML) but would like the entry to be displayed in this site.
-
-NOTE: The filename prefix of `external` indicates that the actual documents are managed outside of this repository (i.e. they are not generated using information provided in this repository).
-
-The basic structure of `_input/%.yaml` is in a format called "`Relaton-YAML`", and looks like this.
-
-[source,yaml]
-----
-root:
-  author: CalConnect
-  title: CalConnect Standards Registry
-  items:
-    - technical_committee: PUBLISH
-      docidentifier: "CC/NP 36000"
-      doctype: standard
-      title: Standardization documents -- Vocabulary
-      stage: proposal
-      revdate: 2018-10-25
-    - technical_committee: DATETIME
-      ...
-----
-
-The `_input/%.yaml` file specifies a "`bibliographic group`" using a Relaton Collection. This YAML file represents a collection of bibliographic entries.
-
-* Each bibliographic entry is placed under the `items` key.
-
-* Each bibliographic entry can have the following attributes:
-
-** `technical_committee: {TCNAME}`: is the name of the TC that owns this work item. Please exclude the prefix "`TC`" in there as it will be automatically generated. e.g. `DATETIME` for `TC DATETIME` will suffice. It has a data type of "`string`".
-
-** `docidentifier: "{prefix} {doc-number}"` provides the full document identifier, including the prefix, stage codes, and the document number of the work item. You may also specify the edition year suffix, such as, "`:2019`" at the end. e.g. `CC/DIR/FDS 10001:2019`. It has a data type of "`string`".
-
-** `doctype: {doctype}` provides the document type of the document. These currently include `directive`, `standard`, `guide`, `specification`, `report`, `amendment`, `technical-corrigendum`, `administrative`, and `advisory`. Please refer to CC/DIR 10001 for document types of CalConnect Standardization deliverables. It has a data type of "`string`".
-
-** `title: {title}` is the document title. If there are funny characters in it (it shouldn't), remember to double quote the string. It has a data type of "`string`".
-
-** `stage: {stage}` is the string representation of the stage identifier. This attribute accepts the following stage codes `proposal`, `working-draft`, `committee-draft`, `draft-standard`, `final-draft`, `withdrawn`, `cancelled`. It has a data type of "`string`".
-
-** `revdate: 2018-10-25` is the date when the document was last updated. It is optional and accepts the ISO 8601-1 date format. A full date-time could be provided, but the "`time`" is not rendered in the index. It has a data type of "`date`".
-
-
-The `_input/%.yaml` document is read. The `relaton yaml2xml` command from the https://github.com/relaton/relaton-cli/[`relaton-cli` gem^] does the following:
-
-* splits off each entry into its own Relaton XML file in a specified directory (`bib/*.rxl`)
-
-* converts the Relaton YAML collection into a Relaton XML collection called `_input/%.rxl`
-
-NOTE: While `_input/admin.yaml` and `_input/external.yaml` are static input files, the `_input/csd.yaml` (and `_input/csd.rxl`) files are dynamically built from documents in the `_input/csd` directory.
-
-
-=== Combining document and pure bibliographic entries
-
-All `csd/*.rxl` files are copied into `bib/` so that all Relaton XML files are in the same directory.
-
-The `relaton concatenate` command is used to:
-
-* Combine the `csd/*.rxl` entries into `_input/csd.xml`, including all CSD-extracted bibliographic entries in the Relaton XML collection
-
-The `relaton xml2yaml` command is used to:
-
-* Convert the `_input/csd.rxl` entries into `_input/csd.yaml`, and also split the bibliographic entries into `bib/*.yaml`
-
+# ... and so on, for other doc types, if any
+```
 
 
 === Sorting of entries
@@ -166,20 +75,16 @@ Sorting of the entries is by reverse sort order of the `revdate` attribute of do
 
 === Rendering of HTML
 
-https://jekyllrb.com[Jekyll^] is used to compile the HTML site from the Relaton files in `bib/` and `csd/` directories.
+https://jekyllrb.com[Jekyll^] is used to compile the HTML site,
+and https://github.com/metanorma/metanorma-cli[metanorma-cli^]
+is used to compile CC documents via Metanorma YAML files.
 
 In particular, our `Makefile` builds a new directory `_documents` from the data from `bib/`,
 as a Jekyll collection:
 
-* Jekyll collections don't support YAML files (files that end with `.yaml`). The `Makefile` converts them into
-AsciiDoc files (`.adoc`) by changing the file extension and adding the `---` at the end of each file.
-
 * The Jekyll collection, called `documents`, is used in the following pages:
 
-** `_pages/administrative.adoc`
-** `_pages/standards.adoc`
 ** `_pages/public-review.adoc`
-** `_pages/administrative.adoc`
 
 * In `_config.yml`, it specifies that the `document` collection uses the layout `document`
   which allows rendering a separate page per document.
@@ -188,12 +93,12 @@ AsciiDoc files (`.adoc`) by changing the file extension and adding the `---` at 
 
 === Install
 
-You will need to have Ruby 2.3+ installed.
+You will need to have Ruby 3.3+ installed.
 
 [source,sh]
 ----
-bundle
 make update-init
+make prep
 ----
 
 
@@ -205,17 +110,10 @@ make update-init
 --
 [source,sh]
 ----
-pushd ~/published-csd/
-cp ../csd-doc/my-csd-xml.xml .
-git add my-csd-xml.xml
-git commit -m 'Add my-csd-xml.xml'
-git push
-popd
-
 pushd ~/standards.calconnect.org
-make update-module
-git add _input/csd
-git commit -m 'Update to use latest CSD documents'
+make update-modules
+git add src-documents
+git commit -m 'chore: Update to use latest CC documents'
 git push
 ----
 
