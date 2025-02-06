@@ -54,7 +54,7 @@ repopulate-metanorma-yaml-$(doc_type):
 
 .PHONY: build-$(doc_type)
 build-$(doc_type):
-	$(PREFIX_CMD) metanorma site generate -o _site/$(call site_output,$(doc_type)) -c metanorma-$(doc_type).yml
+	$(PREFIX_CMD) metanorma site generate -o _site/$(call site_output,$(doc_type)) -c src-documents/metanorma-$(doc_type).yml
 endef
 
 $(foreach doc_type,$(DOC_TYPES),$(eval $(DOC_TYPE_TASKS)))
