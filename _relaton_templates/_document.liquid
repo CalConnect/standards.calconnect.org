@@ -16,8 +16,8 @@
     </div>
 
     <div class="doc-type-wrap">
-      <div class="doc-type {{ document.type | downcase | split: " " | join: "-" }}">
-      {{ document.type }}
+      <div class="doc-type {{ document.ext.doctype.type | downcase | split: " " | join: "-" }}">
+      {{ document.ext.doctype.type }}
       </div>
     </div>
 
