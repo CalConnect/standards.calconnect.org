@@ -40,10 +40,9 @@ nav {
     display: flex;
   }
 
-  @media #{variables.$large-and-up} {
-    a.button-collapse { display: none; }
-  }
-
+  // @media #{variables.$large-and-up} {
+  //   a.button-collapse { display: none; }
+  // }
 
   // Collapse button
   .button-collapse {
