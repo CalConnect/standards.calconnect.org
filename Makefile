@@ -16,18 +16,6 @@ clean:
 
 JEKYLL_BUNDLE = bundle
 
-# This is used to generate `make` targets for each doc type.
-DOC_TYPES := \
-	administrative \
-	standard \
-	public-review \
-	pending-publication \
-	report \
-	directive \
-	specification \
-
-
-
 # This is used to generate `metanorma.source.files` for each doc type,
 # which is the same as `DOC_TYPES` except for `public-review` and
 # `pending-publication`.
@@ -38,6 +26,13 @@ REPOPULATING_DOC_TYPES := \
 	directive \
 	specification \
 
+
+
+# This is used to generate `make` targets for each doc type.
+DOC_TYPES := \
+	$(REPOPULATING_DOC_TYPES) \
+	public-review \
+	pending-publication \
 
 
 
