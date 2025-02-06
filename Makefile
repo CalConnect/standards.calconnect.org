@@ -39,7 +39,10 @@ DOC_TYPES := \
 define DOC_TYPE_TASKS
 .PHONY: repopulate-metanorma-yaml-$(doc_type)
 repopulate-metanorma-yaml-$(doc_type):
-	DOC_TYPE=$(doc_type) DOC_CLASS=cc scripts/repopulate-metanorma-yaml src-documents src-documents/metanorma-$(doc_type).yml
+	DOC_TYPE=$(doc_type) \
+	DOC_CLASS=cc \
+	BASE_DIR=src-documents \
+		scripts/repopulate-metanorma-yaml src-documents src-documents/metanorma-$(doc_type).yml
 
 .PHONY: build-$(doc_type)
 build-$(doc_type):
