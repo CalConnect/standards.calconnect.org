@@ -48,6 +48,14 @@ Bibliographic details for every document can be downloaded in the Relaton XML fo
 
 * link:/specification[CalConnect Specifications]
 
+* link:/advisory[CalConnect Advisories]
+
+* link:/amendment[CalConnect Amendments]
+
+* link:/technical-corrigendum[CalConnect Technical Corrigenda]
+
+* link:/guide[CalConnect Guides]
+
 
 == Disclaimer
 
