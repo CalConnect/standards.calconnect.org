@@ -1,8 +1,8 @@
 metanorma:
   source:
     files:
-      - src-documents/cc-datetime-explicit/sources/cc-18011.adoc
-      - src-documents/cc-general-recurrence/sources/cc-18012.adoc
+      - cc-datetime-explicit/sources/cc-18011.adoc
+      - cc-general-recurrence/sources/cc-18012.adoc
   collection:
     organization: "CalConnect"
     name: "Pending Publication"

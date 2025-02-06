@@ -1,18 +1,18 @@
 metanorma:
   source:
     files:
-      - src-documents/cc-admin-documents/sources/cc-0505-questionnaire-results-recurrence/document.adoc
-      - src-documents/cc-admin-documents/sources/cc-0507-caldav-use-cases/document.adoc
-      - src-documents/cc-admin-documents/sources/cc-0601-miniop-usecases-1.0/document.adoc
-      - src-documents/cc-admin-documents/sources/cc-0601-miniop-usecases-v1.1/document.adoc
-      - src-documents/cc-admin-documents/sources/cc-0701-miniop-usecases-tasks/document.adoc
-      - src-documents/cc-admin-documents/sources/cc-0706-ioptest-suite/document.adoc
-      - src-documents/cc-admin-documents/sources/cc-0706-ioptest-suite-v1.1/document.adoc
-      - src-documents/cc-admin-documents/sources/cc-0903-freebusy-read-url/document.adoc
-      - src-documents/cc-admin-documents/sources/cc-0906-resources-usecases/document.adoc
-      - src-documents/cc-admin-documents/sources/cc-1004-calws-api/document.adoc
-      - src-documents/cc-admin-documents/sources/cc-1202-calws-soap/document.adoc
-      - src-documents/cc-admin-documents/sources/cc-1301-calws-soap/document.adoc
+      - cc-admin-documents/sources/cc-0505-questionnaire-results-recurrence/document.adoc
+      - cc-admin-documents/sources/cc-0507-caldav-use-cases/document.adoc
+      - cc-admin-documents/sources/cc-0601-miniop-usecases-1.0/document.adoc
+      - cc-admin-documents/sources/cc-0601-miniop-usecases-v1.1/document.adoc
+      - cc-admin-documents/sources/cc-0701-miniop-usecases-tasks/document.adoc
+      - cc-admin-documents/sources/cc-0706-ioptest-suite/document.adoc
+      - cc-admin-documents/sources/cc-0706-ioptest-suite-v1.1/document.adoc
+      - cc-admin-documents/sources/cc-0903-freebusy-read-url/document.adoc
+      - cc-admin-documents/sources/cc-0906-resources-usecases/document.adoc
+      - cc-admin-documents/sources/cc-1004-calws-api/document.adoc
+      - cc-admin-documents/sources/cc-1202-calws-soap/document.adoc
+      - cc-admin-documents/sources/cc-1301-calws-soap/document.adoc
   collection:
     organization: "CalConnect"
     name: "Specifications"
