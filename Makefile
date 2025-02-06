@@ -27,8 +27,8 @@ $(if $(filter standard,$(1)),standards,$(1))
 endef
 
 define DOC_TYPE_TASKS
-.PHONY: repopulate-metanormal-yaml-$(doc_type)
-repopulate-metanormal-yaml-$(doc_type):
+.PHONY: repopulate-metanorma-yaml-$(doc_type)
+repopulate-metanorma-yaml-$(doc_type):
 	DOC_TYPE=$(doc_type) DOC_CLASS=cc scripts/repopulate-metanorma-yaml src-documents metanorma-$(doc_type).yml
 
 .PHONY: build-$(doc_type)
@@ -38,8 +38,8 @@ endef
 
 $(foreach doc_type,$(DOC_TYPES),$(eval $(DOC_TYPE_TASKS)))
 
-.PHONY: repopulate-metanormal-yamls
-repopulate-metanormal-yamls: $(addprefix repopulate-metanormal-yaml-,$(DOC_TYPES))
+.PHONY: repopulate-metanorma-yamls
+repopulate-metanorma-yamls: $(addprefix repopulate-metanorma-yaml-,$(DOC_TYPES))
 
 .PHONY: build-all-parallel
 build-all-parallel: _site build-parallel
