@@ -25,6 +25,10 @@ REPOPULATING_DOC_TYPES := \
 	report \
 	directive \
 	specification \
+	advisory \
+	amendment \
+	technical-corrigendum \
+	guide \
 
 
 
@@ -66,6 +70,10 @@ build-parallel:
 	make build-report & \
 	make build-specification & \
 	make build-directive & \
+	make build-amendment & \
+	make build-technical-corrigendum & \
+	make build-advisory & \
+	make build-guide & \
 	wait
 
 .PHONY: build

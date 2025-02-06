@@ -1,0 +1,8 @@
+metanorma:
+  source:
+    files: []
+  collection:
+    organization: "CalConnect"
+    name: "Amendments"
+  template:
+    path: ../../_relaton_templates
