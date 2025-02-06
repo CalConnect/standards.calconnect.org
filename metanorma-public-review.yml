@@ -1,0 +1,9 @@
+metanorma:
+  source:
+    files:
+      - src-documents/cc-iso-psdo-agreement/sources/cc-10010.adoc
+  collection:
+    organization: "CalConnect"
+    name: "CalConnect Documents under Public Review"
+  template:
+    path: ../../_relaton_templates

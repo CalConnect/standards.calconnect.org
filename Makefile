@@ -17,7 +17,7 @@ clean:
 JEKYLL_BUNDLE = JEKYLL=1 bundle
 
 # This is used to generate `make` targets for each doc type.
-DOC_TYPES := administrative standard
+DOC_TYPES := administrative standard public-review pending-publication
 
 # Selectively define the output directory based on the doc type.
 # Here, the doc type `standard` will output to `standards`, and all others will
@@ -48,6 +48,8 @@ build-all-parallel: _site build-parallel
 build-parallel:
 	make build-standard & \
 	make build-administrative & \
+	make build-public-review & \
+	make build-pending-publication & \
 	wait
 
 .PHONY: build
