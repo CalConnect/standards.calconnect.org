@@ -7,6 +7,9 @@
     {% render 'header' %}
     <main>
       <div class="container">
+        {% if title %}
+          <h2>{{ title }}</h1>
+        {% endif %}
         {% render 'document' for documents %}
       </div>
     </main>

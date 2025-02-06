@@ -4,6 +4,6 @@ metanorma:
       - src-documents/cc-iso-psdo-agreement/sources/cc-10010.adoc
   collection:
     organization: "CalConnect"
-    name: "CalConnect Documents under Public Review"
+    name: "Documents under Internal Review"
   template:
     path: ../../_relaton_templates
