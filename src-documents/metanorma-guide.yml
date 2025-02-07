@@ -2,7 +2,7 @@ metanorma:
   source:
     files: []
   collection:
-    organization: "CalConnect"
-    name: "Guides"
+    organization: CalConnect
+    name: Guides
   template:
     path: ../../_relaton_templates

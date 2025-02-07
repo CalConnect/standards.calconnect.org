@@ -2,7 +2,7 @@ metanorma:
   source:
     files: []
   collection:
-    organization: "CalConnect"
-    name: "Technical Corrigenda"
+    organization: CalConnect
+    name: Technical Corrigenda
   template:
     path: ../../_relaton_templates

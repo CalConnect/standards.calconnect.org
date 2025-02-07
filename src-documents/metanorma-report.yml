@@ -15,7 +15,7 @@ metanorma:
       - cc-admin-documents/sources/cc-1012-ical-intro-v1.1/document.adoc
       - cc-admin-documents/sources/cc-1104-cs-index/document.adoc
   collection:
-    organization: "CalConnect"
-    name: "Reports"
+    organization: CalConnect
+    name: Reports
   template:
     path: ../../_relaton_templates
