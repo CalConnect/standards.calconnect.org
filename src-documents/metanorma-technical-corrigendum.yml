@@ -1,7 +1,7 @@
 metanorma:
   source:
     files:
-      - src-documents/empty_index.adoc
+      - empty_index.adoc
   collection:
     organization: CalConnect
     name: Technical Corrigenda
