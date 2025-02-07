@@ -97,12 +97,11 @@ jobs:
   #
   # At the very end, integrate them all with Jekyll.
   #
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  check-artifacts:
+    name: Check aggregating artifacts with site
     runs-on: ubuntu-latest
     needs: [build-site, build-docs]
+    if: ${{ github.ref != 'refs/heads/main' }}
     steps:
       - name: Download Jekyll artifacts
         uses: actions/download-artifact@v4
@@ -117,11 +116,22 @@ jobs:
           merge-multiple: true
       - name: Debug
         run: |
-          ls -l
-          ls -l _site || :
-          ls -l _site/administrative || :
-          ls -l _site/standards || :
+          ls -al
+          ls -alR _site
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+
+  #
+  # Deploy to GitHub Pages
+  #
+  deploy:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: check-artifacts
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
-        if: ${{ github.ref == 'refs/heads/main' }}
         id: deployment
         uses: actions/deploy-pages@v4
