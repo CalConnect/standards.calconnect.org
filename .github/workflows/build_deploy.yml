@@ -91,7 +91,7 @@ jobs:
           destination: artifact
           agree-to-terms: true
           output-dir: _site/${{ matrix.doc_type }}
-          artifact-name: metanorma-${{ matrix.doc_type }}-docs
+          artifact-name: ${{ matrix.doc_type }}
           source-path: ./
           config-file: src-documents/metanorma-${{ matrix.doc_type }}.yml
 
@@ -114,7 +114,7 @@ jobs:
         with:
           pattern: "metanorma-*-docs"
           path: _site
-          merge-multiple: true
+          merge-multiple: false
       - name: Debug
         run: |
           ls -al
