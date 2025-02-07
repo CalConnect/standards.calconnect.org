@@ -46,6 +46,7 @@ repopulate-metanorma-yaml-$(doc_type):
 	DOC_TYPE=$(doc_type) \
 	DOC_CLASS=cc \
 	BASE_DIR=src-documents \
+	EMPTY_ADOC=empty_index.adoc \
 		scripts/repopulate-metanorma-yaml src-documents src-documents/metanorma-$(doc_type).yml
 
 .PHONY: build-$(doc_type)
