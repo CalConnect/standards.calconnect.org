@@ -4,7 +4,7 @@ metanorma:
       - cc-datetime-explicit/sources/cc-18011.adoc
       - cc-general-recurrence/sources/cc-18012.adoc
   collection:
-    organization: "CalConnect"
-    name: "Pending Publication"
+    organization: CalConnect
+    name: Pending Publication
   template:
     path: ../../src-documents/_relaton_templates
