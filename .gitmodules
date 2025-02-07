@@ -1,9 +1,6 @@
 [submodule "cc-admin-documents"]
 	path = src-documents/cc-admin-documents
 	url = https://github.com/CalConnect/cc-admin-documents
-[submodule "src-documents/cc-presentation-framework"]
-	path = src-documents/cc-presentation-framework
-	url = https://github.com/CalConnect/cc-presentation-framework.git
 [submodule "src-documents/cc-calspam-bcp"]
 	path = src-documents/cc-calspam-bcp
 	url = https://github.com/CalConnect/cc-calspam-bcp.git
