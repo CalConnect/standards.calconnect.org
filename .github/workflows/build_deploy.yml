@@ -91,7 +91,7 @@ jobs:
           destination: artifact
           agree-to-terms: true
           output-dir: _site/${{ matrix.doc_type }}
-          artifact-name: ${{ matrix.doc_type }}
+          artifact-name: metanorma-${{ matrix.doc_type }}-docs
           source-path: ./
           config-file: src-documents/metanorma-${{ matrix.doc_type }}.yml
 
