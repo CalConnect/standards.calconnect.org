@@ -17,4 +17,4 @@ metanorma:
     organization: CalConnect
     name: Specifications
   template:
-    path: ../../_relaton_templates
+    path: ../../src-documents/_relaton_templates

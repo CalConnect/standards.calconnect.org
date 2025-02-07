@@ -19,4 +19,4 @@ metanorma:
     organization: CalConnect
     name: Standards
   template:
-    path: ../../_relaton_templates
+    path: ../../src-documents/_relaton_templates
