@@ -74,6 +74,10 @@ jobs:
           - report
           - specification
           - standard
+          - advisory
+          - amendment
+          - guide
+          - technical-corrigendum
     steps:
       - name: Checkout
         uses: actions/checkout@v4
