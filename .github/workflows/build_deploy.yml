@@ -67,17 +67,17 @@ jobs:
     strategy:
       matrix:
         doc_type:
-          # - administrative
-          # - directive
-          # - pending-publication
-          # - public-review
-          # - report
-          # - specification
-          # - standard
+          - administrative
+          - directive
+          - pending-publication
+          - public-review
+          - report
+          - specification
+          - standard
           - advisory
-          # - amendment
+          - amendment
           - guide
-          # - technical-corrigendum
+          - technical-corrigendum
     steps:
       - name: Checkout
         uses: actions/checkout@v4
