@@ -14,7 +14,7 @@ metanorma:
       - cc-admin-documents/sources/cc-1202-calws-soap/document.adoc
       - cc-admin-documents/sources/cc-1301-calws-soap/document.adoc
   collection:
-    organization: "CalConnect"
-    name: "Specifications"
+    organization: CalConnect
+    name: Specifications
   template:
     path: ../../_relaton_templates

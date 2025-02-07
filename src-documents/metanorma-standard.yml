@@ -16,7 +16,7 @@ metanorma:
       - cc-admin-documents/sources/cc-0703-caldav-scheduling-reqs/document.adoc
       - cc-dav-push/sources/cc-70025.adoc
   collection:
-    organization: "CalConnect"
-    name: "Standards"
+    organization: CalConnect
+    name: Standards
   template:
     path: ../../_relaton_templates

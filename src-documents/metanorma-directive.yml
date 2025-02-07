@@ -7,7 +7,7 @@ metanorma:
       - cc-directive-document-requirements/sources/cc-10002.adoc
       - cc-directive-standardization-publication/sources/cc-10001.adoc
   collection:
-    organization: "CalConnect"
-    name: "Directives"
+    organization: CalConnect
+    name: Directives
   template:
     path: ../../_relaton_templates
