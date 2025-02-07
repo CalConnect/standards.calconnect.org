@@ -92,8 +92,8 @@ jobs:
           agree-to-terms: true
           output-dir: _site/${{ matrix.doc_type }}
           artifact-name: metanorma-${{ matrix.doc_type }}-docs
-          source-path: src-documents
-          config-file: metanorma-${{ matrix.doc_type }}.yml
+          source-path: ./
+          config-file: src-documents/metanorma-${{ matrix.doc_type }}.yml
 
   #
   # At the very end, integrate them all with Jekyll.
