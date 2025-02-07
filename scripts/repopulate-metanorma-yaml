@@ -39,6 +39,7 @@ ecdo() {
 DOC_TYPE="${DOC_TYPE:-}"
 DOC_CLASS="${DOC_CLASS:-}"
 BASE_DIR="${BASE_DIR:-}"
+EMPTY_ADOC="${EMPTY_ADOC:-}"
 
 show_usage() {
   cat <<'EOF'
@@ -58,6 +59,11 @@ Parameters:
 Optional environment variables:
   BASE_DIR        Its value will be stripped from the paths in the metanorma
                   YAML files
+                  (default: empty)
+
+  EMPTY_ADOC      Its value will be inserted to the `metanorma.source.files`
+                  if no adoc files are found to match $DOC_TYPE and $DOC_CLASS.
+                  Is not affected by $BASE_DIR.
                   (default: empty)
 
 Mandatory environment variables:
@@ -92,7 +98,8 @@ populate-target-yaml() {
   then
     debug "Stripping ${BASE_DIR} from the paths"
 
-    # Basically adoc_paths.map{|p| p.gsub(%r{^"#{BASE_DIR}/}, '"')}
+    # Basically adoc_paths.map{|p| p.gsub(%r{^"#{BASE_DIR}/}, '"')}.
+    # Keep the double quotes for jq.
     adoc_paths=("${adoc_paths[@]/#\"${BASE_DIR%/}\//\"}")
 
     if [[ -n "${DEBUG:-}" ]]
@@ -102,6 +109,13 @@ populate-target-yaml() {
         _debug "Stripped path: ${adoc}"
       done
     fi
+  fi
+
+  # If no adoc files are found, insert the value of $EMPTY_ADOC
+  if [[ -n "${EMPTY_ADOC:-}" && ${#adoc_paths[@]} = 0 ]]
+  then
+    # Put in double quotes for jq.
+    adoc_paths=("\"$EMPTY_ADOC\"")
   fi
 
   # Slurp back into a JSON array
