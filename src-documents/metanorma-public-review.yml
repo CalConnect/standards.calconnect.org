@@ -3,7 +3,7 @@ metanorma:
     files:
       - cc-iso-psdo-agreement/sources/cc-10010.adoc
   collection:
-    organization: "CalConnect"
-    name: "Documents under Internal Review"
+    organization: CalConnect
+    name: Documents under Internal Review
   template:
     path: ../../src-documents/_relaton_templates
