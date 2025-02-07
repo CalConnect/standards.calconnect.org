@@ -126,7 +126,7 @@ populate-target-yaml() {
     --argjson d "$adocs_json" \
     '.metanorma.source.files = $d' \
     "${target}" \
-    --yaml-roundtrip > "${tmp_file}"
+    --yaml-output > "${tmp_file}"
 
   mv "${tmp_file}" "${target}"
 }
