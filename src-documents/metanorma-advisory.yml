@@ -1,13 +1,13 @@
 metanorma:
   source:
     files:
-      - cc-dst-recommendations/sources/cc-0707.adoc
-      - cc-dst-recommendations/sources/cc-18018.adoc
-      - cc-admin-documents/sources/cc-0514-dst-adv-notice/document.adoc
-      - cc-admin-documents/sources/cc-0611-ical-benefits/document.adoc
-      - cc-admin-documents/sources/cc-0707-edst-reflections-v1/document.adoc
-      - cc-admin-documents/sources/cc-0707-edst-reflections-v1.1/document.adoc
-      - cc-admin-documents/sources/cc-0709-dst-links/document.adoc
+      - src-documents/cc-dst-recommendations/sources/cc-0707.adoc
+      - src-documents/cc-dst-recommendations/sources/cc-18018.adoc
+      - src-documents/cc-admin-documents/sources/cc-0514-dst-adv-notice/document.adoc
+      - src-documents/cc-admin-documents/sources/cc-0611-ical-benefits/document.adoc
+      - src-documents/cc-admin-documents/sources/cc-0707-edst-reflections-v1/document.adoc
+      - src-documents/cc-admin-documents/sources/cc-0707-edst-reflections-v1.1/document.adoc
+      - src-documents/cc-admin-documents/sources/cc-0709-dst-links/document.adoc
   collection:
     organization: CalConnect
     name: Advisories
