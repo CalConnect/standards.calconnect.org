@@ -1,19 +1,19 @@
 metanorma:
   source:
     files:
-      - cc-wto-tbt-principles/sources/cc-10100.adoc
-      - cc-admin-documents/sources/cc-0602-ical-tz-problems/document.adoc
-      - cc-admin-documents/sources/cc-0604-ical-recurrence-problems/document.adoc
-      - cc-admin-documents/sources/cc-0708-dst-review/document.adoc
-      - cc-admin-documents/sources/cc-0805-mobile-recurrence-iop/document.adoc
-      - cc-admin-documents/sources/cc-0904-xcal/document.adoc
-      - cc-admin-documents/sources/cc-0905-state-of-resource-iop/document.adoc
-      - cc-admin-documents/sources/cc-0907-miniop-resource-info/document.adoc
-      - cc-admin-documents/sources/cc-1011-calws-rest-v1/document.adoc
-      - cc-admin-documents/sources/cc-1011-calws-rest-v1.0.1/document.adoc
-      - cc-admin-documents/sources/cc-1012-ical-intro-v1/document.adoc
-      - cc-admin-documents/sources/cc-1012-ical-intro-v1.1/document.adoc
-      - cc-admin-documents/sources/cc-1104-cs-index/document.adoc
+      - src-documents/cc-wto-tbt-principles/sources/cc-10100.adoc
+      - src-documents/cc-admin-documents/sources/cc-0602-ical-tz-problems/document.adoc
+      - src-documents/cc-admin-documents/sources/cc-0604-ical-recurrence-problems/document.adoc
+      - src-documents/cc-admin-documents/sources/cc-0708-dst-review/document.adoc
+      - src-documents/cc-admin-documents/sources/cc-0805-mobile-recurrence-iop/document.adoc
+      - src-documents/cc-admin-documents/sources/cc-0904-xcal/document.adoc
+      - src-documents/cc-admin-documents/sources/cc-0905-state-of-resource-iop/document.adoc
+      - src-documents/cc-admin-documents/sources/cc-0907-miniop-resource-info/document.adoc
+      - src-documents/cc-admin-documents/sources/cc-1011-calws-rest-v1/document.adoc
+      - src-documents/cc-admin-documents/sources/cc-1011-calws-rest-v1.0.1/document.adoc
+      - src-documents/cc-admin-documents/sources/cc-1012-ical-intro-v1/document.adoc
+      - src-documents/cc-admin-documents/sources/cc-1012-ical-intro-v1.1/document.adoc
+      - src-documents/cc-admin-documents/sources/cc-1104-cs-index/document.adoc
   collection:
     organization: CalConnect
     name: Reports

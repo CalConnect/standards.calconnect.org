@@ -1,7 +1,7 @@
 metanorma:
   source:
     files:
-      - empty_index.adoc
+      - src-documents/empty_index.adoc
   collection:
     organization: CalConnect
     name: Amendments
