@@ -1,6 +1,7 @@
 metanorma:
   source:
-    files: []
+    files:
+      - empty_index.adoc
   collection:
     organization: CalConnect
     name: Guides
