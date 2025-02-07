@@ -91,7 +91,7 @@ jobs:
           destination: artifact
           agree-to-terms: true
           output-dir: _site/${{ matrix.doc_type }}
-          artifact-name: metanorma-${{ matrix.doc_type }}-docs
+          artifact-name: metanorma-docs-${{ matrix.doc_type }}
           source-path: ./
           config-file: src-documents/metanorma-${{ matrix.doc_type }}.yml
 
@@ -112,9 +112,15 @@ jobs:
       - name: Download all doc artifacts
         uses: actions/download-artifact@v4
         with:
-          pattern: "metanorma-*-docs"
+          pattern: "metanorma-docs-*"
           path: _site
           merge-multiple: false
+      - name: Fix doc artifacts paths
+        shell: bash
+        run: |
+          for dir in _site/metanorma-docs-*; do
+            mv "$dir" "${dir/metanorma-docs-}"
+          done
       - name: Debug
         run: |
           ls -al
