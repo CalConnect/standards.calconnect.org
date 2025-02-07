@@ -12,4 +12,4 @@ metanorma:
     organization: CalConnect
     name: Advisories
   template:
-    path: ../../_relaton_templates
+    path: ../../src-documents/_relaton_templates
