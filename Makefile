@@ -63,18 +63,7 @@ build-all-parallel: _site build-parallel
 
 .PHONY: build-parallel
 build-parallel:
-	make build-standard & \
-	make build-administrative & \
-	make build-public-review & \
-	make build-pending-publication & \
-	make build-report & \
-	make build-specification & \
-	make build-directive & \
-	make build-amendment & \
-	make build-technical-corrigendum & \
-	make build-advisory & \
-	make build-guide & \
-	wait
+	$(foreach doc_type,$(DOC_TYPES),make build-$(doc_type) &) wait
 
 .PHONY: build
 build: $(addprefix build-,$(DOC_TYPES))
