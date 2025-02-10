@@ -1,7 +1,12 @@
+:main-branch: main
+:repo-name: standards.calconnect.org
+:ruby-version: 3.3
+
+[subs="attributes"]
 = CalConnect Standards Registry
 
-image:https://github.com/CalConnect/standards.calconnect.org/actions/workflows/build_deploy.yml/badge.svg[
-	Build Status, link="https://github.com/CalConnect/standards.calconnect.org/actions/workflows/build_deploy.yml"]
+image:https://github.com/CalConnect/{repo-name}/actions/workflows/build_deploy.yml/badge.svg[
+	Build Status, link="https://github.com/CalConnect/{repo-name}/actions/workflows/build_deploy.yml"]
 
 == Introduction
 
@@ -17,42 +22,99 @@ The site is managed by TC PUBLISH.
 
 == Sites
 
-[cols="a,a,a",options="header"]
+[cols="a,a,a",options="header",subs="attributes"]
 |===
 |Site | Git branch | URL
 
-|Production | `master`  | https://standards.calconnect.org
+|Production | `{main-branch}`  | https://standards.calconnect.org
 // |Staging    | `staging` | https://staging.standards.calconnect.org
 
 |===
 
-All sites are automatically deployed from their respective branches.
+The Production site is the live site,
+which is automatically deployed from changes to the `{main-branch}` branch.
 
-== Building the index
+// All sites are automatically deployed from their respective branches.
+
+== Quick start
 
 [source,sh]
 ----
-# removes all generated CSD files
-make distclean
-
-# makes everything except _site
-# (if we're using `make serve`, we don't need to pre-build)
-make all
-
-# generates all required files for Jekyll and runs `jekyll build`
-make _site
+# Install dependencies and build everything into `_site/`
+make build-all-parallel
 ----
 
-== Structure
+
+== Project Structure
 
 === General
 
-Run the following command to update the list of CC documents in the site:
+The site sources its content from the `src-documents` directory,
+which contains Git submodules of the various CalConnect documents.
 
-```sh
-make repopulate-metanorma-yamls
+The directory also contains Metanorma YAML files,
+which are used to compile the documents into HTML, PDF, and XML formats.
 
-# Behind the scene,
+There is also a `_relaton_templates/` directory,
+which contains https://shopify.github.io/liquid/[liquid^] templates
+for rending HTML via
+https://www.relaton.org/specs/relaton-cli/#relaton-xml2html[Relaton^],
+as well as an `empty_index.adoc` file,
+for displaying the index page for any empty document collections.
+
+The `src-documents` directory is structured as follows:
+
+```
+src-documents/
+├── cc-doc-repo-1/
+├── cc-doc-repo-2/
+├── cc-doc-repo-.../
+├── _relaton_templates/
+│   ├── _document.liquid
+│   ├── _index.liquid
+│   └── ...
+├── empty_index.adoc
+├── metanorma-administrative.yml
+├── metanorma-standard.yml
+├── metanorma-....yml
+└── ...
+```
+
+
+
+=== Software Stack
+
+https://jekyllrb.com[Jekyll^] is used to compile the HTML site,
+and https://github.com/metanorma/metanorma-cli[metanorma-cli^]
+is used to compile CC documents via Metanorma YAML files.
+
+=== Supporting Scripts
+
+==== General
+
+There are several scripts (located in the `scripts/` directory) that are
+available to help manage the site.
+
+Normally, these scripts are run via the `make` command,
+so there is no need to run them directly.
+
+
+==== link:./scripts/repopulate-metanorma-yaml[`scripts/repopulate-metanorma-yaml`^]
+
+This is to populate a target YAML's `metanorma.source.files` with a list of
+`.adoc` file paths that are of the specified `:mn-document-class:` and
+`:doctype:`,
+that are found in a specified directory.
+
+Run the following command to update the list of CC documents to be displayed in
+the site:
+
+[source,sh]
+----
+make repopulate-metanorma-yamls-parallel
+# Or `make repopulate-metanorma-yamls` for a serial run
+
+# Behind the scene, something like this is run:
 
 DOC_TYPE=standard \
 DOC_CLASS=cc \
@@ -63,67 +125,157 @@ DOC_CLASS=cc \
   scripts/repopulate-metanorma-yaml src-documents  src-documents/metanorma-administrative.yml
 
 # ... and so on, for other doc types, if any
-```
+----
 
 
-=== Sorting of entries
+==== link:./scripts/get-all-doc-paths-of-type[`scripts/get-all-doc-paths-of-type`^]
 
-Sorting of the entries is by reverse sort order of the `revdate` attribute of documents.
+This returns all `.adoc` file paths of a certain `:doctype:` and
+`:mn-document-class:` in a specified directory.
 
-//TODO: (the numeric portion of the document identifier, say, `13001` of `CC/DIR/WD 13001:2018`)
+
+==== link:./scripts/add-all-cc-repos-as-submodules[`scripts/add-all-cc-repos-as-submodules`^]
+
+This adds all repositories, which satisfy the following conditions,
+to the `DOCS_SUBDIR` directory as submodules:
+
+- repository organization matches given `ORG`
+- repository name matchs the given `PREFIX` (default: `CalConnect/cc-`)
+
+NOTE: This was used to initialize the `src-documents/` directory, and is not
+normally used in the day-to-day management of the site.
 
 
-=== Rendering of HTML
+==== link:./scripts/get-all-cc-repos[`scripts/get-all-cc-repos`^]
 
-https://jekyllrb.com[Jekyll^] is used to compile the HTML site,
-and https://github.com/metanorma/metanorma-cli[metanorma-cli^]
-is used to compile CC documents via Metanorma YAML files.
-
-In particular, our `Makefile` builds a new directory `_documents` from the data from `bib/`,
-as a Jekyll collection:
-
-* The Jekyll collection, called `documents`, is used in the following pages:
-
-** `_pages/public-review.adoc`
-
-* In `_config.yml`, it specifies that the `document` collection uses the layout `document`
-  which allows rendering a separate page per document.
+This returns, as a JSON string, all repositories in an organization that match
+a prefix (default: `CalConnect/cc-`).
 
 == Usage
 
-=== Install
+=== Install dependencies
 
-You will need to have Ruby 3.3+ installed.
+You will need to have https://www.ruby-lang.org/en/downloads/[Ruby {ruby-version}+^]
+installed.
+
+Initialize all document submodules,
+and install all necessary dependencies:
 
 [source,sh]
 ----
-make update-init
 make prep
 ----
 
 
-=== How to add/remove entries?
+=== Build the site
 
-* Bibliographic entry: add an entry in `_input/external.yaml` under the `items:` key.
+After dependencies have been installed,
+you can build the site by running:
 
-* CSD document entry: add your CSD XML file to the https://github.com/CalConnect/document-register[`document-register`^] repo (push it), and update the submodule `_input/csd` here. It can be done here as easy as `make update-modules`:
---
 [source,sh]
 ----
-pushd ~/standards.calconnect.org
-make update-modules
-git add src-documents
-git commit -m 'chore: Update to use latest CC documents'
-git push
+make build-all-parallel
+# Or `make build-all` for a serial run
 ----
 
---
+There are two stages to building the index site,
+of which the order is important:
 
-On the next run of `make clean _site` you will see your entry added to the site.
+1. Building the site itself (Jekyll)
+1. Building the document artifacts (Metanorma)
+
+The above command will take care of both stages.
 
 
-=== Deployment
+==== Building the site using GitHub Actions
 
-Please push all changes to the `staging` branch, and changes will be automatically deployed and reflected on the staging site.
+The site is automatically built and deployed using GitHub Actions
+using the workflow defined in link:.github/workflows/build_deploy.yml[^].
 
-If your changes are to be made public to the production site, please contact TC PUBLISH.
+A successful build will upload and store (within a time limit)
+the built site artifacts on GitHub,
+accessible by the name `github-pages`,
+under the "Artifacts" block on the "Summary" page tab of the build job.
+
+The downloaded zip archive can be extracted locally for inspection
+as well as local testing.
+
+
+=== View the built site locally
+
+To view the site locally, you have the option to run any local server,
+_e.g._ https://www.npmjs.com/package/serve[`npx serve`^]:
+
+[source,sh]
+----
+npx serve _site
+----
+
+WARNING: `jekyll serve` (or `make serve`) is not recommended
+as it does not build the site first,
+risking the document artifacts being removed by the Jekyll process.
+
+
+=== How to add/remove documents?
+
+Documents are added to the site by adding a the document repository as a Git
+submodule to the `src-documents` directory,
+then updating the Metanorma YAML file list.
+
+Conversely, removal of documents is done by removing the submodule,
+then also updating the Metanorma YAML file list.
+
+
+==== Adding a document repository
+
+[source,sh,subs="attributes"]
+----
+pushd ~/{repo-name}
+
+git submodule add $DOCUMENT_REPOSITORY_URL src-documents/$DOCUMENT_REPO_NAME
+make repopulate-metanorma-yamls-parallel
+
+git add src-documents
+git commit -m "chore: Add CC documents ($DOCUMENT_REPO_NAME)" && \
+  git push
+----
+
+
+==== Removing a document repository
+
+[source,sh,subs="attributes"]
+----
+pushd ~/{repo-name}
+
+git submodule rm src-documents/$DOCUMENT_REPO_NAME
+make repopulate-metanorma-yamls-parallel
+
+git add src-documents
+git commit -m "chore: Remove CC documents ($DOCUMENT_REPO_NAME)" && \
+  git push
+----
+
+
+=== How to get the latest versions of each document?
+
+[source,sh,subs="attributes"]
+----
+pushd ~/{repo-name}
+
+make update-documents
+make repopulate-metanorma-yamls-parallel  # May not be necessary if no new docs
+
+git add src-documents
+git commit -m 'chore: Update to use latest CC documents' && \
+  git push
+----
+
+On the next run of `make clean build-all-parallel`,
+you will see your updates made to the site.
+
+
+// === Deployment
+
+// Please push all changes to the `staging` branch, and changes will be automatically deployed and reflected on the staging site.
+
+// If your changes are to be made public to the production site, please contact TC PUBLISH.
