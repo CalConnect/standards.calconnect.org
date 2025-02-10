@@ -5,6 +5,7 @@
 # (default: src-documents)
 #
 
+VERSION="0.0.1"
 
 log() {
   printf "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: %b\n" "$*"
@@ -19,13 +20,20 @@ ecdo() {
   "$@"
 }
 
+# BOOK KEEPING
 DOC_TYPE="${DOC_TYPE:-}"
 DOC_CLASS="${DOC_CLASS:-}"
 FAILED_ADOCS=()
 SUCCESS_ADOCS=()
 ADOC_REFERENCES=()
+COMMAND=
 
 print-summary() {
+  if [[ "${COMMAND:-}" = flags ]]
+  then
+    return
+  fi
+
   if [[ -z "${DOC_TYPE}" || -z "${DOC_CLASS}" ]]
   then
     show_usage
@@ -205,33 +213,48 @@ record-adoc-references() {
 }
 
 show_usage() {
-  cat <<EOF
-Usage: $0 [subdir]
+  COMMAND=flags
 
-  Get all adoc paths of a certain :doctype: and :mn-document-class: in a directory
+  local prog_name="\e[1m${0}\e[22m"
+  printf "%b" "Usage: $prog_name [subdir]
+       $prog_name [-h|--help]
+       $prog_name --version
 
-Parameters:
-  subdir  The directory to search for metanorma YAML files (default: src-documents)
+  Get all adoc paths of a certain \e[4m:doctype:\e[24m and \e[4m:mn-document-class:\e[24m in a
+  directory.
 
-Mandatory environment variables:
-  DOC_TYPE    The :doctype: to filter by
-  DOC_CLASS   The :mn-document-class: to filter by
+\e[4mFlags:\e[24m
+  --version   Print the version and exit
+  --help      Print this help message and exit
 
-EOF
+\e[4mParameters:\e[24m
+  subdir      The directory to search for metanorma YAML files
+              (default: src-documents)
 
-  }
+\e[4mMandatory environment variables:\e[24m
+  DOC_TYPE    The \e[4m:doctype:\e[24m to filter by
+  DOC_CLASS   The \e[4m:mn-document-class:\e[24m to filter by
+
+"
+
+}
 
 main() {
-  local subdir="${1:-src-documents}"
-
-  DOC_TYPE="${DOC_TYPE-administrative}"
-  DOC_CLASS="${DOC_CLASS-cc}"
-
   if [[ "$1" == "-h" || "$1" == "--help" ]]
   then
     show_usage
     exit 0
+  elif [[ "$1" == "--version" ]]
+  then
+    COMMAND=flags
+    echo "${0} v${VERSION}"
+    exit 0
   fi
+
+  local subdir="${1:-src-documents}"
+
+  DOC_TYPE="${DOC_TYPE-administrative}"
+  DOC_CLASS="${DOC_CLASS-cc}"
 
   if [[ ! -d "${subdir}" ]]
   then

@@ -20,15 +20,41 @@ def warning(*args)
 end
 
 def print_usage
+  prog_name = "\e[1m#{$0}\e[22m"
   STDERR.puts <<~USAGE
-    Usage: #{$0} FILE_OR_DIR...
+    Usage: #{prog_name} FILE_OR_DIR...
+           #{prog_name} [-h|--help]
+           #{prog_name} --version
+
+      Hash files and directories using SHA256.
+
+    \e[4mFlags:\e[24m
+      --version  Print the version and exit
+      --help     Print this help message and exit
+
+    \e[4mArguments:\e[24m
+      FILE_OR_DIR  The file or directory to hash
+
+    \e[4mEnvironment:\e[24m
+      DEBUG       Enable debug output
+
   USAGE
+  
 end
 
 def main(*args)
   if args.empty?
     print_usage
     exit 1
+  else
+    case args[0]
+    when '--version'
+      puts "#{$0} v#{VERSION}"
+      exit 0
+    when '--help','-h'
+      print_usage
+      exit 0
+    end
   end
   hash_files(*args)
 end

@@ -3,6 +3,8 @@
 # Get all repositories in an organization that match a prefix
 # (default: CalConnect/cc-)
 
+VERSION="0.0.1"
+
 ORG="${ORG:-CalConnect}"
 PREFIX="${PREFIX:-cc-}"
 
@@ -87,7 +89,38 @@ filter-size() {
   command jq 'map(select(.size > 0))'
 }
 
+show_usage() {
+  local prog_name="\e[1m${0}\e[22m"
+  printf "%b" "Usage: $prog_name SUBDIR TARGET_YAML
+       $prog_name [-h|--help]
+       $prog_name --version
+
+  Get all repositories in an organization that match a prefix
+
+\e[4mFlags:\e[24m
+  --version  Print the version and exit
+  --help     Print this help message and exit
+
+\e[4mMandatory environment variables:\e[24m
+  ORG        The organization to search for repositories
+  PREFIX     The prefix (of a repository name) to search repositories by
+
+"
+
+}
+
 main() {
+
+  if [[ "$1" == "-h" || "$1" == "--help" ]]
+  then
+    show_usage
+    exit 0
+  elif [[ "$1" == "--version" ]]
+  then
+    echo "${0} v${VERSION}"
+    exit 0
+  fi
+
   # Start from page 1.
   get-page 1 \
     | slurp-into-one-array \

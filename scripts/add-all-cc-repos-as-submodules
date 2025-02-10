@@ -4,6 +4,8 @@
 # (default: `CalConnect/cc-`)
 # ... to the DOCS_SUBDIR directory (default: `src-documents`) as submodules.
 
+VERSION="0.0.1"
+
 log() {
   echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $*"
 } >&2
@@ -16,9 +18,15 @@ err() {
 REPO_URLS=()
 SUCCESSES=()
 FAILURES=()
+COMMAND=
 
 # Print a summary of the downloads
 print_summary() {
+  if [[ "${COMMAND:-}" = flags ]]
+  then
+    return
+  fi
+
   log "Submoduled ${#SUCCESSES[@]} out of ${#REPO_URLS[@]} repos"
   if [[ "${#FAILURES[@]}" -gt 0 ]]
   then
@@ -37,7 +45,45 @@ ecdo() {
 
 trap print_summary EXIT
 
+show_usage() {
+  COMMAND=flags
+
+  local prog_name="\e[1m${0}\e[22m"
+  printf "%b" "Usage: $prog_name
+       $prog_name [-h|--help]
+       $prog_name --version
+
+  Add all repositories (that match a PREFIX, and in an ORG organization)
+  to the DOCS_SUBDIR directory as submodules.
+
+\e[4mFlags:\e[24m
+  --version      Print the version and exit
+  --help         Print this help message and exit
+
+\e[4mOptional environment variables:\e[24m
+  ORG            The organization to search for repositories
+                 (default: CalConnect)
+  PREFIX         The prefix to match repository names
+                 (default: cc-)
+  DOCS_SUBDIR    The directory to add the repositories as submodules
+                 (default: src-documents)
+
+"
+}
+
 main() {
+
+  if [[ "$1" == "-h" || "$1" == "--help" ]]
+  then
+    show_usage
+    exit 0
+  elif [[ "$1" == "--version" ]]
+  then
+    COMMAND=flags
+    echo "${0} v${VERSION}"
+    exit 0
+  fi
+
   ORG="${ORG:-CalConnect}"
   PREFIX="${PREFIX:-cc-}"
   DOCS_SUBDIR="${DOCS_SUBDIR:-src-documents}"
