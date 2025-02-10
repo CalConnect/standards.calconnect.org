@@ -57,7 +57,7 @@ which are used to compile the documents into HTML, PDF, and XML formats.
 
 There is also a `_relaton_templates/` directory,
 which contains https://shopify.github.io/liquid/[liquid^] templates
-for rending HTML via
+for rendering HTML via
 https://www.relaton.org/specs/relaton-cli/#relaton-xml2html[Relaton^],
 as well as an `empty_index.adoc` file,
 for displaying the index page for any empty document collections.
