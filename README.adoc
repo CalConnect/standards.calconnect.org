@@ -45,6 +45,130 @@ make build-all-parallel
 ----
 
 
+== Usage
+
+=== Install dependencies
+
+You will need to have https://www.ruby-lang.org/en/downloads/[Ruby {ruby-version}+^]
+installed.
+
+Initialize all document submodules,
+and install all necessary dependencies:
+
+[source,sh]
+----
+make prep
+----
+
+
+=== Build the site
+
+After dependencies have been installed,
+you can build the site by running:
+
+[source,sh]
+----
+make build-all-parallel
+# Or `make build-all` for a serial run
+----
+
+There are two stages to building the index site,
+of which the order is important:
+
+1. Building the site itself (Jekyll)
+1. Building the document artifacts (Metanorma)
+
+The above command will take care of both stages.
+
+
+==== Building the site using GitHub Actions
+
+The site is automatically built and deployed using GitHub Actions
+using the workflow defined in link:.github/workflows/build_deploy.yml[^].
+
+A successful build will upload and store (within a time limit)
+the built site artifacts on GitHub,
+accessible by the name `github-pages`,
+under the "Artifacts" block on the "Summary" page tab of the build job.
+
+The downloaded zip archive can be extracted locally for inspection
+as well as local testing.
+
+
+=== View the built site locally
+
+To view the site locally, you have the option to run any local server,
+_e.g._ https://www.npmjs.com/package/serve[`npx serve`^]:
+
+[source,sh]
+----
+npx serve _site
+----
+
+WARNING: `jekyll serve` (or `make serve`) is not recommended
+as it does not build the site first,
+risking the document artifacts being removed by the Jekyll process.
+
+
+=== How to add/remove documents?
+
+Documents are added to the site by adding a the document repository as a Git
+submodule to the `src-documents` directory,
+then updating the Metanorma YAML file list.
+
+Conversely, removal of documents is done by removing the submodule,
+then also updating the Metanorma YAML file list.
+
+
+==== Adding a document repository
+
+[source,sh,subs="attributes"]
+----
+pushd ~/{repo-name}
+
+git submodule add $DOCUMENT_REPOSITORY_URL src-documents/$DOCUMENT_REPO_NAME
+make repopulate-metanorma-yamls-parallel
+
+git add src-documents
+git commit -m "chore: Add CC documents ($DOCUMENT_REPO_NAME)" && \
+  git push
+----
+
+
+==== Removing a document repository
+
+[source,sh,subs="attributes"]
+----
+pushd ~/{repo-name}
+
+git submodule rm src-documents/$DOCUMENT_REPO_NAME
+make repopulate-metanorma-yamls-parallel
+
+git add src-documents
+git commit -m "chore: Remove CC documents ($DOCUMENT_REPO_NAME)" && \
+  git push
+----
+
+
+=== How to get the latest versions of each document?
+
+[source,sh,subs="attributes"]
+----
+pushd ~/{repo-name}
+
+make update-documents
+make repopulate-metanorma-yamls-parallel  # May not be necessary if no new docs
+
+git add src-documents
+git commit -m 'chore: Update to use latest CC documents' && \
+  git push
+----
+
+On the next run of `make clean build-all-parallel`,
+you will see your updates made to the site.
+
+
+
 == Project Structure
 
 === Software Stack
@@ -178,127 +302,6 @@ normally used in the day-to-day management of the site.
 This returns, as a JSON string, all repositories in an organization that match
 a prefix (default: `CalConnect/cc-`).
 
-== Usage
-
-=== Install dependencies
-
-You will need to have https://www.ruby-lang.org/en/downloads/[Ruby {ruby-version}+^]
-installed.
-
-Initialize all document submodules,
-and install all necessary dependencies:
-
-[source,sh]
-----
-make prep
-----
-
-
-=== Build the site
-
-After dependencies have been installed,
-you can build the site by running:
-
-[source,sh]
-----
-make build-all-parallel
-# Or `make build-all` for a serial run
-----
-
-There are two stages to building the index site,
-of which the order is important:
-
-1. Building the site itself (Jekyll)
-1. Building the document artifacts (Metanorma)
-
-The above command will take care of both stages.
-
-
-==== Building the site using GitHub Actions
-
-The site is automatically built and deployed using GitHub Actions
-using the workflow defined in link:.github/workflows/build_deploy.yml[^].
-
-A successful build will upload and store (within a time limit)
-the built site artifacts on GitHub,
-accessible by the name `github-pages`,
-under the "Artifacts" block on the "Summary" page tab of the build job.
-
-The downloaded zip archive can be extracted locally for inspection
-as well as local testing.
-
-
-=== View the built site locally
-
-To view the site locally, you have the option to run any local server,
-_e.g._ https://www.npmjs.com/package/serve[`npx serve`^]:
-
-[source,sh]
-----
-npx serve _site
-----
-
-WARNING: `jekyll serve` (or `make serve`) is not recommended
-as it does not build the site first,
-risking the document artifacts being removed by the Jekyll process.
-
-
-=== How to add/remove documents?
-
-Documents are added to the site by adding a the document repository as a Git
-submodule to the `src-documents` directory,
-then updating the Metanorma YAML file list.
-
-Conversely, removal of documents is done by removing the submodule,
-then also updating the Metanorma YAML file list.
-
-
-==== Adding a document repository
-
-[source,sh,subs="attributes"]
-----
-pushd ~/{repo-name}
-
-git submodule add $DOCUMENT_REPOSITORY_URL src-documents/$DOCUMENT_REPO_NAME
-make repopulate-metanorma-yamls-parallel
-
-git add src-documents
-git commit -m "chore: Add CC documents ($DOCUMENT_REPO_NAME)" && \
-  git push
-----
-
-
-==== Removing a document repository
-
-[source,sh,subs="attributes"]
-----
-pushd ~/{repo-name}
-
-git submodule rm src-documents/$DOCUMENT_REPO_NAME
-make repopulate-metanorma-yamls-parallel
-
-git add src-documents
-git commit -m "chore: Remove CC documents ($DOCUMENT_REPO_NAME)" && \
-  git push
-----
-
-
-=== How to get the latest versions of each document?
-
-[source,sh,subs="attributes"]
-----
-pushd ~/{repo-name}
-
-make update-documents
-make repopulate-metanorma-yamls-parallel  # May not be necessary if no new docs
-
-git add src-documents
-git commit -m 'chore: Update to use latest CC documents' && \
-  git push
-----
-
-On the next run of `make clean build-all-parallel`,
-you will see your updates made to the site.
 
 
 // === Deployment
