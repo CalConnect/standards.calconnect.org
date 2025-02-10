@@ -11,6 +11,7 @@
 # that are of the specified `:mn-document-class:` and `:doctype:`.
 #
 
+VERSION="0.0.1"
 
 log() {
   printf "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: %b\n" "$*"
@@ -42,35 +43,38 @@ BASE_DIR="${BASE_DIR:-}"
 EMPTY_ADOC="${EMPTY_ADOC:-}"
 
 show_usage() {
-  cat <<'EOF'
-Usage: $0 SUBDIR TARGET_YAML
+  local prog_name="\e[1m${0}\e[22m"
 
-  Populate the YAML's `metanorma.source.files` with a list of adoc file paths
-  that are of the specified `:mn-document-class:` and `:doctype:`.
+  printf "%b" "Usage: $prog_name SUBDIR TARGET_YAML
+       $prog_name [-h|--help]
+       $prog_name --version
 
-Parameters:
+  Populate the YAML's \e[4mmetanorma.source.files\e[24m with a list of adoc file paths
+  that are of the specified \e[4m:mn-document-class:\e[24m and \e[4m:doctype:\e[24m.
+
+\e[4mParameters\e[24m:
   SUBDIR          The directory to search for metanorma YAML files
                   (default: src-documents)
 
-  TARGET_YAML     The metanorma YAML file where its `metanorma.source.files`
+  TARGET_YAML     The metanorma YAML file where its \e[4mmetanorma.source.files\e[24m
                   is to be populated with the list of adoc file paths
                   (relative to the metanorma YAML file).
 
-Optional environment variables:
+\e[4mOptional environment variables\e[24m:
   BASE_DIR        Its value will be stripped from the paths in the metanorma
                   YAML files
                   (default: empty)
 
-  EMPTY_ADOC      Its value will be inserted to the `metanorma.source.files`
-                  if no adoc files are found to match $DOC_TYPE and $DOC_CLASS.
-                  Is not affected by $BASE_DIR.
+  EMPTY_ADOC      Its value will be inserted to the \e[4mmetanorma.source.files\e[24m
+                  if no adoc files are found to match DOC_TYPE and DOC_CLASS.
+                  Is not affected by BASE_DIR.
                   (default: empty)
 
-Mandatory environment variables:
-  DOC_TYPE        The :doctype: to filter by
-  DOC_CLASS       The :mn-document-class: to filter by
+\e[4mMandatory environment variables\e[24m:
+  DOC_TYPE        The \e[4m:doctype:\e[24m to filter by
+  DOC_CLASS       The \e[4m:mn-document-class:\e[24m to filter by
 
-EOF
+"
 
 }
 
@@ -132,6 +136,16 @@ populate-target-yaml() {
 }
 
 main() {
+  if [[ "$1" == "-h" || "$1" == "--help" ]]
+  then
+    show_usage
+    exit 0
+  elif [[ "$1" == "--version" ]]
+  then
+    echo "${0} v${VERSION}"
+    exit 0
+  fi
+
   local subdir="${1:-src-documents}"
   local target="${2:?Missing target metanorma YAML file}"
 
@@ -140,12 +154,6 @@ main() {
 
   log "DOC_TYPE is ${DOC_TYPE}"
   log "DOC_CLASS is ${DOC_CLASS}"
-
-  if [[ "$1" == "-h" || "$1" == "--help" ]]
-  then
-    show_usage
-    exit 0
-  fi
 
   if [[ ! -d "${subdir}" ]]
   then

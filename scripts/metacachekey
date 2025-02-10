@@ -132,7 +132,10 @@ def parse_command(args)
         hash_files(@dependencies),
       )
 
-  when 'version' then
+  when '--help', '-h' then
+      print_usage
+      exit
+  when '--version' then
       puts "#{$0} v#{VERSION}"
       exit
   else
@@ -153,10 +156,28 @@ def hash_files(args)
 end
 
 def print_usage
+  prog_name = "\e[1m#{$0}\e[22m"
   STDERR.puts <<~EOF
-    Usage: #{$0} jekyll    PATH/TO/CONFIG.YML
-           #{$0} metanorma PATH/TO/METANORMA.YML
-           #{$0} version
+    Usage: #{prog_name} jekyll    PATH/TO/CONFIG.YML
+           #{prog_name} metanorma PATH/TO/METANORMA.YML
+           #{prog_name} [-h|--help]
+           #{prog_name} --version
+
+      Return a fingerprint for the given Metanorma or Jekyll build.
+
+    \e[4mFlags:\e[24m
+      --version        Print the version and exit
+      --help           Print this help message and exit
+    
+    \e[4mEnvironment:\e[24m
+      DEBUG            Enable debug output
+      HASH_META        Set to \e[4mfalse\e[24m to disable hashing of this script and 
+                       \e[4mhash_files\e[24m (a dependency of this script, which is
+                       specified by HASH_FILES_BIN)
+      HASH_FILES_BIN   The path (relative to the repository root) of
+                       the executable that returns the SHA256 digest of
+                       the given files and directories
+
   EOF
 end
 
