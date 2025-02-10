@@ -282,7 +282,8 @@ DOC_CLASS=cc \
 ==== link:./scripts/get-all-doc-paths-of-type[`scripts/get-all-doc-paths-of-type`^]
 
 This returns all `.adoc` file paths of a certain `:doctype:` and
-`:mn-document-class:` in a specified directory.
+`:mn-document-class:` in a specified directory,
+as a list of newline-separated paths.
 
 
 ==== link:./scripts/add-all-cc-repos-as-submodules[`scripts/add-all-cc-repos-as-submodules`^]

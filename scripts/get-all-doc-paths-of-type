@@ -220,8 +220,8 @@ show_usage() {
        $prog_name [-h|--help]
        $prog_name --version
 
-  Get all adoc paths of a certain \e[4m:doctype:\e[24m and \e[4m:mn-document-class:\e[24m in a
-  directory.
+  Return all adoc paths of a certain \e[4m:doctype:\e[24m and \e[4m:mn-document-class:\e[24m
+  in a directory, as a list of newline-separated paths.
 
 \e[4mFlags:\e[24m
   --version   Print the version and exit
