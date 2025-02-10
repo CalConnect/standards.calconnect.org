@@ -75,6 +75,10 @@ repopulate-metanorma-yamls-parallel:
 ## Build all the documents in sequence
 build: $(addprefix build-,$(DOC_TYPES))
 
+.PHONY: build-all
+## Build Jekyll, then build all the documents in sequence
+build-all: _site build
+
 .PHONY: build-parallel
 ## Build all the documents in parallel
 build-parallel:
