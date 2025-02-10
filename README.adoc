@@ -47,13 +47,20 @@ make build-all-parallel
 
 == Project Structure
 
+=== Software Stack
+
+https://jekyllrb.com[Jekyll^] is used to compile the HTML site,
+and https://github.com/metanorma/metanorma-cli[metanorma-cli^]
+is used to compile CC documents via Metanorma YAML files.
+
+
 === General
 
 The site sources its content from the `src-documents` directory,
 which contains Git submodules of the various CalConnect documents.
 
-The directory also contains Metanorma YAML files,
-which are used to compile the documents into HTML, PDF, and XML formats.
+The directory also contains the Metanorma YAML files
+necessary to compile the documents into various output formats.
 
 There is also a `_relaton_templates/` directory,
 which contains https://shopify.github.io/liquid/[liquid^] templates
@@ -81,12 +88,26 @@ src-documents/
 ```
 
 
+=== Metanorma YAML files
 
-=== Software Stack
+The Metanorma YAML files are used to specify the source document files
+(`.adoc` files) to be compiled by Metanorma.
 
-https://jekyllrb.com[Jekyll^] is used to compile the HTML site,
-and https://github.com/metanorma/metanorma-cli[metanorma-cli^]
-is used to compile CC documents via Metanorma YAML files.
+Each Metanorma YAML file corresponds to one Metanorma `:doctype:` that is used
+in CalConnect,
+and contains a list of `.adoc` file paths to be compiled,
+as well as a reference to the
+https://shopify.github.io/liquid/[liquid^]
+template directory to be used
+footnote:[The path is interpreted in the context of `./_site/$DOCTYPE/`].
+The template directory reference is passed to
+https://www.relaton.org/specs/relaton-cli/#relaton-xml2html[Relaton^]
+for the actual rendering of the HTML output.
+
+The `.adoc` file lists are populated by the `repopulate-metanorma-yaml`
+script
+(see <<scripts-repopulate-metanorma-yaml>>).
+
 
 === Supporting Scripts
 
@@ -99,30 +120,36 @@ Normally, these scripts are run via the `make` command,
 so there is no need to run them directly.
 
 
+[[scripts-repopulate-metanorma-yaml]]
 ==== link:./scripts/repopulate-metanorma-yaml[`scripts/repopulate-metanorma-yaml`^]
 
 This is to populate a target YAML's `metanorma.source.files` with a list of
 `.adoc` file paths that are of the specified `:mn-document-class:` and
 `:doctype:`,
-that are found in a specified directory.
+that are found in a specified directory (default: `src-documents/`).
 
-Run the following command to update the list of CC documents to be displayed in
+The following command updates the list of CC documents to be displayed in
 the site:
 
 [source,sh]
 ----
 make repopulate-metanorma-yamls-parallel
 # Or `make repopulate-metanorma-yamls` for a serial run
+----
 
-# Behind the scene, something like this is run:
+Behind the scene, something like this is run:
 
+[source,sh]
+----
 DOC_TYPE=standard \
 DOC_CLASS=cc \
-  scripts/repopulate-metanorma-yaml src-documents  src-documents/metanorma-standard.yml
+  scripts/repopulate-metanorma-yaml src-documents \
+    src-documents/metanorma-standard.yml
 
 DOC_TYPE=administrative \
 DOC_CLASS=cc \
-  scripts/repopulate-metanorma-yaml src-documents  src-documents/metanorma-administrative.yml
+  scripts/repopulate-metanorma-yaml src-documents \
+    src-documents/metanorma-administrative.yml
 
 # ... and so on, for other doc types, if any
 ----
