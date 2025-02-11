@@ -103,6 +103,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build-site, build-docs]
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
       - name: Download Jekyll artifacts
         uses: actions/download-artifact@v4
         with:
@@ -120,6 +123,15 @@ jobs:
           for dir in _site/metanorma-docs-*; do
             mv "$dir" "${dir/metanorma-docs-}"
           done
+      - name: Use Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: 3.3
+      - name: Build Relaton index files
+        shell: bash
+        run: |
+          make build-relaton
       - name: Debug
         if: ${{ github.ref != 'refs/heads/main' }}
         run: |
