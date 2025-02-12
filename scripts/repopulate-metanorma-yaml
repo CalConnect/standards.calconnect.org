@@ -21,6 +21,10 @@ err() {
   printf "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: \e[1;31mError:\e[m %b\n" "$*"
 } >&2
 
+warning() {
+  printf "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: \e[1;31mWarning:\e[m %b\n" "$*"
+} >&2
+
 _debug() {
   printf "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: \e[1;33mDebug:\e[m %b\n" "$*"
 } >&2
@@ -37,7 +41,7 @@ ecdo() {
   "$@"
 }
 
-DOC_TYPE="${DOC_TYPE:-}"
+DOC_TYPES="${DOC_TYPES:-}"
 DOC_CLASS="${DOC_CLASS:-}"
 BASE_DIR="${BASE_DIR:-}"
 EMPTY_ADOC="${EMPTY_ADOC:-}"
@@ -66,12 +70,13 @@ show_usage() {
                   (default: empty)
 
   EMPTY_ADOC      Its value will be inserted to the \e[4mmetanorma.source.files\e[24m
-                  if no adoc files are found to match DOC_TYPE and DOC_CLASS.
+                  if no adoc files are found to match DOC_TYPES and DOC_CLASS.
                   Is not affected by BASE_DIR.
                   (default: empty)
 
 \e[4mMandatory environment variables\e[24m:
-  DOC_TYPE        The \e[4m:doctype:\e[24m to filter by
+  DOC_TYPES       The \e[4m:doctype:\e[24m to filter by.  Multiple DOC_TYPES can
+                  be specified by separating them with a comma.
   DOC_CLASS       The \e[4m:mn-document-class:\e[24m to filter by
 
 "
@@ -94,7 +99,7 @@ populate-target-yaml() {
   done < <(\
     # Technically, these env vars are already set in the parent shell.
     # Just to be explicit here.
-    DOC_TYPE="${DOC_TYPE}" \
+    DOC_TYPES="${DOC_TYPES}" \
     DOC_CLASS="${DOC_CLASS}" \
     scripts/get-all-doc-paths-of-type "${subdir}" | jq -R .)
 
@@ -149,10 +154,10 @@ main() {
   local subdir="${1:-src-documents}"
   local target="${2:?Missing target metanorma YAML file}"
 
-  DOC_TYPE="${DOC_TYPE-administrative}"
+  DOC_TYPES="${DOC_TYPES-administrative}"
   DOC_CLASS="${DOC_CLASS-cc}"
 
-  log "DOC_TYPE is ${DOC_TYPE}"
+  log "DOC_TYPE is ${DOC_TYPES}"
   log "DOC_CLASS is ${DOC_CLASS}"
 
   if [[ ! -d "${subdir}" ]]
@@ -161,9 +166,9 @@ main() {
     exit 1
   fi
 
-  if [[ -z "${DOC_TYPE:-}" ]]
+  if [[ -z "${DOC_TYPES:-}" ]]
   then
-    err "DOC_TYPE is not set"
+    err "DOC_TYPES is not set"
     exit 1
   fi
 
@@ -175,8 +180,10 @@ main() {
 
   if [[ ! -r "${target}" ]]
   then
-    err "Target file ${target} is not readable."
-    exit 1
+    warning "Target file ${target} is not readable.  Creating it."
+    mkdir -p "${target%/*}"
+    touch "${target}"
+    yq '.metanorma.source.files=[]' -n --yaml-output > "${target}"
   fi
 
   populate-target-yaml "${target}"

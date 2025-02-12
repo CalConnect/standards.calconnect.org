@@ -47,27 +47,39 @@ REPOPULATING_DOC_TYPES := \
 	advisory \
 	amendment \
 	technical-corrigendum \
-	guide \
+	guide
 
 
 
 # This is used to generate `make` targets for each doc type.
-DOC_TYPES := \
-	$(REPOPULATING_DOC_TYPES) \
+DOC_TYPES := $(REPOPULATING_DOC_TYPES) \
 	public-review \
-	pending-publication \
+	pending-publication
 
 
+noop =
+space = $(noop) $(noop)
+comma = ,
 
-define DOC_TYPE_TASKS
-.PHONY: repopulate-metanorma-yaml-$(doc_type)
-## Update Metanorma YAML file (`metanorma.source.files`) for $(doc_type)
-repopulate-metanorma-yaml-$(doc_type):
-	DOC_TYPE=$(doc_type) \
+
+## Update Metanorma YAML file (`metanorma.source.files`) for all doc types
+src-documents/metanorma.yml:
+	DOC_TYPES=$(subst $(space),$(comma),$(REPOPULATING_DOC_TYPES)) \
 	DOC_CLASS=cc \
 	EMPTY_ADOC=src-documents/empty_index.adoc \
-		scripts/repopulate-metanorma-yaml src-documents src-documents/metanorma-$(doc_type).yml
+		scripts/repopulate-metanorma-yaml src-documents $@
 
+
+# TODO: replace `build` with `build-one` when relaton templates are updated to
+# handle multiple collections
+.PHONY: build-one
+## Build Metanorma document artifacts for $(doc_type)
+build-one: src-documents/metanorma.yml
+	$(METANORMA_PREFIX_CMD) metanorma site generate \
+		-o _site/ \
+		-c ./$^
+
+define DOC_TYPE_TASKS
 .PHONY: build-$(doc_type)
 ## Build Metanorma document artifacts for $(doc_type)
 build-$(doc_type):
@@ -77,15 +89,6 @@ build-$(doc_type):
 endef
 
 $(foreach doc_type,$(DOC_TYPES),$(eval $(DOC_TYPE_TASKS)))
-
-.PHONY: repopulate-metanorma-yamls
-## Update Metanorma YAML files (`metanorma.source.files`) for all doc types
-repopulate-metanorma-yamls: $(addprefix repopulate-metanorma-yaml-,$(REPOPULATING_DOC_TYPES))
-
-.PHONY: repopulate-metanorma-yamls-parallel
-## Update Metanorma YAML files (`metanorma.source.files`) for all doc types in parallel
-repopulate-metanorma-yamls-parallel:
-	$(foreach doc_type,$(REPOPULATING_DOC_TYPES),$(MAKE) -s repopulate-metanorma-yaml-$(doc_type) &) wait
 
 .PHONY: build
 ## Build all the documents in sequence
@@ -216,4 +219,4 @@ update-modules:
 
 .PHONY: update-documents
 ## Update Metanorma documents
-update-documents: update-modules repopulate-metanorma-yamls-parallel
+update-documents: update-modules src-documents/metanorma.yml
