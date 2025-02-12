@@ -21,7 +21,7 @@ ecdo() {
 }
 
 # BOOK KEEPING
-DOC_TYPE="${DOC_TYPE:-}"
+DOC_TYPES="${DOC_TYPES:-}"
 DOC_CLASS="${DOC_CLASS:-}"
 FAILED_ADOCS=()
 SUCCESS_ADOCS=()
@@ -34,7 +34,7 @@ print-summary() {
     return
   fi
 
-  if [[ -z "${DOC_TYPE}" || -z "${DOC_CLASS}" ]]
+  if [[ -z "${DOC_TYPES}" || -z "${DOC_CLASS}" ]]
   then
     show_usage
     return
@@ -43,7 +43,7 @@ print-summary() {
   local readable_docs=$(( ${#ADOC_REFERENCES[@]} - ${#FAILED_ADOCS[@]} ))
 
   log "There are \e[1m${#ADOC_REFERENCES[@]}\e[m documents in total."
-  log "Successfully picked \e[1m${#SUCCESS_ADOCS[@]}\e[m out of \e[1m${readable_docs}\e[m readable documents that are of :mn-document-class: \e[1m${DOC_CLASS}\e[m and :doctype: \e[1m${DOC_TYPE}\e[m."
+  log "Successfully picked \e[1m${#SUCCESS_ADOCS[@]}\e[m out of \e[1m${readable_docs}\e[m readable documents that are of :mn-document-class: \e[1m${DOC_CLASS}\e[m and :doctype: \e[1m${DOC_TYPES}\e[m."
   if [[ "${#FAILED_ADOCS[@]}" -gt 0 ]]
   then
     err "Failed to process \e[1m${#FAILED_ADOCS[@]}\e[m documents:"
@@ -111,13 +111,25 @@ COMMON_DOC_TYPES=(
 # But these are also seen in the wild:
 #   administrative | international-standard | internet-draft | advisory
 #
-doc-is-of-doc-type() {
+doc-is-of-doc-types() {
   local doc="${1:?Missing asciidoc path}"
-  local doc_type="${2:?Missing doctype: standard | directive | guide | specification | report | amendment | technical-corrigendum | administrative | international-standard | internet-draft | advisory}"
+  local doc_types="${2:?Missing doctype: standard | directive | guide | specification | report | amendment | technical-corrigendum | administrative | international-standard | internet-draft | advisory}"
+  local doc_type
 
-  <"$doc" \
-    head -n "${DOC_SEARCH_FIRST_N_LINES}" \
-    | grep -q ":doctype: $doc_type"
+  for doc_type in $(echo "$doc_types" | tr ',' ' ')
+  do
+    if [[ -n "$doc_type" ]]
+    then
+      if <"$doc" \
+        head -n "${DOC_SEARCH_FIRST_N_LINES}" \
+        | grep -q ":doctype: $doc_type"
+      then
+        return 0
+      fi
+    fi
+  done
+
+  return 1
 }
 
 doc-is-of-doc-class() {
@@ -134,7 +146,7 @@ doc-is-of-common-doc_types() {
 
   for doc_type in "${COMMON_DOC_TYPES[@]}"
   do
-    if doc-is-of-doc-type "$doc" "$doc_type"
+    if doc-is-of-doc-types "$doc" "$doc_type"
     then
       return 0
     fi
@@ -183,7 +195,7 @@ filter-docs() {
 
 
 # If $DOC_CLASS is set, only include documents that are of that :mn-document-class:.
-# If $DOC_TYPE is set, only include documents that are of that :doctype:.
+# If $DOC_TYPES is set, only include documents that are of that :doctype:.
 filter-doc() {
   local doc="${1:?Missing asciidoc path}"
 
@@ -193,8 +205,8 @@ filter-doc() {
     return 1
   fi
 
-  if [[ -n "${DOC_TYPE}" ]] && \
-    ! doc-is-of-doc-type "$doc" "${DOC_TYPE}"
+  if [[ -n "${DOC_TYPES}" ]] && \
+    ! doc-is-of-doc-types "$doc" "${DOC_TYPES}"
   then
     return 1
   fi
@@ -232,7 +244,8 @@ show_usage() {
               (default: src-documents)
 
 \e[4mMandatory environment variables:\e[24m
-  DOC_TYPE    The \e[4m:doctype:\e[24m to filter by
+  DOC_TYPES   The \e[4m:doctype:\e[24m to filter by.  Multiple DOC_TYPEs can
+              be specified by separating them with a comma.
   DOC_CLASS   The \e[4m:mn-document-class:\e[24m to filter by
 
 "
@@ -253,7 +266,7 @@ main() {
 
   local subdir="${1:-src-documents}"
 
-  DOC_TYPE="${DOC_TYPE-administrative}"
+  DOC_TYPES="${DOC_TYPES-administrative}"
   DOC_CLASS="${DOC_CLASS-cc}"
 
   if [[ ! -d "${subdir}" ]]
@@ -262,9 +275,9 @@ main() {
     exit 1
   fi
 
-  if [[ -z "${DOC_TYPE:-}" ]]
+  if [[ -z "${DOC_TYPES:-}" ]]
   then
-    err "DOC_TYPE is not set"
+    err "DOC_TYPES is not set"
     exit 1
   fi
 
