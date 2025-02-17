@@ -160,7 +160,7 @@ $(BIB_OUTPUT_DIR)/yaml: $(BIB_OUTPUT_DIR)/rxl
 	mkdir -p $@
 	while read -r f; \
 	do \
-		$(PREFIX_CMD) relaton convert \
+		$(METANORMA_PREFIX_CMD) relaton convert \
 			$$f -f yaml -o "$${f%.rxl}.yaml"; \
 			mv "$${f%.rxl}.yaml" $@; \
 	done < <($(MAKE) -s list-all-rxl)
@@ -176,7 +176,7 @@ $(BIB_OUTPUT_DIR)/rxl:
 
 define BIB_TASKS
 $(BIB_OUTPUT_DIR)/index.$(output_format): $(SITE_DIR)/$(CANON_PUBLIC_PATH) $(BIB_OUTPUT_DIR)/$(output_format) | $(BIB_OUTPUT_DIR)
-	$(PREFIX_CMD) relaton concatenate \
+	$(METANORMA_PREFIX_CMD) relaton concatenate \
 		-t $(CSD_REGISTRY_NAME) \
 		-g $(NAME_ORG) \
 		-x $(output_format) \
