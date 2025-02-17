@@ -146,8 +146,6 @@ $(SITE_DIR)/$(CANON_PUBLIC_PATH): $(SITE_DIR)/$(CANON_PUBLIC_PATH)/.canonicalize
 $(SITE_DIR)/$(CANON_PUBLIC_PATH)/.canonicalized:
 	$(MAKE) -s canonicalize-artifacts
 
-$(foreach output_format,$(BIB_OUTPUT_FORMATS),$(BIB_OUTPUT_DIR)/index.$(output_format)): $(SITE_DIR)/$(CANON_PUBLIC_PATH)
-
 $(BIB_OUTPUT_DIR):
 	mkdir -p $@
 
@@ -177,9 +175,9 @@ $(BIB_OUTPUT_DIR)/rxl:
 	done < <($(MAKE) -s list-all-rxl)
 
 define BIB_TASKS
-$(BIB_OUTPUT_DIR)/index.$(output_format): $(BIB_OUTPUT_DIR)/$(output_format) | $(BIB_OUTPUT_DIR)
+$(BIB_OUTPUT_DIR)/index.$(output_format): $(SITE_DIR)/$(CANON_PUBLIC_PATH) $(BIB_OUTPUT_DIR)/$(output_format) | $(BIB_OUTPUT_DIR)
 	$(PREFIX_CMD) relaton concatenate \
-	  -t $(CSD_REGISTRY_NAME) \
+		-t $(CSD_REGISTRY_NAME) \
 		-g $(NAME_ORG) \
 		-x $(output_format) \
 		$(BIB_OUTPUT_DIR)/$(output_format) $$@
@@ -188,14 +186,10 @@ endef
 
 $(foreach output_format,$(BIB_OUTPUT_FORMATS),$(eval $(BIB_TASKS)))
 
-.PHONY: list-all-yaml
-## List all RXL files from compiled Metanorma documents (assuming canonicalized file names)
-list-all-yaml:
-	@find $(SITE_DIR)/$(CANON_PUBLIC_PATH) -name "*.yaml" -o -name "*.yml" -type f
 
 .PHONY: list-all-rxl
 ## List all RXL files from compiled Metanorma documents (assuming canonicalized file names)
-list-all-rxl:
+list-all-rxl: $(SITE_DIR)/$(CANON_PUBLIC_PATH)
 	@find $(SITE_DIR)/$(CANON_PUBLIC_PATH) -name "*.rxl" -type f
 
 # Currently, the `canonicalize-artifacts` target is not amenable to parallelization,
