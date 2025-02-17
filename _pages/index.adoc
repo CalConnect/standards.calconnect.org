@@ -18,7 +18,7 @@ CalConnect works closely with liaison partners including international
 organizations such as ISO, OASIS and M3AAWG.
 
 In compliance with WTO TBT rules, all documents under 60-day public review
-(as defined in link:/csd/cc-10001.html[CC/DIR 10001])
+(as defined in link:/cc/cc-dir10001-2019[CC/DIR 10001])
 are provided on this site.
 
 Documents in this registry are provided in the following formats:
