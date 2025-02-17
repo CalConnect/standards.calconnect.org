@@ -44,7 +44,8 @@ DOC_CLASS = ENV['DOC_CLASS'] || ''
 @SITE_DIR = ENV['SITE_DIR'] || '_site'
 @SITE_SUB_DIR = ENV['SITE_SUB_DIR'] || ''
 PUBLIC_PATH = ENV['PUBLIC_PATH'] || 'cc'
-EXCLUDE = ENV['EXCLUDE'] || 'empty*'
+RXL_EXCLUDE = ENV['RXL_EXCLUDE'] || 'empty*'
+EXCLUDE = ENV['EXCLUDE'] || '.{err,presentation}.*'
 MV = ENV['MV'] || ''
 
 # House keeping
@@ -56,33 +57,48 @@ FILES_UPDATED = []
 NO_DOCID = []
 FILES_EXCLUDED = []
 FILES_UPDATE_FAILURE = []
+FILES_MOVE_FAILURE = []
+
+@printed_summary = false
 
 def print_summary(*_args)
+  return if @printed_summary
+
+  @printed_summary = true
+
   log "Moved #{FILES_MOVED.length} out of #{FILES_TO_MOVE.length} files"
   log "Updated references in #{FILES_UPDATED.length} out of #{FILES_TO_UPDATE.length} files"
 
-  if FILES_EXCLUDED.length > 0
+  PATH_REPLACEMENTS.each do |src, dest|
+    log "replace_paths: #{src} => #{dest}"
+  end
+
+  FILES_UPDATED.each do |file|
+    log file
+  end
+
+  unless FILES_EXCLUDED.empty?
     log "Excluded #{FILES_EXCLUDED.length} files:"
     FILES_EXCLUDED.each do |file|
       log file
     end
   end
 
-  if FILES_MOVE_FAILURE.length > 0
-    err "Failed to get document ID for #{FILES_MOVE_FAILURE.length} files:"
+  unless FILES_MOVE_FAILURE.empty?
+    err "Failed to move #{FILES_MOVE_FAILURE.length} files:"
     FILES_MOVE_FAILURE.each do |failure|
       err failure
     end
   end
 
-  if FILES_UPDATE_FAILURE.length > 0
-    err "Failed to get document ID for #{FILES_UPDATE_FAILURE.length} files:"
+  unless FILES_UPDATE_FAILURE.empty?
+    err "Failed to update path references in #{FILES_UPDATE_FAILURE.length} files:"
     FILES_UPDATE_FAILURE.each do |failure|
       err failure
     end
   end
 
-  return unless NO_DOCID.length > 0
+  return if NO_DOCID.empty?
 
   err "Failed to get document ID for #{NO_DOCID.length} files:"
   NO_DOCID.each do |failure|
@@ -90,7 +106,14 @@ def print_summary(*_args)
   end
 end
 
-Signal.trap('EXIT', &:print_summary)
+at_exit do
+  print_summary
+end
+
+Signal.trap('INT', lambda do
+  print_summary
+  exit 1
+end)
 
 def show_usage(*_args)
   prog_name = "\e[1m#{$PROGRAM_NAME}\e[22m"
@@ -123,7 +146,7 @@ def show_usage(*_args)
                       to contain all canonicalized files
                       (default: cc)
 
-      EXCLUDE         A glob pattern for files to exclude from processing
+      RXL_EXCLUDE     A glob pattern for RXL files to exclude from processing
                       (default: empty*)
 
   USAGE
@@ -158,13 +181,31 @@ def move_file(src, dest, site_dir:, site_sub_dir:)
 
   debug "move_file: #{src} => #{dest}"
 
+  site_dir_no_leading_slash = site_dir.sub(%r{^/*}, '')
+  site_sub_dir_no_trailing_slash = site_sub_dir.sub(%r{/*$}, '')
+
   # For each ${SITE_SUB_DIR} subdirectory,
   # replace_paths
   #
-  replace_from = src.sub(/^#{site_dir}/, '')
-  replace_to = dest.sub(/^#{site_dir}/, '')
-  site_sub_dir_src = replace_from.sub(/^#{site_sub_dir.sub(%r{/*$}, '')}/, '')
-  site_sub_dir_dest = Pathname.new(site_sub_dir.gsub(%r{[^/]+}, '..')).join(replace_to).to_s
+  replace_from = src.sub(%r{^(/)*#{site_dir_no_leading_slash}}, '\1')
+  replace_to = dest.sub(%r{^(/)*#{site_dir_no_leading_slash}}, '\1')
+
+  site_sub_dir_src = replace_from.sub(%r{^(/)*#{site_sub_dir_no_trailing_slash}/}, '')
+
+  # Move 'replace_to' up 'n' levels, where 'n' is the number of slash segments in
+  # 'site_sub_dir_src':
+  #   'a/b/c' => '../../..'
+  site_sub_dir_dest = Pathname.new(site_sub_dir.gsub(%r{[^/]+}, '..'))
+                              .join(replace_to.sub(%r{^/*}, ''))
+                              .to_s
+
+  # debug "site_dir = #{site_dir.inspect}\n" \
+  #       "site_sub_dir = #{site_sub_dir.inspect}\n" \
+  #       "replace_from = #{replace_from.inspect}\n" \
+  #       "replace_to = #{replace_to.inspect}\n" \
+  #       "site_sub_dir_src = replace_from.sub(/^\#{site_sub_dir.sub(%r{/*$}, '')}/, '')\n" \
+  #       "site_sub_dir_dest = Pathname.new(site_sub_dir.gsub(%r{[^/]+}, '..')).join(replace_to).to_s"
+  # exit
 
   FILES_TO_MOVE << src
 
@@ -174,8 +215,8 @@ def move_file(src, dest, site_dir:, site_sub_dir:)
     else
       FileUtils.mv(src, dest)
     end
-    queue_replace_paths(site_sub_dir_src, site_sub_dir_dest)
     queue_replace_paths(replace_from, replace_to)
+    queue_replace_paths(site_sub_dir_src, site_sub_dir_dest)
   rescue StandardError => e
     err "Failed to move #{src} to #{dest}: #{e}"
     FILES_MOVE_FAILURE << src
@@ -189,22 +230,51 @@ require 'tempfile'
 
 # Replace all occurrences of pattern with replacement in file
 def sed_i(file, pattern_replacements)
-  Tempfile.create do |tempfile|
-    File.open(file, 'r') do |f|
-      tempfile.puts(
-        pattern_replacements.inject(f.readline) do |l, (pattern, replacement)|
-          l.gsub(pattern, replacement)
-        end
-      )
+  buffer = File.read(file)
+  new_buffer = pattern_replacements.inject(buffer) do |l, (pattern, replacement)|
+    l.gsub(pattern, replacement)
+  end
+
+  ## Verify buffer matches pattern
+  matches = pattern_replacements.each_with_object([]) do |(pattern, _replacement), acc|
+    acc << pattern if buffer.include?(pattern)
+  end
+
+  debug "sed_i: #{file} => #{matches.empty? ? 'No' : "(#{matches.length}) has"} replacements"
+  if matches.empty?
+    debug 'No matches.  Continuing.'
+    return
+  end
+
+  # Verify new_buffer has no patterns
+  unless matches.empty?
+    new_matches = pattern_replacements.each_with_object([]) do |(pattern, _replacement), acc|
+      acc << pattern if new_buffer.include?(pattern)
     end
 
-    tempfile.close
+    unless new_matches.empty?
+      error "New buffer still has patterns: #{new_matches}"
+      exit 1
+    end
+  end
+
+  if buffer == new_buffer && !matches.empty?
+    err "No replacements made in #{file}"
+    exit 1
+  end
+
+  Tempfile.create do |tempfile|
+    tempfile.puts(new_buffer)
+    # tempfile.close
     FileUtils.mv(tempfile.path, file)
   end
+
+  debug "Updated #{file}"
+  FILES_UPDATED << file
 end
 
-# Replace all occurrences of $src with $dest
-# in all files found in @SITE_DIR.
+# Populate PATH_REPLACEMENTS for #replace_paths to do all replacements
+# at the end.
 #
 # NOTE: These paths are assumed to be under @SITE_DIR,
 # so make sure they do not already begin with @SITE_DIR/.
@@ -219,24 +289,29 @@ def queue_replace_paths(src, dest)
   PATH_REPLACEMENTS[src] = dest
 end
 
+# Replace all occurrences of $src with $dest
+# in all files found in @SITE_DIR.
+#
 def replace_paths
   debug "replace_paths starting: #{PATH_REPLACEMENTS.length} replacements"
 
-  htmls_to_replace = find(@SITE_DIR, '*.html')
-  debug "htmls_to_replace: #{htmls_to_replace.length} files"
+  files_to_replace = find(@SITE_DIR, '*.{ht,x}ml')
+  debug "files_to_replace: #{files_to_replace.length} files"
 
-  htmls_to_replace.each do |file|
+  files_to_replace.each do |file|
+    if File.fnmatch?("*#{EXCLUDE}", file, File::FNM_EXTGLOB)
+      debug "Ignoring #{file}"
+      next
+    end
+
     FILES_TO_UPDATE << file
     begin
       sed_i(file, PATH_REPLACEMENTS)
-      debug "Updated #{file}"
     rescue StandardError => e
       err "Failed to update #{file}: #{e}"
       FILES_UPDATE_FAILURE << file
       throw e
     end
-
-    FILES_UPDATED << file
   end
 
   debug "replace_paths done: #{FILES_UPDATED.length} files updated"
@@ -256,11 +331,12 @@ def doit(rxl_src_dir, site_dir:, site_sub_dir:)
     debug "Got file in '#{rxl_src_dir}': '#{rxl_file}'"
 
     # Exclude ignored files
-    if !EXCLUDE.nil? && !EXCLUDE.empty? && File.fnmatch?("*#{EXCLUDE}", rxl_file)
+    if !RXL_EXCLUDE.nil? && !RXL_EXCLUDE.empty? && File.fnmatch?("*#{RXL_EXCLUDE}", rxl_file, File::FNM_EXTGLOB)
       debug "Ignoring #{rxl_file}"
       FILES_EXCLUDED << rxl_file
       next
     end
+    debug "Not ignoring #{rxl_file}: File.fnmatch?('*#{RXL_EXCLUDE}', #{rxl_file.inspect}, File::FNM_EXTGLOB)"
 
     # Reset
     formats = []
@@ -269,9 +345,15 @@ def doit(rxl_src_dir, site_dir:, site_sub_dir:)
     src_dir = File.dirname(rxl_file)
 
     rxl_file_basename = File.basename(rxl_file)
-    rxl_file_basename = rxl_file_basename.gsub(/(\..*)+$/, '')
+    rxl_file_basename = rxl_file_basename.gsub(%r{(\.[^/]*)+$}, '')
+
+    debug "rxl_file_basename = #{rxl_file_basename.inspect}"
 
     find(src_dir, "#{rxl_file_basename}.*").each do |file|
+      if File.fnmatch?("*#{EXCLUDE}", file, File::FNM_EXTGLOB)
+        debug "Ignoring #{file}"
+        next
+      end
       debug "Got file in '#{src_dir}': '#{file}'"
       file_basename = File.basename(file)
       formats << file_basename.sub(/^#{rxl_file_basename}\./, '')
@@ -285,7 +367,7 @@ def doit(rxl_src_dir, site_dir:, site_sub_dir:)
     end
 
     formats.each do |format|
-      file_name_no_ext = rxl_file.sub(/(\..*)+$/, '')
+      file_name_no_ext = rxl_file.sub(%r{(\.[^/]*)+$}, '')
       src = "#{file_name_no_ext}.#{format}"
       dest = Pathname.new(dest_dir).join("#{docid}.#{format}").to_s
       move_file(src, dest, site_dir: site_dir, site_sub_dir: site_sub_dir)
@@ -297,6 +379,7 @@ end
 
 def main(*args)
   debug "EXCLUDE is #{EXCLUDE}"
+  debug "RXL_EXCLUDE is #{RXL_EXCLUDE}"
   debug "@SITE_DIR is #{@SITE_DIR}"
   debug "PUBLIC_PATH is #{PUBLIC_PATH}"
   debug "@SITE_SUB_DIR is #{@SITE_SUB_DIR}"
