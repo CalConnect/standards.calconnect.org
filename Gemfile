@@ -21,3 +21,8 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Performance-booster for watching directories on Windows
 gem "wdm", "~> 0.1.0" if Gem.win_platform?
+
+group :development do
+  gem "rubocop", "~> 1.72", require: false
+  gem "rubocop-performance", "~> 1.24.0", require: false
+end
