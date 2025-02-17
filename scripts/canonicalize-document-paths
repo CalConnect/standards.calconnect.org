@@ -199,14 +199,6 @@ def move_file(src, dest, site_dir:, site_sub_dir:)
                               .join(replace_to.sub(%r{^/*}, ''))
                               .to_s
 
-  # debug "site_dir = #{site_dir.inspect}\n" \
-  #       "site_sub_dir = #{site_sub_dir.inspect}\n" \
-  #       "replace_from = #{replace_from.inspect}\n" \
-  #       "replace_to = #{replace_to.inspect}\n" \
-  #       "site_sub_dir_src = replace_from.sub(/^\#{site_sub_dir.sub(%r{/*$}, '')}/, '')\n" \
-  #       "site_sub_dir_dest = Pathname.new(site_sub_dir.gsub(%r{[^/]+}, '..')).join(replace_to).to_s"
-  # exit
-
   FILES_TO_MOVE << src
 
   begin
@@ -235,32 +227,15 @@ def sed_i(file, pattern_replacements)
     l.gsub(pattern, replacement)
   end
 
-  ## Verify buffer matches pattern
+  # Verify buffer matches pattern
   matches = pattern_replacements.each_with_object([]) do |(pattern, _replacement), acc|
     acc << pattern if buffer.include?(pattern)
   end
 
-  debug "sed_i: #{file} => #{matches.empty? ? 'No' : "(#{matches.length}) has"} replacements"
+  # debug "sed_i: #{file} => #{matches.empty? ? 'No' : "(#{matches.length}) has"} replacements"
   if matches.empty?
-    debug 'No matches.  Continuing.'
+    # debug 'No matches.  Continuing.'
     return
-  end
-
-  # Verify new_buffer has no patterns
-  unless matches.empty?
-    new_matches = pattern_replacements.each_with_object([]) do |(pattern, _replacement), acc|
-      acc << pattern if new_buffer.include?(pattern)
-    end
-
-    unless new_matches.empty?
-      error "New buffer still has patterns: #{new_matches}"
-      exit 1
-    end
-  end
-
-  if buffer == new_buffer && !matches.empty?
-    err "No replacements made in #{file}"
-    exit 1
   end
 
   Tempfile.create do |tempfile|
@@ -269,7 +244,7 @@ def sed_i(file, pattern_replacements)
     FileUtils.mv(tempfile.path, file)
   end
 
-  debug "Updated #{file}"
+  # debug "Updated #{file}"
   FILES_UPDATED << file
 end
 
@@ -300,7 +275,7 @@ def replace_paths
 
   files_to_replace.each do |file|
     if File.fnmatch?("*#{EXCLUDE}", file, File::FNM_EXTGLOB)
-      debug "Ignoring #{file}"
+      # debug "Ignoring #{file}"
       next
     end
 
@@ -332,13 +307,12 @@ def doit(rxl_src_dir, site_dir:, site_sub_dir:)
 
     # Exclude ignored files
     if !RXL_EXCLUDE.nil? && !RXL_EXCLUDE.empty? && File.fnmatch?("*#{RXL_EXCLUDE}", rxl_file, File::FNM_EXTGLOB)
-      debug "Ignoring #{rxl_file}"
+      # debug "Ignoring #{rxl_file}"
       FILES_EXCLUDED << rxl_file
       next
     end
-    debug "Not ignoring #{rxl_file}: File.fnmatch?('*#{RXL_EXCLUDE}', #{rxl_file.inspect}, File::FNM_EXTGLOB)"
+    # debug "Not ignoring #{rxl_file}: File.fnmatch?('*#{RXL_EXCLUDE}', #{rxl_file.inspect}, File::FNM_EXTGLOB)"
 
-    # Reset
     formats = []
 
     # Read src dir to discover other formats
@@ -347,17 +321,20 @@ def doit(rxl_src_dir, site_dir:, site_sub_dir:)
     rxl_file_basename = File.basename(rxl_file)
     rxl_file_basename = rxl_file_basename.gsub(%r{(\.[^/]*)+$}, '')
 
-    debug "rxl_file_basename = #{rxl_file_basename.inspect}"
+    # debug "rxl_file_basename = #{rxl_file_basename.inspect}"
 
     find(src_dir, "#{rxl_file_basename}.*").each do |file|
       if File.fnmatch?("*#{EXCLUDE}", file, File::FNM_EXTGLOB)
-        debug "Ignoring #{file}"
+        # debug "Ignoring #{file}"
         next
       end
-      debug "Got file in '#{src_dir}': '#{file}'"
+
+      # debug "Got file in '#{src_dir}': '#{file}'"
       file_basename = File.basename(file)
       formats << file_basename.sub(/^#{rxl_file_basename}\./, '')
     end
+
+    debug "Formats: #{formats.inspect}"
 
     docid = rxl2id(rxl_file)
     if docid.nil? || docid.empty?
