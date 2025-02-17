@@ -45,7 +45,7 @@ DOC_CLASS = ENV['DOC_CLASS'] || ''
 @SITE_SUB_DIR = ENV['SITE_SUB_DIR'] || ''
 PUBLIC_PATH = ENV['PUBLIC_PATH'] || 'cc'
 RXL_EXCLUDE = ENV['RXL_EXCLUDE'] || 'empty*'
-EXCLUDE = ENV['EXCLUDE'] || '.{err,presentation}.*'
+EXCLUDE = ENV['EXCLUDE'] || '{.err{,.*},.presentation.*}'
 MV = ENV['MV'] || ''
 
 # House keeping
