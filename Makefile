@@ -136,7 +136,7 @@ serve:
 build-relaton: $(SITE_DIR)/$(BIB_OUTPUT_DIR)
 
 $(SITE_DIR)/$(BIB_OUTPUT_DIR): $(BIB_OUTPUTS)
-	cp -a $(BIB_OUTPUT_DIR) $(SITE_DIR)/$(BIB_OUTPUT_DIR)
+	cp -a $(BIB_OUTPUT_DIR) $@
 
 # This `.canonicalized` file is used to determine whether the artifacts have
 # been canonicalized.
