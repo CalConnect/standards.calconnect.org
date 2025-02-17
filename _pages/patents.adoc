@@ -11,7 +11,7 @@ The CalConnect Patent Information Database is a public register for the disclosu
 potential patent information relating to CalConnect standardization deliverables.
 
 This patent information database is created in accordance with
-Clause 5.7 of link:/directive/documents/src-documents/cc-directive-ipr-guidelines/cc-10005[CC/DIR 10005] ("Patent information database").
+Clause 5.7 of link:/cc/cc-dir10005-2019[CC/DIR 10005] ("Patent information database").
 
 [quote]
 ____
@@ -36,7 +36,7 @@ particular deliverable.
 == Procedures
 
 To file a patent information notice, please refer to:
-link:/directive/documents/src-documents/cc-directive-ipr-guidelines/cc-10005[CC/DIR 10005 -- "Guidelines for the implementation of the CalConnect patent policy"].
+link:/cc/cc-dir10005-2019[CC/DIR 10005 -- "Guidelines for the implementation of the CalConnect patent policy"].
 
 
 == Patent information
