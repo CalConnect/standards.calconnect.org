@@ -151,25 +151,39 @@ $(foreach output_format,$(BIB_OUTPUT_FORMATS),$(BIB_OUTPUT_DIR)/index.$(output_f
 $(BIB_OUTPUT_DIR):
 	mkdir -p $@
 
+$(BIB_OUTPUT_DIR)/rxl/%.rxl: $(SITE_DIR)/$(CANON_PUBLIC_PATH)/%.rxl
+	@>&2 echo "copying $$^ to $$@"
+	cp $$^ $$@
+
+
+## Convert RXL generated from `metanorma site generate` to YAML,
+## and move the YAML files to `relaton/yaml`
+$(BIB_OUTPUT_DIR)/yaml: $(BIB_OUTPUT_DIR)/rxl
+	mkdir -p $@
+	while read -r f; \
+	do \
+		$(PREFIX_CMD) relaton convert \
+			$$f -f yaml -o "$${f%.rxl}.yaml"; \
+			mv "$${f%.rxl}.yaml" $@; \
+	done < <($(MAKE) -s list-all-rxl)
+
+## Copy RXL files from canon path to `relaton/rxl`
+$(BIB_OUTPUT_DIR)/rxl:
+	mkdir -p $@
+	while read -r f; \
+	do\
+		>&2 echo "copying $$f"; \
+		cp "$$f" $(BIB_OUTPUT_DIR)/rxl; \
+	done < <($(MAKE) -s list-all-rxl)
+
 define BIB_TASKS
 $(BIB_OUTPUT_DIR)/index.$(output_format): $(BIB_OUTPUT_DIR)/$(output_format) | $(BIB_OUTPUT_DIR)
 	$(PREFIX_CMD) relaton concatenate \
 	  -t $(CSD_REGISTRY_NAME) \
 		-g $(NAME_ORG) \
 		-x $(output_format) \
-	  $(BIB_OUTPUT_DIR)/$(output_format) $$@
+		$(BIB_OUTPUT_DIR)/$(output_format) $$@
 
-$(BIB_OUTPUT_DIR)/$(output_format)/%.$(output_format): $(SITE_DIR)/$(CANON_PUBLIC_PATH)/%.$(output_format)
-	@>&2 echo "copying $$^ to $$@"
-	cp $$^ $$@
-
-$(BIB_OUTPUT_DIR)/$(output_format):
-	mkdir -p $$@
-	while read -r f; \
-	do\
-		>&2 echo "copying $$$$f"; \
-		cp "$$$$f" $(BIB_OUTPUT_DIR)/$(output_format); \
-	done < <($(MAKE) -s list-all-$(output_format))
 endef
 
 $(foreach output_format,$(BIB_OUTPUT_FORMATS),$(eval $(BIB_TASKS)))
