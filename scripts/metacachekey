@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
-# This script aims to provide a fingerprinting mechanism for Metanorma and 
+# This script aims to provide a fingerprinting mechanism for Metanorma and
 # Jekyll builds.
 
 DEBUG = ENV['DEBUG'] || ''
@@ -12,11 +13,12 @@ HASH_FILES_BIN = ENV['HASH_FILES_BIN'] || 'scripts/hash_files'
 
 def debug(*args)
   return if (ENV['DEBUG'] || '').empty?
-  STDERR.printf("\e[2mdebug:\e[1m %s\e[m\n", args.map(&:to_s).join(' '))
+
+  $stderr.printf("\e[2mdebug:\e[1m %s\e[m\n", args.map(&:to_s).join(' '))
 end
 
 def err(*args)
-  STDERR.printf("\e[1;31mError:\e[m %s\n", args.map(&:to_s).join(' '))
+  $stderr.printf("\e[1;31mError:\e[m %s\n", args.map(&:to_s).join(' '))
 end
 
 def random_string(bytes = 12)
@@ -28,44 +30,42 @@ end
 def die(*args)
   # Echo some random strings for cache key
   puts "error-#{random_string}"
-  if args.length > 0
-    err(*args)
-  end
+  err(*args) unless args.empty?
   exit 1
 end
 
-# By default, the fingerprint does not depend on hash_files nor the script 
+# By default, the fingerprint does not depend on hash_files nor the script
 # itself, so as to keep the hash stable.
 # But it can be configured (by $HASH_META) to depend on them.
 @dependencies = []
 
 META_HASH = ENV['HASH_META'] || ''
 if META_HASH != 'false' &&
-  ! META_HASH.empty?
+   !META_HASH.empty?
 
   @dependencies << HASH_FILES_BIN
-  @dependencies << $0
+  @dependencies << $PROGRAM_NAME
 end
 
-# If we are running in a GitHub workflow, add the workflow file as a 
+# If we are running in a GitHub workflow, add the workflow file as a
 # dependency.
-if ENV['GITHUB_WORKFLOW_REF'].kind_of? String
+if ENV['GITHUB_WORKFLOW_REF'].is_a? String
 
   # Extract relative path for the workflow file
   @dependencies << ENV['GITHUB_WORKFLOW_REF']
-    .sub(%r{^.*(\.github/workflows)}, '\1')
-    .sub(%r{@refs/.*$}, '')
+                   .sub(%r{^.*(\.github/workflows)}, '\1')
+                   .sub(%r{@refs/.*$}, '')
 end
 
-RUBY_DEPENDENCIES = %w(
+RUBY_DEPENDENCIES = %w[
   .tool-versions
   Gemfile
   Gemfile.lock
-)
+].freeze
 
 METANORMA_DEPENDENCIES = [] + RUBY_DEPENDENCIES
 
-JEKYLL_DEPENDENCIES = RUBY_DEPENDENCIES + %w(
+JEKYLL_DEPENDENCIES = RUBY_DEPENDENCIES + %w[
   favicon.ico
   favicon.png
   robots.txt
@@ -80,7 +80,7 @@ JEKYLL_DEPENDENCIES = RUBY_DEPENDENCIES + %w(
   js
   pubdocs
   relaton
-)
+]
 
 def get_fingerprint(*segments)
   segments.join('-')
@@ -88,76 +88,71 @@ end
 
 def parse_command(args)
   case args[0]
-  when 'jekyll' then
-      args.shift
+  when 'jekyll'
+    args.shift
 
-      jekyll_yaml = args[0] || ENV['JEKYLL_YAML'] || 'config.yml'
-      if ! File.readable?(jekyll_yaml)
-        die "#{jekyll_yaml} not found or not readable."
-      end
+    jekyll_yaml = args[0] || ENV['JEKYLL_YAML'] || 'config.yml'
+    die "#{jekyll_yaml} not found or not readable." unless File.readable?(jekyll_yaml)
 
-      @dependencies << jekyll_yaml
-      @dependencies += JEKYLL_DEPENDENCIES
+    @dependencies << jekyll_yaml
+    @dependencies += JEKYLL_DEPENDENCIES
 
-      puts get_fingerprint(
-        'jekyll',
-        hash_files(@dependencies),
-      )
+    puts get_fingerprint(
+      'jekyll',
+      hash_files(@dependencies)
+    )
 
-  when 'metanorma' then
-      args.shift
+  when 'metanorma'
+    args.shift
 
-      metanorma_yaml = args[0] || ENV['METANORMA_YAML'] || 'metanorma.yml'
-      if ! File.readable?(metanorma_yaml)
-        die "#{metanorma_yaml} not found or not readable."
-      end
+    metanorma_yaml = args[0] || ENV['METANORMA_YAML'] || 'metanorma.yml'
+    die "#{metanorma_yaml} not found or not readable." unless File.readable?(metanorma_yaml)
 
-      @dependencies << metanorma_yaml
-      @dependencies += METANORMA_DEPENDENCIES
+    @dependencies << metanorma_yaml
+    @dependencies += METANORMA_DEPENDENCIES
 
-      require 'yaml'
-      loaded_yaml = YAML.load_file(metanorma_yaml)
+    require 'yaml'
+    loaded_yaml = YAML.load_file(metanorma_yaml)
 
-      # Look under `metanorma.source.files` for dependencies
-      @dependencies += loaded_yaml.dig('metanorma', 'source', 'files') || []
+    # Look under `metanorma.source.files` for dependencies
+    @dependencies += loaded_yaml.dig('metanorma', 'source', 'files') || []
 
-      # Look under `metanorma.template` for dependencies
-      %w(path stylesheet).each do |template_data_key|
-        template_data = loaded_yaml.dig('metanorma', 'template', template_data_key)
-        @dependencies << template_data if ! template_data.nil?
-      end
+    # Look under `metanorma.template` for dependencies
+    %w[path stylesheet].each do |template_data_key|
+      template_data = loaded_yaml.dig('metanorma', 'template', template_data_key)
+      @dependencies << template_data unless template_data.nil?
+    end
 
-      puts get_fingerprint(
-        'metanorma',
-        hash_files(@dependencies),
-      )
+    puts get_fingerprint(
+      'metanorma',
+      hash_files(@dependencies)
+    )
 
-  when '--help', '-h' then
-      print_usage
-      exit
-  when '--version' then
-      puts "#{$0} v#{VERSION}"
-      exit
+  when '--help', '-h'
+    print_usage
+    exit
+  when '--version'
+    puts "#{$PROGRAM_NAME} v#{VERSION}"
+    exit
   else
-      print_usage
-      die
-      # ???
+    print_usage
+    die
+    # ???
   end
 end
 
-
 def hash_files(args)
   require 'open3'
-  stdout_str, stderr_str, status = Open3.capture3(HASH_FILES_BIN, *args)
+  stdout_str, stderr_str, = Open3.capture3(HASH_FILES_BIN, *args)
 
   # Re-echo stderr
-  STDERR.puts stderr_str
+  warn stderr_str
   stdout_str
 end
 
 def print_usage
-  prog_name = "\e[1m#{$0}\e[22m"
-  STDERR.puts <<~EOF
+  prog_name = "\e[1m#{$PROGRAM_NAME}\e[22m"
+  warn <<~USAGE
     Usage: #{prog_name} jekyll    PATH/TO/CONFIG.YML
            #{prog_name} metanorma PATH/TO/METANORMA.YML
            #{prog_name} [-h|--help]
@@ -168,19 +163,18 @@ def print_usage
     \e[4mFlags:\e[24m
       --version        Print the version and exit
       --help           Print this help message and exit
-    
+
     \e[4mEnvironment:\e[24m
       DEBUG            Enable debug output
-      HASH_META        Set to \e[4mfalse\e[24m to disable hashing of this script and 
+      HASH_META        Set to \e[4mfalse\e[24m to disable hashing of this script and
                        \e[4mhash_files\e[24m (a dependency of this script, which is
                        specified by HASH_FILES_BIN)
       HASH_FILES_BIN   The path (relative to the repository root) of
                        the executable that returns the SHA256 digest of
                        the given files and directories
 
-  EOF
+  USAGE
 end
-
 
 # Reads metanorma.yml to get a list of file dependencies.
 def main(args)
