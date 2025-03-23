@@ -1,20 +1,52 @@
 metanorma:
   source:
     files:
-      - src-documents/cc-iTip-rewrite/sources/cc-51008.adoc
-      - src-documents/cc-vpoll/sources/cc-51006.adoc
-      - src-documents/cc-transcription-systems/sources/cc-24229.adoc
-      - src-documents/cc-itip-participants/sources/cc-51011.adoc
-      - src-documents/cc-vobject-vformat/sources/cc-51008/document.adoc
-      - src-documents/cc-subscription-upgrade/sources/cc-51005.adoc
+      - src-documents/cc-cal-resource-vcard/sources/cc-58012.adoc
+      - src-documents/cc-caldav-attachments/sources/cc-51013.adoc
+      - src-documents/cc-caldav-audit/sources/cc-51016.adoc
+      - src-documents/cc-caldav-sync/sources/cc-51012.adoc
+      - src-documents/cc-calendar-dev-resources/sources/cc-51019.adoc
+      - src-documents/cc-calendar-systems/sources/cc-34300.adoc
       - src-documents/cc-calendar-vocab/sources/cc-51000/document.adoc
-      - src-documents/cc-icalendar-series/sources/cc-51003.adoc
-      - src-documents/cc-vobject-integrity/sources/cc-51002.adoc
+      - src-documents/cc-calspam-bcp/sources/cc-18003.adoc
+      - src-documents/cc-citation-models/sources/cc-6900.adoc
+      - src-documents/cc-collection-query/sources/cc-51020.adoc
+      - src-documents/cc-datetime-explicit/sources/cc-18011.adoc
+      - src-documents/cc-dav-push/sources/cc-70025.adoc
+      - src-documents/cc-digital-addresses/sources/cc-19160-6.adoc
+      - src-documents/cc-event-publishing-extensions/sources/cc-51021.adoc
+      - src-documents/cc-event-uri/sources/cc-51015.adoc
+      - src-documents/cc-general-recurrence/sources/cc-18012.adoc
+      - src-documents/cc-iTip-rewrite/sources/cc-51008.adoc
       - src-documents/cc-ical-relations/sources/cc-51004.adoc
       - src-documents/cc-ical-tasks/sources/cc-11001.adoc
-      - src-documents/cc-admin-documents/sources/cc-0606-timezone-registry/document.adoc
-      - src-documents/cc-admin-documents/sources/cc-0703-caldav-scheduling-reqs/document.adoc
-      - src-documents/cc-dav-push/sources/cc-70025.adoc
+      - src-documents/cc-icalendar-patch/sources/cc-51012.adoc
+      - src-documents/cc-icalendar-series/sources/cc-51003.adoc
+      - src-documents/cc-icalendar-vinstance/sources/cc-51014.adoc
+      - src-documents/cc-ischedule/sources/cc-51010.adoc
+      - src-documents/cc-iso-psdo-agreement/sources/cc-10010.adoc
+      - src-documents/cc-itip-participants/sources/cc-51011.adoc
+      - src-documents/cc-jscalendar/sources/ical-fractional-time/cc-51024.adoc
+      - src-documents/cc-jscalendar/sources/jscal-extensions/cc-51025.adoc
+      - src-documents/cc-jscalendar/sources/jscal-ical/cc-51026.adoc
+      - src-documents/cc-jscalendar/sources/jscal/cc-51015.adoc
+      - src-documents/cc-jscalendar/sources/jscalbis/cc-51015.adoc
+      - src-documents/cc-lightweight-doc/sources/cc-36010.adoc
+      - src-documents/cc-server-info/sources/cc-51022.adoc
+      - src-documents/cc-serverside-subscriptions/sources/cc-51023.adoc
+      - src-documents/cc-standard-doc/sources/cc-36100.adoc
+      - src-documents/cc-streaming-cal-contacts-data/sources/cc-51016.adoc
+      - src-documents/cc-subscription-upgrade/sources/cc-51005.adoc
+      - src-documents/cc-transcription-systems/sources/cc-24229.adoc
+      - src-documents/cc-valarm-extensions/sources/cc-51017.adoc
+      - src-documents/cc-vcard-objectclass/sources/cc-58013.adoc
+      - src-documents/cc-vcard-schedulable/sources/cc-58011.adoc
+      - src-documents/cc-vobject-i18n/sources/cc-56010.adoc
+      - src-documents/cc-vobject-integrity/sources/cc-51002.adoc
+      - src-documents/cc-vobject-vformat/sources/cc-51008/document.adoc
+      - src-documents/cc-vpatch/sources/cc-58020.adoc
+      - src-documents/cc-vpoll/sources/cc-51006.adoc
+
   collection:
     organization: CalConnect
     name: Standards
