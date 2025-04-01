@@ -10,4 +10,4 @@ metanorma:
     organization: CalConnect
     name: Directives
   template:
-    path: ../../src-documents/_relaton_templates
+    path: _relaton_templates
