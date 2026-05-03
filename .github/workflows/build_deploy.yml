@@ -29,6 +29,18 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
+      - name: Checkout calconnect-theme
+        uses: actions/checkout@v4
+        with:
+          repository: calconnect/calconnect-theme
+          path: ../calconnect-theme
+          fetch-depth: 1
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
       - name: Calculate cache key
         id: cache-key
         run: |

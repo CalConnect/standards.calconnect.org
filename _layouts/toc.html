@@ -1,15 +1,15 @@
 ---
 layout: default
 ---
-<div class="container">
+<div class="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
    <h1>Main page</h1>
 
     {{ content }}
 
 </div>
 
-<div class="container">
-  <ol>
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <ol class="list-decimal pl-6 space-y-2">
   {% assign pages = site.pages | where: "parent", "/" | sort: "order" %}
   {% include toc-entry.html pages=pages level=false %}
   </ol>

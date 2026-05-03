@@ -1,0 +1,101 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Enable class-based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Content scanning */
+@source "../../_layouts/**/*.html";
+@source "../../_includes/**/*.html";
+@source "../../_pages/**/*.md";
+@source "../**/*.{js,ts}";
+
+/* Custom theme configuration */
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+  --color-primary-50: #eef2ff;
+  --color-primary-100: #e0e7ff;
+  --color-primary-200: #c7d2fe;
+  --color-primary-300: #a5b4fc;
+  --color-primary-400: #818cf8;
+  --color-primary-500: #6366f1;
+  --color-primary-600: #4f46e5;
+  --color-primary-700: #4338ca;
+  --color-primary-800: #3730a3;
+  --color-primary-900: #312e81;
+
+  --color-accent-400: #22d3ee;
+  --color-accent-500: #06b6d4;
+
+  /* Document type colors */
+  --color-doctype-standard: #0AC442;
+  --color-doctype-directive: #540D6E;
+  --color-doctype-guide: #D183C9;
+  --color-doctype-specification: #65AFFF;
+  --color-doctype-report: #3A405A;
+  --color-doctype-amendment: #F26430;
+  --color-doctype-corrigendum: #C84630;
+  --color-doctype-administrative: #BFAE48;
+  --color-doctype-advisory: #BD9391;
+
+  /* Document stage colors */
+  --color-stage-proposal: #39A0ED;
+  --color-stage-working-draft: #2D7393;
+  --color-stage-committee-draft: #2A6B7C;
+  --color-stage-draft-standard: #1C7F7A;
+  --color-stage-final-draft: #53C170;
+  --color-stage-published: #069E2D;
+  --color-stage-withdrawn: #004E64;
+  --color-stage-cancelled: #2E382E;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    font-feature-settings: "kern" 1, "liga" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  main { padding-top: 64px; }
+  ::selection { background-color: rgba(99, 102, 241, 0.2); }
+  :focus-visible { outline: 2px solid #6366f1; outline-offset: 2px; }
+}
+
+@layer components {
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0;
+    margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0);
+    white-space: nowrap; border-width: 0;
+  }
+  .sr-only:focus {
+    position: fixed; width: auto; height: auto; padding: 0.5rem 1rem;
+    margin: 0; overflow: visible; clip: auto; white-space: normal;
+  }
+
+  /* Document type badge */
+  .doc-type { padding: 4px 8px; border-radius: 5px; font-size: 0.85em; line-height: 1em; margin-right: 10px; color: white; text-transform: uppercase; display: inline-block; }
+  .doc-type.standard { background-color: var(--color-doctype-standard); }
+  .doc-type.directive { background-color: var(--color-doctype-directive); }
+  .doc-type.guide { background-color: var(--color-doctype-guide); }
+  .doc-type.specification { background-color: var(--color-doctype-specification); }
+  .doc-type.report { background-color: var(--color-doctype-report); }
+  .doc-type.amendment { background-color: var(--color-doctype-amendment); }
+  .doc-type.technical-corrigendum { background-color: var(--color-doctype-corrigendum); }
+  .doc-type.administrative { background-color: var(--color-doctype-administrative); }
+  .doc-type.advisory { background-color: var(--color-doctype-advisory); }
+
+  /* Document stage */
+  .doc-info { padding-top: 0; padding-bottom: 10px; font-size: 0.9em; line-height: 1em; }
+  .doc-info.proposal { color: var(--color-stage-proposal); }
+  .doc-info.working-draft { color: var(--color-stage-working-draft); }
+  .doc-info.committee-draft { color: var(--color-stage-committee-draft); }
+  .doc-info.draft-standard { color: var(--color-stage-draft-standard); }
+  .doc-info.final-draft { color: var(--color-stage-final-draft); }
+  .doc-info.published { color: var(--color-stage-published); }
+  .doc-info.withdrawn { color: var(--color-stage-withdrawn); }
+  .doc-info.cancelled { color: var(--color-stage-cancelled); }
+
+  .doc-stage { text-transform: uppercase; font-size: 1em; line-height: 1em; display: inline-block; }
+}

@@ -2,8 +2,10 @@
 layout: page
 ---
 {% assign document = page %}
-<h1>{{ document.docidentifier }}</h1>
-<h2>{{ document.title }}</h2>
+<h1 class="text-2xl font-bold text-gray-900 dark:text-white">{{ document.docidentifier }}</h1>
+<h2 class="text-xl font-semibold text-gray-700 dark:text-gray-200 mt-2">{{ document.title }}</h2>
 
 {% include document.html %}
-{{ content }}
+<div class="body mt-6">
+  {{ content }}
+</div>

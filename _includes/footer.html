@@ -1,38 +1,40 @@
-<footer class="page-footer">
-    <div id="sitemap">
-        <div id="sitemap-inner" class="container">
-            <div class="region region-sitemap">
-                <section id="block-menu-block-1" class="block block-menu-block ">
-                    <div class="menu-block-wrapper menu-block-1 menu-name-main-menu parent-mlid-0 menu-level-1">
-                        <ul class="menu nav">
-                            <li class="sub-list">
-                                <a href="/">Home</a>
-                                <ul class="menu nav">
-                                  <li><a href="/standard/">Standards</a></li>
-                                  <li><a href="/public-review/">Public review</a></li>
-                                  <li><a href="/pending-publication/">Pending Publication</a></li>
-                                  <li><a href="/report/">Reports</a></li>
-                                  <li><a href="/specification/">Specifications</a></li>
-                                  <li><a href="/administrative/">Administrative documents</a></li>
-                                  <li><a href="/directive/">Directives</a></li>
-                                  <li><a href="/patents/">Patent Information Database</a></li>
-                                  <li><a href="/advisory/">Advisories</a></li>
-                                  <li><a href="/amendment/">Amendments</a></li>
-                                  <li><a href="/technical-corrigendum/">Technical Corrigenda</a></li>
-                                  <li><a href="/guide/">Guides</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-            </div>
-        </div>
+<footer class="bg-gray-50 dark:bg-gray-950 border-t border-gray-200 dark:border-white/10 transition-colors">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+      <div>
+        <h4 class="text-sm font-semibold uppercase tracking-wider text-gray-900 dark:text-white mb-4">Documents</h4>
+        <ul class="space-y-2">
+          <li><a href="/standard/" class="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400">Standards</a></li>
+          <li><a href="/public-review/" class="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400">Public review</a></li>
+          <li><a href="/pending-publication/" class="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400">Pending Publication</a></li>
+          <li><a href="/report/" class="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400">Reports</a></li>
+          <li><a href="/specification/" class="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400">Specifications</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-sm font-semibold uppercase tracking-wider text-gray-900 dark:text-white mb-4">More</h4>
+        <ul class="space-y-2">
+          <li><a href="/administrative/" class="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400">Administrative</a></li>
+          <li><a href="/directive/" class="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400">Directives</a></li>
+          <li><a href="/patents/" class="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400">Patents</a></li>
+          <li><a href="/advisory/" class="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400">Advisories</a></li>
+          <li><a href="/amendment/" class="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400">Amendments</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-sm font-semibold uppercase tracking-wider text-gray-900 dark:text-white mb-4">Also</h4>
+        <ul class="space-y-2">
+          <li><a href="/technical-corrigendum/" class="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400">Technical Corrigenda</a></li>
+          <li><a href="/guide/" class="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400">Guides</a></li>
+        </ul>
+      </div>
     </div>
-   <div class="footer-copyright">
-        <div class="container">
-          <div id="footer-left">
-            Copyright &copy; CalConnect<sup>SM</sup>. <a href="https://www.calconnect.org/contact">Contact Us</a> | <a href="https://www.calconnect.org/about/policies/copyright-and-licensing">Copyright & Licensing</a>
-          </div>
-        </div>
+    <div class="mt-8 pt-8 border-t border-gray-200 dark:border-white/10">
+      <p class="text-sm text-gray-500 dark:text-gray-400">
+        Copyright &copy; {{ site.time | date: '%Y' }} <a href="https://www.calconnect.org/" class="hover:text-gray-700 dark:hover:text-gray-300">CalConnect</a><sup>SM</sup>.
+        <a href="https://www.calconnect.org/contact" class="hover:text-gray-700 dark:hover:text-gray-300">Contact Us</a> |
+        <a href="https://www.calconnect.org/about/policies/copyright-and-licensing" class="hover:text-gray-700 dark:hover:text-gray-300">Copyright &amp; Licensing</a>
+      </p>
     </div>
+  </div>
 </footer>

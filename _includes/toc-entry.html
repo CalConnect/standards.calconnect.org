@@ -1,9 +1,9 @@
 {% for page in include.pages %}
 {% assign content_size = page.content | strip | size %}
-<li id="{{ page.title | replace:' ', '_' | downcase }}"><a href="{{ page.url }}">{{ page.title }}</a>
+<li id="{{ page.title | replace:' ', '_' | downcase }}"><a href="{{ page.url }}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300">{{ page.title }}</a>
 {% assign subpages = site.pages | where: "parent", page.id | sort: "order" %}
 {% if subpages.size > 0 %}
-  <ol>
+  <ol class="list-decimal pl-6 mt-1 space-y-1">
   {% include toc-entry.html pages=subpages %}
   </ol>
 {% endif %}

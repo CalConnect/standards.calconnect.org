@@ -23,5 +23,8 @@ bibcoll/
 csd/
 .vscode/
 
-# This is not a Gem, so lock file should be checked in.
-# Gemfile.lock
+# Vite / Node
+node_modules/
+public/vite*
+config/
+vendor/

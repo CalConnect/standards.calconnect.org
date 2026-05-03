@@ -1,4 +1,4 @@
-<ol>
+<ol class="space-y-2">
     {% for page in loopPages %}
         {% if page.path contains '_appendixes' %}
             {% assign subpages = site.appendixes | where: "parent", page.id | sort: "order" %}
@@ -11,7 +11,7 @@
                 {% assign content_size = subpage.content | strip | size %}
                     {% if content_size > 0 %}
                         <li>
-                            <a href="{{ subpage.url }}" class="{% if currentPageUrl contains subpage.url %}active{% endif %}">{{ subpage.title }}</a>
+                            <a href="{{ subpage.url }}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 transition-colors {% if currentPageUrl contains subpage.url %}font-semibold{% endif %}">{{ subpage.title }}</a>
                         </li>
                     {% endif %}
             {% endfor %}

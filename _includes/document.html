@@ -75,82 +75,66 @@
 {%- endif -%}
 {%- endunless -%}
 
-  <div class="doc-line">
+  <div class="flex items-baseline gap-3 flex-wrap">
     <div class="doc-identifier">
-      <h{{ depth }}>
+      <h{{ depth }} class="text-lg font-semibold text-gray-900 dark:text-white">
       {%- if htmluri == blank or htmluri == nil -%}
         {{ document.docid.id }}
       {%- else -%}
-        <a href="{{ htmluri }}">{{ document.docid.id }}</a>
+        <a href="{{ htmluri }}" class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors">{{ document.docid.id }}</a>
       {%- endif -%}
       </h{{ depth }}>
     </div>
-
-    <div class="doc-type-wrap">
-      <div class="doc-type {{ document.doctype | downcase | split: " " | join: "-" }}">
+    <div class="doc-type {{ document.doctype | downcase | split: " " | join: "-" }}">
       {{ document.doctype }}
-      </div>
     </div>
   </div>
 
-  <div class="doc-title">
-    <h{{ depth | plus: 1 }}>
+  <div class="doc-title mt-1">
+    <h{{ depth | plus: 1 }} class="text-base font-medium text-gray-700 dark:text-gray-300">
       {%- if htmluri == blank or htmluri == nil -%}
         {{ document.title[0].content }}
       {%- else -%}
-        <a href="{{ htmluri }}">{{ document.title.content }}</a>
+        <a href="{{ htmluri }}" class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors">{{ document.title.content }}</a>
       {%- endif -%}
     </h{{ depth | plus: 1 }}>
   </div>
 
-  <div class="doc-info {{ document.docstatus.stage.value | downcase }}">
+  <div class="doc-info {{ document.docstatus.stage.value | downcase }} mt-1">
     <div class="doc-stage {{ document.docstatus.stage.value | downcase }}">
       {{ document.docstatus.stage.value }}
     </div>
     {%- unless document.revdate == blank or document.revdate == nil -%}
-    <div class="doc-dates">
-      <div class="doc-{{ stagetag | downcase }}">
-        ({{ document.revdate | date: "%Y-%m-%d" }})
-      </div>
-    </div>
+    <span class="doc-dates ml-2 text-gray-500 dark:text-gray-400">
+      ({{ document.revdate | date: "%Y-%m-%d" }})
+    </span>
     {%- endunless -%}
   </div>
 
   {%- unless document.abstract.content == blank or document.abstract.content == nil -%}
-  <br>
-  <div class="doc-abstract">
+  <div class="doc-abstract mt-3 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
     {{ document.abstract.content }}
   </div>
   {%- endunless -%}
 
   {%- if rxluri -%}
-  <div class="doc-bib">
-    <div class="doc-bib-rxl">
-      <a href="{{ rxluri }}">Relaton XML</a>
-    </div>
+  <div class="mt-2">
+    <a href="{{ rxluri }}" class="text-sm text-gray-500 dark:text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors">Relaton XML</a>
   </div>
   {%- endif -%}
 
-  <div class="doc-access">
+  <div class="flex flex-wrap gap-2 mt-3">
    {%- unless htmluri == blank or htmluri == nil -%}
-    <div class="doc-access-button-html">
-      <a href="{{ htmluri }}">HTML</a>
-    </div>
+    <a href="{{ htmluri }}" class="inline-flex items-center px-3 py-1 text-sm font-medium rounded-lg bg-indigo-50 text-indigo-700 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:text-indigo-300 dark:hover:bg-indigo-900/50 transition-colors">HTML</a>
   {%- endunless -%}
    {%- unless pdfuri == blank or pdfuri == nil -%}
-    <div class="doc-access-button-pdf">
-      <a href="{{ pdfuri }}">PDF</a>
-    </div>
+    <a href="{{ pdfuri }}" class="inline-flex items-center px-3 py-1 text-sm font-medium rounded-lg bg-red-50 text-red-700 hover:bg-red-100 dark:bg-red-900/30 dark:text-red-300 dark:hover:bg-red-900/50 transition-colors">PDF</a>
   {%- endunless -%}
    {%- unless docuri == blank or docuri == nil -%}
-    <div class="doc-access-button-doc">
-      <a href="{{ docuri }}">Word</a>
-    </div>
+    <a href="{{ docuri }}" class="inline-flex items-center px-3 py-1 text-sm font-medium rounded-lg bg-blue-50 text-blue-700 hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-300 dark:hover:bg-blue-900/50 transition-colors">Word</a>
   {%- endunless -%}
    {%- unless xmluri == blank or xmluri == nil -%}
-    <div class="doc-access-button-xml">
-      <a href="{{ xmluri }}">XML</a>
-    </div>
+    <a href="{{ xmluri }}" class="inline-flex items-center px-3 py-1 text-sm font-medium rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 dark:bg-emerald-900/30 dark:text-emerald-300 dark:hover:bg-emerald-900/50 transition-colors">XML</a>
   {%- endunless -%}
   </div>
 </div>
