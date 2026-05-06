@@ -23,6 +23,9 @@ bibcoll/
 csd/
 .vscode/
 
+# Generated assets
+assets/relaton.css
+
 # Vite / Node
 node_modules/
 public/vite*

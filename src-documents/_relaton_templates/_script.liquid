@@ -1,15 +1,24 @@
-<!--  Scripts-->
-<script src="{{ "/js/jquery.min.js" | relative_url }}"></script>
-<script src="{{ "/js/materialize.min.js" | relative_url }}"></script>
-<script src="{{ "/js/init.js" | relative_url }}"></script>
+<!-- Dark mode toggle -->
+<script>
+  function getTheme() {
+    return localStorage.getItem('theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  }
+  function setTheme(t) {
+    document.documentElement.classList.toggle('dark', t === 'dark');
+    localStorage.setItem('theme', t);
+  }
+  setTheme(getTheme());
+  document.getElementById('theme-toggle').addEventListener('click', function() {
+    setTheme(getTheme() === 'dark' ? 'light' : 'dark');
+  });
+</script>
 
 <!-- Google Analytics Version 4 -->
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S0J77E9MX3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-S0J77E9MX3');
 </script>

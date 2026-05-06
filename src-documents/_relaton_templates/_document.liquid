@@ -1,8 +1,6 @@
 {% assign doc_title = document.title | downcase %}
 {%- if doc_title == "empty" -%}
-<h1>
-  No documents found.
-</h1>
+<h1>No documents found.</h1>
 {%- else -%}
 {%- if document.items.size > 0 -%}
 <div class="doc-section">

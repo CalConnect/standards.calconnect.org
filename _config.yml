@@ -9,9 +9,10 @@ twitter_username: calconnect
 github_username:  CalConnect
 
 markdown: kramdown
-theme: calconnect-theme
+theme: jekyll-calconnect-theme
 plugins:
   - jekyll-feed
+  - jekyll/vite
 
 collections:
   pages:

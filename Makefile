@@ -118,9 +118,14 @@ prep-metanorma:
 prep-jekyll:
 	$(JEKYLL_BUNDLE) install
 
+.PHONY: build-relaton-css
+## Build standalone Tailwind CSS for Relaton templates
+build-relaton-css:
+	npm run build:relaton
+
 .PHONY: jekyll
 ## Build Jekyll site
-jekyll:
+jekyll: build-relaton-css
 	$(JEKYLL_BUNDLE) exec jekyll build
 
 ## Build Jekyll site

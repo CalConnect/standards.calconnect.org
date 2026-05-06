@@ -1,0 +1,209 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Class-based dark mode (toggled by JS) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Content scanning — must include Liquid templates */
+@source "../src-documents/_relaton_templates/**/*.liquid";
+@source "../_layouts/**/*.html";
+@source "../_includes/**/*.html";
+@source "../_pages/**/*.md";
+
+/* Custom theme configuration — matching calconnect-theme */
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+  --color-primary-50: #eef2ff;
+  --color-primary-100: #e0e7ff;
+  --color-primary-200: #c7d2fe;
+  --color-primary-300: #a5b4fc;
+  --color-primary-400: #818cf8;
+  --color-primary-500: #6366f1;
+  --color-primary-600: #4f46e5;
+  --color-primary-700: #4338ca;
+  --color-primary-800: #3730a3;
+  --color-primary-900: #312e81;
+
+  --color-accent-400: #22d3ee;
+  --color-accent-500: #06b6d4;
+
+  /* Document type colors */
+  --color-doctype-standard: #0AC442;
+  --color-doctype-directive: #540D6E;
+  --color-doctype-guide: #D183C9;
+  --color-doctype-specification: #65AFFF;
+  --color-doctype-report: #3A405A;
+  --color-doctype-amendment: #F26430;
+  --color-doctype-corrigendum: #C84630;
+  --color-doctype-administrative: #BFAE48;
+  --color-doctype-advisory: #BD9391;
+
+  /* Document stage colors */
+  --color-stage-proposal: #39A0ED;
+  --color-stage-working-draft: #2D7393;
+  --color-stage-committee-draft: #2A6B7C;
+  --color-stage-draft-standard: #1C7F7A;
+  --color-stage-final-draft: #53C170;
+  --color-stage-published: #069E2D;
+  --color-stage-withdrawn: #004E64;
+  --color-stage-cancelled: #2E382E;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-sans);
+    font-feature-settings: "kern" 1, "liga" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-white);
+    color: var(--color-gray-900);
+  }
+  html.dark body {
+    background-color: var(--color-gray-950);
+    color: var(--color-white);
+  }
+  main { padding-top: 64px; }
+  ::selection { background-color: rgba(99, 102, 241, 0.2); }
+  :focus-visible { outline: 2px solid var(--color-primary-500); outline-offset: 2px; }
+}
+
+/* Nav links — no underlines */
+#nav-header a { text-decoration: none; }
+
+/* Document list section */
+.doc-section { display: flex; flex-direction: column; gap: 1rem; }
+
+/* Document card */
+.document {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: all 0.15s;
+}
+.document:hover {
+  border-color: var(--color-primary-200);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.08);
+}
+html.dark .document {
+  background: var(--color-gray-900);
+  border-color: var(--color-gray-700);
+}
+html.dark .document:hover {
+  border-color: var(--color-primary-700);
+  box-shadow: 0 4px 12px rgba(67, 56, 202, 0.15);
+}
+
+/* Document line (header row) */
+.doc-line { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+
+.doc-identifier h4 { font-size: 1rem; font-weight: 600; color: var(--color-gray-900); margin: 0; }
+.doc-identifier a { color: var(--color-gray-900); text-decoration: none; }
+.doc-identifier a:hover { color: var(--color-primary-600); }
+html.dark .doc-identifier h4,
+html.dark .doc-identifier a { color: var(--color-white); }
+
+/* Document type badge */
+.doc-type {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  color: var(--color-white);
+}
+.doc-type.standard { background-color: var(--color-doctype-standard); }
+.doc-type.directive { background-color: var(--color-doctype-directive); }
+.doc-type.guide { background-color: var(--color-doctype-guide); }
+.doc-type.specification { background-color: var(--color-doctype-specification); }
+.doc-type.report { background-color: var(--color-doctype-report); }
+.doc-type.amendment { background-color: var(--color-doctype-amendment); }
+.doc-type.technical-corrigendum { background-color: var(--color-doctype-corrigendum); }
+.doc-type.administrative { background-color: var(--color-doctype-administrative); }
+.doc-type.advisory { background-color: var(--color-doctype-advisory); }
+
+/* Document edition */
+.doc-edition { font-size: 0.875rem; color: var(--color-gray-600); }
+html.dark .doc-edition { color: var(--color-gray-400); }
+
+/* Document title */
+.doc-title h5 { font-size: 1.125rem; font-weight: 500; color: var(--color-gray-700); margin: 0 0 0.75rem 0; line-height: 1.5; }
+.doc-title a { color: var(--color-gray-700); text-decoration: none; }
+.doc-title a:hover { color: var(--color-primary-600); }
+html.dark .doc-title h5,
+html.dark .doc-title a { color: var(--color-gray-200); }
+
+/* Document info (stage, dates) */
+.doc-info { display: flex; align-items: center; gap: 1rem; font-size: 0.875rem; padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.doc-stage { text-transform: uppercase; font-weight: 600; letter-spacing: 0.025em; }
+
+.doc-info.proposal .doc-stage { color: var(--color-stage-proposal); }
+.doc-info.working-draft .doc-stage { color: var(--color-stage-working-draft); }
+.doc-info.committee-draft .doc-stage { color: var(--color-stage-committee-draft); }
+.doc-info.draft-standard .doc-stage { color: var(--color-stage-draft-standard); }
+.doc-info.final-draft .doc-stage { color: var(--color-stage-final-draft); }
+.doc-info.published .doc-stage { color: var(--color-stage-published); }
+.doc-info.withdrawn .doc-stage { color: var(--color-stage-withdrawn); }
+.doc-info.cancelled .doc-stage { color: var(--color-stage-cancelled); }
+
+.doc-updated,
+.doc-published { color: var(--color-gray-600); }
+html.dark .doc-updated,
+html.dark .doc-published { color: var(--color-gray-400); }
+
+/* Bibliography links */
+.doc-bib { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--color-gray-200); }
+.doc-bib-relaton a { font-size: 0.75rem; color: var(--color-gray-600); text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; }
+.doc-bib-relaton a:hover { color: var(--color-primary-600); }
+html.dark .doc-bib { border-top-color: var(--color-gray-700); }
+
+/* Document access buttons */
+.doc-access { display: flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap; }
+
+.doc-access-button-uri a,
+.doc-access-button-html a,
+.doc-access-button-pdf a,
+.doc-access-button-doc a,
+.doc-access-button-xml a {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  border-radius: 0.375rem;
+  transition: all 0.15s;
+  text-decoration: none;
+}
+
+.doc-access-button-uri a { background-color: var(--color-gray-100); color: var(--color-gray-700); }
+.doc-access-button-html a { background-color: var(--color-primary-500); color: var(--color-white); }
+.doc-access-button-pdf a { background-color: #dc2626; color: var(--color-white); }
+.doc-access-button-doc a { background-color: #2563eb; color: var(--color-white); }
+.doc-access-button-xml a { background-color: #059669; color: var(--color-white); }
+
+.doc-access-button-uri a:hover,
+.doc-access-button-html a:hover,
+.doc-access-button-pdf a:hover,
+.doc-access-button-doc a:hover,
+.doc-access-button-xml a:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+html.dark .doc-access-button-uri a { background-color: var(--color-gray-700); color: var(--color-gray-200); }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .doc-line { flex-direction: column; align-items: flex-start; }
+  .doc-access { flex-direction: column; }
+  .doc-access-button-uri a,
+  .doc-access-button-html a,
+  .doc-access-button-pdf a,
+  .doc-access-button-doc a,
+  .doc-access-button-xml a { text-align: center; }
+}

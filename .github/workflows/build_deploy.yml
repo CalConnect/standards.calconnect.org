@@ -41,6 +41,9 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - name: Build Relaton CSS
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm run build:relaton
       - name: Calculate cache key
         id: cache-key
         run: |
