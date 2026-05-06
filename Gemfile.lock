@@ -1,9 +1,3 @@
-PATH
-  remote: ../calconnect-theme
-  specs:
-    jekyll-calconnect-theme (0.4.1)
-      jekyll (~> 4.3)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -21,8 +15,12 @@ GEM
       http_parser.rb (~> 0)
     eventmachine (1.2.7)
     ffi (1.17.4-arm64-darwin)
+    ffi (1.17.4-x86_64-linux-gnu)
     forwardable-extended (2.6.0)
     google-protobuf (4.34.1-arm64-darwin)
+      bigdecimal
+      rake (~> 13.3)
+    google-protobuf (4.34.1-x86_64-linux-gnu)
       bigdecimal
       rake (~> 13.3)
     http_parser.rb (0.8.1)
@@ -50,6 +48,8 @@ GEM
     jekyll-asciidoc (3.0.1)
       asciidoctor (>= 1.5.0, < 3.0.0)
       jekyll (>= 3.0.0)
+    jekyll-calconnect-theme (0.4.1)
+      jekyll (~> 4.3)
     jekyll-feed (0.17.0)
       jekyll (>= 3.7, < 5.0)
     jekyll-sass-converter (3.1.0)
@@ -91,6 +91,8 @@ GEM
     safe_yaml (1.0.5)
     sass-embedded (1.99.0-arm64-darwin)
       google-protobuf (~> 4.31)
+    sass-embedded (1.99.0-x86_64-linux-gnu)
+      google-protobuf (~> 4.31)
     terminal-table (3.0.2)
       unicode-display_width (>= 1.1.1, < 3)
     unicode-display_width (2.6.0)
@@ -105,11 +107,12 @@ GEM
 
 PLATFORMS
   arm64-darwin
+  x86_64-linux
 
 DEPENDENCIES
   jekyll (~> 4.4)
   jekyll-asciidoc
-  jekyll-calconnect-theme!
+  jekyll-calconnect-theme
   jekyll-feed (~> 0.17.0)
   jekyll-vite
   tzinfo-data
@@ -127,13 +130,15 @@ CHECKSUMS
   em-websocket (0.5.3) sha256=f56a92bde4e6cb879256d58ee31f124181f68f8887bd14d53d5d9a292758c6a8
   eventmachine (1.2.7) sha256=994016e42aa041477ba9cff45cbe50de2047f25dd418eba003e84f0d16560972
   ffi (1.17.4-arm64-darwin) sha256=19071aaf1419251b0a46852abf960e77330a3b334d13a4ab51d58b31a937001b
+  ffi (1.17.4-x86_64-linux-gnu) sha256=9d3db14c2eae074b382fa9c083fe95aec6e0a1451da249eab096c34002bc752d
   forwardable-extended (2.6.0) sha256=1bec948c469bbddfadeb3bd90eb8c85f6e627a412a3e852acfd7eaedbac3ec97
   google-protobuf (4.34.1-arm64-darwin) sha256=2745061f973119e6e7f3c81a0c77025d291a3caa6585a2cd24a25bbc7bedb267
+  google-protobuf (4.34.1-x86_64-linux-gnu) sha256=87088c9fd8e47b5b40ca498fc1195add6149e941ff7e81c532a5b0b8876d4cc9
   http_parser.rb (0.8.1) sha256=9ae8df145b39aa5398b2f90090d651c67bd8e2ebfe4507c966579f641e11097a
   i18n (1.14.8) sha256=285778639134865c5e0f6269e0b818256017e8cde89993fdfcbfb64d088824a5
   jekyll (4.4.1) sha256=4c1144d857a5b2b80d45b8cf5138289579a9f8136aadfa6dd684b31fe2bc18c1
   jekyll-asciidoc (3.0.1) sha256=b002fbda7918866cb2fcd64da1702dcb58d8a5724adbb1bfc29d76cf357ff256
-  jekyll-calconnect-theme (0.4.1)
+  jekyll-calconnect-theme (0.4.1) sha256=7909ce1d7d75593364fba24c8c8e74c865ce2ed2dad2828b4103d5ba29f0bb02
   jekyll-feed (0.17.0) sha256=689aab16c877949bb9e7a5c436de6278318a51ecb974792232fd94d8b3acfcc3
   jekyll-sass-converter (3.1.0) sha256=83925d84f1d134410c11d0c6643b0093e82e3a3cf127e90757a85294a3862443
   jekyll-vite (3.0.4) sha256=bb08c6f95e814afeebd73b9299805b85c5daa1964ce85c9e7a0fa77790018785
@@ -158,6 +163,7 @@ CHECKSUMS
   rouge (4.7.0) sha256=dba5896715c0325c362e895460a6d350803dbf6427454f49a47500f3193ea739
   safe_yaml (1.0.5) sha256=a6ac2d64b7eb027bdeeca1851fe7e7af0d668e133e8a88066a0c6f7087d9f848
   sass-embedded (1.99.0-arm64-darwin) sha256=20773f2fb0e8f4d0194eb1874dab4c0ef60262ff6dafe29361e217beb2208629
+  sass-embedded (1.99.0-x86_64-linux-gnu) sha256=a4e2ae5e9951815cb8b3ab408cee8b800852491988a57de735f18d259c70d7c4
   terminal-table (3.0.2) sha256=f951b6af5f3e00203fb290a669e0a85c5dd5b051b3b023392ccfd67ba5abae91
   unicode-display_width (2.6.0) sha256=12279874bba6d5e4d2728cef814b19197dbb10d7a7837a869bab65da943b7f5a
   vite_ruby (3.10.2) sha256=db465451eb180abbdc81f596ba63671d2b2552e2bb7bf3c1f7b79f9d58ca9a86

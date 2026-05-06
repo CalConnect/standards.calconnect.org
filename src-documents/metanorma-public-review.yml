@@ -1,9 +1,9 @@
 metanorma:
   source:
     files:
-      - src-documents/cc-iso-psdo-agreement/sources/cc-10010.adoc
+      - cc-iso-psdo-agreement/sources/cc-10010.adoc
   collection:
     organization: CalConnect
     name: Documents under Internal Review
   template:
-    path: ../../src-documents/_relaton_templates
+    path: _relaton_templates

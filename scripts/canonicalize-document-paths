@@ -15,10 +15,6 @@ DEBUG = ENV['DEBUG'] || ''
 VERSION = '0.0.1'
 
 require 'pathname'
-ENV['BUNDLE_GEMFILE'] ||= File.expand_path('Gemfile', Pathname.new(__dir__).join('../src-documents/'))
-require 'bundler/setup'
-
-require 'relaton/cli'
 require 'nokogiri'
 
 def date
@@ -173,8 +169,18 @@ end
 def rxl2id(rxl_file)
   raise 'Missing Relaton XML file' if rxl_file.nil? || rxl_file.empty?
 
-  bibdata = Relaton::Bibdata.from_xml(xml_from_file(rxl_file))
-  bibdata.id.downcase
+  doc = xml_from_file(rxl_file)
+  bibdata = doc.at("//*[local-name()='bibdata']")
+  id = bibdata['id'] if bibdata
+
+  unless id
+    docid = doc.at("//*[local-name()='docidentifier']")
+    raise "No docidentifier found in #{rxl_file}" unless docid
+    id = docid.text.strip
+  end
+
+  # Normalize: lowercase, replace non-alphanumeric with hyphens, collapse duplicates
+  id.downcase.gsub(%r{[^a-z0-9]+}, '-').gsub(/^-+|-+$/, '')
 end
 
 # Move a file and replace its occurrences with the new destination
