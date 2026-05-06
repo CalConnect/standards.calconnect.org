@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem "jekyll", "~> 4.4"
-gem "jekyll-calconnect-theme", path: "../calconnect-theme"
+gem "jekyll-calconnect-theme", path: ENV.fetch("CALCONNECT_THEME_PATH", "../calconnect-theme")
 
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.17.0"
