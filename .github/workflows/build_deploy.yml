@@ -150,7 +150,7 @@ jobs:
       - name: Build Relaton index files
         shell: bash
         run: |
-          make build-relaton
+          make build-relaton METANORMA_PREFIX_CMD=
       - name: Debug
         if: ${{ github.ref != 'refs/heads/main' }}
         run: |

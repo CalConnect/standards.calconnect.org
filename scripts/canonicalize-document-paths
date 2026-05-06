@@ -15,6 +15,7 @@ DEBUG = ENV['DEBUG'] || ''
 VERSION = '0.0.1'
 
 require 'pathname'
+require 'fileutils'
 require 'nokogiri'
 
 def date
