@@ -25,17 +25,9 @@ jobs:
   build-site:
     name: Build site
     runs-on: ubuntu-latest
-    env:
-      CALCONNECT_THEME_PATH: .calconnect-theme
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 1
-      - name: Checkout calconnect-theme
-        uses: actions/checkout@v4
-        with:
-          repository: calconnect/calconnect-theme
-          path: .calconnect-theme
           fetch-depth: 1
       - name: Use Node.js
         uses: actions/setup-node@v4
@@ -111,21 +103,15 @@ jobs:
         with:
           path: _site/${{ matrix.doc_type }}
           key: ${{ steps.cache-key.outputs.cache-key }}
-      - name: Copy config to workspace root
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: cp src-documents/metanorma-${{ matrix.doc_type }}.yml metanorma.yml
       - name: Metanorma generate site
         if: steps.cache.outputs.cache-hit != 'true'
-        uses: actions-mn/build-and-publish@main
-        with:
-          destination: artifact
-          agree-to-terms: true
-          output-dir: _site/${{ matrix.doc_type }}
-          artifact-name: metanorma-docs-${{ matrix.doc_type }}
-          source-path: ./
-          config-file: metanorma.yml
+        run: |
+          metanorma site generate \
+            -o _site/${{ matrix.doc_type }} \
+            -c src-documents/metanorma-${{ matrix.doc_type }}.yml \
+            --agree-to-terms \
+            --no-progress
       - name: Save artifacts
-        if: steps.cache.outputs.cache-hit == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: metanorma-docs-${{ matrix.doc_type }}
@@ -137,9 +123,9 @@ jobs:
   check-artifacts:
     name: Check aggregating artifacts with site
     runs-on: ubuntu-latest
+    container:
+      image: metanorma/metanorma:latest
     needs: [build-site, build-docs]
-    env:
-      BUNDLE_GEMFILE: ${{ github.workspace }}/src-documents/Gemfile
     steps:
       - uses: actions/checkout@v4
         with:
@@ -161,11 +147,6 @@ jobs:
           for dir in _site/metanorma-docs-*; do
             mv "$dir" "${dir/metanorma-docs-}"
           done
-      - name: Use Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-          ruby-version: 3.3
       - name: Build Relaton index files
         shell: bash
         run: |

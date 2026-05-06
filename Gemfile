@@ -1,12 +1,12 @@
 source "https://rubygems.org"
 
 gem "jekyll", "~> 4.4"
-gem "jekyll-calconnect-theme", path: ENV.fetch("CALCONNECT_THEME_PATH", "../calconnect-theme")
+gem "jekyll-calconnect-theme"
 
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.17.0"
   gem "jekyll-asciidoc"
-  gem "jekyll-vite"
+  gem "jekyll-vite", require: "jekyll/vite"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

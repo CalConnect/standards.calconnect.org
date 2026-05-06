@@ -1,9 +1,9 @@
 metanorma:
   source:
     files:
-      - src-documents/empty_index.adoc
+      - empty_index.adoc
   collection:
     organization: CalConnect
     name: Guides
   template:
-    path: ../../src-documents/_relaton_templates
+    path: _relaton_templates

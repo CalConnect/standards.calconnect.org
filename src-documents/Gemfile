@@ -3,3 +3,4 @@
 source "https://rubygems.org"
 
 gem "metanorma-cli", "~> 1.11"
+gem "relaton-cli", "~> 1.0"
