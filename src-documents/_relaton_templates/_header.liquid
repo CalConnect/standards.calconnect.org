@@ -1,29 +1,76 @@
-<header id="nav-header" class="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-950 backdrop-blur-md border-b border-gray-200 dark:border-white/10 transition-colors">
+<header id="nav-header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-950/95 backdrop-blur-md border-b border-gray-200 dark:border-white/10 transition-colors">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
-      <div class="flex items-center gap-4">
-        <a href="https://www.calconnect.org" class="flex items-center">
+      <!-- Logo + site name -->
+      <div class="flex items-center gap-3">
+        <a href="https://www.calconnect.org" class="flex items-center" aria-label="CalConnect home">
           <img src="/assets/images/logo-purple.svg" alt="CalConnect" class="h-8 block dark:hidden">
           <img src="/assets/images/logo-white.svg" alt="CalConnect" class="h-8 hidden dark:block">
         </a>
-        <a href="/" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <span class="hidden sm:block text-sm font-medium text-gray-400 dark:text-gray-500">|</span>
+        <a href="/" class="hidden sm:block text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
           Document Registry
         </a>
       </div>
-      <nav class="hidden lg:flex items-center gap-1">
-        <a href="/" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Home</a>
-        <a href="/standard/" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Standards</a>
-        <a href="/public-review/" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Review</a>
-        <a href="/pending-publication/" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Pending</a>
-        <a href="/administrative/" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Administrative</a>
-        <a href="/patents/" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Patents</a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden lg:flex items-center gap-0.5">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/standard/" class="nav-link">Standards</a>
+        <a href="/public-review/" class="nav-link">Review</a>
+        <a href="/pending-publication/" class="nav-link">Pending</a>
+        <a href="/report/" class="nav-link">Reports</a>
+        <a href="/specification/" class="nav-link">Specs</a>
+        <div class="nav-dropdown-wrap">
+          <button class="nav-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            More
+            <svg class="w-3.5 h-3.5 ml-0.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="/administrative/" class="nav-dropdown-item">Administrative</a>
+            <a href="/directive/" class="nav-dropdown-item">Directives</a>
+            <a href="/advisory/" class="nav-dropdown-item">Advisories</a>
+            <a href="/amendment/" class="nav-dropdown-item">Amendments</a>
+            <a href="/technical-corrigendum/" class="nav-dropdown-item">Technical Corrigenda</a>
+            <a href="/guide/" class="nav-dropdown-item">Guides</a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="/patents/" class="nav-dropdown-item">Patent DB</a>
+          </div>
+        </div>
       </nav>
+
+      <!-- Right side: theme toggle + mobile menu -->
       <div class="flex items-center gap-2">
         <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle dark mode">
           <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
           <svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
         </button>
+        <button id="mobile-menu-toggle" class="lg:hidden p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle menu" aria-expanded="false">
+          <svg class="w-6 h-6 menu-closed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg class="w-6 h-6 menu-open hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
       </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-200 dark:border-white/10 bg-white dark:bg-gray-950">
+    <div class="max-w-7xl mx-auto px-4 py-3 space-y-1">
+      <a href="/" class="mobile-nav-link">Home</a>
+      <a href="/standard/" class="mobile-nav-link">Standards</a>
+      <a href="/public-review/" class="mobile-nav-link">Public Review</a>
+      <a href="/pending-publication/" class="mobile-nav-link">Pending Publication</a>
+      <a href="/report/" class="mobile-nav-link">Reports</a>
+      <a href="/specification/" class="mobile-nav-link">Specifications</a>
+      <div class="mobile-nav-divider"></div>
+      <a href="/administrative/" class="mobile-nav-link">Administrative</a>
+      <a href="/directive/" class="mobile-nav-link">Directives</a>
+      <a href="/advisory/" class="mobile-nav-link">Advisories</a>
+      <a href="/amendment/" class="mobile-nav-link">Amendments</a>
+      <a href="/technical-corrigendum/" class="mobile-nav-link">Technical Corrigenda</a>
+      <a href="/guide/" class="mobile-nav-link">Guides</a>
+      <div class="mobile-nav-divider"></div>
+      <a href="/patents/" class="mobile-nav-link">Patent DB</a>
     </div>
   </div>
 </header>
