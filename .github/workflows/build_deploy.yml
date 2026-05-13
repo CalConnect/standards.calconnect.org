@@ -95,14 +95,6 @@ jobs:
             [ -d "$dir" ] && mv "$dir" "${dir/metanorma-docs-}"
           done
 
-      - name: Canonicalize artifact paths
-        shell: bash
-        run: |
-          for doc_type in administrative directive pending-publication public-review report specification standard advisory amendment guide technical-corrigendum; do
-            PUBLIC_PATH=cc SITE_SUB_DIR=$doc_type scripts/canonicalize-document-paths || true
-          done
-          touch _site/cc/.canonicalized
-
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
@@ -115,6 +107,14 @@ jobs:
         with:
           bundler-cache: true
           ruby-version: 3.3
+
+      - name: Canonicalize artifact paths
+        shell: bash
+        run: |
+          for doc_type in administrative directive pending-publication public-review report specification standard advisory amendment guide technical-corrigendum; do
+            PUBLIC_PATH=cc SITE_SUB_DIR=$doc_type scripts/canonicalize-document-paths || true
+          done
+          touch _site/cc/.canonicalized
 
       - name: Build Relaton index
         run: bundle exec rake relaton:build
