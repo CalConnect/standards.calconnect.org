@@ -3,6 +3,7 @@
 
 # Relaton
 relaton
+relaton.Gemfile.lock
 iev
 
 # Metanorma / jekyll
@@ -23,6 +24,9 @@ bibcoll/
 csd/
 .vscode/
 
+# Generated data
+_data/documents.json
+
 # Generated assets
 assets/relaton.css
 
@@ -31,3 +35,5 @@ node_modules/
 public/vite*
 config/
 vendor/
+
+TODO*

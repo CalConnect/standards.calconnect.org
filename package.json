@@ -4,7 +4,6 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:relaton": "tailwindcss -i _frontend/relaton.css -o assets/relaton.css --minify",
     "preview": "vite preview"
   },
   "devDependencies": {

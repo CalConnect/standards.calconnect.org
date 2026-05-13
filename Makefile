@@ -223,3 +223,13 @@ update-modules:
 .PHONY: update-documents
 ## Update Metanorma documents
 update-documents: update-modules repopulate-metanorma-yamls-parallel
+
+.PHONY: fetch-releases
+## Download released documents from per-doc repos into _site/cc/
+fetch-releases: $(SITE_DIR)
+	scripts/fetch-released-docs
+	touch $(SITE_DIR)/$(CANON_PUBLIC_PATH)/.canonicalized
+
+.PHONY: build-from-releases
+## Build entire site from released artifacts (no Metanorma compilation needed)
+build-from-releases: jekyll fetch-releases build-relaton
