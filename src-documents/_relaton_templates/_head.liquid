@@ -1,0 +1,27 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CalConnect Document Registry{% if title %}{{ title | escape | prepend: ": " }}{% endif %}</title>
+  <meta name="description"
+    content="{{ document.abstract[0].content | default: "" | strip_html | normalize_whitespace | truncate: 160 | escape }}" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico" type="image/vnd.microsoft.icon">
+
+  <!-- Google Fonts - Inter + JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Critical CSS to prevent flash of unstyled content -->
+  <style>
+    html{scroll-behavior:smooth!important}
+    body{font-feature-settings:"kern" 1,"liga" 1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background-color:#fff!important;color:#1e293b!important;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,sans-serif!important;opacity:1!important}
+    html.dark body{background-color:#0f172a!important;color:#f1f5f9!important}
+    #nav-header{position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:50!important;height:64px!important}
+    main{padding-top:64px!important}
+  </style>
+
+  <!-- Tailwind CSS (standalone build) -->
+  <link rel="stylesheet" href="/assets/relaton.css">
+</head>
