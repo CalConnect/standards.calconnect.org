@@ -39,6 +39,8 @@ jobs:
           ruby-version: 3.3
 
       - name: Fetch released documents
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bundle exec rake releases:fetch
 
       - name: Build Relaton index
