@@ -29,6 +29,10 @@ defaults:
     values:
       layout: document
 
+keep_files:
+  - cc
+  - relaton
+
 exclude:
   - README.adoc
   - Makefile
