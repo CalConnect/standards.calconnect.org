@@ -1,0 +1,112 @@
+# .github/workflows/build_deploy.yml (release-driven aggregation)
+# Uses actions-mn/aggregate to discover repos, download release zips,
+# extract and canonicalize documents. Then builds Relaton index,
+# generates doc-type pages, and deploys to GitHub Pages.
+#
+# Replaces submodule-based build: no Metanorma compilation needed.
+# Each doc repo publishes its own release via actions-mn/release.
+name: Build and Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: 3.3
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      # Build Jekyll first — creates _site/ shell.
+      # Aggregate action writes into _site/cc/ after Jekyll.
+      - name: Build Relaton CSS
+        run: npm run build:relaton
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build
+
+      # Aggregate documents from all Metanorma release repos.
+      # Discovers repos by topic, downloads zip assets, extracts
+      # and canonicalizes filenames into _site/cc/.
+      # Produces _site/cc/index.json with document metadata.
+      - name: Aggregate released documents
+        uses: actions-mn/aggregate@v1
+        id: aggregate
+        with:
+          organizations: CalConnect
+          topic: metanorma-release
+          output-dir: _site/cc
+          canonicalize: true
+          file-routing: flat
+          index-format: json
+          concurrency: '4'
+          cache-dir: .cache/aggregate
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Aggregate report
+        if: always()
+        run: |
+          echo "Documents: ${{ steps.aggregate.outputs.document-count }}"
+          echo "Repos: ${{ steps.aggregate.outputs.repo-count }}"
+          echo "Channels: ${{ steps.aggregate.outputs.channels-found }}"
+
+      # Build Relaton index from RXL files in _site/cc/
+      - name: Build Relaton index
+        uses: addnab/docker-run-action@v3
+        with:
+          image: metanorma/metanorma:latest
+          options: -v ${{ github.workspace }}:/metanorma -w /metanorma
+          run: |
+            mkdir -p relaton/rxl relaton/yaml
+            find _site/cc/ -name "*.rxl" -exec cp {} relaton/rxl/ \;
+            for f in relaton/rxl/*.rxl; do
+              [ -f "$f" ] || continue
+              relaton convert "$f" -f yaml -o "${f%.rxl}.yaml"
+              mv "${f%.rxl}.yaml" relaton/yaml/
+            done
+            relaton concatenate -t "CalConnect Document Registry" -g "CalConnect" -x yaml relaton/yaml relaton/yaml/index.yaml
+            relaton concatenate -t "CalConnect Document Registry" -g "CalConnect" -x rxl relaton/rxl relaton/rxl/index.rxl
+            cp -a relaton/ _site/relaton/
+
+      - name: Generate doc-type pages
+        run: bundle exec rake pages:generate
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site/
+
+  deploy:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4

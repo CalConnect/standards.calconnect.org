@@ -6,6 +6,8 @@ on:
   pull_request:
   repository_dispatch:
   workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *'
 
 permissions:
   contents: read
@@ -38,10 +40,33 @@ jobs:
           bundler-cache: true
           ruby-version: 3.3
 
-      - name: Fetch released documents
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: bundle exec rake releases:fetch
+      - name: Cache aggregate state
+        uses: actions/cache@v4
+        with:
+          path: .cache/aggregate
+          key: mn-aggregate-${{ github.run_id }}
+          restore-keys: mn-aggregate-
+
+      - name: Aggregate released documents
+        uses: actions-mn/aggregate@v1
+        id: aggregate
+        with:
+          organizations: CalConnect
+          topic: metanorma-release
+          output-dir: _site/cc
+          canonicalize: true
+          file-routing: flat
+          index-format: json
+          concurrency: '4'
+          cache-dir: .cache/aggregate
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Aggregate report
+        if: always()
+        run: |
+          echo "Documents: ${{ steps.aggregate.outputs.document-count }}"
+          echo "Repos: ${{ steps.aggregate.outputs.repo-count }}"
+          echo "Channels: ${{ steps.aggregate.outputs.channels-found }}"
 
       - name: Build Relaton index
         run: bundle exec rake relaton:build
