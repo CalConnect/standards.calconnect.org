@@ -1,0 +1,25 @@
+# .github/workflows/release.yml
+# Compile with site-gen, then publish per-document releases
+name: Release
+
+on:
+  push:
+    branches: [main]
+    paths: ['sources/**', 'metanorma.yml', 'metanorma.release.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions-mn/site-gen@v1
+      - uses: actions-mn/release@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,111 @@
+#!/usr/bin/env bash
+# fetch-released-docs — Download per-document releases from CalConnect repos
+# and place them in _site/cc/ for local testing of the standards site.
+#
+# Usage:
+#   scripts/fetch-released-docs [repo ...]
+#   scripts/fetch-released-docs cc-admin-documents cc-directive-document-requirements
+#
+# If no repos given, discovers all repos with 'metanorma-release' topic.
+set -euo pipefail
+
+ORG="${GITHUB_ORG:-CalConnect}"
+SITE_DIR="${SITE_DIR:-_site}"
+OUT_DIR="$SITE_DIR/cc"
+RXL_DIR="$SITE_DIR/_rxl_raw"
+TMPDIR_FETCH="$(mktemp -d)"
+trap 'rm -rf "$TMPDIR_FETCH"' EXIT
+
+mkdir -p "$OUT_DIR" "$RXL_DIR"
+
+repos=("$@")
+if [ ${#repos[@]} -eq 0 ]; then
+  echo "Discovering repos with topic 'metanorma-release' in $ORG..."
+  mapfile -t repos < <(
+    gh api "search/repositories?q=topic:metanorma-release+org:$ORG&per_page=100" \
+      --jq '.items[].name' 2>/dev/null
+  )
+  if [ ${#repos[@]} -eq 0 ]; then
+    echo "No repos found. Add the 'metanorma-release' topic to repos first."
+    exit 1
+  fi
+fi
+
+echo "Fetching releases from ${#repos[@]} repos..."
+
+total_files=0
+total_rxls=0
+
+for repo in "${repos[@]}"; do
+  # List all releases (handles multi-doc repos)
+  releases_json="$TMPDIR_FETCH/$repo-releases.json"
+  if ! gh api "repos/$ORG/$repo/releases" --paginate -q '.[]' > "$releases_json" 2>/dev/null; then
+    echo "  SKIP $repo (no releases or not found)"
+    continue
+  fi
+
+  release_count=$(jq -s 'length' "$releases_json")
+  if [ "$release_count" -eq 0 ]; then
+    echo "  SKIP $repo (no releases)"
+    continue
+  fi
+
+  doc_count=0
+  while IFS= read -r release; do
+    tag=$(echo "$release" | jq -r '.tag_name')
+    zip_url=""
+    zip_name=""
+
+    # Find the zip asset
+    while IFS= read -r asset; do
+      name=$(echo "$asset" | jq -r '.name')
+      if [[ "$name" == *.zip ]]; then
+        zip_url=$(echo "$asset" | jq -r '.browser_download_url')
+        zip_name="$name"
+        break
+      fi
+    done < <(echo "$release" | jq -c '.assets[]')
+
+    if [ -z "$zip_url" ]; then
+      continue
+    fi
+
+    # Download zip
+    zip_path="$TMPDIR_FETCH/$repo-${tag//\//_}.zip"
+    curl -sL "$zip_url" -o "$zip_path"
+
+    # Extract files, stripping edition suffix from canonical names
+    # e.g. cc-a-1601-2016-ed1.html → cc-a-1601-2016.html
+    tmp_extract="$TMPDIR_FETCH/$repo-${tag//\//_}"
+    mkdir -p "$tmp_extract"
+    unzip -qn "$zip_path" -d "$tmp_extract"
+
+    file_count=0
+    for f in "$tmp_extract"/*; do
+      [ -f "$f" ] || continue
+      basename_f=$(basename "$f")
+      # Strip the edition suffix: -ed1, -ed2-wd, -ed1.0, etc.
+      # Pattern: -(ed\d+(\.\d+)?(-[a-z0-9]+)?) before the extension
+      clean_name=$(echo "$basename_f" | sed -E 's/-ed[0-9]+(\.[0-9]+)?(-[a-z0-9]+)?\./\./')
+
+      cp "$f" "$OUT_DIR/$clean_name"
+      file_count=$((file_count + 1))
+
+      # Collect RXL for Relaton indexing
+      if [[ "$clean_name" == *.rxl ]]; then
+        cp "$f" "$RXL_DIR/$clean_name"
+        total_rxls=$((total_rxls + 1))
+      fi
+    done
+
+    doc_count=$((doc_count + 1))
+    total_files=$((total_files + file_count))
+    rm -rf "$tmp_extract"
+  done < <(jq -c '.' "$releases_json")
+
+  echo "  OK   $repo ($doc_count releases, $((total_files)) total files so far)"
+done
+
+echo ""
+echo "Done. Downloaded $total_files files ($total_rxls RXL) to $OUT_DIR/"
+echo "RXL files collected in $RXL_DIR/"
