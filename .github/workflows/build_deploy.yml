@@ -74,6 +74,15 @@ jobs:
       - name: Build Jekyll site
         run: bundle exec rake jekyll
 
+      - name: Verify build
+        run: |
+          doc_count=$(python3 -c "import json; print(len(json.load(open('_data/documents.json')).get('items',[])))")
+          if [ "$doc_count" -eq 0 ]; then
+            echo "::error::Build produced 0 documents — aborting deploy"
+            exit 1
+          fi
+          echo "Verified: $doc_count documents"
+
       - name: Debug
         if: ${{ github.ref != 'refs/heads/main' }}
         run: |
