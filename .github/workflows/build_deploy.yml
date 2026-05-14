@@ -88,7 +88,7 @@ jobs:
         run: |
           ls -al _site
           ls _site/cc | head -20
-          ls _site/relaton
+          ls _site/relaton 2>/dev/null || echo "(no relaton dir)"
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
