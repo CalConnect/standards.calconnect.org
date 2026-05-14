@@ -1,132 +1,126 @@
 require "fileutils"
 require "json"
-require "yaml"
-require "relaton/calconnect"
 
 module CalConnect
   module Build
     class RelatonIndex
+      CHANNEL_DOCTYPE_MAP = {
+        "standards" => "standard",
+        "reports" => "report",
+        "specifications" => "specification",
+        "directives" => "directive",
+        "advisories" => "advisory",
+        "admin" => "administrative",
+        "guides" => "guide",
+        "public-review" => "public-review",
+        "pending-publication" => "pending-publication",
+        "amendments" => "amendment",
+        "technical-corrigenda" => "technical-corrigendum",
+      }.freeze
+
       def initialize(config)
         @config = config
       end
 
       def build
-        items = parse_rxl_files
-        if items.empty?
-          warn "No RXL files found in #{@config.canon_dir}"
-          write_empty_data
-          return
-        end
-
-        FileUtils.mkdir_p(@config.bib_dir)
-        write_json_index(items)
-        write_yaml_index(items)
-        copy_to_site
+        items = build_from_aggregate_index
+        verify!(items)
         write_data_file(items)
-        puts "Relaton index: #{items.length} documents → #{@config.bib_dir}/"
+        build_relaton_output
+        puts "Document index: #{items.length} documents → _data/documents.json"
       end
 
       private
 
-      def parse_rxl_files
-        Dir.glob(File.join(@config.canon_dir, "*.rxl")).filter_map do |path|
+      def aggregate_index_path
+        File.join(@config.canon_dir, "index.json")
+      end
+
+      def build_from_aggregate_index
+        unless File.exist?(aggregate_index_path)
+          abort "No document data found. Expected aggregate index at #{aggregate_index_path}"
+        end
+
+        raw = JSON.parse(File.read(aggregate_index_path))
+        docs = raw["documents"] || []
+        docs.map { |doc| flatten(doc) }
+      end
+
+      def flatten(doc)
+        channels = doc["channels"] || []
+        doctype = derive_doctype(channels)
+        slug = doc["id"].to_s.downcase.gsub(%r{[^a-z0-9]+}, "-").gsub(/^-+|-+$/, "")
+        formats = doc["formats"] || []
+        file_exts = (doc["files"] || []).map { |f| File.extname(f["name"]).delete_prefix(".") }
+        all_fmts = (formats + file_exts).uniq
+        release_date = doc.dig("source", "releaseDate")
+        date = release_date&.split("T")&.first
+
+        {
+          "slug" => slug,
+          "id" => doc["id"],
+          "title" => doc["title"].to_s,
+          "stage" => (doc["stage"] || "published").to_s.downcase,
+          "stage_css" => (doc["stage"] || "published").to_s.downcase.tr(" ", "-"),
+          "doctype" => doctype,
+          "doctype_class" => doctype.tr(" ", "-"),
+          "edition" => doc["edition"],
+          "date" => date,
+          "channels" => channels,
+          "has_html" => all_fmts.include?("html"),
+          "has_pdf" => all_fmts.include?("pdf"),
+          "has_xml" => all_fmts.include?("xml"),
+          "has_rxl" => all_fmts.include?("rxl"),
+        }
+      end
+
+      def derive_doctype(channels)
+        return "" unless channels.is_a?(Array) && channels.any?
+        category = channels.first.split("/").last
+        CHANNEL_DOCTYPE_MAP.fetch(category, category)
+      end
+
+      def verify!(items)
+        if items.empty?
+          abort "Build produced 0 documents — aborting to prevent empty deploy. Check aggregate output."
+        end
+      end
+
+      def write_data_file(items)
+        FileUtils.mkdir_p("_data")
+        File.write("_data/documents.json", JSON.pretty_generate({ "items" => items }))
+      end
+
+      def build_relaton_output
+        require "relaton/calconnect"
+        require "yaml"
+
+        rxl_files = Dir.glob(File.join(@config.canon_dir, "*.rxl"))
+        if rxl_files.empty?
+          puts "  (No RXL files for relaton/ bibliography — skipped)"
+          return
+        end
+
+        items = rxl_files.filter_map do |path|
           Relaton::Calconnect::Item.from_xml(File.read(path)).to_h
         rescue => e
           warn "  Skip #{File.basename(path)}: #{e.message}"
           nil
         end
-      end
 
-      def write_json_index(items)
-        path = File.join(@config.bib_dir, "index.json")
-        File.write(path, JSON.pretty_generate(wrap(items)))
-      end
+        FileUtils.mkdir_p(@config.bib_dir)
 
-      def write_yaml_index(items)
-        plain = JSON.parse(JSON.generate(wrap(items)))
-        path = File.join(@config.bib_dir, "index.yaml")
-        File.write(path, YAML.dump(plain))
-      end
+        index = { "root" => { "title" => @config.registry_name, "items" => items } }
+        File.write(File.join(@config.bib_dir, "index.json"), JSON.pretty_generate(index))
+        File.write(File.join(@config.bib_dir, "index.yaml"), YAML.dump(JSON.parse(JSON.generate(index))))
 
-      def wrap(items)
-        { "root" => { "title" => @config.registry_name, "items" => items } }
-      end
-
-      def copy_to_site
         dest = File.join(@config.site_dir, @config.bib_dir)
         FileUtils.rm_rf(dest)
         FileUtils.cp_r(@config.bib_dir, dest)
-      end
 
-      def write_data_file(items)
-        formats_by_slug = discover_formats
-        flat = items.map { |item| flatten_item(item, formats_by_slug) }
-        FileUtils.mkdir_p("_data")
-        File.write("_data/documents.json", JSON.pretty_generate({ "items" => flat }))
-      end
-
-      def write_empty_data
-        FileUtils.mkdir_p("_data")
-        File.write("_data/documents.json", JSON.pretty_generate({ "items" => [] }))
-      end
-
-      def discover_formats
-        canon = @config.canon_dir
-        return {} unless Dir.exist?(canon)
-
-        Dir.glob(File.join(canon, "*")).each_with_object({}) do |f, hash|
-          next unless File.file?(f)
-          base = File.basename(f)
-          name, ext = base.split(".", 2)
-          next unless ext
-          slug = name.downcase.gsub(%r{[^a-z0-9]+}, "-").gsub(/^-+|-+$/, "")
-          (hash[slug] ||= []) << ext
-        end
-      end
-
-      def flatten_item(item, formats_by_slug)
-        primary = primary_docid(item)
-        slug = primary.downcase.gsub(%r{[^a-z0-9]+}, "-").gsub(/^-+|-+$/, "")
-        fmts = formats_by_slug[slug] || []
-        stage = item.dig("status", "stage", "content") || ""
-        stage_abbr = item.dig("status", "stage", "abbreviation") || stage
-        doctype = item.dig("ext", "doctype", "content") || ""
-        edition = item.dig("edition", "content")
-        dates = item["date"]
-        date = dates ? (dates.find { |d| d["type"] == "published" }&.dig("at") || dates.first&.dig("at")) : nil
-        abstracts = item["abstract"]
-        abstract = abstracts&.first&.dig("content")&.gsub(%r{<[^>]+>}, "")&.[](0, 200) || ""
-
-        {
-          "slug" => slug,
-          "id" => primary,
-          "title" => title_text(item),
-          "stage" => stage.downcase,
-          "stage_css" => stage.downcase.gsub(" ", "-"),
-          "stage_abbr" => stage_abbr.to_s,
-          "doctype" => doctype.downcase,
-          "doctype_class" => doctype.downcase.gsub(" ", "-"),
-          "edition" => edition,
-          "date" => date,
-          "abstract" => abstract,
-          "has_html" => fmts.include?("html"),
-          "has_pdf" => fmts.include?("pdf"),
-          "has_xml" => fmts.include?("xml"),
-          "has_rxl" => fmts.include?("rxl")
-        }
-      end
-
-      def title_text(item)
-        titles = item["title"]
-        return "" unless titles.is_a?(Array)
-        t = titles.find { |t| t["type"] == "main" } || titles.first
-        t&.dig("content") || ""
-      end
-
-      def primary_docid(item)
-        ids = item["docidentifier"]
-        primary = ids&.find { |d| d["primary"] } || ids&.first
-        primary&.dig("content") || item["id"].to_s
+        puts "  Relaton bibliography: #{items.length} items → #{@config.bib_dir}/"
+      rescue LoadError
+        puts "  (relaton gem not available — bibliography skipped)"
       end
     end
   end
