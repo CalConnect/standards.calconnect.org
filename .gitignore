@@ -37,3 +37,4 @@ config/
 vendor/
 
 TODO*
+.cache/

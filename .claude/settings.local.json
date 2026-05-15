@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /tmp/deploy-extract)",
+      "Read(//tmp/**)",
+      "Bash(rm -rf *)",
+      "Bash(tar xf *)"
+    ]
+  }
+}

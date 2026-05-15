@@ -1,0 +1,10 @@
+source: github
+output_dir: _site/cc
+file_routing: flat
+cache_dir: .cache/aggregate
+data_dir: _data
+
+github:
+  organizations:
+    - CalConnect
+  topic: metanorma-release

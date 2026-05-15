@@ -47,32 +47,10 @@ jobs:
           key: mn-aggregate-${{ github.run_id }}
           restore-keys: mn-aggregate-
 
-      - name: Aggregate released documents
-        uses: actions-mn/aggregate@v1
-        id: aggregate
-        with:
-          organizations: CalConnect
-          topic: metanorma-release
-          output-dir: _site/cc
-          canonicalize: true
-          file-routing: flat
-          index-format: json
-          concurrency: '4'
-          cache-dir: .cache/aggregate
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Aggregate report
-        if: always()
-        run: |
-          echo "Documents: ${{ steps.aggregate.outputs.document-count }}"
-          echo "Repos: ${{ steps.aggregate.outputs.repo-count }}"
-          echo "Channels: ${{ steps.aggregate.outputs.channels-found }}"
-
-      - name: Build Relaton index
-        run: bundle exec rake relaton:build
-
-      - name: Build Jekyll site
-        run: bundle exec rake jekyll
+      - name: Build site (fetch releases + Jekyll)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bundle exec rake build
 
       - name: Verify build
         run: |
