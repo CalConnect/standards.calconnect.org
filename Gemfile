@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "jekyll", "~> 4.4"
 gem "jekyll-calconnect-theme"
-gem "metanorma-release", github: "metanorma/metanorma-release", tag: "v0.2.10"
+gem "metanorma-release", github: "metanorma/metanorma-release", tag: "v0.2.12"
 gem "octokit", "~> 9.0"
 gem "relaton-calconnect", "~> 2.1"
 
