@@ -9,6 +9,8 @@ data_dir: _data
 channels:
   - public
 
+include_drafts: true
+
 github:
   organizations:
     - CalConnect
