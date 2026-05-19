@@ -1,7 +1,15 @@
 ---
 layout: base
 ---
-{% if page.display_category_slug %}
+{% if page.stage_filter %}
+{% assign all_docs = site.data.documents.items | sort: "id" %}
+{% assign docs = "" | split: "" %}
+{% for doc in all_docs %}
+{% if page.stage_filter contains doc.stage %}
+{% assign docs = docs | push: doc %}
+{% endif %}
+{% endfor %}
+{% elsif page.display_category_slug %}
 {% assign docs = site.data.documents.items | where: "display_category_slug", page.display_category_slug | sort: "id" %}
 {% else %}
 {% assign docs = site.data.documents.items | where: "doctype", page.doctype | sort: "id" %}
@@ -82,6 +90,15 @@ layout: base
         <a href="/cc/{{ doc.slug }}.html" class="doc-title">{{ doc.title | escape }}</a>
         {% else %}
         <div class="doc-title">{{ doc.title | escape }}</div>
+        {% endif %}
+        {% if doc.authors and doc.authors.size > 0 %}
+        <p class="doc-authors">
+          {% assign author_names = doc.authors | map: "name" %}
+          {{ author_names | join: ", " | escape }}
+          {% if doc.committee %}<span class="doc-committee">({{ doc.committee | escape }})</span>{% endif %}
+        </p>
+        {% elsif doc.committee %}
+        <p class="doc-authors"><span class="doc-committee">{{ doc.committee | escape }}</span></p>
         {% endif %}
         {% if doc.abstract and doc.abstract != "" %}<p class="doc-abstract">{{ doc.abstract | escape }}</p>{% endif %}
       </div>

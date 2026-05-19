@@ -9,6 +9,8 @@ permalink: /
 {% assign directives_count = docs | where: "display_category_slug", "directives" | size %}
 {% assign admin_count = docs | where: "display_category_slug", "administrative" | size %}
 {% assign amendments_count = docs | where: "display_category_slug", "amendments" | size %}
+{% assign drafts_count = 0 %}
+{% for d in docs %}{% if d.stage == "working-draft" or d.stage == "committee-draft" or d.stage == "draft" or d.stage == "proposal" or d.stage == "final-draft" %}{% assign drafts_count = drafts_count | plus: 1 %}{% endif %}{% endfor %}
 
 <script id="doc-index" type="application/json">{{ docs | jsonify }}</script>
 
@@ -104,6 +106,25 @@ permalink: /
       </div>
     </a>
 
+    <a href="/public-review/" class="category-card cat-public-review">
+      <h3 class="category-card-title">Public Review</h3>
+      <p class="category-card-desc">Documents currently open for 60-day public review, as defined in CC/DIR 10001, in compliance with WTO TBT rules.</p>
+      <div class="category-card-footer">
+        <span class="category-card-count-empty">No documents currently in review</span>
+        <span class="category-card-arrow">&rarr;</span>
+      </div>
+    </a>
+
+    <a href="/drafts/" class="category-card cat-draft{% if drafts_count == 0 %} category-empty{% endif %}">
+      <h3 class="category-card-title">Drafts &amp; Works in Progress</h3>
+      <p class="category-card-desc">Working drafts, committee drafts, and other documents under development by CalConnect working groups.</p>
+      <div class="category-card-footer">
+        {% if drafts_count > 0 %}<span class="category-card-count has-docs">{{ drafts_count }} documents</span>
+        {% else %}<span class="category-card-count-empty">No documents yet</span>{% endif %}
+        <span class="category-card-arrow">&rarr;</span>
+      </div>
+    </a>
+
   </div>
 </div>
 
@@ -120,6 +141,10 @@ permalink: /
         <span class="doc-type-badge {{ doc.doctype_class }}">{{ doc.doctype }}</span>
       </div>
       <span class="recent-card-title">{{ doc.title | truncate: 55 | escape }}</span>
+      {% if doc.authors and doc.authors.size > 0 %}
+      {% assign author_names = doc.authors | map: "name" %}
+      <span class="recent-card-authors">{{ author_names | join: ", " | truncate: 40 | escape }}</span>
+      {% endif %}
       <span class="recent-card-date">{{ doc.date | slice: 0, 4 }}</span>
     </a>
     {% endfor %}
