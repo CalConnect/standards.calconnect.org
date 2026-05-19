@@ -8,9 +8,8 @@ permalink: /
 {% assign guides_count = docs | where: "display_category_slug", "guides" | size %}
 {% assign directives_count = docs | where: "display_category_slug", "directives" | size %}
 {% assign admin_count = docs | where: "display_category_slug", "administrative" | size %}
-{% assign amendments_count = docs | where: "display_category_slug", "amendments" | size %}
 {% assign drafts_count = 0 %}
-{% for d in docs %}{% if d.stage == "working-draft" or d.stage == "committee-draft" or d.stage == "draft" or d.stage == "proposal" or d.stage == "final-draft" %}{% assign drafts_count = drafts_count | plus: 1 %}{% endif %}{% endfor %}
+{% for d in docs %}{% if d.stage == "working-draft" or d.stage == "committee-draft" or d.stage == "draft" or d.stage == "proposal" or d.stage == "final-draft" or d.stage == "public-review" %}{% assign drafts_count = drafts_count | plus: 1 %}{% endif %}{% endfor %}
 
 <script id="doc-index" type="application/json">{{ docs | jsonify }}</script>
 
@@ -57,8 +56,8 @@ permalink: /
   <div class="home-categories-grid">
 
     <a href="/standards/" class="category-card cat-standard{% if standards_count == 0 %} category-empty{% endif %}">
-      <h3 class="category-card-title">Standards, Specifications &amp; Reports</h3>
-      <p class="category-card-desc">Formally approved Standards, Specifications, and Reports defining normative requirements, technical protocols, and documented findings for calendar and scheduling interoperability.</p>
+      <h3 class="category-card-title">Standards</h3>
+      <p class="category-card-desc">Standards, specifications, reports, amendments, and technical corrigenda defining normative requirements and technical protocols for calendar and scheduling interoperability.</p>
       <div class="category-card-footer">
         {% if standards_count > 0 %}<span class="category-card-count has-docs">{{ standards_count }} documents</span>
         {% else %}<span class="category-card-count-empty">No documents yet</span>{% endif %}
@@ -67,7 +66,7 @@ permalink: /
     </a>
 
     <a href="/guides/" class="category-card cat-advisory{% if guides_count == 0 %} category-empty{% endif %}">
-      <h3 class="category-card-title">Guides &amp; Advisories</h3>
+      <h3 class="category-card-title">Guides</h3>
       <p class="category-card-desc">Practical guides for implementing CalConnect Standards and advisory documents providing best practice recommendations for the calendaring community.</p>
       <div class="category-card-footer">
         {% if guides_count > 0 %}<span class="category-card-count has-docs">{{ guides_count }} documents</span>
@@ -96,28 +95,9 @@ permalink: /
       </div>
     </a>
 
-    <a href="/amendments/" class="category-card cat-amendment{% if amendments_count == 0 %} category-empty{% endif %}">
-      <h3 class="category-card-title">Amendments &amp; Technical Corrigenda</h3>
-      <p class="category-card-desc">Amendments and technical corrections to previously published CalConnect Standards.</p>
-      <div class="category-card-footer">
-        {% if amendments_count > 0 %}<span class="category-card-count has-docs">{{ amendments_count }} documents</span>
-        {% else %}<span class="category-card-count-empty">No documents yet</span>{% endif %}
-        <span class="category-card-arrow">&rarr;</span>
-      </div>
-    </a>
-
-    <a href="/public-review/" class="category-card cat-public-review">
-      <h3 class="category-card-title">Public Review</h3>
-      <p class="category-card-desc">Documents currently open for 60-day public review, as defined in CC/DIR 10001, in compliance with WTO TBT rules.</p>
-      <div class="category-card-footer">
-        <span class="category-card-count-empty">No documents currently in review</span>
-        <span class="category-card-arrow">&rarr;</span>
-      </div>
-    </a>
-
     <a href="/drafts/" class="category-card cat-draft{% if drafts_count == 0 %} category-empty{% endif %}">
-      <h3 class="category-card-title">Drafts &amp; Works in Progress</h3>
-      <p class="category-card-desc">Working drafts, committee drafts, and other documents under development by CalConnect working groups.</p>
+      <h3 class="category-card-title">Drafts</h3>
+      <p class="category-card-desc">Working drafts, committee drafts, documents in public review, and other works in progress under development by CalConnect working groups.</p>
       <div class="category-card-footer">
         {% if drafts_count > 0 %}<span class="category-card-count has-docs">{{ drafts_count }} documents</span>
         {% else %}<span class="category-card-count-empty">No documents yet</span>{% endif %}

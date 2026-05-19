@@ -2,7 +2,7 @@
 layout: base
 ---
 {% if page.stage_filter %}
-{% assign all_docs = site.data.documents.items | sort: "id" %}
+{% assign all_docs = site.data.documents.items | sort: "date" | reverse %}
 {% assign docs = "" | split: "" %}
 {% for doc in all_docs %}
 {% if page.stage_filter contains doc.stage %}
@@ -10,9 +10,9 @@ layout: base
 {% endif %}
 {% endfor %}
 {% elsif page.display_category_slug %}
-{% assign docs = site.data.documents.items | where: "display_category_slug", page.display_category_slug | sort: "id" %}
+{% assign docs = site.data.documents.items | where: "display_category_slug", page.display_category_slug | sort: "date" | reverse %}
 {% else %}
-{% assign docs = site.data.documents.items | where: "doctype", page.doctype | sort: "id" %}
+{% assign docs = site.data.documents.items | where: "doctype", page.doctype | sort: "date" | reverse %}
 {% endif %}
 <div class="hero-section">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
@@ -46,7 +46,7 @@ layout: base
         <select id="sort-select" class="sort-select">
           <option value="id-asc">Identifier A-Z</option>
           <option value="id-desc">Identifier Z-A</option>
-          <option value="date-desc">Newest first</option>
+          <option value="date-desc" selected>Newest first</option>
           <option value="date-asc">Oldest first</option>
           <option value="title-asc">Title A-Z</option>
         </select>
