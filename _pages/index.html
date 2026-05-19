@@ -4,17 +4,11 @@ title: CalConnect Document Registry
 permalink: /
 ---
 {% assign docs = site.data.documents.items %}
-{% assign standard_count = docs | where: "doctype", "standard" | size %}
-{% assign specification_count = docs | where: "doctype", "specification" | size %}
-{% assign report_count = docs | where: "doctype", "report" | size %}
-{% assign directive_count = docs | where: "doctype", "directive" | size %}
-{% assign administrative_count = docs | where: "doctype", "administrative" | size %}
-{% assign advisory_count = docs | where: "doctype", "advisory" | size %}
-{% assign public_review_count = docs | where: "doctype", "public-review" | size %}
-{% assign pending_count = docs | where: "doctype", "pending-publication" | size %}
-{% assign amendment_count = docs | where: "doctype", "amendment" | size %}
-{% assign corrigendum_count = docs | where: "doctype", "technical-corrigendum" | size %}
-{% assign guide_count = docs | where: "doctype", "guide" | size %}
+{% assign standards_count = docs | where: "display_category_slug", "standards" | size %}
+{% assign guides_count = docs | where: "display_category_slug", "guides" | size %}
+{% assign directives_count = docs | where: "display_category_slug", "directives" | size %}
+{% assign admin_count = docs | where: "display_category_slug", "administrative" | size %}
+{% assign amendments_count = docs | where: "display_category_slug", "amendments" | size %}
 
 <script id="doc-index" type="application/json">{{ docs | jsonify }}</script>
 
@@ -44,7 +38,7 @@ permalink: /
         <span class="home-stat-label">Documents</span>
       </div>
       <div class="home-stat">
-        <span class="home-stat-value">11</span>
+        <span class="home-stat-value">5</span>
         <span class="home-stat-label">Categories</span>
       </div>
       <div class="home-stat">
@@ -60,111 +54,51 @@ permalink: /
   <h2 class="home-section-title">Document Categories</h2>
   <div class="home-categories-grid">
 
-    <a href="/standard/" class="category-card cat-standard{% if standard_count == 0 %} category-empty{% endif %}">
-      <h3 class="category-card-title">Standards</h3>
-      <p class="category-card-desc">Formally approved CalConnect Standards defining normative requirements for calendar and scheduling interoperability.</p>
+    <a href="/standards/" class="category-card cat-standard{% if standards_count == 0 %} category-empty{% endif %}">
+      <h3 class="category-card-title">Standards, Specifications &amp; Reports</h3>
+      <p class="category-card-desc">Formally approved Standards, Specifications, and Reports defining normative requirements, technical protocols, and documented findings for calendar and scheduling interoperability.</p>
       <div class="category-card-footer">
-        {% if standard_count > 0 %}<span class="category-card-count has-docs">{{ standard_count }} documents</span>
+        {% if standards_count > 0 %}<span class="category-card-count has-docs">{{ standards_count }} documents</span>
         {% else %}<span class="category-card-count-empty">No documents yet</span>{% endif %}
         <span class="category-card-arrow">&rarr;</span>
       </div>
     </a>
 
-    <a href="/specification/" class="category-card cat-specification{% if specification_count == 0 %} category-empty{% endif %}">
-      <h3 class="category-card-title">Specifications</h3>
-      <p class="category-card-desc">Technical specifications defining protocols, formats, and interfaces for calendar and scheduling systems.</p>
+    <a href="/guides/" class="category-card cat-advisory{% if guides_count == 0 %} category-empty{% endif %}">
+      <h3 class="category-card-title">Guides &amp; Advisories</h3>
+      <p class="category-card-desc">Practical guides for implementing CalConnect Standards and advisory documents providing best practice recommendations for the calendaring community.</p>
       <div class="category-card-footer">
-        {% if specification_count > 0 %}<span class="category-card-count has-docs">{{ specification_count }} documents</span>
+        {% if guides_count > 0 %}<span class="category-card-count has-docs">{{ guides_count }} documents</span>
         {% else %}<span class="category-card-count-empty">No documents yet</span>{% endif %}
         <span class="category-card-arrow">&rarr;</span>
       </div>
     </a>
 
-    <a href="/report/" class="category-card cat-report{% if report_count == 0 %} category-empty{% endif %}">
-      <h3 class="category-card-title">Reports</h3>
-      <p class="category-card-desc">Technical reports documenting findings, analyses, and recommendations from CalConnect working groups.</p>
-      <div class="category-card-footer">
-        {% if report_count > 0 %}<span class="category-card-count has-docs">{{ report_count }} documents</span>
-        {% else %}<span class="category-card-count-empty">No documents yet</span>{% endif %}
-        <span class="category-card-arrow">&rarr;</span>
-      </div>
-    </a>
-
-    <a href="/directive/" class="category-card cat-directive{% if directive_count == 0 %} category-empty{% endif %}">
+    <a href="/directives/" class="category-card cat-directive{% if directives_count == 0 %} category-empty{% endif %}">
       <h3 class="category-card-title">Directives</h3>
       <p class="category-card-desc">Organizational directives governing CalConnect operations, procedures, and policies.</p>
       <div class="category-card-footer">
-        {% if directive_count > 0 %}<span class="category-card-count has-docs">{{ directive_count }} documents</span>
+        {% if directives_count > 0 %}<span class="category-card-count has-docs">{{ directives_count }} documents</span>
         {% else %}<span class="category-card-count-empty">No documents yet</span>{% endif %}
         <span class="category-card-arrow">&rarr;</span>
       </div>
     </a>
 
-    <a href="/administrative/" class="category-card cat-administrative{% if administrative_count == 0 %} category-empty{% endif %}">
+    <a href="/administrative/" class="category-card cat-administrative{% if admin_count == 0 %} category-empty{% endif %}">
       <h3 class="category-card-title">Administrative</h3>
       <p class="category-card-desc">Administrative records including meeting minutes, agendas, and organizational documents.</p>
       <div class="category-card-footer">
-        {% if administrative_count > 0 %}<span class="category-card-count has-docs">{{ administrative_count }} documents</span>
+        {% if admin_count > 0 %}<span class="category-card-count has-docs">{{ admin_count }} documents</span>
         {% else %}<span class="category-card-count-empty">No documents yet</span>{% endif %}
         <span class="category-card-arrow">&rarr;</span>
       </div>
     </a>
 
-    <a href="/advisory/" class="category-card cat-advisory{% if advisory_count == 0 %} category-empty{% endif %}">
-      <h3 class="category-card-title">Advisories</h3>
-      <p class="category-card-desc">Advisory documents providing guidance and best practice recommendations for the calendaring community.</p>
+    <a href="/amendments/" class="category-card cat-amendment{% if amendments_count == 0 %} category-empty{% endif %}">
+      <h3 class="category-card-title">Amendments &amp; Technical Corrigenda</h3>
+      <p class="category-card-desc">Amendments and technical corrections to previously published CalConnect Standards.</p>
       <div class="category-card-footer">
-        {% if advisory_count > 0 %}<span class="category-card-count has-docs">{{ advisory_count }} documents</span>
-        {% else %}<span class="category-card-count-empty">No documents yet</span>{% endif %}
-        <span class="category-card-arrow">&rarr;</span>
-      </div>
-    </a>
-
-    <a href="/public-review/" class="category-card cat-public-review{% if public_review_count == 0 %} category-empty{% endif %}">
-      <h3 class="category-card-title">Public Review</h3>
-      <p class="category-card-desc">Documents currently open for 60-day public review, as defined in CC/DIR 10001, in compliance with WTO TBT rules.</p>
-      <div class="category-card-footer">
-        {% if public_review_count > 0 %}<span class="category-card-count has-docs">{{ public_review_count }} documents</span>
-        {% else %}<span class="category-card-count-empty">No documents yet</span>{% endif %}
-        <span class="category-card-arrow">&rarr;</span>
-      </div>
-    </a>
-
-    <a href="/pending-publication/" class="category-card cat-pending{% if pending_count == 0 %} category-empty{% endif %}">
-      <h3 class="category-card-title">Pending Publication</h3>
-      <p class="category-card-desc">Approved documents that have completed the review process and are awaiting formal publication.</p>
-      <div class="category-card-footer">
-        {% if pending_count > 0 %}<span class="category-card-count has-docs">{{ pending_count }} documents</span>
-        {% else %}<span class="category-card-count-empty">No documents yet</span>{% endif %}
-        <span class="category-card-arrow">&rarr;</span>
-      </div>
-    </a>
-
-    <a href="/amendment/" class="category-card cat-amendment{% if amendment_count == 0 %} category-empty{% endif %}">
-      <h3 class="category-card-title">Amendments</h3>
-      <p class="category-card-desc">Amendments to previously published CalConnect Standards, providing modifications and additions.</p>
-      <div class="category-card-footer">
-        {% if amendment_count > 0 %}<span class="category-card-count has-docs">{{ amendment_count }} documents</span>
-        {% else %}<span class="category-card-count-empty">No documents yet</span>{% endif %}
-        <span class="category-card-arrow">&rarr;</span>
-      </div>
-    </a>
-
-    <a href="/technical-corrigendum/" class="category-card cat-corrigendum{% if corrigendum_count == 0 %} category-empty{% endif %}">
-      <h3 class="category-card-title">Technical Corrigenda</h3>
-      <p class="category-card-desc">Technical corrections to previously published CalConnect Standards, fixing errors and ambiguities.</p>
-      <div class="category-card-footer">
-        {% if corrigendum_count > 0 %}<span class="category-card-count has-docs">{{ corrigendum_count }} documents</span>
-        {% else %}<span class="category-card-count-empty">No documents yet</span>{% endif %}
-        <span class="category-card-arrow">&rarr;</span>
-      </div>
-    </a>
-
-    <a href="/guide/" class="category-card cat-guide{% if guide_count == 0 %} category-empty{% endif %}">
-      <h3 class="category-card-title">Guides</h3>
-      <p class="category-card-desc">Practical guides for implementing and using CalConnect Standards in calendar and scheduling systems.</p>
-      <div class="category-card-footer">
-        {% if guide_count > 0 %}<span class="category-card-count has-docs">{{ guide_count }} documents</span>
+        {% if amendments_count > 0 %}<span class="category-card-count has-docs">{{ amendments_count }} documents</span>
         {% else %}<span class="category-card-count-empty">No documents yet</span>{% endif %}
         <span class="category-card-arrow">&rarr;</span>
       </div>
@@ -180,7 +114,7 @@ permalink: /
   <h2 class="home-section-title">Recently Published</h2>
   <div class="home-recent-grid">
     {% for doc in recent limit: 6 %}
-    <a href="{% if doc.has_html %}/cc/{{ doc.slug }}.html{% else %}/{{ doc.doctype }}/{% endif %}" class="recent-card">
+    <a href="{% if doc.has_html %}/cc/{{ doc.slug }}.html{% else %}/{% if doc.display_category_slug %}{{ doc.display_category_slug }}{% else %}{{ doc.doctype }}{% endif %}/{% endif %}" class="recent-card">
       <div class="recent-card-top">
         <span class="recent-card-id">{{ doc.id | escape }}</span>
         <span class="doc-type-badge {{ doc.doctype_class }}">{{ doc.doctype }}</span>
