@@ -77,7 +77,11 @@ layout: base
         {% endif %}
         <span class="doc-badge badge-{{ doc.stage_css }}">
           <span class="badge-dot"></span>
-          {{ doc.stage_abbr }}
+          {% if doc.bibliographic.status.stage.abbreviation %}
+            {{ doc.bibliographic.status.stage.abbreviation }}
+          {% else %}
+            {{ doc.stage | capitalize }}
+          {% endif %}
         </span>
         <div class="doc-meta-inline">
           <span class="doc-type-badge {{ doc.doctype_class }}">{{ doc.doctype }}</span>

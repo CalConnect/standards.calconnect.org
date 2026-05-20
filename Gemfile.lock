@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/metanorma/metanorma-release.git
-  revision: 85a1b5c4c8b44bb99596139bd0256ecf09229fa5
-  tag: v0.2.20
+  revision: 6f70185ce4c46050100a6d4e7465c2110d337883
+  tag: v0.2.21
   specs:
-    metanorma-release (0.2.20)
+    metanorma-release (0.2.21)
       relaton-bib (~> 2.1)
       thor (~> 1.0)
 
@@ -358,7 +358,7 @@ CHECKSUMS
   lutaml-model (0.8.10) sha256=3c6308c163f18e7ecf1c79b6ac82d2806559b4e928c440720f41ff0ae5692fe2
   mechanize (2.14.0) sha256=33e76b7639d0181a46eaf1136b05f0e9043dfc5fc4b1a7b9fd8ae8bd437dd5e4
   mercenary (0.4.0) sha256=b25a1e4a59adca88665e08e24acf0af30da5b5d859f7d8f38fba52c28f405138
-  metanorma-release (0.2.20)
+  metanorma-release (0.2.21)
   mime-types (3.7.0) sha256=dcebf61c246f08e15a4de34e386ebe8233791e868564a470c3fe77c00eed5e56
   mime-types-data (3.2026.0414) sha256=461c4c655373a44bd6c5fe54bcf5b7776026ea96e808144b1ec465c4b99148cc
   moxml (0.1.20) sha256=917811354a0752371089690c019fb3b0c9599085d6544a0752c85fa22ddd7dc6
