@@ -66,7 +66,7 @@
         box.innerHTML = '<div class="gs-empty">No documents match &ldquo;' + esc(q) + '&rdquo;</div>';
       } else {
         box.innerHTML = hits.map(function(d) {
-          var href = d.has_html ? '/cc/' + d.slug + '.html' : '/' + typeSlug(d.doctype) + '/';
+          var href = d.has_html ? '/cc/' + d.html_path : '/' + typeSlug(d.doctype) + '/';
           return '<a href="' + href + '" class="gsr">' +
             '<span class="gsr-id">' + esc(d.id) + '</span>' +
             '<span class="gsr-title">' + esc(trunc(d.title, 50)) + '</span>' +
