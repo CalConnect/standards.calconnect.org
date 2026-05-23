@@ -1,5 +1,3 @@
-org: CalConnect/.metanorma
-
 source: github
 output_dir: _site/cc
 file_routing: flat
@@ -10,6 +8,32 @@ channels:
   - public
 
 include_drafts: true
+
+display_categories:
+  - name: Standards, Specifications & Reports
+    slug: standards
+    doctypes:
+      - standard
+      - specification
+      - report
+  - name: Guides & Advisories
+    slug: guides
+    doctypes:
+      - guide
+      - advisory
+  - name: Directives
+    slug: directives
+    doctypes:
+      - directive
+  - name: Administrative
+    slug: administrative
+    doctypes:
+      - administrative
+  - name: Amendments & Technical Corrigenda
+    slug: amendments
+    doctypes:
+      - amendment
+      - technical-corrigendum
 
 github:
   organizations:
