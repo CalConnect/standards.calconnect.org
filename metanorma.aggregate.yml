@@ -1,5 +1,5 @@
 source: github
-output_dir: _site/cc
+output_dir: _site/docs
 file_routing: flat
 cache_dir: .cache/aggregate
 data_dir: _data
