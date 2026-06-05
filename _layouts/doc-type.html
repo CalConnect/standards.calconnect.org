@@ -2,10 +2,15 @@
 layout: base
 ---
 {% if page.stage_filter %}
+{% assign stage_filter = page.stage_filter %}
+{% elsif page.stage_filter_name %}
+{% assign stage_filter = site.data.navigation[page.stage_filter_name] %}
+{% endif %}
+{% if stage_filter %}
 {% assign all_docs = site.data.documents.items | sort: "date" | reverse %}
 {% assign docs = "" | split: "" %}
 {% for doc in all_docs %}
-{% if page.stage_filter contains doc.stage %}
+{% if stage_filter contains doc.stage %}
 {% assign docs = docs | push: doc %}
 {% endif %}
 {% endfor %}
@@ -68,14 +73,14 @@ layout: base
   {% if docs.size > 0 %}
   <div id="doc-list" class="doc-list">
     {% for doc in docs %}
-    <div class="document stage-border-{{ doc.stage_css }}" data-stage="{{ doc.stage }}" data-id="{{ doc.id | downcase }}" data-date="{{ doc.date }}" data-title="{{ doc.title | downcase }}" data-search="{{ doc.id | downcase | escape }} {{ doc.title | downcase | escape }}">
+    <div class="document" style="--stage-color: var(--color-stage-{{ doc.stage_css }}, var(--color-gray-300)); --doctype-color: var(--color-doctype-{{ doc.doctype_class }})" data-stage="{{ doc.stage }}" data-id="{{ doc.id | downcase }}" data-date="{{ doc.date }}" data-title="{{ doc.title | downcase }}" data-search="{{ doc.id | downcase | escape }} {{ doc.title | downcase | escape }}">
       <div class="doc-header">
         {% if doc.has_html %}
         <a href="/docs/{{ doc.html_path }}" class="doc-identifier">{{ doc.id | escape }}</a>
         {% else %}
         <span class="doc-identifier">{{ doc.id | escape }}</span>
         {% endif %}
-        <span class="doc-badge badge-{{ doc.stage_css }}">
+        <span class="doc-badge" style="--badge-color: var(--color-stage-{{ doc.stage_css }})">
           <span class="badge-dot"></span>
           {% if doc.bibliographic.status.stage.abbreviation %}
             {{ doc.bibliographic.status.stage.abbreviation }}
@@ -84,7 +89,7 @@ layout: base
           {% endif %}
         </span>
         <div class="doc-meta-inline">
-          <span class="doc-type-badge {{ doc.doctype_class }}">{{ doc.doctype }}</span>
+          <span class="doc-type-badge">{{ doc.doctype }}</span>
           {% if doc.edition %}<span class="meta-text">Ed. {{ doc.edition }}</span>{% endif %}
           {% if doc.date %}<span class="meta-text">{{ doc.date }}</span>{% endif %}
         </div>

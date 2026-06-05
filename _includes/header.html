@@ -15,11 +15,9 @@
 
       <!-- Desktop nav -->
       <nav class="hidden lg:flex items-center gap-0.5">
-        <a href="/standards/" class="nav-link">Standards</a>
-        <a href="/guides/" class="nav-link">Guides</a>
-        <a href="/directives/" class="nav-link">Directives</a>
-        <a href="/administrative/" class="nav-link">Administrative</a>
-        <a href="/drafts/" class="nav-link">Drafts</a>
+        {% for cat in site.data.navigation.categories %}
+        <a href="/{{ cat.slug }}/" class="nav-link{% if cat.slug == page.display_category_slug or cat.display_category_slug == page.display_category_slug %} nav-active{% endif %}">{{ cat.title }}</a>
+        {% endfor %}
       </nav>
 
       <!-- Right side: theme toggle + mobile menu -->
@@ -39,11 +37,9 @@
   <!-- Mobile menu -->
   <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-200 dark:border-white/10 bg-white dark:bg-gray-950">
     <div class="max-w-7xl mx-auto px-4 py-3 space-y-1">
-      <a href="/standards/" class="mobile-nav-link">Standards</a>
-      <a href="/guides/" class="mobile-nav-link">Guides</a>
-      <a href="/directives/" class="mobile-nav-link">Directives</a>
-      <a href="/administrative/" class="mobile-nav-link">Administrative</a>
-      <a href="/drafts/" class="mobile-nav-link">Drafts</a>
+      {% for cat in site.data.navigation.categories %}
+      <a href="/{{ cat.slug }}/" class="mobile-nav-link">{{ cat.title }}</a>
+      {% endfor %}
       <div class="mobile-nav-divider"></div>
       <a href="/patents/" class="mobile-nav-link">Patent DB</a>
     </div>

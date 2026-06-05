@@ -1,0 +1,39 @@
+categories:
+  - title: Standards
+    slug: standards
+    display_category_slug: standards
+    description: Standards, specifications, reports, amendments, and technical corrigenda defining normative requirements and technical protocols for calendar and scheduling interoperability.
+    card_color: standard
+    card_css: cat-standard
+  - title: Guides
+    slug: guides
+    display_category_slug: guides
+    description: Practical guides for implementing CalConnect Standards and advisory documents providing best practice recommendations for the calendaring community.
+    card_color: advisory
+    card_css: cat-advisory
+  - title: Directives
+    slug: directives
+    display_category_slug: directives
+    description: Organizational directives governing CalConnect operations, procedures, and policies.
+    card_color: directive
+    card_css: cat-directive
+  - title: Administrative
+    slug: administrative
+    display_category_slug: administrative
+    description: Administrative records including meeting minutes, agendas, and organizational documents.
+    card_color: administrative
+    card_css: cat-administrative
+  - title: Drafts
+    slug: drafts
+    display_category_slug: drafts
+    description: Working drafts, committee drafts, documents in public review, and other works in progress under development by CalConnect working groups.
+    card_color: working-draft
+    card_css: cat-draft
+
+draft_stages:
+  - working-draft
+  - committee-draft
+  - draft
+  - proposal
+  - final-draft
+  - public-review

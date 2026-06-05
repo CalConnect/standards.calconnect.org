@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CalConnect Documents Index",
+  "description": "Schema for the aggregated document index produced by metanorma-release aggregate",
+  "type": "object",
+  "required": ["items"],
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/document"
+      }
+    }
+  },
+  "$defs": {
+    "document": {
+      "type": "object",
+      "required": ["id", "title", "doctype", "stage"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Document identifier (e.g. CC 51000:2025)"
+        },
+        "title": {
+          "type": "string",
+          "description": "Document title"
+        },
+        "doctype": {
+          "type": ["string", "null"],
+          "description": "Document type — legacy docs may have empty/null values",
+          "enum": [
+            null, "", "standard", "specification", "report", "guide", "advisory",
+            "directive", "administrative", "amendment", "technical-corrigendum",
+            "public-review", "pending-publication"
+          ]
+        },
+        "doctype_class": {
+          "type": "string",
+          "description": "CSS-safe doctype slug used for theme variable lookup"
+        },
+        "stage": {
+          "type": "string",
+          "description": "Document lifecycle stage"
+        },
+        "stage_css": {
+          "type": "string",
+          "description": "CSS-safe stage slug used for theme variable lookup"
+        },
+        "date": {
+          "type": ["string", "null"],
+          "format": "date",
+          "description": "Publication date"
+        },
+        "edition": {
+          "type": ["string", "null"]
+        },
+        "abstract": {
+          "type": ["string", "null"]
+        },
+        "committee": {
+          "type": ["string", "null"]
+        },
+        "authors": {
+          "type": ["array", "null"],
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" }
+            }
+          }
+        },
+        "display_category_slug": {
+          "type": ["string", "null"],
+          "description": "Navigation category slug from display_categories config"
+        },
+        "has_html": { "type": ["boolean", "null"] },
+        "has_pdf": { "type": ["boolean", "null"] },
+        "has_xml": { "type": ["boolean", "null"] },
+        "has_rxl": { "type": ["boolean", "null"] },
+        "html_path": { "type": ["string", "null"] },
+        "pdf_path": { "type": ["string", "null"] },
+        "xml_path": { "type": ["string", "null"] },
+        "rxl_path": { "type": ["string", "null"] },
+        "bibliographic": {
+          "type": ["object", "null"],
+          "properties": {
+            "status": {
+              "type": "object",
+              "properties": {
+                "stage": {
+                  "type": "object",
+                  "properties": {
+                    "abbreviation": { "type": ["string", "null"] }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

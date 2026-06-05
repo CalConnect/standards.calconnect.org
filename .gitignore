@@ -32,7 +32,7 @@ assets/relaton.css
 
 # Vite / Node
 node_modules/
-public/vite*
+public/
 config/
 vendor/
 

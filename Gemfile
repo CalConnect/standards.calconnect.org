@@ -14,3 +14,8 @@ end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "wdm", "~> 0.1.0" if Gem.win_platform?
+
+group :test do
+  gem "rspec", "~> 3.13"
+  gem "json_schemer", "~> 2.0"
+end

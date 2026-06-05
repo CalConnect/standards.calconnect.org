@@ -18,16 +18,13 @@ collections:
   pages:
     output: true
     permalink: /:path/
-  documents:
-    output: true
-    permalink: /:collection/:name/
 
 defaults:
   - scope:
       path: ""
-      type: "documents"
+      type: "pages"
     values:
-      layout: document
+      layout: page
 
 keep_files:
   - cc
@@ -46,6 +43,9 @@ exclude:
   - vendor/ruby/
   - "*.raw.rxl"
   - src-documents/
+  - _archive/
+  - spec/
+  - _data/schemas/
   - scripts/
   - config
   - vite.config.ts
