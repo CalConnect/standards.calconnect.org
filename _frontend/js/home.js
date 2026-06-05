@@ -66,12 +66,12 @@
         box.innerHTML = '<div class="gs-empty">No documents match &ldquo;' + esc(q) + '&rdquo;</div>';
       } else {
         box.innerHTML = hits.map(function(d) {
-          var href = d.has_html ? '/docs/' + d.html_path : '/' + typeSlug(d.doctype) + '/';
+          var href = d.has_html ? '/docs/' + d.html_path : '/' + typeSlug(d) + '/';
           return '<a href="' + href + '" class="gsr">' +
             '<span class="gsr-id">' + esc(d.id) + '</span>' +
             '<span class="gsr-title">' + esc(trunc(d.title, 50)) + '</span>' +
             '<span class="gsr-meta">' +
-              '<span class="gsr-type ' + esc(d.doctype_class || '') + '">' + esc(d.doctype) + '</span>' +
+              '<span class="gsr-type" style="background:var(--color-doctype-' + esc(d.doctype_class || '') + ')">' + esc(d.doctype) + '</span>' +
               (d.date ? '<span class="gsr-date">' + esc(d.date.substring(0, 4)) + '</span>' : '') +
             '</span></a>';
         }).join('');
@@ -89,11 +89,8 @@
 
     function esc(s) { var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
     function trunc(s, n) { return s && s.length > n ? s.substring(0, n) + '…' : s; }
-    function typeSlug(t) {
-      return ({ standard:'standard', report:'report', specification:'specification', directive:'directive',
-        administrative:'administrative', advisory:'advisory', 'public-review':'public-review',
-        'pending-publication':'pending-publication', amendment:'amendment',
-        'technical-corrigendum':'technical-corrigendum', guide:'guide' })[t] || t;
+    function typeSlug(d) {
+      return d.display_category_slug || d.doctype || '';
     }
   }
 

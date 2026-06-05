@@ -4,12 +4,16 @@ title: CalConnect Document Registry
 permalink: /
 ---
 {% assign docs = site.data.documents.items %}
+{% assign nav = site.data.navigation %}
+{% assign draft_stages = nav.draft_stages %}
+
 {% assign standards_count = docs | where: "display_category_slug", "standards" | size %}
 {% assign guides_count = docs | where: "display_category_slug", "guides" | size %}
 {% assign directives_count = docs | where: "display_category_slug", "directives" | size %}
 {% assign admin_count = docs | where: "display_category_slug", "administrative" | size %}
 {% assign drafts_count = 0 %}
-{% for d in docs %}{% if d.stage == "working-draft" or d.stage == "committee-draft" or d.stage == "draft" or d.stage == "proposal" or d.stage == "final-draft" or d.stage == "public-review" %}{% assign drafts_count = drafts_count | plus: 1 %}{% endif %}{% endfor %}
+{% for d in docs %}{% if draft_stages contains d.stage %}{% assign drafts_count = drafts_count | plus: 1 %}{% endif %}{% endfor %}
+{% assign cat_counts = "standards:" | append: standards_count | append: ",guides:" | append: guides_count | append: ",directives:" | append: directives_count | append: ",administrative:" | append: admin_count | append: ",drafts:" | append: drafts_count | split: "," %}
 
 <script id="doc-index" type="application/json">{{ docs | jsonify }}</script>
 
@@ -39,7 +43,7 @@ permalink: /
         <span class="home-stat-label">Documents</span>
       </div>
       <div class="home-stat">
-        <span class="home-stat-value">5</span>
+        <span class="home-stat-value">{{ nav.categories.size }}</span>
         <span class="home-stat-label">Categories</span>
       </div>
       <div class="home-stat">
@@ -55,55 +59,19 @@ permalink: /
   <h2 class="home-section-title">Document Categories</h2>
   <div class="home-categories-grid">
 
-    <a href="/standards/" class="category-card cat-standard{% if standards_count == 0 %} category-empty{% endif %}">
-      <h3 class="category-card-title">Standards</h3>
-      <p class="category-card-desc">Standards, specifications, reports, amendments, and technical corrigenda defining normative requirements and technical protocols for calendar and scheduling interoperability.</p>
+    {% for cat in nav.categories %}
+    {% assign cat_count_parts = cat_counts | where_exp: "p", "p contains cat.slug" | first %}
+    {% assign cat_count = cat_count_parts | split: ":" | last | plus: 0 %}
+    <a href="/{{ cat.slug }}/" class="category-card{% if cat_count == 0 %} category-empty{% endif %}" style="--cat-color: var(--color-doctype-{{ cat.card_color }}); border-left-color: var(--cat-color)">
+      <h3 class="category-card-title">{{ cat.title }}</h3>
+      <p class="category-card-desc">{{ cat.description }}</p>
       <div class="category-card-footer">
-        {% if standards_count > 0 %}<span class="category-card-count has-docs">{{ standards_count }} documents</span>
+        {% if cat_count > 0 %}<span class="category-card-count has-docs">{{ cat_count }} documents</span>
         {% else %}<span class="category-card-count-empty">No documents yet</span>{% endif %}
         <span class="category-card-arrow">&rarr;</span>
       </div>
     </a>
-
-    <a href="/guides/" class="category-card cat-advisory{% if guides_count == 0 %} category-empty{% endif %}">
-      <h3 class="category-card-title">Guides</h3>
-      <p class="category-card-desc">Practical guides for implementing CalConnect Standards and advisory documents providing best practice recommendations for the calendaring community.</p>
-      <div class="category-card-footer">
-        {% if guides_count > 0 %}<span class="category-card-count has-docs">{{ guides_count }} documents</span>
-        {% else %}<span class="category-card-count-empty">No documents yet</span>{% endif %}
-        <span class="category-card-arrow">&rarr;</span>
-      </div>
-    </a>
-
-    <a href="/directives/" class="category-card cat-directive{% if directives_count == 0 %} category-empty{% endif %}">
-      <h3 class="category-card-title">Directives</h3>
-      <p class="category-card-desc">Organizational directives governing CalConnect operations, procedures, and policies.</p>
-      <div class="category-card-footer">
-        {% if directives_count > 0 %}<span class="category-card-count has-docs">{{ directives_count }} documents</span>
-        {% else %}<span class="category-card-count-empty">No documents yet</span>{% endif %}
-        <span class="category-card-arrow">&rarr;</span>
-      </div>
-    </a>
-
-    <a href="/administrative/" class="category-card cat-administrative{% if admin_count == 0 %} category-empty{% endif %}">
-      <h3 class="category-card-title">Administrative</h3>
-      <p class="category-card-desc">Administrative records including meeting minutes, agendas, and organizational documents.</p>
-      <div class="category-card-footer">
-        {% if admin_count > 0 %}<span class="category-card-count has-docs">{{ admin_count }} documents</span>
-        {% else %}<span class="category-card-count-empty">No documents yet</span>{% endif %}
-        <span class="category-card-arrow">&rarr;</span>
-      </div>
-    </a>
-
-    <a href="/drafts/" class="category-card cat-draft{% if drafts_count == 0 %} category-empty{% endif %}">
-      <h3 class="category-card-title">Drafts</h3>
-      <p class="category-card-desc">Working drafts, committee drafts, documents in public review, and other works in progress under development by CalConnect working groups.</p>
-      <div class="category-card-footer">
-        {% if drafts_count > 0 %}<span class="category-card-count has-docs">{{ drafts_count }} documents</span>
-        {% else %}<span class="category-card-count-empty">No documents yet</span>{% endif %}
-        <span class="category-card-arrow">&rarr;</span>
-      </div>
-    </a>
+    {% endfor %}
 
   </div>
 </div>
@@ -118,7 +86,7 @@ permalink: /
     <a href="{% if doc.has_html %}/docs/{{ doc.html_path }}{% else %}/{% if doc.display_category_slug %}{{ doc.display_category_slug }}{% else %}{{ doc.doctype }}{% endif %}/{% endif %}" class="recent-card">
       <div class="recent-card-top">
         <span class="recent-card-id">{{ doc.id | escape }}</span>
-        <span class="doc-type-badge {{ doc.doctype_class }}">{{ doc.doctype }}</span>
+        <span class="doc-type-badge" style="background: var(--color-doctype-{{ doc.doctype_class }})">{{ doc.doctype }}</span>
       </div>
       <span class="recent-card-title">{{ doc.title | truncate: 55 | escape }}</span>
       {% if doc.authors and doc.authors.size > 0 %}

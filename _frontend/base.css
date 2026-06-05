@@ -41,7 +41,16 @@
   --color-stage-final-draft: #53C170;
   --color-stage-proposal: #6366f1;
   --color-stage-withdrawn: #6b7280;
-  --color-stage-cancelled: #dc2626;
+  /* Document stage colors (dark mode variants) */
+  --color-stage-published-dark: #34d058;
+  --color-stage-working-draft-dark: #60b5f5;
+  --color-stage-committee-draft-dark: #5ba8b8;
+  --color-stage-draft-standard-dark: #3ec9c3;
+  --color-stage-final-draft-dark: #7ddb95;
+  --color-stage-proposal-dark: #a5b4fc;
+  --color-stage-withdrawn-dark: #9ca3af;
+  --color-stage-cancelled-dark: #f87171;
+
 }
 
 @layer base {
