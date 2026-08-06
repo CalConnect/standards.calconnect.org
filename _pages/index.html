@@ -83,7 +83,7 @@ permalink: /
   <h2 class="home-section-title">Recently Published</h2>
   <div class="home-recent-grid">
     {% for doc in recent limit: 6 %}
-    <a href="{% if doc.has_html %}/docs/{{ doc.html_path }}{% else %}/{% if doc.display_category_slug %}{{ doc.display_category_slug }}{% else %}{{ doc.doctype }}{% endif %}/{% endif %}" class="recent-card">
+    <a href="{% if doc.has_html %}/cc/{{ doc.html_path }}{% else %}/{% if doc.display_category_slug %}{{ doc.display_category_slug }}{% else %}{{ doc.doctype }}{% endif %}/{% endif %}" class="recent-card">
       <div class="recent-card-top">
         <span class="recent-card-id">{{ doc.id | escape }}</span>
         <span class="doc-type-badge" style="background: var(--color-doctype-{{ doc.doctype_class }})">{{ doc.doctype }}</span>
