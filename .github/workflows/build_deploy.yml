@@ -65,7 +65,7 @@ jobs:
         if: ${{ github.ref != 'refs/heads/main' }}
         run: |
           ls -al _site
-          ls _site/docs | head -20
+          ls _site/cc | head -20
           ls _site/relaton 2>/dev/null || echo "(no relaton dir)"
 
       - name: Upload Pages artifact
