@@ -25,7 +25,7 @@ csd/
 .vscode/
 
 # Generated data
-_data/documents.json
+/registry/
 
 # Generated assets
 assets/relaton.css

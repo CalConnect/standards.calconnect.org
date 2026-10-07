@@ -29,6 +29,23 @@ defaults:
 keep_files:
   - docs
 
+# Registry instance configuration (TODO.improvements/11): identity,
+# URL scheme and feature flags consumed by the shared registry engine
+# (lib/registry) and the reference renderer. Everything an instance
+# customizes lives here or in metanorma.aggregate.yml — never in code.
+registry:
+  org: calconnect
+  urn_namespace: calconnect
+  url_scheme: "/docs/:document_id/:year/"
+  docs_prefix: "/docs"
+  features:
+    search: true
+    atom_feed: true
+    jsonld: true
+    opensearch: true
+    html: true
+  license_default: null
+
 exclude:
   - README.adoc
   - Makefile
