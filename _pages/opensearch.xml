@@ -1,0 +1,12 @@
+---
+layout: none
+permalink: /opensearch.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>{{ site.title | escape }}</ShortName>
+  <Description>Search {{ site.title | escape }} documents by title, identifier, or keyword</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <OutputEncoding>UTF-8</OutputEncoding>
+  <Url type="text/html" method="get" template="{{ site.url }}/?q={searchTerms}"/>
+</OpenSearchDescription>

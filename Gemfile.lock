@@ -107,8 +107,6 @@ GEM
       jekyll (>= 3.0.0)
     jekyll-calconnect-theme (0.4.1)
       jekyll (~> 4.3)
-    jekyll-feed (0.17.0)
-      jekyll (>= 3.7, < 5.0)
     jekyll-sass-converter (3.1.0)
       sass-embedded (~> 1.75)
     jekyll-vite (3.0.4)
@@ -314,7 +312,6 @@ DEPENDENCIES
   jekyll (~> 4.4)
   jekyll-asciidoc
   jekyll-calconnect-theme
-  jekyll-feed (~> 0.17.0)
   jekyll-vite
   json_schemer (~> 2.0)
   metanorma-release!
@@ -370,7 +367,6 @@ CHECKSUMS
   jekyll (4.4.1) sha256=4c1144d857a5b2b80d45b8cf5138289579a9f8136aadfa6dd684b31fe2bc18c1
   jekyll-asciidoc (3.0.1) sha256=b002fbda7918866cb2fcd64da1702dcb58d8a5724adbb1bfc29d76cf357ff256
   jekyll-calconnect-theme (0.4.1) sha256=7909ce1d7d75593364fba24c8c8e74c865ce2ed2dad2828b4103d5ba29f0bb02
-  jekyll-feed (0.17.0) sha256=689aab16c877949bb9e7a5c436de6278318a51ecb974792232fd94d8b3acfcc3
   jekyll-sass-converter (3.1.0) sha256=83925d84f1d134410c11d0c6643b0093e82e3a3cf127e90757a85294a3862443
   jekyll-vite (3.0.4) sha256=bb08c6f95e814afeebd73b9299805b85c5daa1964ce85c9e7a0fa77790018785
   jekyll-watch (2.2.1) sha256=bc44ed43f5e0a552836245a54dbff3ea7421ecc2856707e8a1ee203a8387a7e1

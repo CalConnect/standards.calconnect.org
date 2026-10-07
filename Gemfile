@@ -7,7 +7,6 @@ gem "octokit", "~> 9.0"
 gem "relaton-calconnect", "~> 2.1"
 
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.17.0"
   gem "jekyll-asciidoc"
   gem "jekyll-vite", require: "jekyll/vite"
 end

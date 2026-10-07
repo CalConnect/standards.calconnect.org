@@ -19,6 +19,25 @@ layout: base
 {% else %}
 {% assign docs = site.data.registry_catalog.items | where: "doctype", page.doctype | sort: "date" | reverse %}
 {% endif %}
+{% if docs.size > 0 %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": {{ page.title | jsonify }},
+  "url": {{ page.url | absolute_url | jsonify }},
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {%- for doc in docs %}
+      {"@type": "ListItem", "position": {{ forloop.index }}, "url": "{{ site.url }}{{ doc.url }}"}{% unless forloop.last %},{% endunless %}
+      {%- endfor %}
+    ]
+  }
+}
+</script>
+{% endif %}
+
 <div class="hero-section">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
     <div class="hero-content">

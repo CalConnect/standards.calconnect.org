@@ -28,6 +28,13 @@
   <!-- Vite Stylesheet (Tailwind CSS) -->
   {% vite_stylesheet_tag application %}
 
+  {% if site.registry.features.search != false %}
+  <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="{{ site.title | escape }}" />
+  {% endif %}
+  {% if site.registry.features.atom_feed != false %}
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title | escape }} feed" href="/feed.xml" />
+  {% endif %}
+
   {% if jekyll.environment == 'production' and site.google_analytics %}
   {% include google-analytics.html %}
   {% endif %}
