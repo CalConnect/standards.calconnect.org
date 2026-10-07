@@ -76,7 +76,7 @@ exclude:
   - Rakefile
   - metanorma.aggregate.yml
   - registry
-  - docs/evidence
+  - docs
   - relaton.Gemfile
   - relaton.Gemfile.lock
   - BUGS.md

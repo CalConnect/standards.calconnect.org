@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "fileutils"
+require "json"
 require "rspec/core/rake_task"
 require "yaml"
 
@@ -33,6 +34,18 @@ desc "Build entire site (fetch + enrich + Jekyll)"
 task build: %i[fetch enrich] do
   sh "npm run build"
   sh "bundle exec jekyll build"
+  guard_nonempty_catalog
+end
+
+# Local parity with the CI deploy guard: an aggregation that yields zero
+# documents must fail the build, not silently ship an empty registry.
+def guard_nonempty_catalog
+  count = JSON.parse(File.read(registry_config.catalog_path))["items"].length
+  abort "FAIL: build produced 0 documents — refusing to ship an empty registry" if count.zero?
+
+  puts "OK: #{count} documents in the published catalog"
+rescue Errno::ENOENT
+  abort "FAIL: registry/catalog.json missing after build"
 end
 
 desc "Build Jekyll site (assumes fetch already done)"
@@ -163,6 +176,13 @@ task :conformance do
   abort "FAIL: conformance suite (#{report.failures.length} failures)" unless report.passed
 
   puts "OK: conformance suite passed (#{report.checks} checks) — reference renderer certified against fixtures"
+
+  # The same profile, same fixtures, a NON-Jekyll renderer (Python stdlib):
+  # proof that the contract — not the Jekyll theme — defines the frontend.
+  second = File.join(workspace, "second-site")
+  sh "python3 fixtures/second-renderer/render.py --registry #{fixture_config.registry_dir} --files fixtures/seed/producer --out #{second}"
+  sh "bin/registry-conformance check #{second} --expect #{fixture_config.catalog_path} --schema #{cfg.schema_path}"
+  puts "OK: second (non-Jekyll) renderer certified by the same suite"
 end
 
 # SDO-agnostic registry engine configuration; instance values live in
