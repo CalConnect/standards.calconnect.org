@@ -2,7 +2,7 @@
 .direnv/
 
 # Relaton
-relaton
+/relaton
 relaton.Gemfile.lock
 iev
 
@@ -26,6 +26,7 @@ csd/
 
 # Generated data
 /registry/
+_data/documents.json
 
 # Generated assets
 assets/relaton.css
