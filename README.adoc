@@ -36,17 +36,55 @@ It also rebuilds daily at 06:00 UTC to pick up new releases from document repos.
 . **Document repo** — A Metanorma repo (e.g. `cc-icalendar-series`) compiles `.adoc` sources
   and runs the `release` workflow, which publishes ZIP archives to GitHub Releases
   with channel labels (e.g. `public/standards`).
-. **Aggregation** — This site runs `metanorma-release aggregate`, which discovers repos
+. **Aggregation (producer)** — `metanorma-release aggregate` discovers repos
   by the `metanorma-release` topic, fetches their releases, filters by channel,
   extracts document files, and enriches metadata from Relaton bibliographic data.
-. **Site build** — Jekyll builds static HTML from the aggregated `documents.json` index.
+. **Enrichment (contract layer)** — `rake enrich` (`lib/registry/`) turns the producer
+  outputs into the catalog contract: Relaton is the single source of truth, every
+  top-level field is a documented projection, files carry `media_type`/`bytes`/`sha256`
+  and stable URLs, items carry provenance, language/license/copyright, a URN in the
+  instance namespace, and the per-document editions model. The handoff directory
+  `registry/` is renderer-neutral — no Jekyll paths cross it.
+. **Rendering** — The Jekyll plugin `_plugins/registry_catalog.rb` reads `registry/`
+  and generates the versioned document pages, `latest` aliases, legacy redirects,
+  `/catalog.json`, `/search-index.json`, `/feed.xml` (Atom) and `/opensearch.xml`.
   Vite compiles the JavaScript and Tailwind CSS.
 . **Deploy** — GitHub Pages serves the built site.
+
+=== The data contract
+
+The most valuable thing this repository produces is the document catalog:
+
+* `https://standards.calconnect.org/catalog.json` — the full catalog, fetchable
+* Schema: `https://schemas.metanorma.org/registry/documents-index/v1.json`
+  (see `_data/schemas/documents.schema.json`), payload `version: 1`
+* Search corpus: `https://standards.calconnect.org/search-index.json`
+* Feed: `https://standards.calconnect.org/feed.xml` (Atom, RFC 4287)
+* Search description: `https://standards.calconnect.org/opensearch.xml`
+
+Stability promise: within schema major version 1, changes are additive only;
+consumers must ignore unknown keys. The Relaton record in each item's
+`bibliographic` field is canonical; other fields are projections documented
+in the schema and verified by `rake validate_consistency` on every build.
+
+**Any generator that emits a payload conforming to the schema is a valid
+producer.** The `metanorma-release` gem is one producer — not the definition
+of the data. `fixtures/seed/` contains a hand-written producer used by the
+conformance suite (`rake conformance`), and `rake validate_index[path]`
+validates any candidate catalog against the published schema.
+
+The machinery in `lib/registry/`, `_plugins/registry_catalog.rb`, `fixtures/`
+and `bin/registry-conformance` contains no CalConnect specifics — organization
+identity, URN namespace, URL scheme, categories and feature flags are instance
+configuration (`_config.yml` `registry:` map + `metanorma.aggregate.yml`).
+Its intended home is a shared metanorma-org product (see
+`TODO.improvements/upstream/`); this repository is the reference instance.
 
 === Software stack
 
 * https://github.com/metanorma/metanorma-release[metanorma-release] — aggregation pipeline
-* https://jekyllrb.com[Jekyll] — static site generator
+* `lib/registry/` — catalog contract layer (projection, provenance, integrity, conformance)
+* https://jekyllrb.com[Jekyll] — reference renderer
 * https://vitejs.dev[Vite] + https://tailwindcss.com[Tailwind CSS] — frontend build
 * https://github.com/features/actions[GitHub Actions] — CI/CD
 
@@ -59,7 +97,7 @@ It also rebuilds daily at 06:00 UTC to pick up new releases from document repos.
 bundle install
 npm ci
 
-# Aggregate releases + build the site
+# Aggregate + enrich the catalog + build the site
 bundle exec rake build
 
 # Serve locally
@@ -77,15 +115,47 @@ The `Rakefile` provides these tasks:
 [cols="1m,3",options="header"]
 |===
 |Command |Description
-|`rake fetch` |Aggregate releases into `_data/documents.json` and `_site/docs/`
-|`rake build` |Fetch + compile Vite + build Jekyll site
-|`rake jekyll` |Build Jekyll only (assumes fetch already done)
+|`rake fetch` |Aggregate releases into `_site/docs/` (network)
+|`rake enrich` |Build `registry/catalog.json` + `search-index.json` + `backfill.json` from producer outputs (no network)
+|`rake build` |Fetch + enrich + compile Vite + build Jekyll site
+|`rake jekyll` |Build Vite + Jekyll only (assumes enrich already done)
 |`rake serve` |Serve with Jekyll's dev server
-|`rake clean` |Remove `_site/`
+|`rake clean` |Remove `_site/` and `registry/`
+|`rake validate_schema` |Validate the catalog against the published schema
+|`rake validate_consistency` |Recompute Relaton projections; verify files, URLs, editions
+|`rake validate_index[path]` |Validate any candidate catalog against the schema (generator independence)
+|`rake conformance` |Build the reference renderer against golden fixtures and run the conformance suite
+|`rake spec` |Run the RSpec suite
 |===
 
 
 == Configuration
+
+=== `_config.yml` — registry instance configuration
+
+[source,yaml]
+----
+registry:
+  org: calconnect
+  urn_namespace: calconnect
+  url_scheme: "/docs/:document_id/:year/"
+  docs_prefix: "/docs"
+  legacy_prefixes: ["cc"]
+  features:
+    search: true
+    atom_feed: true
+    jsonld: true
+    opensearch: true
+    html: true
+  license_default: null
+----
+
+* `org`, `urn_namespace` — identity used for URNs (`urn:calconnect:cc-18011:2018`)
+* `url_scheme` — canonical document URL template (`:document_id`, `:year`, `:edition` tokens)
+* `legacy_prefixes` — old artifact prefixes that get redirect stubs (HTML only)
+* `features` — toggles for search/feed/JSON-LD/OpenSearch; `html: false` selects headless mode
+* `license_default` — fallback license; `null` means absent fields stay null and are
+  tracked in `registry/backfill.json` (never invented)
 
 === `metanorma.aggregate.yml`
 
@@ -97,7 +167,6 @@ source: github
 output_dir: _site/docs
 file_routing: flat
 cache_dir: .cache/aggregate
-data_dir: _data
 
 channels:
   - public
@@ -133,14 +202,14 @@ Key settings:
 * `channels` — which channels to subscribe to (`public` matches all `public/*`)
 * `display_categories` — maps doctypes to site categories
 * `include_drafts` — include working drafts, committee drafts, etc.
-* `data_dir` — writes flattened `documents.json` for Jekyll's `_data/`
 
 === Delta state cache
 
 Aggregation is incremental. The `.cache/aggregate/` directory tracks which repos/tags have been processed.
 CI caches this directory between builds to avoid re-downloading unchanged releases.
 
-When the cache is stale (e.g. files are missing from disk), the pipeline re-processes affected repos automatically.
+When the output directory is missing (fresh runner), the Rakefile resets the delta
+state so artifacts are re-extracted from the cached downloads.
 
 
 == How to add/remove documents
@@ -178,8 +247,20 @@ Edit `metanorma.aggregate.yml` → `display_categories` to change which doctypes
 ```
 ├── .github/workflows/
 │   └── build_deploy.yml        # CI: aggregate + build + deploy
-├── _data/                      # Generated by aggregation
-│   └── documents.json          # Flattened document index
+├── _data/
+│   ├── navigation.yml          # Site navigation (instance content)
+│   └── schemas/
+│       └── documents.schema.json  # The catalog contract (versioned $id)
+├── _plugins/
+│   └── registry_catalog.rb     # Renderer bridge: reads registry/, generates routes
+├── bin/
+│   └── registry-conformance    # Frontend conformance checker CLI
+├── fixtures/seed/              # Golden fixtures: a hand-written producer
+├── lib/registry/               # Catalog contract layer (SDO-agnostic)
+├── registry/                   # Renderer-neutral handoff (generated):
+│   ├── catalog.json            #   the contract payload
+│   ├── search-index.json       #   derived search corpus
+│   └── backfill.json           #   honest record of data gaps
 ├── _frontend/                  # Vite + Tailwind source
 │   ├── entrypoints/
 │   │   ├── application.css     # Tailwind CSS entry
@@ -204,7 +285,7 @@ Edit `metanorma.aggregate.yml` → `display_categories` to change which doctypes
 │   └── public-review.html
 ├── _site/                      # Built site output
 │   ├── docs/                   # Extracted document files (HTML, PDF, XML, RXL)
-│   └── index.json              # Full document index
+│   └── relaton/               # Raw producer index (Relaton records)
 ├── public/                     # Static assets (favicons, Vite output)
 ├── Gemfile                     # Ruby dependencies
 ├── Rakefile                    # Build tasks
