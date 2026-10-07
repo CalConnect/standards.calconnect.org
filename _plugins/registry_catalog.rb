@@ -52,12 +52,21 @@ module Jekyll
       site.data["registry_search_index"] = load_json(site, registry_dir(site), "search-index.json")
 
       serve_endpoints(site)
-      generate_document_pages(site, catalog)
-      generate_latest_aliases(site, catalog)
-      generate_legacy_redirects(site, catalog)
+      if html_enabled?(site)
+        generate_document_pages(site, catalog)
+        generate_latest_aliases(site, catalog)
+        generate_legacy_redirects(site, catalog)
+      end
     end
 
     private
+
+    # Headless instances (registry.features.html: false) serve the data
+    # endpoints only — HTML routes are optional in the conformance profile
+    # (TODO.improvements/12).
+    def html_enabled?(site)
+      site.config.dig("registry", "features", "html") != false
+    end
 
     def registry_dir(site)
       site.config.dig("registry", "dir") || "registry"

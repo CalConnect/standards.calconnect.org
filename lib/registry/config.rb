@@ -4,8 +4,8 @@ require "yaml"
 
 module Registry
   # Instance configuration for the registry data layer. An instance is an
-  # organization (CalConnect today) that provides configuration, branding
-  # and content — never engine code (TODO.improvements/11).
+  # organization that provides configuration, branding and content — never
+  # engine code (TODO.improvements/11).
   #
   # Sources:
   #   site config (Jekyll _config.yml)   -> registry: map

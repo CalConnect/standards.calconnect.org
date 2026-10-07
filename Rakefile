@@ -66,24 +66,27 @@ task :validate_schema do
   require "json"
   require "json_schemer"
 
-  schema_path = "_data/schemas/documents.schema.json"
-  data_path = cfg.catalog_path
+  catalog_path = cfg.catalog_path
+  search_path = cfg.search_index_path
 
-  unless File.exist?(data_path)
-    abort "SKIP: #{data_path} not found — run `rake enrich` first"
+  unless File.exist?(catalog_path)
+    abort "SKIP: #{catalog_path} not found — run `rake enrich` first"
   end
 
-  schema = JSON.parse(File.read(schema_path))
-  data = JSON.parse(File.read(data_path))
-  schemer = JSONSchemer.schema(schema)
-
   errors = []
-  schemer.validate(data).each do |error|
-    errors << "#{error['data_pointer']}: #{error['error']}"
+  [["_data/schemas/documents.schema.json", catalog_path],
+   ["_data/schemas/search-index.schema.json", search_path]].each do |schema_path, data_path|
+    next unless File.exist?(data_path)
+
+    schema = JSON.parse(File.read(schema_path))
+    data = JSON.parse(File.read(data_path))
+    JSONSchemer.schema(schema).validate(data).each do |error|
+      errors << "#{File.basename(data_path)}#{error['data_pointer']}: #{error['error']}"
+    end
   end
 
   if errors.empty?
-    puts "OK: #{data['items'].length} documents pass schema validation (#{schema['$id']})"
+    puts "OK: catalog and search index pass schema validation"
   else
     errors.first(20).each { |e| puts "  #{e}" }
     abort "FAIL: #{errors.length} schema violations found"

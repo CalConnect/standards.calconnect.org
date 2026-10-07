@@ -488,6 +488,58 @@ html.dark .doc-abstract { color: var(--color-gray-400); }
 .doc-committee { font-style: italic; }
 html.dark .doc-authors { color: var(--color-gray-400); }
 
+/* Landing page details table */
+.doc-details {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.375rem;
+}
+.doc-detail-row {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 1rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+.doc-detail-row dt {
+  color: var(--color-gray-500);
+  font-weight: 500;
+}
+.doc-detail-row dd { margin: 0; color: var(--color-gray-700); overflow-wrap: anywhere; }
+.doc-detail-row code {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  background: var(--color-gray-100, #f1f5f9);
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.375rem;
+}
+html.dark .doc-detail-row dd { color: var(--color-gray-300); }
+html.dark .doc-detail-row code { background: rgba(148, 163, 184, 0.12); }
+
+/* Landing page editions list */
+.doc-editions { margin-top: 2rem; }
+.doc-editions-list {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.doc-edition {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-left: 3px solid var(--color-gray-300, #cbd5e1);
+  background: var(--color-gray-50, #f8fafc);
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-size: 0.875rem;
+}
+.doc-edition.current { border-left-color: var(--stage-color, #069e2d); font-weight: 500; }
+.doc-edition-id { color: var(--color-gray-700); }
+html.dark .doc-edition { background: rgba(148, 163, 184, 0.08); }
+html.dark .doc-edition-id { color: var(--color-gray-300); }
+
 /* Card actions row */
 .doc-actions {
   display: flex;

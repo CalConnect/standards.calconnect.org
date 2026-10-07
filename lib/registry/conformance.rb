@@ -57,8 +57,10 @@ module Registry
 
     def check_catalog
       catalog = read_json("catalog.json")
-      fail_check("/catalog.json missing") if catalog.nil?
-      return {} if catalog.nil?
+      if catalog.nil?
+        fail_check("/catalog.json missing")
+        return { "items" => [] }
+      end
 
       @checks += 1
       if @schema_path && File.exist?(@schema_path)

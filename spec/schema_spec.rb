@@ -27,6 +27,18 @@ RSpec.describe "Registry catalog schema" do
     expect(errors).to be_empty, -> { "Schema violations:\n  #{errors.first(10).join("\n  ")}" }
   end
 
+  it "the search index validates against its derived-view schema" do
+    search_path = File.expand_path("../registry/search-index.json", __dir__)
+    skip("registry/search-index.json not found") unless File.exist?(search_path)
+    search_schema_path = File.expand_path("../_data/schemas/search-index.schema.json", __dir__)
+    search_schema = JSON.parse(File.read(search_schema_path))
+    search = JSON.parse(File.read(search_path))
+    expect(search_schema["$id"]).to eq("https://schemas.metanorma.org/registry/search-index/v1.json")
+    errors = JSONSchemer.schema(search_schema).validate(search).map { |e| e["error"] }
+    expect(errors).to be_empty, -> { errors.first(5).join("; ") }
+    expect(search["documents"].length).to eq(catalog["items"].length)
+  end
+
   it "carries the schema reference and version in the payload" do
     expect(catalog["$schema"]).to eq(schema["$id"])
     expect(catalog["version"]).to eq(1)

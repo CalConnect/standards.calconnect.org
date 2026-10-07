@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.metanorma.org/registry/search-index/v1.json",
+  "title": "Registry search index (derived view)",
+  "description": "Contract for the fetchable search corpus (/search-index.json), a derived projection of the documents-index catalog (TODO.improvements/07): a different, smaller contract than the full catalog. Stability promise: additive-only within major version 1; consumers must ignore unknown keys.",
+  "type": "object",
+  "required": ["$schema", "version", "generated_at", "org", "documents"],
+  "properties": {
+    "$schema": { "const": "https://schemas.metanorma.org/registry/search-index/v1.json" },
+    "version": { "const": 1 },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "org": { "type": "string" },
+    "documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["slug", "document_id", "id", "title", "abstract", "doctype", "stage", "date", "url"],
+        "properties": {
+          "slug": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+          "document_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+          "id": { "type": "string", "minLength": 1 },
+          "title": { "type": "string" },
+          "abstract": { "type": ["string", "null"] },
+          "doctype": { "type": ["string", "null"] },
+          "stage": { "type": "string" },
+          "date": { "type": ["string", "null"], "format": "date" },
+          "url": { "type": "string", "pattern": "^/" }
+        }
+      }
+    }
+  }
+}
