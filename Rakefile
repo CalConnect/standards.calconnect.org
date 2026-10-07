@@ -5,7 +5,20 @@ require "rspec/core/rake_task"
 
 desc "Aggregate releases and build document index"
 task :fetch do
+  invalidate_stale_delta_state
   sh "bundle exec metanorma-release aggregate"
+end
+
+# The gem skips repos whose release etags are unchanged, assuming their
+# extracted files still exist under output_dir. When that directory is
+# missing (fresh CI runner, wiped _site) the cache must be reset so files
+# are re-extracted; downloads/ is preserved to keep re-fetch cheap.
+def invalidate_stale_delta_state
+  delta = File.join(".cache", "aggregate", "delta_state")
+  return unless File.exist?(delta)
+  return if Dir.exist?("_site/docs") && !Dir.empty?("_site/docs")
+
+  FileUtils.rm_f(delta)
 end
 
 desc "Build entire site (fetch + Jekyll)"
