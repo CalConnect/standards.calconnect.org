@@ -6,7 +6,7 @@ RSpec.describe "Template data references" do
   let(:includes_dir) { File.expand_path("../_includes", __dir__) }
 
   it "no template references the archived layouts" do
-    %w[toc.html toc-type.html document.html].each do |layout|
+    %w[toc.html toc-type.html].each do |layout|
       Dir.glob("#{layouts_dir}/*.html").each do |f|
         content = File.read(f)
         expect(content).not_to include("layout: #{File.basename(layout, '.html')}"),

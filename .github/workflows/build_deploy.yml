@@ -47,14 +47,22 @@ jobs:
           key: mn-aggregate-${{ github.run_id }}
           restore-keys: mn-aggregate-
 
-      - name: Build site (fetch releases + Jekyll)
+      - name: Build site (fetch releases + enrich catalog + Jekyll)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bundle exec rake build
 
+      - name: Validate catalog contract
+        run: |
+          bundle exec rake validate_schema
+          bundle exec rake validate_consistency
+
+      - name: Run test suite
+        run: bundle exec rspec
+
       - name: Verify build
         run: |
-          doc_count=$(python3 -c "import json; print(len(json.load(open('_data/documents.json')).get('items',[])))")
+          doc_count=$(python3 -c "import json; print(len(json.load(open('registry/catalog.json')).get('items',[])))")
           if [ "$doc_count" -eq 0 ]; then
             echo "::error::Build produced 0 documents — aborting deploy"
             exit 1
@@ -70,6 +78,30 @@ jobs:
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
+
+  conformance:
+    name: Conformance suite
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+
+      - name: Use Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: 3.3
+
+      - name: Reference renderer vs golden fixtures
+        run: bundle exec rake conformance
 
   deploy:
     if: ${{ github.ref == 'refs/heads/main' }}

@@ -10,8 +10,17 @@ RSpec.describe "Site configuration" do
       expect(config["theme"]).to eq("jekyll-calconnect-theme")
     end
 
-    it "keeps cc and relaton directories across builds" do
-      expect(config["keep_files"]).to include("cc", "relaton")
+    it "keeps the aggregator output directory across builds" do
+      expect(config["keep_files"]).to include("docs")
+    end
+
+    it "declares the registry instance configuration" do
+      registry = config["registry"]
+      expect(registry["org"]).to eq("calconnect")
+      expect(registry["urn_namespace"]).to eq("calconnect")
+      expect(registry["url_scheme"]).to eq("/docs/:document_id/:year/")
+      expect(registry["legacy_prefixes"]).to include("cc")
+      expect(registry["license_default"]).to be_nil
     end
 
     it "excludes build-only directories from Jekyll processing" do
