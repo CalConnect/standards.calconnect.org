@@ -117,23 +117,23 @@ module Registry
 
     # Two releases can carry byte-identical metadata (the same legacy
     # document published by two repos). Keep one deterministically —
-    # source_repository order — and record the dropped twin.
+    # lowest source_repository — while preserving the producer's item
+    # order elsewhere, and record the dropped twins.
     def deduplicate(items)
-      seen = {}
-      kept = []
-      sorted = items.sort_by { |item| item["provenance"]["source_repository"].to_s }
-      sorted.each do |item|
-        key = [item["slug"], item["edition"], item["date"]]
-        if seen.key?(key)
-          @backfill.add("duplicate_item", item["slug"],
-                        "identical metadata from #{item['provenance']['source_repository']} — kept the release from #{seen[key]}")
-          next
-        end
+      groups = items.group_by { |item| [item["slug"], item["edition"], item["date"]] }
+      items.filter_map do |item|
+        group = groups[[item["slug"], item["edition"], item["date"]]]
+        next item if group.length == 1
 
-        seen[key] = item["provenance"]["source_repository"]
-        kept << item
+        keeper = group.min_by { |i| i["provenance"]["source_repository"].to_s }
+        next nil unless item.equal?(keeper)
+
+        twins = group.reject { |i| i.equal?(keeper) }
+                     .map { |i| i["provenance"]["source_repository"] }.uniq
+        @backfill.add("duplicate_item", item["slug"],
+                      "identical metadata also published by #{twins.join(', ')} — kept the release from #{keeper['provenance']['source_repository']}")
+        item
       end
-      kept
     end
 
     def edition_entry(item, current)
