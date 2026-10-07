@@ -87,8 +87,9 @@ task :validate_schema do
   end
 
   errors = []
-  [["_data/schemas/documents.schema.json", catalog_path],
-   ["_data/schemas/search-index.schema.json", search_path]].each do |schema_path, data_path|
+  schema_dir = File.dirname(cfg.schema_path)
+  [[File.join(schema_dir, "documents-index.schema.json"), catalog_path],
+   [File.join(schema_dir, "search-index.schema.json"), search_path]].each do |schema_path, data_path|
     next unless File.exist?(data_path)
 
     schema = JSON.parse(File.read(schema_path))
@@ -145,10 +146,13 @@ end
 desc "Run the conformance suite: build the reference renderer against golden fixtures and check the output"
 task :conformance do
   cfg = registry_config
+  engine = File.expand_path(Gem.loaded_specs["standards-registry"].full_gem_path)
+  fixtures = File.join(engine, "fixtures", "seed")
   workspace = File.join(".tmp", "conformance")
 
   fixture_config = Registry::Config.new(
-    aggregate_config_path: "fixtures/seed/aggregate.yml",
+    site_config_path: File.join(fixtures, "instance.yml"),
+    aggregate_config_path: File.join(fixtures, "aggregate.yml"),
     registry_dir: File.join(workspace, "registry"),
     generator_label: "fixture-producer v1"
   )
@@ -160,12 +164,21 @@ task :conformance do
   # renderer expects them (metanorma-release does this for the instance).
   docs_dest = File.join(workspace, "_site", "docs")
   FileUtils.mkdir_p(docs_dest)
-  FileUtils.cp(Dir.glob("fixtures/seed/producer/*.html") + Dir.glob("fixtures/seed/producer/*.pdf") +
-               Dir.glob("fixtures/seed/producer/*.xml") + Dir.glob("fixtures/seed/producer/*.rxl") +
-               Dir.glob("fixtures/seed/producer/*.doc"), docs_dest)
-  FileUtils.cp_r(File.join("fixtures", "seed", "producer", "relaton"), docs_dest)
+  producer = File.join(fixtures, "producer")
+  FileUtils.cp(Dir.glob("#{producer}/*.html") + Dir.glob("#{producer}/*.pdf") +
+               Dir.glob("#{producer}/*.xml") + Dir.glob("#{producer}/*.rxl") +
+               Dir.glob("#{producer}/*.doc"), docs_dest)
+  FileUtils.cp_r(File.join(producer, "relaton"), docs_dest)
 
-  sh "bundle exec jekyll build --config _config.yml,fixtures/seed/jekyll.yml --destination #{File.join(workspace, '_site')} > /dev/null"
+  override = File.join(workspace, "jekyll.yml")
+  File.write(override, <<~YAML)
+    registry:
+      dir: #{File.join(workspace, "registry")}
+      legacy_prefixes: []
+    url: https://registry.example
+  YAML
+
+  sh "bundle exec jekyll build --config _config.yml,#{override} --destination #{File.join(workspace, '_site')} > /dev/null"
 
   report = Registry::Conformance.check(
     File.join(workspace, "_site"),
@@ -180,8 +193,8 @@ task :conformance do
   # The same profile, same fixtures, a NON-Jekyll renderer (Python stdlib):
   # proof that the contract — not the Jekyll theme — defines the frontend.
   second = File.join(workspace, "second-site")
-  sh "python3 fixtures/second-renderer/render.py --registry #{fixture_config.registry_dir} --files fixtures/seed/producer --out #{second}"
-  sh "bin/registry-conformance check #{second} --expect #{fixture_config.catalog_path} --schema #{cfg.schema_path}"
+  sh "python3 #{File.join(engine, 'fixtures', 'second-renderer', 'render.py')} --registry #{fixture_config.registry_dir} --files #{producer} --out #{second}"
+  sh "#{File.join(engine, 'bin', 'registry-conformance')} check #{second} --expect #{fixture_config.catalog_path} --schema #{cfg.schema_path}"
   puts "OK: second (non-Jekyll) renderer certified by the same suite"
 end
 
@@ -189,8 +202,7 @@ end
 # _config.yml (registry:) and metanorma.aggregate.yml.
 def registry_config
   @registry_config ||= begin
-    $LOAD_PATH.unshift(File.expand_path("lib", __dir__))
-    require "registry"
+    require "standards-registry"
 
     gem_version = Gem.loaded_specs["metanorma-release"]&.version.to_s
     label = "metanorma-release#{gem_version.empty? ? '' : " v#{gem_version}"} + registry-enrich v1"

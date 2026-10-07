@@ -1,5 +1,4 @@
-$LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
-require "registry"
+require "standards-registry"
 require "json"
 require "json_schemer"
 require "tmpdir"
@@ -9,14 +8,15 @@ require "tmpdir"
 # produce a catalog that validates against the same published schema.
 RSpec.describe "Fixture producer contract" do
   let(:schema) do
-    JSON.parse(File.read(File.expand_path("../_data/schemas/documents.schema.json", __dir__)))
+    JSON.parse(File.read(File.join(Gem.loaded_specs["standards-registry"].full_gem_path,
+                                   "schema", "documents-index.schema.json")))
   end
 
   let(:result) do
     Dir.mktmpdir("registry-fixture") do |tmp|
       config = Registry::Config.new(
-        site_config_path: File.expand_path("../_config.yml", __dir__),
-        aggregate_config_path: File.expand_path("../fixtures/seed/aggregate.yml", __dir__),
+        site_config_path: File.join(Gem.loaded_specs["standards-registry"].full_gem_path, "fixtures", "seed", "instance.yml"),
+        aggregate_config_path: File.join(Gem.loaded_specs["standards-registry"].full_gem_path, "fixtures", "seed", "aggregate.yml"),
         registry_dir: tmp,
         generator_label: "fixture-producer v1"
       )
@@ -48,7 +48,7 @@ RSpec.describe "Fixture producer contract" do
 
   it "mints urns from the instance namespace" do
     item = result.catalog.items.first
-    expect(item["urn"]).to start_with("urn:calconnect:")
+    expect(item["urn"]).to start_with("urn:fixture:")
   end
 
   it "keeps unprovided fields honestly null and tracked" do

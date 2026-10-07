@@ -22,11 +22,11 @@ via the same mechanism) and compared pixel-wise with ImageMagick
    documents. Recorded in `registry/backfill.json`.
 2. **Category card counts** change by the same −1 for the affected
    category.
-3. **A two-card swap in "Recently Published"** — `CC 11001:2024` and
-   `CC/WD 51020:2019` share the same publication date (2026-05-13);
-   Ruby's unstable sort orders equal keys differently when the input
-   array shrinks by one. The catalog's item order itself is unchanged
-   from the producer's (verified: identical indices).
+3. **Same-date tie ordering** — cards sharing a publication date follow
+   the catalog's canonical order ([date, edition, slug]). main's tie
+   order was an artifact of GitHub search-result ordering at fetch time
+   (unstable across runs); the catalog is now deterministic by design.
+   Diffs are confined to the tie-group bands.
 
 ## Build reproducibility
 

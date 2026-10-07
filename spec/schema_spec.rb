@@ -1,8 +1,9 @@
 require "json"
 require "json_schemer"
+require "standards-registry"
 
 RSpec.describe "Registry catalog schema" do
-  let(:schema_path) { File.expand_path("../_data/schemas/documents.schema.json", __dir__) }
+  let(:schema_path) { File.join(Gem.loaded_specs["standards-registry"].full_gem_path, "schema", "documents-index.schema.json") }
   let(:schema) { JSON.parse(File.read(schema_path)) }
 
   let(:data_path) { File.expand_path("../registry/catalog.json", __dir__) }
@@ -30,7 +31,7 @@ RSpec.describe "Registry catalog schema" do
   it "the search index validates against its derived-view schema" do
     search_path = File.expand_path("../registry/search-index.json", __dir__)
     skip("registry/search-index.json not found") unless File.exist?(search_path)
-    search_schema_path = File.expand_path("../_data/schemas/search-index.schema.json", __dir__)
+    search_schema_path = File.join(Gem.loaded_specs["standards-registry"].full_gem_path, "schema", "search-index.schema.json")
     search_schema = JSON.parse(File.read(search_schema_path))
     search = JSON.parse(File.read(search_path))
     expect(search_schema["$id"]).to eq("https://schemas.metanorma.org/registry/search-index/v1.json")

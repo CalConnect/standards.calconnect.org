@@ -9,7 +9,7 @@ The CalConnect Standards Registry publishes CalConnect deliverables (Standards, 
 **Production URL**: https://standards.calconnect.org
 **Main branch**: `main` (auto-deploys to GitHub Pages)
 
-The registry functionality (catalog contract, enrichment, renderer, conformance suite) is **generic to every Metanorma-using SDO**. It lives in `lib/registry/` + `_plugins/registry_catalog.rb` + `fixtures/` + `bin/registry-conformance` with zero instance constants; CalConnect-specifics live only in `_config.yml` (`registry:` map), `metanorma.aggregate.yml`, and content. Upstream extraction notes: `TODO.improvements/upstream/`.
+The registry engine (catalog contract schemas, enrichment, `registry-validate`/`registry-conformance` CLIs, golden fixtures, certified non-Jekyll second renderer) lives in **metanorma/standards-registry** and is consumed as a gem (Gemfile, no tag pinned yet — maintainer tags releases). This repository is the reference **instance**: `_plugins/registry_catalog.rb` + `_layouts/` form the reference Jekyll renderer; CalConnect-specifics live only in `_config.yml` (`registry:` map), `metanorma.aggregate.yml`, navigation/content and branding.
 
 ## Build Commands
 
@@ -35,19 +35,19 @@ Aggregation requires `GITHUB_TOKEN` (read access to the org). Aggregation config
 `rake build` = `metanorma-release aggregate` → `rake enrich` → Jekyll build
 
 1. **Aggregate (producer)**: reads `metanorma.aggregate.yml`, discovers repos by org+topic, fetches releases, extracts files, enriches with Relaton. Output: `_site/docs/**`, `_site/docs/index.json` (raw index incl. `source` provenance), `_site/docs/relaton/index.json` (Relaton records).
-2. **Enrich (contract layer, `lib/registry/`)**: Relaton is canonical; top-level fields are documented projections. Emits the renderer-neutral handoff: `registry/catalog.json` (schema `$id` v1, provenance, sha256/bytes/media_type per file, URN, editions model), `registry/search-index.json`, `registry/backfill.json` (honest gap list — never invent data).
+2. **Enrich (engine gem, metanorma/standards-registry): Relaton is canonical; top-level fields are documented projections. Emits the renderer-neutral handoff: `registry/catalog.json` (schema `$id` v1, provenance, sha256/bytes/media_type per file, URN, editions model), `registry/search-index.json`, `registry/backfill.json` (honest gap list — never invent data).
 3. **Render (reference renderer)**: `_plugins/registry_catalog.rb` reads `registry/` only (never `_data/`), serves `/catalog.json` + `/search-index.json` at root, and generates versioned landing pages (`/docs/{document_id}/{year}/`), latest aliases (`/docs/{document_id}/`), legacy `/cc/` redirects, plus `/feed.xml` (Atom) and `/opensearch.xml`.
 
 ### The contract
 
-- `_data/schemas/documents.schema.json` — `$id: https://schemas.metanorma.org/registry/documents-index/v1.json`, payload `version: 1`, additive-only within a major.
+- Schema `$id: https://schemas.metanorma.org/registry/documents-index/v1.json`, payload `version: 1`, additive-only within a major — bundled in the engine gem (served from the product's Pages at the $id path).
 - Any conforming generator is a valid producer (`metanorma-release` is one; `fixtures/seed/` is a hand-written one).
 - URLs reconstruct from the index alone (`url_scheme` tokens `:document_id`/`:year`/`:edition`); same-year editions disambiguate as `/{year}-ed{edition}/`.
 - `rake validate_consistency` fails the build on projection drift, checksum mismatch, URL collisions, or edition-model violations.
 
 ### Renderer-neutrality (conformance)
 
-`bin/registry-conformance check SITE_DIR [--expect CATALOG] [--schema S] [--no-html]` validates any built site against the Registry Frontend Conformance Profile (endpoints, routes, JSON-LD, artifacts). `rake conformance` builds the reference renderer against `fixtures/seed/` and passes the same suite any third-party frontend would run.
+`registry-conformance check SITE_DIR [--expect CATALOG] [--schema S] [--no-html]` (from the engine gem) validates any built site against the Registry Frontend Conformance Profile (endpoints, routes, JSON-LD, artifacts). `rake conformance` builds the reference renderer against the engine gem's golden fixtures AND certifies the gem's Python second renderer with the same suite.
 
 ### Doc-Type Listing Pages
 
@@ -65,7 +65,7 @@ Uses the `jekyll-calconnect-theme` gem. Frontend styling uses Tailwind CSS v4 wi
 
 - `_config.yml`: Jekyll config + the `registry:` instance map (org, urn_namespace, url_scheme, legacy_prefixes, features, license_default)
 - `metanorma.aggregate.yml`: aggregation config (orgs, topic, channels, output_dir, display_categories)
-- `lib/registry/`: the catalog contract layer (Config, Projection, Urls, Enricher, Catalog, SearchIndex, Backfill, MediaTypes, Consistency, Conformance)
+- Gem `standards-registry` (github: metanorma/standards-registry): the engine — Config, Projection, Urls, Enricher, Catalog, SearchIndex, Backfill, MediaTypes, CatalogRules, Consistency, Conformance, bundled schemas + fixtures
 - `_plugins/registry_catalog.rb`: renderer bridge (reads `registry/`, generates routes/endpoints)
 - `_layouts/`: `doc-type.html` (listing), `document.html` (landing page w/ JSON-LD), `redirect.html` (meta-refresh), `page.html`, `default.html`
 - `_pages/feed.xml`, `_pages/opensearch.xml`: catalog-derived endpoints

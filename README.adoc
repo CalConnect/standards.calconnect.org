@@ -73,17 +73,23 @@ of the data. `fixtures/seed/` contains a hand-written producer used by the
 conformance suite (`rake conformance`), and `rake validate_index[path]`
 validates any candidate catalog against the published schema.
 
-The machinery in `lib/registry/`, `_plugins/registry_catalog.rb`, `fixtures/`
-and `bin/registry-conformance` contains no CalConnect specifics — organization
-identity, URN namespace, URL scheme, categories and feature flags are instance
-configuration (`_config.yml` `registry:` map + `metanorma.aggregate.yml`).
-Its intended home is a shared metanorma-org product (see
-`TODO.improvements/upstream/`); this repository is the reference instance.
+The registry engine — the contract schemas, enrichment, `registry-validate`
+and `registry-conformance` CLIs, golden fixtures and a certified non-Jekyll
+second renderer — lives in
+https://github.com/metanorma/standards-registry[metanorma/standards-registry]
+and is consumed here as a gem (see `Gemfile`). This repository keeps only the
+instance configuration (`_config.yml` `registry:` map +
+`metanorma.aggregate.yml`), the reference Jekyll renderer bridge
+(`_plugins/registry_catalog.rb` + layouts), branding and content. The
+conformance profile and instance guide are published in the product repo;
+schemas are served at their $id paths from the product's Pages
+(https://schemas.metanorma.org DNS pending org setup; meanwhile
+https://metanorma.github.io/standards-registry/registry/documents-index/v1.json).
 
 === Software stack
 
 * https://github.com/metanorma/metanorma-release[metanorma-release] — aggregation pipeline
-* `lib/registry/` — catalog contract layer (projection, provenance, integrity, conformance)
+* https://github.com/metanorma/standards-registry[metanorma/standards-registry] — the engine gem (catalog contract, enrichment, validator, conformance)
 * https://jekyllrb.com[Jekyll] — reference renderer
 * https://vitejs.dev[Vite] + https://tailwindcss.com[Tailwind CSS] — frontend build
 * https://github.com/features/actions[GitHub Actions] — CI/CD
@@ -253,11 +259,8 @@ Edit `metanorma.aggregate.yml` → `display_categories` to change which doctypes
 │       └── documents.schema.json  # The catalog contract (versioned $id)
 ├── _plugins/
 │   └── registry_catalog.rb     # Renderer bridge: reads registry/, generates routes
-├── bin/
-│   └── registry-conformance    # Frontend conformance checker CLI
-├── fixtures/seed/              # Golden fixtures: a hand-written producer
-├── lib/registry/               # Catalog contract layer (SDO-agnostic)
-├── registry/                   # Renderer-neutral handoff (generated):
+├── _plugins/registry_catalog.rb  # (listed below) renderer bridge
+├── registry/                   # Renderer-neutral handoff (generated, from the engine gem):
 │   ├── catalog.json            #   the contract payload
 │   ├── search-index.json       #   derived search corpus
 │   └── backfill.json           #   honest record of data gaps

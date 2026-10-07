@@ -1,5 +1,4 @@
-$LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
-require "registry"
+require "standards-registry"
 
 RSpec.describe "Registry::Projection" do
   let(:bib) do

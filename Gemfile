@@ -3,6 +3,7 @@ source "https://rubygems.org"
 gem "jekyll", "~> 4.4"
 gem "jekyll-calconnect-theme"
 gem "metanorma-release", github: "metanorma/metanorma-release", tag: "v0.2.24"
+gem "standards-registry", github: "metanorma/standards-registry"
 gem "octokit", "~> 9.0"
 gem "relaton-calconnect", "~> 2.1"
 
