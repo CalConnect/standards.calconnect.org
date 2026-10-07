@@ -7,7 +7,7 @@ layout: base
 {% assign stage_filter = site.data.navigation[page.stage_filter_name] %}
 {% endif %}
 {% if stage_filter %}
-{% assign all_docs = site.data.documents.items | sort: "date" | reverse %}
+{% assign all_docs = site.data.registry_catalog.items | sort: "date" | reverse %}
 {% assign docs = "" | split: "" %}
 {% for doc in all_docs %}
 {% if stage_filter contains doc.stage %}
@@ -15,9 +15,9 @@ layout: base
 {% endif %}
 {% endfor %}
 {% elsif page.display_category_slug %}
-{% assign docs = site.data.documents.items | where: "display_category_slug", page.display_category_slug | sort: "date" | reverse %}
+{% assign docs = site.data.registry_catalog.items | where: "display_category_slug", page.display_category_slug | sort: "date" | reverse %}
 {% else %}
-{% assign docs = site.data.documents.items | where: "doctype", page.doctype | sort: "date" | reverse %}
+{% assign docs = site.data.registry_catalog.items | where: "doctype", page.doctype | sort: "date" | reverse %}
 {% endif %}
 <div class="hero-section">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
@@ -73,13 +73,10 @@ layout: base
   {% if docs.size > 0 %}
   <div id="doc-list" class="doc-list">
     {% for doc in docs %}
+    {% assign html_file = doc.files | where: "format", "html" | first %}
     <div class="document" style="--stage-color: var(--color-stage-{{ doc.stage_css }}, var(--color-gray-300)); --doctype-color: var(--color-doctype-{{ doc.doctype_class }})" data-stage="{{ doc.stage }}" data-id="{{ doc.id | downcase }}" data-date="{{ doc.date }}" data-title="{{ doc.title | downcase }}" data-search="{{ doc.id | downcase | escape }} {{ doc.title | downcase | escape }}">
       <div class="doc-header">
-        {% if doc.has_html %}
-        <a href="/docs/{{ doc.html_path }}" class="doc-identifier">{{ doc.id | escape }}</a>
-        {% else %}
-        <span class="doc-identifier">{{ doc.id | escape }}</span>
-        {% endif %}
+        <a href="{{ doc.url }}" class="doc-identifier">{{ doc.id | escape }}</a>
         <span class="doc-badge" style="--badge-color: var(--color-stage-{{ doc.stage_css }})">
           <span class="badge-dot"></span>
           {% if doc.bibliographic.status.stage.abbreviation %}
@@ -95,11 +92,7 @@ layout: base
         </div>
       </div>
       <div class="doc-body">
-        {% if doc.has_html %}
-        <a href="/docs/{{ doc.html_path }}" class="doc-title">{{ doc.title | escape }}</a>
-        {% else %}
-        <div class="doc-title">{{ doc.title | escape }}</div>
-        {% endif %}
+        <a href="{{ doc.url }}" class="doc-title">{{ doc.title | escape }}</a>
         {% if doc.authors and doc.authors.size > 0 %}
         <p class="doc-authors">
           {% assign author_names = doc.authors | map: "name" %}
@@ -113,18 +106,22 @@ layout: base
       </div>
       <div class="doc-actions">
         <div class="doc-downloads">
-          {% if doc.has_html %}
-          <a href="/docs/{{ doc.html_path }}" class="dl-btn dl-html"><svg class="dl-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg> HTML</a>
+          {% for f in doc.files %}
+          {% if f.format == "rxl" %}
+          {% elsif f.format == "html" %}
+          <a href="{{ f.url }}" class="dl-btn dl-html"><svg class="dl-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg> HTML</a>
+          {% elsif f.format == "pdf" %}
+          <a href="{{ f.url }}" class="dl-btn dl-pdf"><svg class="dl-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg> PDF</a>
+          {% elsif f.format == "xml" %}
+          <a href="{{ f.url }}" class="dl-btn dl-xml"><svg class="dl-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg> XML</a>
+          {% else %}
+          <a href="{{ f.url }}" class="dl-btn dl-{{ f.format }}"><svg class="dl-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg> {{ f.format | upcase }}</a>
           {% endif %}
-          {% if doc.has_pdf %}
-          <a href="/docs/{{ doc.pdf_path }}" class="dl-btn dl-pdf"><svg class="dl-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg> PDF</a>
-          {% endif %}
-          {% if doc.has_xml %}
-          <a href="/docs/{{ doc.xml_path }}" class="dl-btn dl-xml"><svg class="dl-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg> XML</a>
-          {% endif %}
+          {% endfor %}
         </div>
-        {% if doc.has_rxl %}
-        <a href="/docs/{{ doc.rxl_path }}" class="doc-relaton-link" title="Relaton bibliographic data"><svg class="dl-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg> Relaton</a>
+        {% assign rxl_file = doc.files | where: "format", "rxl" | first %}
+        {% if rxl_file %}
+        <a href="{{ rxl_file.url }}" class="doc-relaton-link" title="Relaton bibliographic data"><svg class="dl-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg> Relaton</a>
         {% endif %}
       </div>
     </div>

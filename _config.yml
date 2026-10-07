@@ -38,6 +38,7 @@ registry:
   urn_namespace: calconnect
   url_scheme: "/docs/:document_id/:year/"
   docs_prefix: "/docs"
+  legacy_prefixes: ["cc"]
   features:
     search: true
     atom_feed: true

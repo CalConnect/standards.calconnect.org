@@ -1,0 +1,118 @@
+---
+layout: base
+---
+{% assign doc = page.doc %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "@id": "{{ site.url }}{{ doc.url }}",
+  "identifier": {{ doc.id | jsonify }},
+  "name": {{ doc.title | jsonify }},
+  "url": "{{ site.url }}{{ doc.url }}",
+  "datePublished": {{ doc.date | jsonify }},
+  {% if doc.language %}"inLanguage": {{ doc.language | first | jsonify }},{% endif %}
+  {% if doc.license %}"license": {{ doc.license.url | default: doc.license.name | jsonify }},{% endif %}
+  "isPartOf": { "@type": "Dataset", "@id": "{{ site.url }}/catalog.json", "name": {{ site.title | jsonify }} },
+  "encoding": [
+    {% for f in doc.files %}{"@type": "MediaObject", "encodingFormat": {{ f.media_type | jsonify }}, "contentUrl": "{{ site.url }}{{ f.url }}", "name": {{ f.name | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}
+  ]
+}
+</script>
+
+<div class="hero-section">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+    <div class="hero-content">
+      <h1 class="hero-title">{{ doc.id | escape }}</h1>
+      <p class="hero-subtitle">{{ doc.title | escape }}</p>
+    </div>
+    <div class="doc-meta-inline">
+      <span class="doc-type-badge">{{ doc.doctype }}</span>
+      {% if doc.edition %}<span class="meta-text">Edition {{ doc.edition }}</span>{% endif %}
+      {% if doc.date %}<span class="meta-text">{{ doc.date }}</span>{% endif %}
+      <span class="doc-badge" style="--badge-color: var(--color-stage-{{ doc.stage_css }})">
+        <span class="badge-dot"></span>
+        {{ doc.bibliographic.status.stage.abbreviation | default: doc.stage | capitalize }}
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+  <div class="document" style="--stage-color: var(--color-stage-{{ doc.stage_css }}, var(--color-gray-300)); --doctype-color: var(--color-doctype-{{ doc.doctype_class }})">
+    <div class="doc-body">
+      {% if doc.abstract and doc.abstract != "" %}<p class="doc-abstract">{{ doc.abstract | escape }}</p>{% endif %}
+      {% if doc.authors and doc.authors.size > 0 %}
+      <p class="doc-authors">
+        {% assign author_names = doc.authors | map: "name" %}
+        {{ author_names | join: ", " | escape }}
+        {% if doc.committee %}<span class="doc-committee">({{ doc.committee | escape }})</span>{% endif %}
+      </p>
+      {% elsif doc.committee %}
+      <p class="doc-authors"><span class="doc-committee">{{ doc.committee | escape }}</span></p>
+      {% endif %}
+      <dl class="doc-details">
+        {% if doc.language %}
+        {% assign languages = doc.language | join: ", " %}
+        <div class="doc-detail-row"><dt>Language</dt><dd>{{ languages }}</dd></div>
+        {% endif %}
+        {% if doc.copyright %}
+        {% assign owners = doc.copyright | map: "owner" | join: ", " %}
+        <div class="doc-detail-row"><dt>Copyright</dt><dd>&copy; {{ doc.copyright.first.from }}&ndash;{{ doc.copyright.last.to | default: doc.copyright.first.from }} {{ owners | escape }}</dd></div>
+        {% endif %}
+        {% if doc.license %}
+        <div class="doc-detail-row"><dt>License</dt><dd>{% if doc.license.url %}<a href="{{ doc.license.url }}">{{ doc.license.name | default: doc.license.url | escape }}</a>{% else %}{{ doc.license.name | default: doc.license.spdx | escape }}{% endif %}</dd></div>
+        {% endif %}
+        {% if doc.urn %}
+        <div class="doc-detail-row"><dt>URN</dt><dd><code>{{ doc.urn }}</code></dd></div>
+        {% endif %}
+        <div class="doc-detail-row"><dt>Canonical URL</dt><dd><code>{{ site.url }}{{ doc.url }}</code></dd></div>
+        {% if doc.provenance.source_repository %}
+        <div class="doc-detail-row"><dt>Source</dt><dd><a href="{{ doc.provenance.release_url }}">{{ doc.provenance.source_repository }}@{{ doc.provenance.release_tag }}</a></dd></div>
+        {% endif %}
+      </dl>
+    </div>
+    <div class="doc-actions">
+      <div class="doc-downloads">
+        {% for f in doc.files %}
+        {% if f.format == "rxl" %}
+        <a href="{{ f.url }}" class="doc-relaton-link" title="Relaton bibliographic data"><svg class="dl-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg> Relaton</a>
+        {% else %}
+        <a href="{{ f.url }}" class="dl-btn dl-{{ f.format }}">
+          {% case f.format %}
+          {% when "html" %}
+          <svg class="dl-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          {% when "pdf" %}
+          <svg class="dl-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          {% when "xml" %}
+          <svg class="dl-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          {% else %}
+          <svg class="dl-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>
+          {% endcase %}
+          {{ f.format | upcase }}</a>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  {% assign other_editions = doc.editions | where_exp: "e", "e.url != doc.url" %}
+  {% if other_editions.size > 0 %}
+  <section class="doc-editions">
+    <h2 class="home-section-title">Editions</h2>
+    <ul class="doc-editions-list">
+      {% for e in doc.editions %}
+      <li class="doc-edition{% if e.url == doc.url %} current{% endif %}">
+        {% if e.url == doc.url %}
+        <span class="doc-edition-id">{{ e.edition | default: "1" }} ({{ e.year | default: e.date }}) — this edition</span>
+        {% else %}
+        <a class="doc-edition-id" href="{{ e.url }}">{{ e.edition | default: "1" }} ({{ e.year | default: e.date }})</a>
+        {% endif %}
+        <span class="doc-type-badge">{{ e.stage }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    <p><a href="{{ doc.latest_url }}">Latest edition of {{ doc.id | split: ":" | first | escape }}</a></p>
+  </section>
+  {% endif %}
+</div>
