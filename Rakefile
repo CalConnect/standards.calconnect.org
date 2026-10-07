@@ -126,6 +126,42 @@ task :validate_index, [:path] do |_t, args|
   end
 end
 
+desc "Run the conformance suite: build the reference renderer against golden fixtures and check the output"
+task :conformance do
+  cfg = registry_config
+  workspace = File.join(".tmp", "conformance")
+
+  fixture_config = Registry::Config.new(
+    aggregate_config_path: "fixtures/seed/aggregate.yml",
+    registry_dir: File.join(workspace, "registry"),
+    generator_label: "fixture-producer v1"
+  )
+  FileUtils.rm_rf(workspace)
+  result = Registry::Enricher.new(config: fixture_config).run
+  puts "OK: fixture catalog #{result.catalog.items.length} items"
+
+  # The fixture producer's aggregation step: place artifacts where the
+  # renderer expects them (metanorma-release does this for the instance).
+  docs_dest = File.join(workspace, "_site", "docs")
+  FileUtils.mkdir_p(docs_dest)
+  FileUtils.cp(Dir.glob("fixtures/seed/producer/*.html") + Dir.glob("fixtures/seed/producer/*.pdf") +
+               Dir.glob("fixtures/seed/producer/*.xml") + Dir.glob("fixtures/seed/producer/*.rxl") +
+               Dir.glob("fixtures/seed/producer/*.doc"), docs_dest)
+  FileUtils.cp_r(File.join("fixtures", "seed", "producer", "relaton"), docs_dest)
+
+  sh "bundle exec jekyll build --config _config.yml,fixtures/seed/jekyll.yml --destination #{File.join(workspace, '_site')} > /dev/null"
+
+  report = Registry::Conformance.check(
+    File.join(workspace, "_site"),
+    expect: fixture_config.catalog_path,
+    schema_path: cfg.schema_path
+  )
+  report.failures.each { |failure| puts "  FAIL: #{failure}" }
+  abort "FAIL: conformance suite (#{report.failures.length} failures)" unless report.passed
+
+  puts "OK: conformance suite passed (#{report.checks} checks) — reference renderer certified against fixtures"
+end
+
 # SDO-agnostic registry engine configuration; instance values live in
 # _config.yml (registry:) and metanorma.aggregate.yml.
 def registry_config

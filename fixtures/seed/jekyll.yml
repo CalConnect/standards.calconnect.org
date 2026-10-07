@@ -1,0 +1,6 @@
+# Conformance-build overrides: point the reference renderer at the
+# fixture registry handoff instead of the instance's registry/.
+registry:
+  dir: .tmp/conformance/registry
+  legacy_prefixes: []
+url: https://registry.example

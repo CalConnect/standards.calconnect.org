@@ -65,6 +65,7 @@ exclude:
   - bin/
   - fixtures/
   - tools/
+  - .tmp/
   - _data/schemas/
   - scripts/
   - config

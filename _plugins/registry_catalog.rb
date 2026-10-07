@@ -49,7 +49,7 @@ module Jekyll
       return if catalog.nil?
 
       site.data["registry_catalog"] = catalog
-      site.data["registry_search_index"] = load_json(site, "registry", "search-index.json")
+      site.data["registry_search_index"] = load_json(site, registry_dir(site), "search-index.json")
 
       serve_endpoints(site)
       generate_document_pages(site, catalog)
@@ -59,8 +59,12 @@ module Jekyll
 
     private
 
+    def registry_dir(site)
+      site.config.dig("registry", "dir") || "registry"
+    end
+
     def load_catalog(site)
-      load_json(site, "registry", "catalog.json")
+      load_json(site, registry_dir(site), "catalog.json")
     end
 
     def load_json(site, dir, name)
@@ -71,8 +75,8 @@ module Jekyll
     end
 
     def serve_endpoints(site)
-      site.static_files << RegistryAssetFile.new(site, "registry", "catalog.json")
-      site.static_files << RegistryAssetFile.new(site, "registry", "search-index.json")
+      site.static_files << RegistryAssetFile.new(site, registry_dir(site), "catalog.json")
+      site.static_files << RegistryAssetFile.new(site, registry_dir(site), "search-index.json")
     end
 
     def generate_document_pages(site, catalog)

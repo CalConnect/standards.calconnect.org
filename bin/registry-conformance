@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# registry-conformance: validate a built site against the Registry
+# Frontend Conformance Profile (TODO.improvements/12). Stack-agnostic:
+#   registry-conformance check <built-site-dir> [--expect catalog.json]
+#                                     [--schema schema.json] [--no-html]
+# Scaffolded here for the reference renderer; its permanent home is the
+# metanorma org (see TODO.improvements/upstream/registry-validator-cli.md).
+
+require "optparse"
+
+$LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
+require "registry"
+
+command = ARGV.shift
+options = { html: true }
+parser = OptionParser.new do |opts|
+  opts.banner = "Usage: registry-conformance check SITE_DIR [--expect CATALOG] [--schema SCHEMA] [--no-html]"
+  opts.on("--expect CATALOG", "Cross-check /catalog.json against the producer's catalog") { |v| options[:expect] = v }
+  opts.on("--schema SCHEMA", "Validate /catalog.json against a JSON schema") { |v| options[:schema] = v }
+  opts.on("--no-html", "Headless mode: skip HTML route checks") { options[:html] = false }
+end
+parser.parse!
+
+if command != "check" || ARGV.empty?
+  warn parser.banner
+  exit 64
+end
+
+report = Registry::Conformance.check(ARGV[0], expect: options[:expect],
+                                     schema_path: options[:schema], html: options[:html])
+report.failures.each { |failure| warn "FAIL: #{failure}" }
+puts "#{report.checks} checks run, #{report.failures.length} failures"
+exit(report.passed ? 0 : 1)

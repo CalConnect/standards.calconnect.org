@@ -1,0 +1,14 @@
+source: local
+output_dir: fixtures/seed/producer
+file_routing: flat
+cache_dir: .cache/aggregate
+
+display_categories:
+  - name: Standards
+    slug: standards
+    doctypes:
+      - standard
+  - name: Reports
+    slug: reports
+    doctypes:
+      - report
