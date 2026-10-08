@@ -134,6 +134,89 @@ task :validate_consistency do
   end
 end
 
+desc "Verify every internal link in the built site resolves"
+task :verify_links do
+  site = "_site"
+  abort "SKIP: #{site} not found — run `rake build` first" unless File.directory?(site)
+
+  html_files = Dir.glob(File.join(site, "**", "*.html"))
+  broken = []
+  checked = 0
+  html_files.each do |file|
+    content = File.read(file).gsub(/<script\b.*?<\/script>/m, "")
+    refs = content.scan(%r{(?:href|src)="([^"]+)"}).flatten
+    refs.each do |ref|
+      next if ref.start_with?("http", "//", "ftp:", "mailto:", "tel:", "data:", "#")
+      next if ref.empty?
+
+      target = ref.split("#").first.split("?").first
+      next if target.empty?
+
+      resolved = File.join(site, target)
+      resolved = File.join(resolved, "index.html") if File.directory?(resolved)
+      checked += 1
+      unless File.file?(resolved)
+        broken << "#{file.sub(site + '/', '')} -> #{ref}"
+      end
+    end
+  end
+
+  if broken.empty?
+    puts "OK: #{checked} internal links across #{html_files.length} pages all resolve"
+  else
+    broken.first(25).each { |b| puts "  BROKEN: #{b}" }
+    abort "FAIL: #{broken.length} broken internal links"
+  end
+end
+
+desc "Report catalog changes against a deployed registry"
+task :report_changes, [:base_url] do |_t, args|
+  require "json"
+  require "net/http"
+  require "uri"
+
+  base = args[:base_url] || "https://standards.calconnect.org"
+  uri = URI.join(base, "/catalog.json")
+  response = Net::HTTP.get_response(uri)
+  unless response.is_a?(Net::HTTPSuccess)
+    puts "NOTE: #{uri} unreachable (#{response.code}) — skipping change report"
+    next
+  end
+
+  remote = JSON.parse(response.body)
+  local = JSON.parse(File.read(registry_config.catalog_path))
+  remote_items = remote["items"].to_h { |i| [i["slug"], i] }
+  local_items = local["items"].to_h { |i| [i["slug"], i] }
+
+  added = local_items.keys - remote_items.keys
+  removed = remote_items.keys - local_items.keys
+  changed = (local_items.keys & remote_items.keys).select do |slug|
+    %w[title date stage edition].any? { |f| local_items[slug][f] != remote_items[slug][f] }
+  end
+
+  puts "Catalog changes vs #{base}:"
+  puts "  + #{added.length} new: #{added.sort.first(10).join(', ')}#{' …' if added.length > 10}"
+  puts "  - #{removed.length} removed: #{removed.sort.first(10).join(', ')}#{' …' if removed.length > 10}"
+  puts "  ~ #{changed.length} changed: #{changed.sort.first(10).join(', ')}#{' …' if changed.length > 10}"
+  puts "  = #{local_items.length} documents total (was #{remote_items.length})"
+
+  summary = ENV["GITHUB_STEP_SUMMARY"]
+  if summary
+    File.open(summary, "a") do |f|
+      f.puts "## Catalog changes vs #{base}
+"
+      f.puts "+ **#{added.length} new**, ~ **#{changed.length} changed**, - **#{removed.length} removed** — #{local_items.length} total (was #{remote_items.length})
+"
+      f.puts "New: #{added.sort.map { |s| local_items[s]['id'] }.join(', ')}
+
+" unless added.empty?
+      f.puts "Removed: #{removed.sort.map { |s| remote_items[s]['id'] }.join(', ')}
+
+" unless removed.empty?
+    end
+  end
+end
+
 desc "Validate any catalog file against the registry schema (09)"
 task :validate_index, [:path] do |_t, args|
   cfg = registry_config

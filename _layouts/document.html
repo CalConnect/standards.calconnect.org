@@ -39,6 +39,16 @@ layout: base
 </div>
 
 <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+  {% assign current_edition = nil %}
+  {% for e in doc.editions %}{% if e.current %}{% assign current_edition = e %}{% endif %}{% endfor %}
+  {% if current_edition and current_edition.url != doc.url %}
+  <div class="no-results" role="note">
+    <p class="no-results-text">
+      This edition has been superseded.
+      <a href="{{ current_edition.url }}">See the current edition</a>.
+    </p>
+  </div>
+  {% endif %}
   <div class="document" style="--stage-color: var(--color-stage-{{ doc.stage_css }}, var(--color-gray-300)); --doctype-color: var(--color-doctype-{{ doc.doctype_class }})">
     <div class="doc-body">
       {% if doc.abstract and doc.abstract != "" %}<p class="doc-abstract">{{ doc.abstract | escape }}</p>{% endif %}

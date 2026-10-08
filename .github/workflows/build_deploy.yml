@@ -60,6 +60,12 @@ jobs:
       - name: Run test suite
         run: bundle exec rspec
 
+      - name: Verify internal links
+        run: bundle exec rake verify_links
+
+      - name: Report catalog changes vs production
+        run: bundle exec rake report_changes
+
       - name: Verify build
         run: |
           doc_count=$(python3 -c "import json; print(len(json.load(open('registry/catalog.json')).get('items',[])))")
