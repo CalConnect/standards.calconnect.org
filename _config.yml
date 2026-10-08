@@ -44,7 +44,11 @@ registry:
     jsonld: true
     opensearch: true
     html: true
-  license_default: null
+  # Rights statement for documents whose Relaton record carries no
+  # license (per https://www.calconnect.org/about/policies/copyright-and-licensing/)
+  license_default:
+    name: "© CalConnect — all rights reserved"
+    url: "https://www.calconnect.org/about/policies/copyright-and-licensing/"
 
 exclude:
   - README.adoc

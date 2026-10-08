@@ -20,7 +20,9 @@ RSpec.describe "Site configuration" do
       expect(registry["urn_namespace"]).to eq("calconnect")
       expect(registry["url_scheme"]).to eq("/docs/:document_id/:year/")
       expect(registry["legacy_prefixes"]).to include("cc")
-      expect(registry["license_default"]).to be_nil
+      default = registry["license_default"]
+      expect(default["name"]).to include("all rights reserved")
+      expect(default["url"]).to eq("https://www.calconnect.org/about/policies/copyright-and-licensing/")
     end
 
     it "excludes build-only directories from Jekyll processing" do

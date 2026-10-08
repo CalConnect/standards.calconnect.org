@@ -42,9 +42,16 @@ RSpec.describe "Data integrity" do
   end
 
   describe "data honesty" do
-    it "never invents licenses for documents whose Relaton record lacks one" do
-      licensed = docs.select { |d| d["license"] }
-      expect(licensed).to all(satisfy { |d| d.dig("bibliographic", "license") || (licensed.empty? && true) })
+    it "sources every license from Relaton or the instance rights default — never invented" do
+      config = YAML.load_file(File.expand_path("../_config.yml", __dir__))
+      default = config.dig("registry", "license_default")
+      docs.each do |doc|
+        relaton_license = doc.dig("bibliographic", "license")&.first
+        expected = relaton_license || default
+        expect(doc["license"]).to eq(expected), -> {
+          "#{doc['slug']}: license neither from Relaton nor the configured default"
+        }
+      end
     end
 
     it "records gaps rather than omitting them" do
