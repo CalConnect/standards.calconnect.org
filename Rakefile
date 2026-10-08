@@ -41,7 +41,9 @@ end
 # Full-text index over the published document pages (renderer extra,
 # not part of the conformance profile).
 def build_fulltext_index
-  sh "npx pagefind --site _site"
+  # Metanorma pages put the TOC (whose h1 is "Contents") before <main>;
+  # scoping the index to <main> keeps chrome out of titles and excerpts.
+  sh "npx pagefind --site _site --root-selector main"
 end
 
 # Local parity with the CI deploy guard: an aggregation that yields zero

@@ -18,6 +18,7 @@ permalink: /search/
 </div>
 
 <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+  <p id="fulltext-count" class="doc-count-text"></p>
   <div id="fulltext-results" class="doc-list"></div>
   <div id="fulltext-empty" class="no-results hidden">
     <p class="no-results-text">No documents match your search.</p>
@@ -36,6 +37,7 @@ permalink: /search/
   var input = document.getElementById('fulltext-input');
   var box = document.getElementById('fulltext-results');
   var empty = document.getElementById('fulltext-empty');
+  var count = document.getElementById('fulltext-count');
 
   document.addEventListener('keydown', function(e) {
     if (e.key === '/' && !['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)) {
@@ -49,6 +51,24 @@ permalink: /search/
   var pagefind = null;
   var timer;
   var pending = false;
+  var bySlug = null;
+
+  // Display titles come from the registry contract, not from Pagefind's
+  // per-section metadata (Metanorma h1s are "Contents"/"Foreword"/…).
+  function ensureTitleMap() {
+    if (bySlug) return Promise.resolve(bySlug);
+    return fetch('/search-index.json').then(function(res) { return res.json(); }).then(function(payload) {
+      bySlug = {};
+      (payload.documents || []).forEach(function(d) { bySlug[d.slug] = d; });
+      return bySlug;
+    }).catch(function() { bySlug = {}; return bySlug; });
+  }
+
+  function docFor(url) {
+    if (!bySlug) return null;
+    var m = url.match(/^\/docs\/([a-z0-9][a-z0-9._-]*?)(?:\.[a-z]+|\/|$)/i);
+    return m && bySlug[m[1]] || null;
+  }
 
   function ensurePagefind() {
     if (pagefind) return Promise.resolve(pagefind);
@@ -62,27 +82,37 @@ permalink: /search/
 
   function doSearch() {
     var query = input.value.trim();
-    if (!query) { box.innerHTML = ''; empty.classList.add('hidden'); return; }
+    if (!query) { count.textContent = ''; box.innerHTML = ''; empty.classList.add('hidden'); return; }
     pending = true;
     ensurePagefind().then(function(pf) {
       return pf.search(query);
     }).then(function(result) {
       pending = false;
+      var total = result.results.length;
+      count.textContent = total ? total + ' document' + (total !== 1 ? 's' : '') + ' match' : '';
       var top = result.results.slice(0, 20);
       if (!top.length) { box.innerHTML = ''; empty.classList.remove('hidden'); return; }
       empty.classList.add('hidden');
       return Promise.all(top.map(function(r) { return r.data(); })).then(function(datas) {
-        box.innerHTML = datas.map(function(d) {
-          return '<div class="document" data-search="">' +
-            '<div class="doc-header"><a class="doc-identifier" href="' + d.url + '">' +
-              esc(d.meta && d.meta.title || d.url) + '</a></div>' +
-            '<div class="doc-body"><div class="doc-abstract">' + (d.excerpt || '') + '</div></div>' +
-            '<div class="doc-actions"><span class="meta-text">' +
-              (result.results.length) + ' matches · ' + esc(d.url) + '</span></div>' +
-          '</div>';
-        }).join('');
+        return ensureTitleMap().then(function() {
+          box.innerHTML = datas.map(function(d) {
+            var doc = docFor(d.url);
+            var fallback = (d.meta && d.meta.title) || d.url.split('/').pop();
+            var title = doc ? doc.id + ' — ' + doc.title : fallback;
+            var href = doc ? doc.url : d.url;
+            return '<div class="document" data-search="">' +
+              '<div class="doc-header"><a class="doc-identifier" href="' + href + '">' +
+                esc(title) + '</a></div>' +
+              '<div class="doc-body"><div class="doc-abstract">' + (d.excerpt || '') + '</div></div>' +
+              '<div class="doc-actions"><span class="meta-text">' + esc(href) + '</span></div>' +
+            '</div>';
+          }).join('');
+        });
       });
-    }).catch(function() { pending = false; });
+    }).catch(function(e) {
+      pending = false;
+      if (count) count.textContent = 'Search error: ' + (e && e.message || e);
+    });
   }
 
   input.addEventListener('input', function() {
