@@ -540,6 +540,28 @@ html.dark .doc-detail-row code { background: rgba(148, 163, 184, 0.12); }
 html.dark .doc-edition { background: rgba(148, 163, 184, 0.08); }
 html.dark .doc-edition-id { color: var(--color-gray-300); }
 
+/* Landing page keywords, citations and relations */
+.doc-keywords { margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 0.375rem; }
+.doc-keyword {
+  font-size: 0.75rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  background: var(--color-gray-100, #f1f5f9);
+  color: var(--color-gray-600, #475569);
+}
+html.dark .doc-keyword { background: rgba(148, 163, 184, 0.12); color: var(--color-gray-300); }
+
+.doc-cite-links a { color: var(--color-primary-600, #4f46e5); }
+html.dark .doc-cite-links a { color: var(--color-primary-400, #818cf8); }
+
+.doc-relation-type {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-gray-500);
+}
+
 /* Card actions row */
 .doc-actions {
   display: flex;

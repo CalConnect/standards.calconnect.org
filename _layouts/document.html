@@ -67,10 +67,16 @@ layout: base
         <div class="doc-detail-row"><dt>URN</dt><dd><code>{{ doc.urn }}</code></dd></div>
         {% endif %}
         <div class="doc-detail-row"><dt>Canonical URL</dt><dd><code>{{ site.url }}{{ doc.url }}</code></dd></div>
+        <div class="doc-detail-row"><dt>Cite</dt><dd class="doc-cite-links"><a href="/docs/{{ doc.slug }}.bib">BibTeX</a> · <a href="/docs/{{ doc.slug }}.ris">RIS</a> · <a href="/docs/{{ doc.slug }}.csl.json">CSL JSON</a></dd></div>
         {% if doc.provenance.source_repository %}
         <div class="doc-detail-row"><dt>Source</dt><dd><a href="{{ doc.provenance.release_url }}">{{ doc.provenance.source_repository }}@{{ doc.provenance.release_tag }}</a></dd></div>
         {% endif %}
       </dl>
+      {% if doc.keywords %}
+      <div class="doc-keywords">
+        {% for kw in doc.keywords %}<span class="doc-keyword">{{ kw | escape }}</span>{% endfor %}
+      </div>
+      {% endif %}
     </div>
     <div class="doc-actions">
       <div class="doc-downloads">
@@ -95,6 +101,26 @@ layout: base
       </div>
     </div>
   </div>
+
+  {% if doc.relations %}
+  <section class="doc-editions doc-relations">
+    <h2 class="home-section-title">Related documents</h2>
+    <ul class="doc-editions-list">
+      {% for rel in doc.relations %}
+      {% assign target = site.data.registry_catalog.items | where: "id", rel.id | first %}
+      <li class="doc-edition doc-relation">
+        <span class="doc-relation-type">{{ rel.type }}</span>
+        {% if target and target.slug != doc.slug %}
+        <a class="doc-edition-id" href="{{ target.url }}">{{ rel.id }}</a>
+        {% else %}
+        <span class="doc-edition-id">{{ rel.id }}</span>
+        {% endif %}
+        {% if rel.date %}<span class="meta-text">{{ rel.date }}{% if rel.edition %} · ed. {{ rel.edition }}{% endif %}</span>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
 
   {% assign other_editions = doc.editions | where_exp: "e", "e.url != doc.url" %}
   {% if other_editions.size > 0 %}

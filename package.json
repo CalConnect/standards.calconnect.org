@@ -9,6 +9,7 @@
   "devDependencies": {
     "@tailwindcss/cli": "^4.2.1",
     "autoprefixer": "^10.4.24",
+    "pagefind": "^1.5.2",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.2.1",
     "terser": "^5.46.0",

@@ -47,6 +47,53 @@ RSpec.describe "Built site" do
     expect(template).to include("{searchTerms}")
   end
 
+  describe "SOTA surfaces" do
+    let(:ns) { { "s" => "http://www.sitemaps.org/schemas/sitemap/0.9" } }
+
+    it "serves a sitemap covering the canonical routes" do
+      root = REXML::Document.new(File.read(site_path("/sitemap.xml")))
+      urls = REXML::XPath.match(root, "/s:urlset/s:url/s:loc/text()", ns).map(&:value)
+      expect(urls.length).to be >= catalog["items"].length
+      expect(urls).to include(match(%r{/search/$}))
+      catalog["items"].first(5).each do |item|
+        expect(urls).to include(match(%r{#{Regexp.escape(item['url'])}$}))
+      end
+    end
+
+    it "publishes a checksum sidecar matching the served catalog" do
+      require "digest"
+      sidecar = File.read(site_path("/catalog.json.sha256")).split.first
+      expect(sidecar).to eq(Digest::SHA256.file(site_path("/catalog.json")).hexdigest)
+    end
+
+    it "emits citation exports and Scholar meta for every document" do
+      item = catalog["items"].find { |i| i["files"].any? { |f| f["format"] == "pdf" } }
+      bib = File.read(site_path("/docs/#{item['slug']}.bib"))
+      expect(bib).to start_with("@techreport{#{item['slug']}")
+      expect(bib).to include(item["year"].to_s)
+      expect(JSON.parse(File.read(site_path("/docs/#{item['slug']}.csl.json")))).to include("type" => "report", "id" => item["slug"])
+      expect(File.read(site_path("/docs/#{item['slug']}.ris"))).to include("TY  - RPRT")
+
+      landing = File.read(site_path("#{item['url']}index.html"))
+      expect(landing).to include('name="citation_title"')
+      expect(landing).to include("citation_pdf_url")
+    end
+
+    it "ships the full-text search index and page" do
+      expect(File.file?(site_path("/search/index.html"))).to be(true)
+      expect(File.directory?(site_path("/pagefind"))).to be(true)
+    end
+
+    it "surfaces bibliographic relations with cross-links" do
+      item = catalog["items"].find { |i| i["relations"] && i["relations"].any? }
+      skip("no relations in catalog yet") if item.nil?
+
+      landing = File.read(site_path("#{item['url']}index.html"))
+      expect(landing).to include("Related documents")
+      item["relations"].each { |rel| expect(landing).to include(rel["type"]) }
+    end
+  end
+
   describe "routes" do
     it "generates a landing page with JSON-LD per item" do
       item = catalog["items"].first

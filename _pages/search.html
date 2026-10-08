@@ -1,0 +1,95 @@
+---
+layout: base
+title: Search
+permalink: /search/
+---
+<div class="hero-section">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+    <div class="hero-content">
+      <h1 class="hero-title">Full-text search</h1>
+      <p class="hero-subtitle">Search the complete text of every published document.</p>
+    </div>
+    <div class="search-bar-wrap">
+      <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      <input type="text" id="fulltext-input" class="search-input" placeholder="Search all document text…" autocomplete="off">
+      <kbd class="search-kbd">/</kbd>
+    </div>
+  </div>
+</div>
+
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+  <div id="fulltext-results" class="doc-list"></div>
+  <div id="fulltext-empty" class="no-results hidden">
+    <p class="no-results-text">No documents match your search.</p>
+  </div>
+  <noscript>
+    <p class="gs-noscript">Full-text search requires JavaScript — use the
+    <a href="/catalog.json">catalog</a> or browse the
+    <a href="/standards/">document categories</a>.</p>
+  </noscript>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  var input = document.getElementById('fulltext-input');
+  var box = document.getElementById('fulltext-results');
+  var empty = document.getElementById('fulltext-empty');
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === '/' && !['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)) {
+      e.preventDefault(); input.focus();
+    }
+  });
+
+  var q = new URLSearchParams(window.location.search).get('q') || '';
+  if (q) input.value = q;
+
+  var pagefind = null;
+  var timer;
+  var pending = false;
+
+  function ensurePagefind() {
+    if (pagefind) return Promise.resolve(pagefind);
+    return import('/pagefind/pagefind.js').then(function(pf) {
+      pagefind = pf;
+      return pagefind.options ? pagefind.options({ excerptLength: 15 }) : pf;
+    });
+  }
+
+  function esc(s) { var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+
+  function doSearch() {
+    var query = input.value.trim();
+    if (!query) { box.innerHTML = ''; empty.classList.add('hidden'); return; }
+    pending = true;
+    ensurePagefind().then(function(pf) {
+      return pf.search(query);
+    }).then(function(result) {
+      pending = false;
+      var top = result.results.slice(0, 20);
+      if (!top.length) { box.innerHTML = ''; empty.classList.remove('hidden'); return; }
+      empty.classList.add('hidden');
+      return Promise.all(top.map(function(r) { return r.data(); })).then(function(datas) {
+        box.innerHTML = datas.map(function(d) {
+          return '<div class="document" data-search="">' +
+            '<div class="doc-header"><a class="doc-identifier" href="' + d.url + '">' +
+              esc(d.meta && d.meta.title || d.url) + '</a></div>' +
+            '<div class="doc-body"><div class="doc-abstract">' + (d.excerpt || '') + '</div></div>' +
+            '<div class="doc-actions"><span class="meta-text">' +
+              (result.results.length) + ' matches · ' + esc(d.url) + '</span></div>' +
+          '</div>';
+        }).join('');
+      });
+    }).catch(function() { pending = false; });
+  }
+
+  input.addEventListener('input', function() {
+    clearTimeout(timer);
+    timer = setTimeout(function() { if (!pending) doSearch(); }, 250);
+  });
+
+  if (q) doSearch();
+})();
+</script>

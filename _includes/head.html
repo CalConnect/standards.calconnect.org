@@ -38,4 +38,18 @@
   {% if jekyll.environment == 'production' and site.google_analytics %}
   {% include google-analytics.html %}
   {% endif %}
+
+  {% if page.doc %}
+  {% assign pdf_file = page.doc.files | where: "format", "pdf" | first %}
+  <meta name="citation_title" content="{{ page.doc.title | escape }}" />
+  <meta name="citation_publication_date" content="{{ page.doc.date }}" />
+  {% for author in page.doc.authors %}
+  <meta name="citation_author" content="{{ author.name | escape }}" />
+  {% endfor %}
+  <meta name="citation_language" content="{{ page.doc.language | first }}" />
+  <meta name="citation_technical_report_institution" content="CalConnect" />
+  {% if pdf_file %}
+  <meta name="citation_pdf_url" content="{{ site.url }}{{ pdf_file.url }}" />
+  {% endif %}
+  {% endif %}
 </head>

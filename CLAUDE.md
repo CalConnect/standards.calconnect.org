@@ -36,7 +36,7 @@ Aggregation requires `GITHUB_TOKEN` (read access to the org). Aggregation config
 
 1. **Aggregate (producer)**: reads `metanorma.aggregate.yml`, discovers repos by org+topic, fetches releases, extracts files, enriches with Relaton. Output: `_site/docs/**`, `_site/docs/index.json` (raw index incl. `source` provenance), `_site/docs/relaton/index.json` (Relaton records).
 2. **Enrich (engine gem, metanorma/standards-registry): Relaton is canonical; top-level fields are documented projections. Emits the renderer-neutral handoff: `registry/catalog.json` (schema `$id` v1, provenance, sha256/bytes/media_type per file, URN, editions model), `registry/search-index.json`, `registry/backfill.json` (honest gap list — never invent data).
-3. **Render (reference renderer)**: `_plugins/registry_catalog.rb` reads `registry/` only (never `_data/`), serves `/catalog.json` + `/search-index.json` at root, and generates versioned landing pages (`/docs/{document_id}/{year}/`), latest aliases (`/docs/{document_id}/`), legacy `/cc/` redirects, plus `/feed.xml` (Atom) and `/opensearch.xml`.
+3. **Render (reference renderer)**: `_plugins/registry_catalog.rb` reads `registry/` only (never `_data/`), serves `/catalog.json` (+ `.sha256` sidecar) + `/search-index.json` at root, and generates versioned landing pages (`/docs/{document_id}/{year}/`), latest aliases (`/docs/{document_id}/`), legacy `/cc/` redirects, citation exports (`/docs/{slug}.{bib,ris,csl.json}`), plus `/feed.xml`, `/opensearch.xml`, `/sitemap.xml`; `rake build` then runs Pagefind (`npx pagefind --site _site`) for the `/search/` full-text page.
 
 ### The contract
 

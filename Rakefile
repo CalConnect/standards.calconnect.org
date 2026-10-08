@@ -30,11 +30,18 @@ def invalidate_stale_delta_state
   FileUtils.rm_f(delta)
 end
 
-desc "Build entire site (fetch + enrich + Jekyll)"
+desc "Build entire site (fetch + enrich + Jekyll + full-text index)"
 task build: %i[fetch enrich] do
   sh "npm run build"
   sh "bundle exec jekyll build"
+  build_fulltext_index
   guard_nonempty_catalog
+end
+
+# Full-text index over the published document pages (renderer extra,
+# not part of the conformance profile).
+def build_fulltext_index
+  sh "npx pagefind --site _site"
 end
 
 # Local parity with the CI deploy guard: an aggregation that yields zero
@@ -52,6 +59,7 @@ desc "Build Jekyll site (assumes fetch already done)"
 task :jekyll do
   sh "npm run build"
   sh "bundle exec jekyll build"
+  build_fulltext_index
 end
 
 desc "Serve the built site locally"

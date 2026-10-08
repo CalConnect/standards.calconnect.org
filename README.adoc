@@ -47,7 +47,12 @@ It also rebuilds daily at 06:00 UTC to pick up new releases from document repos.
   `registry/` is renderer-neutral — no Jekyll paths cross it.
 . **Rendering** — The Jekyll plugin `_plugins/registry_catalog.rb` reads `registry/`
   and generates the versioned document pages, `latest` aliases, legacy redirects,
-  `/catalog.json`, `/search-index.json`, `/feed.xml` (Atom) and `/opensearch.xml`.
+  `/catalog.json` (+ `.sha256` checksum sidecar), `/search-index.json`,
+  `/feed.xml` (Atom), `/opensearch.xml`, `/sitemap.xml`, per-document
+  citation exports (BibTeX/RIS/CSL-JSON) with Google-Scholar `citation_*`
+  meta, and the Pagefind full-text index behind `/search/`. Bibliographic
+  relations (`updatedBy`, `derivedFrom`, …) project from Relaton and render
+  as cross-linked Related-documents sections.
   Vite compiles the JavaScript and Tailwind CSS.
 . **Deploy** — GitHub Pages serves the built site.
 
@@ -59,8 +64,12 @@ The most valuable thing this repository produces is the document catalog:
 * Schema: `https://schemas.metanorma.org/registry/documents-index/v1.json`
   (see `_data/schemas/documents.schema.json`), payload `version: 1`
 * Search corpus: `https://standards.calconnect.org/search-index.json`
+* Full-text search index (Pagefind): `https://standards.calconnect.org/pagefind/` + `/search/`
 * Feed: `https://standards.calconnect.org/feed.xml` (Atom, RFC 4287)
 * Search description: `https://standards.calconnect.org/opensearch.xml`
+* Sitemap: `https://standards.calconnect.org/sitemap.xml`
+* Catalog checksum: `https://standards.calconnect.org/catalog.json.sha256`
+* Per-document citations: `/docs/{slug}.bib`, `/docs/{slug}.ris`, `/docs/{slug}.csl.json`
 
 Stability promise: within schema major version 1, changes are additive only;
 consumers must ignore unknown keys. The Relaton record in each item's
