@@ -30,8 +30,8 @@ def invalidate_stale_delta_state
   FileUtils.rm_f(delta)
 end
 
-desc "Build entire site (fetch + enrich + Jekyll + full-text index)"
-task build: %i[fetch enrich] do
+desc "Build entire site (fetch + enrich + citations + Jekyll + full-text index)"
+task build: %i[fetch enrich citations] do
   sh "npm run build"
   sh "bundle exec jekyll build"
   build_fulltext_index
@@ -57,8 +57,13 @@ rescue Errno::ENOENT
   abort "FAIL: registry/catalog.json missing after build"
 end
 
+desc "Generate per-document citation exports via relaton-ts (ISO 690, BibTeX, RIS, CSL)"
+task :citations do
+  sh "node scripts/generate-citations.mjs"
+end
+
 desc "Build Jekyll site (assumes fetch already done)"
-task :jekyll do
+task jekyll: :citations do
   sh "npm run build"
   sh "bundle exec jekyll build"
   build_fulltext_index

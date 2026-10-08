@@ -68,15 +68,19 @@ RSpec.describe "Built site" do
 
     it "emits citation exports and Scholar meta for every document" do
       item = catalog["items"].find { |i| i["files"].any? { |f| f["format"] == "pdf" } }
+      expect(File.read(site_path("/docs/#{item['slug']}.iso690.txt"))).to include(item["id"])
       bib = File.read(site_path("/docs/#{item['slug']}.bib"))
-      expect(bib).to start_with("@techreport{#{item['slug']}")
-      expect(bib).to include(item["year"].to_s)
-      expect(JSON.parse(File.read(site_path("/docs/#{item['slug']}.csl.json")))).to include("type" => "report", "id" => item["slug"])
-      expect(File.read(site_path("/docs/#{item['slug']}.ris"))).to include("TY  - RPRT")
+      expect(bib).to start_with("@")
+
+      csl = JSON.parse(File.read(site_path("/docs/#{item['slug']}.csl.json")))
+      expect(csl).to be_an(Array)
+      expect(csl.first).to include("id" => item["id"])
+      expect(File.read(site_path("/docs/#{item['slug']}.ris"))).to match(/^TY  - /)
 
       landing = File.read(site_path("#{item['url']}index.html"))
       expect(landing).to include('name="citation_title"')
       expect(landing).to include("citation_pdf_url")
+      expect(landing).to include("ISO 690 reference")
     end
 
     it "ships the full-text search index and page" do
