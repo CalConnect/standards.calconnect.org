@@ -34,6 +34,7 @@ keep_files:
 # customizes lives here or in metanorma.aggregate.yml — never in code.
 registry:
   org: calconnect
+  publisher_name: CalConnect
   urn_namespace: calconnect
   url_scheme: "/docs/:document_id/:year/"
   docs_prefix: "/docs"

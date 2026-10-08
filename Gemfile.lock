@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/metanorma/standards-registry.git
-  revision: d0d11f657721c3c69dcf6702e6702b2f2792a5fb
+  revision: 9d6f3c2402bea0a65eb8e7b1b5d7f19147695122
   specs:
     standards-registry (0.1.0)
       json_schemer (~> 2.0)

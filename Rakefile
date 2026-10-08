@@ -46,13 +46,23 @@ def build_fulltext_index
   sh "npx pagefind --site _site --root-selector main"
 end
 
-# Local parity with the CI deploy guard: an aggregation that yields zero
-# documents must fail the build, not silently ship an empty registry.
+# Build guard: an aggregation that yields zero documents must fail, and a
+# sudden large shrinkage (e.g. a rate-limited run silently skipping
+# repos) must not silently ship a gutted registry. The previous good
+# count persists in .cache/registry-count.
 def guard_nonempty_catalog
   count = JSON.parse(File.read(registry_config.catalog_path))["items"].length
   abort "FAIL: build produced 0 documents — refusing to ship an empty registry" if count.zero?
 
-  puts "OK: #{count} documents in the published catalog"
+  marker = File.join(".cache", "registry-count")
+  previous = File.exist?(marker) ? File.read(marker).to_i : nil
+  if previous && count < previous * 0.9
+    abort "FAIL: catalog shrank #{previous} -> #{count} (>10% drop) — refusing to ship; " \
+          "likely transient aggregation failures (rate limits). Re-run before accepting."
+  end
+  File.write(marker, count.to_s) if count.positive?
+
+  puts "OK: #{count} documents in the published catalog#{previous ? " (was #{previous})" : ''}"
 rescue Errno::ENOENT
   abort "FAIL: registry/catalog.json missing after build"
 end

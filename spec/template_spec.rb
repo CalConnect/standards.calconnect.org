@@ -40,9 +40,11 @@ RSpec.describe "Template data references" do
     expect(footer).to include("site.data.navigation.categories")
   end
 
-  it "doc-type layout supports stage_filter_name" do
-    layout = File.read("#{layouts_dir}/doc-type.html")
-    expect(layout).to include("stage_filter_name")
-    expect(layout).to include("site.data.navigation[page.stage_filter_name]")
+  it "doc-type layout (gem renderer) supports stage_filter_name" do
+    layout = File.join(Gem.loaded_specs["standards-registry"].full_gem_path,
+                       "lib", "standards-registry", "layouts", "doc-type.html")
+    content = File.read(layout)
+    expect(content).to include("stage_filter_name")
+    expect(content).to include("site.data.navigation[page.stage_filter_name]")
   end
 end
