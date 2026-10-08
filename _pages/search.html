@@ -54,7 +54,7 @@ permalink: /search/
     if (pagefind) return Promise.resolve(pagefind);
     return import('/pagefind/pagefind.js').then(function(pf) {
       pagefind = pf;
-      return pagefind.options ? pagefind.options({ excerptLength: 15 }) : pf;
+      return pf;
     });
   }
 
