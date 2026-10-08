@@ -3,7 +3,7 @@ layout: base
 title: CalConnect Document Registry
 permalink: /
 ---
-{% assign docs = site.data.documents.items %}
+{% assign docs = site.data.registry_catalog.items %}
 {% assign nav = site.data.navigation %}
 {% assign draft_stages = nav.draft_stages %}
 
@@ -14,8 +14,6 @@ permalink: /
 {% assign drafts_count = 0 %}
 {% for d in docs %}{% if draft_stages contains d.stage %}{% assign drafts_count = drafts_count | plus: 1 %}{% endif %}{% endfor %}
 {% assign cat_counts = "standards:" | append: standards_count | append: ",guides:" | append: guides_count | append: ",directives:" | append: directives_count | append: ",administrative:" | append: admin_count | append: ",drafts:" | append: drafts_count | split: "," %}
-
-<script id="doc-index" type="application/json">{{ docs | jsonify }}</script>
 
 <!-- Hero -->
 <div class="home-hero">
@@ -31,6 +29,11 @@ permalink: /
       <kbd class="gs-kbd">/</kbd>
       <div id="global-search-results" class="gs-results hidden"></div>
     </div>
+    <p class="gs-hint">Search titles and identifiers — or <a href="/search/">search the full text of every document</a>.</p>
+    <noscript>
+      <p class="gs-noscript">Search requires JavaScript &mdash; browse the document categories below,
+      or fetch the full <a href="/catalog.json">catalog</a>.</p>
+    </noscript>
   </div>
 </div>
 
@@ -83,7 +86,7 @@ permalink: /
   <h2 class="home-section-title">Recently Published</h2>
   <div class="home-recent-grid">
     {% for doc in recent limit: 6 %}
-    <a href="{% if doc.has_html %}/cc/{{ doc.html_path }}{% else %}/{% if doc.display_category_slug %}{{ doc.display_category_slug }}{% else %}{{ doc.doctype }}{% endif %}/{% endif %}" class="recent-card">
+    <a href="{{ doc.url }}" class="recent-card">
       <div class="recent-card-top">
         <span class="recent-card-id">{{ doc.id | escape }}</span>
         <span class="doc-type-badge" style="background: var(--color-doctype-{{ doc.doctype_class }})">{{ doc.doctype }}</span>

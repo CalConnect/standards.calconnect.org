@@ -2,7 +2,7 @@
 .direnv/
 
 # Relaton
-relaton
+/relaton
 relaton.Gemfile.lock
 iev
 
@@ -25,6 +25,7 @@ csd/
 .vscode/
 
 # Generated data
+/registry/
 _data/documents.json
 
 # Generated assets
@@ -38,3 +39,4 @@ vendor/
 
 TODO*
 .cache/
+.tmp/

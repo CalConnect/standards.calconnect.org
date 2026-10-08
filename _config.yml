@@ -4,14 +4,13 @@ email: tc-publish@calconnect.org
 description: >-
   The CalConnect Document Registry
 baseurl: ""
-url: "https://www.calendarstandards.org"
+url: "https://standards.calconnect.org"
 twitter_username: calconnect
 github_username:  CalConnect
 
 markdown: kramdown
 theme: jekyll-calconnect-theme
 plugins:
-  - jekyll-feed
   - jekyll/vite
 
 collections:
@@ -27,8 +26,30 @@ defaults:
       layout: page
 
 keep_files:
-  - cc
-  - relaton
+  - docs
+
+# Registry instance configuration (TODO.improvements/11): identity,
+# URL scheme and feature flags consumed by the shared registry engine
+# (lib/registry) and the reference renderer. Everything an instance
+# customizes lives here or in metanorma.aggregate.yml — never in code.
+registry:
+  org: calconnect
+  publisher_name: CalConnect
+  urn_namespace: calconnect
+  url_scheme: "/docs/:document_id/:year/"
+  docs_prefix: "/docs"
+  legacy_prefixes: ["cc"]
+  features:
+    search: true
+    atom_feed: true
+    jsonld: true
+    opensearch: true
+    html: true
+  # Rights statement for documents whose Relaton record carries no
+  # license (per https://www.calconnect.org/about/policies/copyright-and-licensing/)
+  license_default:
+    name: "© CalConnect — all rights reserved"
+    url: "https://www.calconnect.org/about/policies/copyright-and-licensing/"
 
 exclude:
   - README.adoc
@@ -45,12 +66,26 @@ exclude:
   - src-documents/
   - _archive/
   - spec/
-  - _data/schemas/
+  - tools/
+  - .tmp/
   - scripts/
   - config
   - vite.config.ts
   - package.json
   - package-lock.json
+  - postcss.config.js
+  - Rakefile
+  - metanorma.aggregate.yml
+  - registry
+  - docs
+  - relaton.Gemfile
+  - relaton.Gemfile.lock
+  - BUGS.md
+  - CLAUDE.md
+  - TODO.doc-release-workflow
+  - TODO.improvements
+  - .envrc
+  - .gitmodules
 
 pagination:
   collection: 'posts'
