@@ -21,7 +21,7 @@ const head = "";
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
       <div class="hero-content">
         <h1 class="hero-title">{title}</h1>
-        <p class="hero-subtitle">{description ?? `Browse and search ${subtitleHint ?? title.toLowerCase()} published by CalConnect.`}</p>
+        <p class="hero-subtitle">{description ?? `Browse and search ${subtitleHint ?? title.toLowerCase()} published by ${site.publisher}.`}</p>
       </div>
       {docs.length > 0 && (
         <div class="search-bar-wrap">

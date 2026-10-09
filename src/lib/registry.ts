@@ -94,6 +94,13 @@ const siteConfig = YAML.parse(
   url: string;
   description?: string;
   registry: { publisher_name: string };
+  branding?: {
+    logo_light: string;
+    logo_dark: string;
+    copyright_name: string;
+    copyright_url: string;
+    footer: { community: { text: string; url: string }[]; resources: { text: string; url: string }[] };
+  };
 };
 
 export const site = {
@@ -102,6 +109,16 @@ export const site = {
   description: siteConfig.description,
   publisher: siteConfig.registry.publisher_name,
 };
+
+const fallbackBranding = {
+  logo_light: "/assets/images/logo-purple.svg",
+  logo_dark: "/assets/images/logo-white.svg",
+  copyright_name: siteConfig.registry.publisher_name,
+  copyright_url: siteConfig.url,
+  footer: { community: [] as { text: string; url: string }[], resources: [] as { text: string; url: string }[] },
+};
+
+export const branding = { ...fallbackBranding, ...(siteConfig.branding ?? {}) };
 
 export const bySlug = (slug: string): Doc | undefined =>
   docs.find((d) => d.slug === slug);

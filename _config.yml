@@ -11,6 +11,27 @@ description: >-
   The CalConnect Document Registry
 url: "https://standards.calconnect.org"
 
+# Branding consumed by the Astro frontend (src/lib/registry.ts): an SDO
+# instance rebrands by editing this block and its assets only.
+branding:
+  logo_light: /assets/images/logo-purple.svg
+  logo_dark: /assets/images/logo-white.svg
+  copyright_name: The Calendaring and Scheduling Consortium, Inc.
+  copyright_url: https://www.calconnect.org/
+  footer:
+    community:
+      - text: CalConnect
+        url: https://www.calconnect.org/
+      - text: GitHub
+        url: https://github.com/CalConnect
+      - text: Contact
+        url: https://www.calconnect.org/contact
+    resources:
+      - text: Patent Database
+        url: /patents/
+      - text: "Copyright & Licensing"
+        url: https://www.calconnect.org/about/policies/copyright-and-licensing
+
 registry:
   org: calconnect
   publisher_name: CalConnect

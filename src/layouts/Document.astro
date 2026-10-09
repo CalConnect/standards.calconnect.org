@@ -52,7 +52,7 @@ const ld = {
   <meta slot="head" name="citation_publication_date" content={doc.date ?? ""} />
   {(doc.authors ?? []).map((a) => <meta slot="head" name="citation_author" content={a.name} />)}
   <meta slot="head" name="citation_language" content={doc.language?.[0] ?? "en"} />
-  <meta slot="head" name="citation_technical_report_institution" content="CalConnect" />
+  <meta slot="head" name="citation_technical_report_institution" content={site.publisher} />
   {pdf && <meta slot="head" name="citation_pdf_url" content={site.url + pdf.url} />}
   <div class="hero-section">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
