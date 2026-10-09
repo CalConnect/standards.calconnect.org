@@ -34,14 +34,14 @@
         commands = [
           {
             name = "serve";
-            command = "echo TODO: make serve \"$@\"";
-            help = "Serve the site";
+            command = "bundle exec rake serve \"$@\"";
+            help = "Serve the built site (dist/)";
             category = "Metanorma";
           }
           {
             name = "build";
-            command = "bundle exec metanorma site generate \"$@\"";
-            help = "Build the site";
+            command = "bundle exec rake build \"$@\"";
+            help = "Fetch + enrich + citations + Astro + finalize";
             category = "Metanorma";
           }
         ];

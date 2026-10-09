@@ -1,3 +1,0 @@
-= This page is empty
-:title: Empty
-:mn-document-class: cc
