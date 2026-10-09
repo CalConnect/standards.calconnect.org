@@ -2,13 +2,13 @@ require "json"
 require "rexml/document"
 
 # Verifies the BUILT site against the contract (endpoints, routes,
-# search decoupling). Runs only when _site has been built, so `rake
+# search decoupling). Runs only when dist has been built, so `rake
 # spec` alone stays fast; CI runs it after `rake build`.
 RSpec.describe "Built site" do
-  let(:site_dir) { File.expand_path("../_site", __dir__) }
+  let(:site_dir) { File.expand_path("../dist", __dir__) }
 
   let(:catalog) do
-    skip("_site not built — run `rake build`") unless File.exist?(File.join(site_dir, "catalog.json"))
+    skip("dist not built — run `rake build`") unless File.exist?(File.join(site_dir, "catalog.json"))
     JSON.parse(File.read(File.join(site_dir, "catalog.json")))
   end
 

@@ -1,37 +1,16 @@
+# Instance configuration for the CalConnect Standards Registry.
+#
+# Consumed by the shared registry engine (Registry::Config reads the
+# `registry:` map; this filename is the engine's default site_config_path)
+# and by the Astro frontend (src/lib/registry.ts). Everything an instance
+# customizes lives here or in metanorma.aggregate.yml — never in code.
 title: CalConnect Document Registry
 author: CalConnect TC PUBLISH
 email: tc-publish@calconnect.org
 description: >-
   The CalConnect Document Registry
-baseurl: ""
 url: "https://standards.calconnect.org"
-twitter_username: calconnect
-github_username:  CalConnect
 
-markdown: kramdown
-theme: jekyll-calconnect-theme
-plugins:
-  - jekyll/vite
-
-collections:
-  pages:
-    output: true
-    permalink: /:path/
-
-defaults:
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: page
-
-keep_files:
-  - docs
-
-# Registry instance configuration (TODO.improvements/11): identity,
-# URL scheme and feature flags consumed by the shared registry engine
-# (lib/registry) and the reference renderer. Everything an instance
-# customizes lives here or in metanorma.aggregate.yml — never in code.
 registry:
   org: calconnect
   publisher_name: CalConnect
@@ -50,52 +29,3 @@ registry:
   license_default:
     name: "© CalConnect — all rights reserved"
     url: "https://www.calconnect.org/about/policies/copyright-and-licensing/"
-
-exclude:
-  - README.adoc
-  - Makefile
-  - flake.*
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
-  - "*.raw.rxl"
-  - src-documents/
-  - _archive/
-  - spec/
-  - tools/
-  - .tmp/
-  - scripts/
-  - config
-  - vite.config.ts
-  - package.json
-  - package-lock.json
-  - postcss.config.js
-  - Rakefile
-  - metanorma.aggregate.yml
-  - registry
-  - docs
-  - relaton.Gemfile
-  - relaton.Gemfile.lock
-  - BUGS.md
-  - CLAUDE.md
-  - TODO.doc-release-workflow
-  - TODO.improvements
-  - .envrc
-  - .gitmodules
-
-pagination:
-  collection: 'posts'
-  per_page: 30
-  permalink: '/page/:num/'
-  title: ':title - page :num'
-  sort_field: 'date'
-  sort_reverse: true
-  category: 'posts'
-  tag: ''
-  locale: ''
-  extension: html
-  indexpage: 'index'

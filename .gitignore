@@ -6,13 +6,9 @@
 relaton.Gemfile.lock
 iev
 
-# Metanorma / jekyll
+# Build output
 *.err.html
 *.abort
-_site
-.sass-cache
-.jekyll-cache/
-.jekyll-metadata
 .DS_Store
 .byebug_history
 .tmp.xml
@@ -27,14 +23,12 @@ csd/
 # Generated data
 /registry/
 _data/documents.json
+.artifacts/
 
-# Generated assets
-assets/relaton.css
-
-# Vite / Node
+# Astro / Node
+dist/
+.astro/
 node_modules/
-public/
-config/
 vendor/
 
 TODO*

@@ -1,0 +1,176 @@
+---
+// Document landing layout: hero, superseded banner, details (license,
+// URN, cite/ISO 690, provenance), keywords, downloads, relations,
+// editions, JSON-LD + Google Scholar citation meta.
+import Base from "./Base.astro";
+import type { Doc, Edition } from "../lib/registry";
+import { currentEdition, docs } from "../lib/registry";
+
+type Props = { doc: Doc };
+const { doc } = Astro.props;
+const site = (await import("../lib/registry")).site;
+const current: Edition | undefined = currentEdition(doc);
+const superseded = current && current.url !== doc.url;
+const pdf = doc.files.find((f) => f.format === "pdf");
+const rxl = doc.files.find((f) => f.format === "rxl");
+const stageAbbr = (doc.bibliographic as any)?.status?.stage?.abbreviation || doc.stage.charAt(0).toUpperCase() + doc.stage.slice(1);
+
+const citationsDir = "registry/citations";
+let iso690Text: string | null = null;
+try {
+  const fs = await import("node:fs");
+  iso690Text = fs.readFileSync(`${citationsDir}/${doc.slug}.iso690.txt`, "utf8").trim();
+} catch { /* headless fixture builds may lack citation files */ }
+
+const year = new Date().getFullYear();
+const owners = (doc.copyright ?? []).map((c) => c.owner).filter(Boolean).join(", ");
+const copyrightRange = doc.copyright?.length
+  ? `${doc.copyright[0].from}${doc.copyright[doc.copyright.length - 1].to ? `–${doc.copyright[doc.copyright.length - 1].to}` : ""}`
+  : null;
+
+const ld = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "@id": `${site.url}${doc.url}`,
+  identifier: doc.id,
+  name: doc.title,
+  url: `${site.url}${doc.url}`,
+  datePublished: doc.date,
+  ...(doc.language ? { inLanguage: doc.language[0] } : {}),
+  ...(doc.license ? { license: doc.license.url ?? doc.license.name } : {}),
+  isPartOf: { "@type": "Dataset", "@id": `${site.url}/catalog.json`, name: site.title },
+  encoding: doc.files.map((f) => ({
+    "@type": "MediaObject",
+    encodingFormat: f.media_type,
+    contentUrl: `${site.url}${f.url}`,
+    name: f.name,
+  })),
+};
+---
+<Base title={doc.id} description={doc.abstract ?? undefined}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(ld)} />
+  <meta slot="head" name="citation_title" content={doc.title} />
+  <meta slot="head" name="citation_publication_date" content={doc.date ?? ""} />
+  {(doc.authors ?? []).map((a) => <meta slot="head" name="citation_author" content={a.name} />)}
+  <meta slot="head" name="citation_language" content={doc.language?.[0] ?? "en"} />
+  <meta slot="head" name="citation_technical_report_institution" content="CalConnect" />
+  {pdf && <meta slot="head" name="citation_pdf_url" content={site.url + pdf.url} />}
+  <div class="hero-section">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+      <div class="hero-content">
+        <h1 class="hero-title">{doc.id}</h1>
+        <p class="hero-subtitle">{doc.title}</p>
+      </div>
+      <div class="doc-meta-inline">
+        <span class="doc-type-badge">{doc.doctype}</span>
+        {doc.edition && <span class="meta-text">Edition {doc.edition}</span>}
+        {doc.date && <span class="meta-text">{doc.date}</span>}
+        <span class="doc-badge" style={`--badge-color: var(--color-stage-${doc.stage_css})`}>
+          <span class="badge-dot"></span>{stageAbbr}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+    {superseded && current && (
+      <div class="no-results" role="note">
+        <p class="no-results-text">
+          This edition has been superseded.
+          <a href={current.url}>See the current edition</a>.
+        </p>
+      </div>
+    )}
+
+    <div class="document" style={`--stage-color: var(--color-stage-${doc.stage_css}, var(--color-gray-300)); --doctype-color: var(--color-doctype-${doc.doctype_class})`}>
+      <div class="doc-body">
+        {doc.abstract && <p class="doc-abstract">{doc.abstract}</p>}
+        {doc.authors && doc.authors.length > 0 && (
+          <p class="doc-authors">
+            {doc.authors.map((a) => a.name).join(", ")}
+            {doc.committee && <span class="doc-committee">({doc.committee})</span>}
+          </p>
+        )}
+        {doc.committee && !(doc.authors && doc.authors.length > 0) && (
+          <p class="doc-authors"><span class="doc-committee">{doc.committee}</span></p>
+        )}
+        <dl class="doc-details">
+          {doc.language && (
+            <div class="doc-detail-row"><dt>Language</dt><dd>{doc.language.join(", ")}</dd></div>
+          )}
+          {doc.copyright && (
+            <div class="doc-detail-row"><dt>Copyright</dt><dd>&copy; {copyrightRange} {owners}</dd></div>
+          )}
+          {doc.license && (
+            <div class="doc-detail-row"><dt>License</dt><dd>
+              {doc.license.url
+                ? <a href={doc.license.url}>{doc.license.name ?? doc.license.url}</a>
+                : (doc.license.name ?? doc.license.spdx)}
+            </dd></div>
+          )}
+          {doc.urn && <div class="doc-detail-row"><dt>URN</dt><dd><code>{doc.urn}</code></dd></div>}
+          <div class="doc-detail-row"><dt>Canonical URL</dt><dd><code>{site.url}{doc.url}</code></dd></div>
+          <div class="doc-detail-row"><dt>Cite</dt><dd class="doc-cite-links">
+            <a href={`/docs/${doc.slug}.iso690.txt`}>ISO 690</a> · <a href={`/docs/${doc.slug}.bib`}>BibTeX</a> · <a href={`/docs/${doc.slug}.ris`}>RIS</a> · <a href={`/docs/${doc.slug}.csl.json`}>CSL JSON</a>
+          </dd></div>
+          {iso690Text && <div class="doc-detail-row"><dt>ISO 690 reference</dt><dd class="doc-iso690">{iso690Text}</dd></div>}
+          {doc.provenance.source_repository && (
+            <div class="doc-detail-row"><dt>Source</dt><dd>
+              <a href={doc.provenance.release_url}>{doc.provenance.source_repository}@{doc.provenance.release_tag}</a>
+            </dd></div>
+          )}
+        </dl>
+        {doc.keywords && (
+          <div class="doc-keywords">
+            {doc.keywords.map((kw) => <span class="doc-keyword">{kw}</span>)}
+          </div>
+        )}
+      </div>
+      <div class="doc-actions">
+        <div class="doc-downloads">
+          {doc.files.map((f) => f.format === "rxl" ? null : (
+            <a href={f.url} class={`dl-btn dl-${f.format}`}>{f.format.toUpperCase()}</a>
+          ))}
+        </div>
+        {rxl && <a href={rxl.url} class="doc-relaton-link" title="Relaton bibliographic data">Relaton</a>}
+      </div>
+    </div>
+
+    {doc.relations && doc.relations.length > 0 && (
+      <section class="doc-editions doc-relations">
+        <h2 class="home-section-title">Related documents</h2>
+        <ul class="doc-editions-list">
+          {doc.relations.map((rel) => {
+            const target = docs.find((d) => d.id === rel.id && d.slug !== doc.slug);
+            return (
+              <li class="doc-edition doc-relation">
+                <span class="doc-relation-type">{rel.type}</span>
+                {target
+                  ? <a class="doc-edition-id" href={target.url}>{rel.id}</a>
+                  : <span class="doc-edition-id">{rel.id}</span>}
+                {rel.date && <span class="meta-text">{rel.date}{rel.edition ? ` · ed. ${rel.edition}` : ""}</span>}
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    )}
+
+    {doc.editions.length > 1 && (
+      <section class="doc-editions">
+        <h2 class="home-section-title">Editions</h2>
+        <ul class="doc-editions-list">
+          {doc.editions.map((e) => (
+            <li class:list={["doc-edition", e.url === doc.url && "current"]}>
+              {e.url === doc.url
+                ? <span class="doc-edition-id">{e.edition ?? "1"} ({e.year ?? e.date}) — this edition</span>
+                : <a class="doc-edition-id" href={e.url}>{e.edition ?? "1"} ({e.year ?? e.date})</a>}
+              <span class="doc-type-badge">{e.stage}</span>
+            </li>
+          ))}
+        </ul>
+        <p><a href={doc.latest_url}>Latest edition of {doc.id.split(":")[0]}</a></p>
+      </section>
+    )}
+  </div>
+</Base>

@@ -7,11 +7,13 @@ RSpec.describe "Site configuration" do
   describe "_config.yml" do
     it "has required site metadata" do
       expect(config["title"]).to eq("CalConnect Document Registry")
-      expect(config["theme"]).to eq("jekyll-calconnect-theme")
+      expect(config["url"]).to eq("https://standards.calconnect.org")
     end
 
-    it "keeps the aggregator output directory across builds" do
-      expect(config["keep_files"]).to include("docs")
+    it "no longer carries Jekyll build configuration" do
+      expect(config).not_to have_key("theme")
+      expect(config).not_to have_key("plugins")
+      expect(config).not_to have_key("keep_files")
     end
 
     it "declares the registry instance configuration" do
@@ -23,10 +25,6 @@ RSpec.describe "Site configuration" do
       default = registry["license_default"]
       expect(default["name"]).to include("all rights reserved")
       expect(default["url"]).to eq("https://www.calconnect.org/about/policies/copyright-and-licensing/")
-    end
-
-    it "excludes build-only directories from Jekyll processing" do
-      expect(config["exclude"]).to include("src-documents/", "_archive/", "spec/")
     end
   end
 

@@ -39,21 +39,23 @@ It also rebuilds daily at 06:00 UTC to pick up new releases from document repos.
 . **Aggregation (producer)** — `metanorma-release aggregate` discovers repos
   by the `metanorma-release` topic, fetches their releases, filters by channel,
   extracts document files, and enriches metadata from Relaton bibliographic data.
-. **Enrichment (contract layer)** — `rake enrich` (`lib/registry/`) turns the producer
+. **Enrichment (contract layer)** — `rake enrich` (the engine gem) turns the producer
   outputs into the catalog contract: Relaton is the single source of truth, every
   top-level field is a documented projection, files carry `media_type`/`bytes`/`sha256`
   and stable URLs, items carry provenance, language/license/copyright, a URN in the
   instance namespace, and the per-document editions model. The handoff directory
-  `registry/` is renderer-neutral — no Jekyll paths cross it.
-. **Rendering** — The Jekyll plugin `_plugins/registry_catalog.rb` reads `registry/`
-  and generates the versioned document pages, `latest` aliases, legacy redirects,
-  `/catalog.json` (+ `.sha256` checksum sidecar), `/search-index.json`,
-  `/feed.xml` (Atom), `/opensearch.xml`, `/sitemap.xml`, per-document
-  citation exports (BibTeX/RIS/CSL-JSON) with Google-Scholar `citation_*`
-  meta, and the Pagefind full-text index behind `/search/`. Bibliographic
-  relations (`updatedBy`, `derivedFrom`, …) project from Relaton and render
+  `registry/` is renderer-neutral — no renderer paths cross it.
+. **Citations** — `rake citations` uses the https://www.npmjs.com/package/relaton[`relaton`]
+  npm package (relaton-ts) to emit per-document ISO 690, BibTeX, RIS and CSL-JSON
+  exports. Citation rendering is never hand-rolled.
+. **Rendering** — `astro build` reads `registry/` and prerenders the versioned document
+  pages, `latest` aliases, `/catalog.json` (+ `.sha256` checksum sidecar),
+  `/search-index.json`, `/feed.xml` (Atom), `/opensearch.xml`, `/sitemap.xml`, and all
+  site pages with Google-Scholar `citation_*` meta and JSON-LD. `rake finalize` then
+  copies the document artifacts and citation exports into `dist/docs/`, writes the
+  legacy `/cc/` redirect stubs, and builds the Pagefind full-text index behind `/search/`.
+  Bibliographic relations (`updatedBy`, `derivedFrom`, …) project from Relaton and render
   as cross-linked Related-documents sections.
-  Vite compiles the JavaScript and Tailwind CSS.
 . **Deploy** — GitHub Pages serves the built site.
 
 === The data contract
@@ -61,15 +63,14 @@ It also rebuilds daily at 06:00 UTC to pick up new releases from document repos.
 The most valuable thing this repository produces is the document catalog:
 
 * `https://standards.calconnect.org/catalog.json` — the full catalog, fetchable
-* Schema: `https://schemas.metanorma.org/registry/documents-index/v1.json`
-  (see `_data/schemas/documents.schema.json`), payload `version: 1`
+* Schema: `https://schemas.metanorma.org/registry/documents-index/v1.json`, payload `version: 1`
 * Search corpus: `https://standards.calconnect.org/search-index.json`
 * Full-text search index (Pagefind): `https://standards.calconnect.org/pagefind/` + `/search/`
 * Feed: `https://standards.calconnect.org/feed.xml` (Atom, RFC 4287)
 * Search description: `https://standards.calconnect.org/opensearch.xml`
 * Sitemap: `https://standards.calconnect.org/sitemap.xml`
 * Catalog checksum: `https://standards.calconnect.org/catalog.json.sha256`
-* Per-document citations: `/docs/{slug}.bib`, `/docs/{slug}.ris`, `/docs/{slug}.csl.json`
+* Per-document citations: `/docs/{slug}.iso690.txt`, `/docs/{slug}.bib`, `/docs/{slug}.ris`, `/docs/{slug}.csl.json`
 
 Stability promise: within schema major version 1, changes are additive only;
 consumers must ignore unknown keys. The Relaton record in each item's
@@ -78,20 +79,18 @@ in the schema and verified by `rake validate_consistency` on every build.
 
 **Any generator that emits a payload conforming to the schema is a valid
 producer.** The `metanorma-release` gem is one producer — not the definition
-of the data. `fixtures/seed/` contains a hand-written producer used by the
-conformance suite (`rake conformance`), and `rake validate_index[path]`
+of the data. The engine gem's `fixtures/seed/` contains a hand-written producer
+used by the conformance suite (`rake conformance`), and `rake validate_index[path]`
 validates any candidate catalog against the published schema.
 
 The registry engine — the contract schemas, enrichment, `registry-validate`
-and `registry-conformance` CLIs, golden fixtures and a certified non-Jekyll
-second renderer — lives in
+and `registry-conformance` CLIs, and golden fixtures — lives in
 https://github.com/metanorma/standards-registry[metanorma/standards-registry]
 and is consumed here as a gem (see `Gemfile`). This repository keeps only the
 instance configuration (`_config.yml` `registry:` map +
-`metanorma.aggregate.yml`), the reference Jekyll renderer bridge
-(`_plugins/registry_catalog.rb` + layouts), branding and content. The
-conformance profile and instance guide are published in the product repo;
-schemas are served at their $id paths from the product's Pages
+`metanorma.aggregate.yml`), the reference Astro renderer (`src/`), branding
+and content. The conformance profile and instance guide are published in the
+product repo; schemas are served at their $id paths from the product's Pages
 (https://schemas.metanorma.org DNS pending org setup; meanwhile
 https://metanorma.github.io/standards-registry/registry/documents-index/v1.json).
 
@@ -99,8 +98,9 @@ https://metanorma.github.io/standards-registry/registry/documents-index/v1.json)
 
 * https://github.com/metanorma/metanorma-release[metanorma-release] — aggregation pipeline
 * https://github.com/metanorma/standards-registry[metanorma/standards-registry] — the engine gem (catalog contract, enrichment, validator, conformance)
-* https://jekyllrb.com[Jekyll] — reference renderer
-* https://vitejs.dev[Vite] + https://tailwindcss.com[Tailwind CSS] — frontend build
+* https://astro.build[Astro] — static-site renderer
+* https://tailwindcss.com[Tailwind CSS v4] — frontend styling (via `@tailwindcss/vite`)
+* https://pagefind.app[Pagefind] — full-text search index
 * https://github.com/features/actions[GitHub Actions] — CI/CD
 
 
@@ -116,11 +116,11 @@ npm ci
 bundle exec rake build
 
 # Serve locally
-npx serve _site
+bundle exec rake serve
 ----
 
 NOTE: Aggregation requires a `GITHUB_TOKEN` with read access to the CalConnect organization repos.
-Set it as an environment variable or in `.env`.
+Set it as an environment variable (e.g. `export GITHUB_TOKEN=$(gh auth token)`).
 
 
 == Build commands
@@ -130,16 +130,18 @@ The `Rakefile` provides these tasks:
 [cols="1m,3",options="header"]
 |===
 |Command |Description
-|`rake fetch` |Aggregate releases into `_site/docs/` (network)
+|`rake fetch` |Aggregate releases into `.artifacts/docs/` (network)
 |`rake enrich` |Build `registry/catalog.json` + `search-index.json` + `backfill.json` from producer outputs (no network)
-|`rake build` |Fetch + enrich + compile Vite + build Jekyll site
-|`rake jekyll` |Build Vite + Jekyll only (assumes enrich already done)
-|`rake serve` |Serve with Jekyll's dev server
-|`rake clean` |Remove `_site/` and `registry/`
+|`rake citations` |Generate per-document ISO 690/BibTeX/RIS/CSL exports via relaton-ts
+|`rake build` |Fetch + enrich + citations + Astro build + finalize + catalog-count guard
+|`rake site` |Astro build + finalize only (assumes enrich already done)
+|`rake serve` |Serve `dist/` with `astro preview`
+|`rake clean` |Remove `dist/`, `registry/`, `.artifacts/`
 |`rake validate_schema` |Validate the catalog against the published schema
 |`rake validate_consistency` |Recompute Relaton projections; verify files, URLs, editions
+|`rake verify_links` |Check every internal link in the built site resolves
 |`rake validate_index[path]` |Validate any candidate catalog against the schema (generator independence)
-|`rake conformance` |Build the reference renderer against golden fixtures and run the conformance suite
+|`rake conformance` |Certify the built site and a fixture build with `registry-conformance`
 |`rake spec` |Run the RSpec suite
 |===
 
@@ -162,15 +164,17 @@ registry:
     jsonld: true
     opensearch: true
     html: true
-  license_default: null
+  license_default:
+    name: "© CalConnect — all rights reserved"
+    url: "https://www.calconnect.org/about/policies/copyright-and-licensing/"
 ----
 
 * `org`, `urn_namespace` — identity used for URNs (`urn:calconnect:cc-18011:2018`)
 * `url_scheme` — canonical document URL template (`:document_id`, `:year`, `:edition` tokens)
 * `legacy_prefixes` — old artifact prefixes that get redirect stubs (HTML only)
 * `features` — toggles for search/feed/JSON-LD/OpenSearch; `html: false` selects headless mode
-* `license_default` — fallback license; `null` means absent fields stay null and are
-  tracked in `registry/backfill.json` (never invented)
+* `license_default` — fallback rights statement for documents whose Relaton record
+  carries no license; absent fields stay tracked in `registry/backfill.json` (never invented)
 
 === `metanorma.aggregate.yml`
 
@@ -179,7 +183,7 @@ Controls how the aggregator discovers repos and builds output:
 [source,yaml]
 ----
 source: github
-output_dir: _site/docs
+output_dir: .artifacts/docs
 file_routing: flat
 cache_dir: .cache/aggregate
 
@@ -213,7 +217,7 @@ github:
 
 Key settings:
 
-* `output_dir` — where extracted document files are written
+* `output_dir` — where extracted document files are written (kept out of `dist/` until finalize)
 * `channels` — which channels to subscribe to (`public` matches all `public/*`)
 * `display_categories` — maps doctypes to site categories
 * `include_drafts` — include working drafts, committee drafts, etc.
@@ -261,49 +265,39 @@ Edit `metanorma.aggregate.yml` → `display_categories` to change which doctypes
 
 ```
 ├── .github/workflows/
-│   └── build_deploy.yml        # CI: aggregate + build + deploy
+│   └── build_deploy.yml        # CI: aggregate + build + certify + deploy
+├── _config.yml                 # Instance identity + registry: map (engine + renderer read this)
 ├── _data/
-│   ├── navigation.yml          # Site navigation (instance content)
-│   └── schemas/
-│       └── documents.schema.json  # The catalog contract (versioned $id)
-├── _plugins/
-│   └── registry_catalog.rb     # Renderer bridge: reads registry/, generates routes
-├── _plugins/registry_catalog.rb  # (listed below) renderer bridge
+│   └── navigation.yml          # Site navigation categories (instance content)
+├── astro.config.mjs            # Astro config (site from _config.yml, Tailwind vite plugin)
+├── src/
+│   ├── layouts/                # Base.astro, Listing.astro, Document.astro
+│   ├── components/             # DocumentCard.astro
+│   ├── pages/                  # Home, category, drafts, public-review, patents, search, 404
+│   │   ├── docs/[...route].astro  # Versioned landings + latest aliases
+│   │   ├── catalog.json.ts     # /catalog.json + .sha256 endpoints
+│   │   ├── search-index.json.ts
+│   │   ├── feed.xml.ts         # Atom
+│   │   ├── opensearch.xml.ts
+│   │   └── sitemap.xml.ts
+│   ├── lib/registry.ts         # Build-time catalog/navigation/site accessor
+│   └── styles/global.css       # Tailwind entry (imports _frontend/base.css)
+├── public/
+│   ├── js/                     # theme.js, navigation.js, document-list.js, home.js
+│   └── (favicons, images)
+├── _frontend/
+│   └── base.css                # Shared theme variables, nav styles, doctype colors
 ├── registry/                   # Renderer-neutral handoff (generated, from the engine gem):
 │   ├── catalog.json            #   the contract payload
 │   ├── search-index.json       #   derived search corpus
+│   ├── citations/              #   per-document ISO 690 / BibTeX / RIS / CSL JSON
 │   └── backfill.json           #   honest record of data gaps
-├── _frontend/                  # Vite + Tailwind source
-│   ├── entrypoints/
-│   │   ├── application.css     # Tailwind CSS entry
-│   │   └── application.js      # JavaScript entry
-│   └── js/
-│       └── home.js             # Global search
-├── _includes/                  # Jekyll partials
-│   ├── head.html
-│   ├── nav.html
-│   └── footer.html
-├── _layouts/                   # Jekyll layouts
-│   ├── base.html
-│   └── doc-type.html           # Category page (standards, guides, etc.)
-├── _pages/                     # Site pages
-│   ├── index.html              # Home page with search
-│   ├── standards.html
-│   ├── guides.html
-│   ├── directives.html
-│   ├── administrative.html
-│   ├── amendments.html
-│   ├── drafts.html
-│   └── public-review.html
-├── _site/                      # Built site output
-│   ├── docs/                   # Extracted document files (HTML, PDF, XML, RXL)
-│   └── relaton/               # Raw producer index (Relaton records)
-├── public/                     # Static assets (favicons, Vite output)
+├── dist/                       # Built site output (gitignored)
+│   └── docs/                   # Extracted document files (HTML, PDF, XML, RXL) + citations
 ├── Gemfile                     # Ruby dependencies
 ├── Rakefile                    # Build tasks
 ├── metanorma.aggregate.yml     # Aggregator configuration
-├── package.json                # Node.js dependencies
-└── vite.config.js              # Vite configuration
+└── package.json                # Node.js dependencies
 ```
 
 
@@ -311,11 +305,13 @@ Edit `metanorma.aggregate.yml` → `display_categories` to change which doctypes
 
 The `build_deploy` workflow:
 
-. Sets up Ruby 3.3 + Node.js 24
+. Sets up Node.js 24 + Ruby 3.4
 . Restores aggregate cache (`.cache/aggregate/`)
-. Runs `bundle exec rake build` (aggregate + Vite + Jekyll)
-. Verifies the build produced >0 documents
-. Uploads Pages artifact
+. Runs `bundle exec rake build` (aggregate + enrich + citations + Astro + finalize)
+. Validates the catalog schema and consistency, runs the RSpec suite,
+  verifies internal links, and reports catalog changes vs production
+. Uploads the `dist/` Pages artifact
+. A separate `conformance` job certifies the built site and a fixture build
 . Deploys to GitHub Pages (on `main` only)
 
 Scheduled builds run daily at 06:00 UTC to pick up new releases.
