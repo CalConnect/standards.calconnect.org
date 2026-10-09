@@ -2,7 +2,8 @@ source "https://rubygems.org"
 
 gem "metanorma-release", github: "metanorma/metanorma-release", tag: "v0.2.24"
 # Registry engine: enrichment, schemas, validation and conformance harness.
-gem "standards-registry", github: "metanorma/standards-registry"
+# Pinned to the first tagged release (2026-10-09); bump via tagged releases.
+gem "standards-registry", github: "metanorma/standards-registry", tag: "v1.0.0"
 gem "octokit", "~> 9.0"
 gem "rake", "~> 13.2"
 gem "relaton-calconnect", "~> 2.1"
