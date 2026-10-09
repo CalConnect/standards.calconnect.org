@@ -67,7 +67,7 @@ Tailwind CSS v4 via `@tailwindcss/vite` (see `astro.config.mjs`). Shared theme v
 
 ### Key Files
 
-- `_config.yml`: instance identity + the `registry:` map (org, urn_namespace, url_scheme, legacy_prefixes, features, license_default). Read by both the engine gem (default `site_config_path`) and `src/lib/registry.ts`.
+- `_config.yml`: instance identity + the `registry:` map (org, urn_namespace, url_scheme, legacy_prefixes, features, license_default) and the `branding:` block (logos, copyright line, footer link columns) — an SDO rebrands by editing `_config.yml`, `_data/navigation.yml` and its assets only. Read by both the engine gem (default `site_config_path`) and `src/lib/registry.ts`.
 - `metanorma.aggregate.yml`: aggregation config (orgs, topic, channels, output_dir `.artifacts/docs`, display_categories)
 - `astro.config.mjs`: Astro config — `site` from `_config.yml`, Tailwind vite plugin
 - `src/lib/registry.ts`: build-time catalog/navigation/site accessor (honors `REGISTRY_DIR` for fixture builds)
