@@ -2,7 +2,7 @@
 // Base layout: head (meta, fonts, endpoints), header, footer, scripts.
 // Ported from the theme's base layout + instance head/header/footer.
 import "../styles/global.css";
-import { site } from "../lib/registry";
+import { site, categories } from "../lib/registry";
 
 interface Props {
   title?: string;
@@ -12,7 +12,6 @@ interface Props {
 const { title, description, activeSlug } = Astro.props;
 const fullTitle = title ? `CalConnect Document Registry: ${title}` : site.title;
 const year = new Date().getFullYear();
-const categories = (await import("../lib/registry")).categories;
 ---
 <!DOCTYPE html>
 <html lang="en" class="">

@@ -23,6 +23,12 @@ categories:
     description: Administrative records including meeting minutes, agendas, and organizational documents.
     card_color: administrative
     card_css: cat-administrative
+  - title: Amendments
+    slug: amendments
+    display_category_slug: amendments
+    description: Amendments and technical corrigenda to published CalConnect Standards.
+    card_color: standard
+    card_css: cat-standard
   - title: Drafts
     slug: drafts
     display_category_slug: drafts

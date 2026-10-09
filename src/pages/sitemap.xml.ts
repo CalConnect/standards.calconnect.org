@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { docs } from "../lib/registry";
+import { docs, categories } from "../lib/registry";
 
 export const GET: APIRoute = ({ site }) => {
   const base = site!.origin;
@@ -7,7 +7,10 @@ export const GET: APIRoute = ({ site }) => {
   const urls = [
     `${base}/`,
     `${base}/search/`,
-    ...new Set(docs.map((d) => d.display_category_slug).filter(Boolean) as string[]).values(),
+    `${base}/drafts/`,
+    `${base}/public-review/`,
+    `${base}/patents/`,
+    ...categories.map((c) => `${base}/${c.slug}/`),
   ].map((u) => `  <url><loc>${esc(u)}</loc></url>`);
   const docUrls = docs.map(
     (d) => `  <url><loc>${esc(base + d.url)}</loc>${d.date ? `<lastmod>${d.date}</lastmod>` : ""}</url>`

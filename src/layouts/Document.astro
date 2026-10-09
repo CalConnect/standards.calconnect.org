@@ -3,12 +3,12 @@
 // URN, cite/ISO 690, provenance), keywords, downloads, relations,
 // editions, JSON-LD + Google Scholar citation meta.
 import Base from "./Base.astro";
+import fs from "node:fs";
 import type { Doc, Edition } from "../lib/registry";
-import { currentEdition, docs } from "../lib/registry";
+import { currentEdition, docs, site } from "../lib/registry";
 
 type Props = { doc: Doc };
 const { doc } = Astro.props;
-const site = (await import("../lib/registry")).site;
 const current: Edition | undefined = currentEdition(doc);
 const superseded = current && current.url !== doc.url;
 const pdf = doc.files.find((f) => f.format === "pdf");
@@ -18,7 +18,6 @@ const stageAbbr = (doc.bibliographic as any)?.status?.stage?.abbreviation || doc
 const citationsDir = "registry/citations";
 let iso690Text: string | null = null;
 try {
-  const fs = await import("node:fs");
   iso690Text = fs.readFileSync(`${citationsDir}/${doc.slug}.iso690.txt`, "utf8").trim();
 } catch { /* headless fixture builds may lack citation files */ }
 
