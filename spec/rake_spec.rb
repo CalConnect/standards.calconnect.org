@@ -9,21 +9,22 @@ RSpec.describe "Rake tasks" do
     expect(rakefile).to include("task :enrich")
   end
 
-  it "defines :build task (fetch + enrich + citations + jekyll)" do
+  it "defines :build task (fetch + enrich + citations + astro + finalize)" do
     expect(rakefile).to include("task build: %i[fetch enrich citations]")
+    expect(rakefile).to include("npm run build")
   end
 
-  it "defines :jekyll task (depends on citations)" do
-    expect(rakefile).to include("task jekyll: :citations")
+  it "guards the build against empty or shrunken catalogs" do
+    expect(rakefile).to include("guard_nonempty_catalog")
   end
 
   it "defines :serve task" do
     expect(rakefile).to include("task :serve")
   end
 
-  it "defines :clean task (site + registry)" do
+  it "defines :clean task (dist + registry + artifacts)" do
     expect(rakefile).to include("task :clean")
-    expect(rakefile).to match(/FileUtils\.rm_rf\("registry"\)/)
+    expect(rakefile).to include('rm_rf(%w[dist registry .artifacts])')
   end
 
   it "defines :citations task (relaton-ts exports)" do
@@ -38,7 +39,7 @@ RSpec.describe "Rake tasks" do
   end
 
   it "defines :conformance task" do
-    expect(rakefile).to include("task :conformance")
+    expect(rakefile).to include("task conformance:")
   end
 
   it "defines :spec task" do

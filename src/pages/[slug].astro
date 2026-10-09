@@ -1,0 +1,14 @@
+---
+import Listing from "../layouts/Listing.astro";
+import { categories, docsInCategory } from "../lib/registry";
+
+export function getStaticPaths() {
+  return categories.map((cat) => ({
+    params: { slug: cat.slug },
+    props: { cat },
+  }));
+}
+const { cat } = Astro.props;
+const docs = docsInCategory(cat.display_category_slug);
+---
+<Listing title={cat.title} activeSlug={cat.display_category_slug} docs={docs} description={cat.description} />

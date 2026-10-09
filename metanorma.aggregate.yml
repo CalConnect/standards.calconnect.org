@@ -1,5 +1,5 @@
 source: github
-output_dir: _site/docs
+output_dir: .artifacts/docs
 file_routing: flat
 cache_dir: .cache/aggregate
 

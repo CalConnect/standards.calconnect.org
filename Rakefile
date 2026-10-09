@@ -5,6 +5,15 @@ require "json"
 require "rspec/core/rake_task"
 require "yaml"
 
+# Run a block with selected environment variables set (bundler-safe).
+def with_env(vars)
+  saved = vars.keys.to_h { |k| [k, ENV[k]] }
+  vars.each { |k, v| ENV[k] = v }
+  yield
+ensure
+  saved.each { |k, v| v ? ENV[k] = v : ENV.delete(k) }
+end
+
 # metanorma-release's aggregate option carries a Thor default
 # ("_site/cc"), which shadows metanorma.aggregate.yml's output_dir —
 # pass it explicitly so the instance config controls the layout.
@@ -12,16 +21,8 @@ require "yaml"
 AGGREGATE_OUTPUT_DIR =
   YAML.safe_load_file("metanorma.aggregate.yml")["output_dir"] || "_site/docs"
 
-desc "Aggregate releases and build document index"
-task :fetch do
-  invalidate_stale_delta_state
-  sh "bundle exec metanorma-release aggregate --output-dir #{AGGREGATE_OUTPUT_DIR}"
-end
+SITE_DIR = "dist"
 
-# The gem skips repos whose release etags are unchanged, assuming their
-# extracted files still exist under output_dir. When that directory is
-# missing (fresh CI runner, wiped _site) the cache must be reset so files
-# are re-extracted; downloads/ is preserved to keep re-fetch cheap.
 def invalidate_stale_delta_state
   delta = File.join(".cache", "aggregate", "delta_state")
   return unless File.exist?(delta)
@@ -30,20 +31,89 @@ def invalidate_stale_delta_state
   FileUtils.rm_f(delta)
 end
 
-desc "Build entire site (fetch + enrich + citations + Jekyll + full-text index)"
-task build: %i[fetch enrich citations] do
-  sh "npm run build"
-  sh "bundle exec jekyll build"
-  build_fulltext_index
-  guard_nonempty_catalog
+# SDO-agnostic registry engine configuration; instance values live in
+# _config.yml (registry:) and metanorma.aggregate.yml.
+def registry_config
+  @registry_config ||= begin
+    require "standards-registry"
+
+    gem_version = Gem.loaded_specs["metanorma-release"]&.version.to_s
+    label = "metanorma-release#{gem_version.empty? ? '' : " v#{gem_version}"} + registry-enrich v1"
+    Registry::Config.new(generator_label: label).freeze
+  end
 end
 
-# Full-text index over the published document pages (renderer extra,
-# not part of the conformance profile).
-def build_fulltext_index
-  # Metanorma pages put the TOC (whose h1 is "Contents") before <main>;
-  # scoping the index to <main> keeps chrome out of titles and excerpts.
-  sh "npx pagefind --site _site --root-selector main"
+desc "Aggregate releases and build document index"
+task :fetch do
+  invalidate_stale_delta_state
+  sh "bundle exec metanorma-release aggregate --output-dir #{AGGREGATE_OUTPUT_DIR}"
+end
+
+desc "Enrich aggregated producer outputs into the registry catalog (no network)"
+task :enrich do
+  cfg = registry_config
+  result = Registry::Enricher.new(config: cfg).run
+  puts "OK: #{result.catalog.items.length} documents in #{cfg.catalog_path}"
+  puts "OK: backfill report at #{cfg.backfill_path} (#{result.backfill.empty? ? 'no gaps' : 'gaps recorded'})"
+end
+
+desc "Generate per-document citation exports via relaton-ts (ISO 690, BibTeX, RIS, CSL)"
+task :citations do
+  sh "node scripts/generate-citations.mjs"
+end
+
+desc "Assemble the built site: artifacts, citations, legacy redirects, full-text index"
+task :finalize do
+  docs_dest = File.join(SITE_DIR, "docs")
+  FileUtils.mkdir_p(docs_dest)
+  # Artifacts extracted by the aggregator serve at /docs/
+  if Dir.exist?(AGGREGATE_OUTPUT_DIR)
+    files = Dir.glob(File.join(AGGREGATE_OUTPUT_DIR, "**", "*")).select { |f| File.file?(f) }
+    files.each do |f|
+      rel = f.delete_prefix(AGGREGATE_OUTPUT_DIR + "/")
+      dest = File.join(docs_dest, rel)
+      FileUtils.mkdir_p(File.dirname(dest))
+      FileUtils.cp(f, dest)
+    end
+    puts "OK: #{files.length} artifacts finalized into /docs/"
+  end
+  # Citation exports serve at /docs/{slug}.{ext}
+  if Dir.exist?("registry/citations")
+    cited = Dir.glob("registry/citations/*")
+    cited.each { |f| FileUtils.cp(f, File.join(docs_dest, File.basename(f))) }
+    puts "OK: #{cited.length} citation files finalized into /docs/"
+  end
+  # Legacy /cc/ HTML redirects (meta refresh to the artifact)
+  catalog = JSON.parse(File.read(registry_config.catalog_path))
+  stub = lambda do |url|
+    <<~HTML
+      <!DOCTYPE html>
+      <html lang="en">
+      <head><meta charset="utf-8"><title>#{url}</title>
+      <link rel="canonical" href="#{url}">
+      <meta http-equiv="refresh" content="0; url=#{url}"></head>
+      <body><p>This document has moved to <a href="#{url}">#{url}</a>.</p></body>
+      </html>
+    HTML
+  end
+  legacy = 0
+  legacy_prefixes = YAML.safe_load_file("_config.yml").dig("registry", "legacy_prefixes") || []
+  legacy_prefixes.each do |prefix|
+    catalog["items"].each do |item|
+      item["files"].each do |file|
+        next unless file["format"] == "html"
+
+        dest = File.join(SITE_DIR, prefix, File.basename(file["url"]))
+        next if File.exist?(dest)
+
+        FileUtils.mkdir_p(File.dirname(dest))
+        File.write(dest, stub.call(file["url"]))
+        legacy += 1
+      end
+    end
+  end
+  puts "OK: #{legacy} legacy redirect stubs"
+  sh "npx pagefind --site #{SITE_DIR} --root-selector main"
 end
 
 # Build guard: an aggregation that yields zero documents must fail, and a
@@ -67,54 +137,43 @@ rescue Errno::ENOENT
   abort "FAIL: registry/catalog.json missing after build"
 end
 
-desc "Generate per-document citation exports via relaton-ts (ISO 690, BibTeX, RIS, CSL)"
-task :citations do
-  sh "node scripts/generate-citations.mjs"
+desc "Build entire site (fetch + enrich + citations + Astro + finalize)"
+task build: %i[fetch enrich citations] do
+  sh "npm run build"
+  Rake::Task["finalize"].invoke
+  guard_nonempty_catalog
 end
 
-desc "Build Jekyll site (assumes fetch already done)"
-task jekyll: :citations do
+desc "Build the Astro site (assumes enrich already done)"
+task site: %i[citations] do
   sh "npm run build"
-  sh "bundle exec jekyll build"
-  build_fulltext_index
+  Rake::Task["finalize"].invoke
 end
 
 desc "Serve the built site locally"
 task :serve do
-  sh "bundle exec jekyll serve"
+  sh "npx astro preview"
 end
 
 desc "Remove all build artifacts"
 task :clean do
-  FileUtils.rm_rf("_site")
-  FileUtils.rm_rf("registry")
+  FileUtils.rm_rf(%w[dist registry .artifacts])
 end
 
-desc "Enrich aggregated producer outputs into the registry catalog (no network)"
-task :enrich do
-  cfg = registry_config
-  result = Registry::Enricher.new(config: cfg).run
-  puts "OK: #{result.catalog.items.length} documents in #{cfg.catalog_path}"
-  puts "OK: backfill report at #{cfg.backfill_path} (#{result.backfill.empty? ? 'no gaps' : 'gaps recorded'})"
-end
-
-desc "Validate registry catalog against the published schema"
+desc "Validate catalog and search index against the published schemas"
 task :validate_schema do
   cfg = registry_config
   require "json"
   require "json_schemer"
 
-  catalog_path = cfg.catalog_path
-  search_path = cfg.search_index_path
-
-  unless File.exist?(catalog_path)
-    abort "SKIP: #{catalog_path} not found — run `rake enrich` first"
+  unless File.exist?(cfg.catalog_path)
+    abort "SKIP: #{cfg.catalog_path} not found — run `rake enrich` first"
   end
 
   errors = []
   schema_dir = File.dirname(cfg.schema_path)
-  [[File.join(schema_dir, "documents-index.schema.json"), catalog_path],
-   [File.join(schema_dir, "search-index.schema.json"), search_path]].each do |schema_path, data_path|
+  [[File.join(schema_dir, "documents-index.schema.json"), cfg.catalog_path],
+   [File.join(schema_dir, "search-index.schema.json"), cfg.search_index_path]].each do |schema_path, data_path|
     next unless File.exist?(data_path)
 
     schema = JSON.parse(File.read(schema_path))
@@ -146,10 +205,9 @@ end
 
 desc "Verify every internal link in the built site resolves"
 task :verify_links do
-  site = "_site"
-  abort "SKIP: #{site} not found — run `rake build` first" unless File.directory?(site)
+  abort "SKIP: #{SITE_DIR} not found — run `rake build` first" unless File.directory?(SITE_DIR)
 
-  html_files = Dir.glob(File.join(site, "**", "*.html"))
+  html_files = Dir.glob(File.join(SITE_DIR, "**", "*.html"))
   broken = []
   checked = 0
   html_files.each do |file|
@@ -162,11 +220,11 @@ task :verify_links do
       target = ref.split("#").first.split("?").first
       next if target.empty?
 
-      resolved = File.join(site, target)
+      resolved = File.join(SITE_DIR, target)
       resolved = File.join(resolved, "index.html") if File.directory?(resolved)
       checked += 1
       unless File.file?(resolved)
-        broken << "#{file.sub(site + '/', '')} -> #{ref}"
+        broken << "#{file.sub(SITE_DIR + '/', '')} -> #{ref}"
       end
     end
   end
@@ -181,7 +239,6 @@ end
 
 desc "Report catalog changes against a deployed registry"
 task :report_changes, [:base_url] do |_t, args|
-  require "json"
   require "net/http"
   require "uri"
 
@@ -213,16 +270,10 @@ task :report_changes, [:base_url] do |_t, args|
   summary = ENV["GITHUB_STEP_SUMMARY"]
   if summary
     File.open(summary, "a") do |f|
-      f.puts "## Catalog changes vs #{base}
-"
-      f.puts "+ **#{added.length} new**, ~ **#{changed.length} changed**, - **#{removed.length} removed** — #{local_items.length} total (was #{remote_items.length})
-"
-      f.puts "New: #{added.sort.map { |s| local_items[s]['id'] }.join(', ')}
-
-" unless added.empty?
-      f.puts "Removed: #{removed.sort.map { |s| remote_items[s]['id'] }.join(', ')}
-
-" unless removed.empty?
+      f.puts "## Catalog changes vs #{base}\n"
+      f.puts "+ **#{added.length} new**, ~ **#{changed.length} changed**, - **#{removed.length} removed** — #{local_items.length} total (was #{remote_items.length})\n"
+      f.puts "New: #{added.sort.map { |s| local_items[s]['id'] }.join(', ')}\n\n" unless added.empty?
+      f.puts "Removed: #{removed.sort.map { |s| remote_items[s]['id'] }.join(', ')}\n\n" unless removed.empty?
     end
   end
 end
@@ -251,13 +302,18 @@ task :validate_index, [:path] do |_t, args|
   end
 end
 
-desc "Run the conformance suite: build the reference renderer against golden fixtures and check the output"
-task :conformance do
+desc "Certify the built site and a fixture build with registry-conformance"
+task conformance: %i[build] do
   cfg = registry_config
   engine = File.expand_path(Gem.loaded_specs["standards-registry"].full_gem_path)
+
+  # 1. The instance's own built site, against its own contract.
+  sh "#{File.join(engine, 'bin', 'registry-conformance')} check #{SITE_DIR} " \
+     "--expect #{cfg.catalog_path} --schema #{cfg.schema_path}"
+
+  # 2. A fixture build: the golden catalog through the same Astro pipeline.
   fixtures = File.join(engine, "fixtures", "seed")
   workspace = File.join(".tmp", "conformance")
-
   fixture_config = Registry::Config.new(
     site_config_path: File.join(fixtures, "instance.yml"),
     aggregate_config_path: File.join(fixtures, "aggregate.yml"),
@@ -268,54 +324,16 @@ task :conformance do
   result = Registry::Enricher.new(config: fixture_config).run
   puts "OK: fixture catalog #{result.catalog.items.length} items"
 
-  # The fixture producer's aggregation step: place artifacts where the
-  # renderer expects them (metanorma-release does this for the instance).
-  docs_dest = File.join(workspace, "_site", "docs")
-  FileUtils.mkdir_p(docs_dest)
-  producer = File.join(fixtures, "producer")
-  FileUtils.cp(Dir.glob("#{producer}/*.html") + Dir.glob("#{producer}/*.pdf") +
-               Dir.glob("#{producer}/*.xml") + Dir.glob("#{producer}/*.rxl") +
-               Dir.glob("#{producer}/*.doc"), docs_dest)
-  FileUtils.cp_r(File.join(producer, "relaton"), docs_dest)
-
-  override = File.join(workspace, "jekyll.yml")
-  File.write(override, <<~YAML)
-    registry:
-      dir: #{File.join(workspace, "registry")}
-      legacy_prefixes: []
-    url: https://registry.example
-  YAML
-
-  sh "bundle exec jekyll build --config _config.yml,#{override} --destination #{File.join(workspace, '_site')} > /dev/null"
-
-  report = Registry::Conformance.check(
-    File.join(workspace, "_site"),
-    expect: fixture_config.catalog_path,
-    schema_path: cfg.schema_path
-  )
-  report.failures.each { |failure| puts "  FAIL: #{failure}" }
-  abort "FAIL: conformance suite (#{report.failures.length} failures)" unless report.passed
-
-  puts "OK: conformance suite passed (#{report.checks} checks) — reference renderer certified against fixtures"
-
-  # The same profile, same fixtures, a NON-Jekyll renderer (Python stdlib):
-  # proof that the contract — not the Jekyll theme — defines the frontend.
-  second = File.join(workspace, "second-site")
-  sh "python3 #{File.join(engine, 'fixtures', 'second-renderer', 'render.py')} --registry #{fixture_config.registry_dir} --files #{producer} --out #{second}"
-  sh "#{File.join(engine, 'bin', 'registry-conformance')} check #{second} --expect #{fixture_config.catalog_path} --schema #{cfg.schema_path}"
-  puts "OK: second (non-Jekyll) renderer certified by the same suite"
-end
-
-# SDO-agnostic registry engine configuration; instance values live in
-# _config.yml (registry:) and metanorma.aggregate.yml.
-def registry_config
-  @registry_config ||= begin
-    require "standards-registry"
-
-    gem_version = Gem.loaded_specs["metanorma-release"]&.version.to_s
-    label = "metanorma-release#{gem_version.empty? ? '' : " v#{gem_version}"} + registry-enrich v1"
-    Registry::Config.new(generator_label: label).freeze
+  with_env({ "REGISTRY_DIR" => File.join(workspace, "registry") }) do
+    sh "npm run build > /dev/null"
   end
+  # fixture artifacts serve at /docs/
+  FileUtils.cp(Dir.glob(File.join(fixtures, "producer", "*")).select { |f| File.file?(f) },
+               File.join(SITE_DIR, "docs"))
+
+  sh "#{File.join(engine, 'bin', 'registry-conformance')} check #{SITE_DIR} " \
+     "--expect #{fixture_config.catalog_path} --schema #{cfg.schema_path}"
+  puts "OK: conformance suite passed — instance site and fixture build certified"
 end
 
 RSpec::Core::RakeTask.new(:spec)

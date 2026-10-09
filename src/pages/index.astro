@@ -1,0 +1,107 @@
+---
+// Home: hero + search, stats, categories, recently published, about.
+import Base from "../layouts/Base.astro";
+import { site, docs, categories, categoryCount, recent, draftStages } from "../lib/registry";
+const year = new Date().getFullYear();
+const recentDocs = recent(6);
+const counts = new Map(categories.map((c) => [c.slug, categoryCount(c.display_category_slug)]));
+const draftsCount = docs.filter((d) => draftStages.includes(d.stage)).length;
+---
+<Base>
+  <div class="home-hero">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
+      <h1 class="home-hero-title">CalConnect Document Registry</h1>
+      <p class="home-hero-subtitle">
+        The official registry for CalConnect deliverables &mdash; standards, specifications,
+        reports, and other documents for calendar and scheduling interoperability.
+      </p>
+      <div class="global-search-wrap">
+        <svg class="gs-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+        <input type="text" id="global-search" class="gs-input" placeholder="Search all documents by title or identifier…" autocomplete="off" />
+        <kbd class="gs-kbd">/</kbd>
+        <div id="global-search-results" class="gs-results hidden"></div>
+      </div>
+      <p class="gs-hint">Search titles and identifiers — or <a href="/search/">search the full text of every document</a>.</p>
+      <noscript>
+        <p class="gs-noscript">Search requires JavaScript &mdash; browse the document categories below,
+        or fetch the full <a href="/catalog.json">catalog</a>.</p>
+      </noscript>
+    </div>
+  </div>
+
+  <div class="home-stats">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="home-stats-grid">
+        <div class="home-stat"><span class="home-stat-value">{docs.length}</span><span class="home-stat-label">Documents</span></div>
+        <div class="home-stat"><span class="home-stat-value">{categories.length}</span><span class="home-stat-label">Categories</span></div>
+        <div class="home-stat"><span class="home-stat-value">2000</span><span class="home-stat-label">Since</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h2 class="home-section-title">Document Categories</h2>
+    <div class="home-categories-grid">
+      {categories.map((cat) => {
+        const n = counts.get(cat.slug) ?? 0;
+        return (
+          <a href={`/${cat.slug}/`} class:list={["category-card", n === 0 && "category-empty"]} style={`--cat-color: var(--color-doctype-${cat.card_color}); border-left-color: var(--cat-color)`}>
+            <h3 class="category-card-title">{cat.title}</h3>
+            <p class="category-card-desc">{cat.description}</p>
+            <div class="category-card-footer">
+              {n > 0 ? <span class="category-card-count has-docs">{n} documents</span> : <span class="category-card-count-empty">No documents yet</span>}
+              <span class="category-card-arrow">&rarr;</span>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+
+  {recentDocs.length > 0 && (
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+      <h2 class="home-section-title">Recently Published</h2>
+      <div class="home-recent-grid">
+        {recentDocs.map((doc) => (
+          <a href={doc.url} class="recent-card">
+            <div class="recent-card-top">
+              <span class="recent-card-id">{doc.id}</span>
+              <span class="doc-type-badge" style={`background: var(--color-doctype-${doc.doctype_class})`}>{doc.doctype}</span>
+            </div>
+            <span class="recent-card-title">{doc.title.slice(0, 55)}</span>
+            {doc.authors && doc.authors.length > 0 && (
+              <span class="recent-card-authors">{doc.authors.map((a) => a.name).join(", ").slice(0, 40)}</span>
+            )}
+            <span class="recent-card-date">{doc.date?.slice(0, 4)}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  )}
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+    <div class="home-about">
+      <h3 class="home-about-title">About this registry</h3>
+      <p>
+        Documents are provided in HTML, PDF, and Metanorma-CC XML formats.
+        Bibliographic details are available in Relaton XML format.
+        Older documents may only be available in PDF.
+      </p>
+    </div>
+    <div class="home-disclaimer">
+      <h3 class="home-disclaimer-title">Disclaimer</h3>
+      <p>
+        Attention is drawn to the possibility that some of the elements of documents
+        on this site may be the subject of patent rights. CalConnect shall not be held responsible
+        for identifying any or all such patent rights. Details of any patent rights
+        identified during the development of such documents will be provided in the Introduction
+        of the document and/or on the <a href="/patents/">CalConnect list of patent declarations</a> received.
+      </p>
+      <p>
+        Any trade name used in documents or pages of this site is information given for the convenience
+        of users and does not constitute an endorsement.
+      </p>
+    </div>
+  </div>
+  <script is:inline src="/js/home.js"></script>
+</Base>

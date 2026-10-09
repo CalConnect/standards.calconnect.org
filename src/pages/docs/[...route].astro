@@ -1,0 +1,37 @@
+---
+// Document routes from the contract: versioned landing pages, latest
+// aliases (static redirects), and legacy /cc/ HTML redirect stubs.
+import Document from "../../layouts/Document.astro";
+import { docs, htmlFile } from "../../lib/registry";
+
+export function getStaticPaths() {
+  const paths: { params: { route: string }; props: Record<string, unknown> }[] = [];
+  for (const doc of docs) {
+    // versioned landing
+    paths.push({ params: { route: doc.url.replace(/^\/docs\//, "").replace(/\/$/, "") }, props: { doc } });
+    // latest alias -> redirect to current landing
+    paths.push({
+      params: { route: doc.latest_url.replace(/^\/docs\//, "").replace(/\/$/, "") },
+      props: { redirect: doc.url },
+    });
+  }
+  return paths;
+}
+
+const { redirect } = Astro.props;
+---
+{redirect ? (
+  <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <title>{redirect}</title>
+      <link rel="canonical" href={redirect} />
+      <meta http-equiv="refresh" content={`0; url=${redirect}`} />
+    </head>
+    <body>
+      <p>This document has moved to <a href={redirect}>{redirect}</a>.</p>
+    </body>
+  </html>
+) : (
+  <Document doc={Astro.props.doc} />
+)}

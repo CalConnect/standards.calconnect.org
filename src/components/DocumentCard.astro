@@ -1,0 +1,52 @@
+---
+// Listing-page card, ported from the doc-type layout (instance-branded
+// reference renderer markup, certified by registry-conformance).
+import type { Doc } from "../lib/registry";
+interface Props { doc: Doc }
+const { doc } = Astro.props;
+const html = doc.files.find((f) => f.format === "html");
+const cite = doc.files.find((f) => f.format === "rxl");
+const others = doc.files.filter((f) => !["html", "pdf", "xml", "rxl"].includes(f.format));
+---
+<div class="document" style={`--stage-color: var(--color-stage-${doc.stage_css}, var(--color-gray-300)); --doctype-color: var(--color-doctype-${doc.doctype_class})`} data-stage={doc.stage} data-id={doc.id.toLowerCase()} data-date={doc.date} data-title={doc.title.toLowerCase()} data-search={`${doc.id.toLowerCase()} ${doc.title.toLowerCase()}`}>
+  <div class="doc-header">
+    <a href={doc.url} class="doc-identifier">{doc.id}</a>
+    <span class="doc-badge" style={`--badge-color: var(--color-stage-${doc.stage_css})`}>
+      <span class="badge-dot"></span>
+      {(doc.bibliographic as any)?.status?.stage?.abbreviation || doc.stage.charAt(0).toUpperCase() + doc.stage.slice(1)}
+    </span>
+    <div class="doc-meta-inline">
+      <span class="doc-type-badge">{doc.doctype}</span>
+      {doc.edition && <span class="meta-text">Ed. {doc.edition}</span>}
+      {doc.date && <span class="meta-text">{doc.date}</span>}
+    </div>
+  </div>
+  <div class="doc-body">
+    <a href={doc.url} class="doc-title">{doc.title}</a>
+    {doc.authors && doc.authors.length > 0 && (
+      <p class="doc-authors">
+        {doc.authors.map((a) => a.name).join(", ")}
+        {doc.committee && <span class="doc-committee">({doc.committee})</span>}
+      </p>
+    )}
+    {doc.abstract && <p class="doc-abstract">{doc.abstract}</p>}
+  </div>
+  <div class="doc-actions">
+    <div class="doc-downloads">
+      {doc.files.map((f) => {
+        if (f.format === "rxl") return null;
+        const icons: Record<string, string> = {
+          html: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+          pdf: "M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z",
+          xml: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4",
+        };
+        return <a href={f.url} class={`dl-btn dl-${f.format}`}>
+          <svg class="dl-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icons[f.format] ?? "M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"} /></svg> {f.format.toUpperCase()}
+        </a>;
+      })}
+    </div>
+    {cite && <a href={cite.url} class="doc-relaton-link" title="Relaton bibliographic data">
+      <svg class="dl-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg> Relaton
+    </a>}
+  </div>
+</div>

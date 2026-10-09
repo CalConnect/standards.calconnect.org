@@ -1,0 +1,36 @@
+---
+import Base from "../layouts/Base.astro";
+const year = new Date().getFullYear();
+---
+<Base title="Page not found">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 prose dark:prose-invert">
+    <h1>Page not found</h1>
+    <p>The page you were looking does not exist here.</p>
+    <p>Go to the <a href="/">Home</a> page to start again.</p>
+    <h2>Disclaimer</h2>
+    <p>
+      Attention is drawn to the possibility that some of the elements of documents
+      on this site may be the subject of patent rights. CalConnect shall not be held responsible
+      for identifying any or all such patent rights. Details of any patent rights
+      identified during the development of such documents will be provided in the Introduction
+      of the document and/or on the CalConnect list of patent declarations received.
+    </p>
+    <p>
+      Any trade name used in documents or pages of this site is information given for the convenience
+      of users and does not constitute an endorsement.
+    </p>
+    <h2>Copyright</h2>
+    <div class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+      <p class="font-medium text-gray-900 dark:text-white">
+        &copy; {year} The Calendaring and Scheduling Consortium, Inc.
+      </p>
+      <p class="mt-2">
+        All rights reserved. Unless otherwise specified, no part of this
+        site or its documents may be reproduced or utilized otherwise in any form or by any
+        means, electronic or mechanical, including photocopying, or posting on the
+        internet or an intranet, without prior written permission. Permission can
+        be requested from the address below.
+      </p>
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,6 @@
+---
+import Listing from "../layouts/Listing.astro";
+import { docsByStage, draftStages } from "../lib/registry";
+const docs = docsByStage(draftStages);
+---
+<Listing title="Drafts" docs={docs} subtitleHint="drafts and works in progress" description="Working drafts, committee drafts, documents in public review, and other works in progress under development by CalConnect working groups." />

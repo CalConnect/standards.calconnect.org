@@ -1,0 +1,58 @@
+---
+import Base from "../layouts/Base.astro";
+const year = new Date().getFullYear();
+---
+<Base title="Patent Information Database">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Patent Information Database</h1>
+    <div class="prose dark:prose-invert max-w-none">
+      <p>
+        The CalConnect Patent Information Database is a public register for the disclosure of
+        potential patent information relating to CalConnect standardization deliverables.
+      </p>
+      <p>
+        This patent information database is created in accordance with
+        Clause 5.7 of <a href="/cc/cc-dir-10005-2019.html">CC/DIR 10005</a> ("Patent information database").
+      </p>
+      <blockquote>
+        <p>
+          In order to facilitate both the standards-making process and the application of deliverables, CalConnect makes available to the public a patent information database composed of information that was communicated to CalConnect by the means of declaration forms.
+        </p>
+      </blockquote>
+      <h2>Intended usage</h2>
+      <p>
+        In some cases, this database will provide information on specific patents, or
+        statements about patent policy compliance for particular deliverables.
+      </p>
+      <p>
+        The patent information database is not certified to be either accurate or complete,
+        but only reflect the information that has been communicated to CalConnect.
+      </p>
+      <p>
+        As such, the patent information database may be viewed as simply raising a flag to alert users
+        that they may wish to contact the entities who have communicated declaration forms to CalConnect
+        in order to determine if patent licenses must be obtained for use or implementation of a
+        particular deliverable.
+      </p>
+      <h2>Procedures</h2>
+      <p>
+        To file a patent information notice, please refer to:
+        <a href="/cc/cc-dir-10005-2019.html">CC/DIR 10005 -- "Guidelines for the implementation of the CalConnect patent policy"</a>.
+      </p>
+      <h2>Patent information</h2>
+      <p>No patent information has been filed yet.</p>
+      <div class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+        <p class="font-medium text-gray-900 dark:text-white">
+          &copy; {year} The Calendaring and Scheduling Consortium, Inc.
+        </p>
+        <p class="mt-2">
+          All rights reserved. Unless otherwise specified, no part of this
+          site or its documents may be reproduced or utilized otherwise in any form or by any
+          means, electronic or mechanical, including photocopying, or posting on the
+          internet or an intranet, without prior written permission. Permission can
+          be requested from the address below.
+        </p>
+      </div>
+    </div>
+  </div>
+</Base>

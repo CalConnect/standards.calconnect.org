@@ -38,7 +38,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          ruby-version: 3.3
+          ruby-version: 3.4
 
       - name: Cache aggregate state
         uses: actions/cache@v4
@@ -47,7 +47,7 @@ jobs:
           key: mn-aggregate-${{ github.run_id }}
           restore-keys: mn-aggregate-
 
-      - name: Build site (fetch releases + enrich catalog + Jekyll)
+      - name: Build site (fetch releases + enrich catalog + Astro)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bundle exec rake build
@@ -66,24 +66,16 @@ jobs:
       - name: Report catalog changes vs production
         run: bundle exec rake report_changes
 
-      - name: Verify build
-        run: |
-          doc_count=$(python3 -c "import json; print(len(json.load(open('registry/catalog.json')).get('items',[])))")
-          if [ "$doc_count" -eq 0 ]; then
-            echo "::error::Build produced 0 documents — aborting deploy"
-            exit 1
-          fi
-          echo "Verified: $doc_count documents"
-
       - name: Debug
         if: ${{ github.ref != 'refs/heads/main' }}
         run: |
-          ls -al _site
-          ls _site/cc | head -20
-          ls _site/relaton 2>/dev/null || echo "(no relaton dir)"
+          ls -al dist
+          ls dist/docs | head -20
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
 
   conformance:
     name: Conformance suite
@@ -104,9 +96,11 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          ruby-version: 3.3
+          ruby-version: 3.4
 
       - name: Reference renderer vs golden fixtures
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bundle exec rake conformance
 
   deploy:
