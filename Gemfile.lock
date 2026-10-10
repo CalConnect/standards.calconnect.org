@@ -9,10 +9,10 @@ GIT
 
 GIT
   remote: https://github.com/metanorma/standards-registry.git
-  revision: df53cc8e91c0e20d2e4304efcf426dacd4a935b6
-  tag: v1.0.0
+  revision: 18dd7b550fc31fe60432bac439856b220e87f7e2
+  tag: v1.0.1
   specs:
-    standards-registry (1.0.0)
+    standards-registry (1.0.1)
       json_schemer (~> 2.0)
       rexml (~> 3.4)
 
@@ -274,7 +274,7 @@ CHECKSUMS
   rubyzip (2.3.2) sha256=3f57e3935dc2255c414484fbf8d673b4909d8a6a57007ed754dde39342d2373f
   sawyer (0.9.3) sha256=0d0f19298408047037638639fe62f4794483fb04320269169bd41af2bdcf5e41
   simpleidn (0.3.0) sha256=12ca730bed2f3db04d11e9bfd1bca3e11fb37f55b21eb2e9793fb5814bf54d03
-  standards-registry (1.0.0)
+  standards-registry (1.0.1)
   stringio (3.2.0) sha256=c37cb2e58b4ffbd33fe5cd948c05934af997b36e0b6ca6fdf43afa234cf222e1
   thor (1.5.0) sha256=e3a9e55fe857e44859ce104a84675ab6e8cd59c650a49106a05f55f136425e73
   uri (1.1.1) sha256=379fa58d27ffb1387eaada68c749d1426738bd0f654d812fcc07e7568f5c57c6
