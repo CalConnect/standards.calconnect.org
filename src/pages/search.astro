@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import { withBase } from "../lib/registry";
 ---
 <Base title="Search">
   <div class="hero-section">
@@ -23,8 +24,8 @@ import Base from "../layouts/Base.astro";
     </div>
     <noscript>
       <p class="gs-noscript">Full-text search requires JavaScript — use the
-      <a href="/catalog.json">catalog</a> or browse the
-      <a href="/standards/">document categories</a>.</p>
+      <a href={withBase("/catalog.json")}>catalog</a> or browse the
+      <a href={withBase("/standards/")}>document categories</a>.</p>
     </noscript>
   </div>
   <script is:inline>
@@ -42,7 +43,7 @@ import Base from "../layouts/Base.astro";
       var pagefind = null; var timer; var pending = false; var bySlug = null;
       function ensureTitleMap() {
         if (bySlug) return Promise.resolve(bySlug);
-        return fetch('/search-index.json').then(function(res) { return res.json(); }).then(function(payload) {
+        return fetch((window.RB||'') + '/search-index.json').then(function(res) { return res.json(); }).then(function(payload) {
           bySlug = {};
           (payload.documents || []).forEach(function(d) { bySlug[d.slug] = d; });
           return bySlug;
@@ -55,7 +56,7 @@ import Base from "../layouts/Base.astro";
       }
       function ensurePagefind() {
         if (pagefind) return Promise.resolve(pagefind);
-        return import('/pagefind/pagefind.js').then(function(pf) { pagefind = pf; return pf; });
+        return import((window.RB||'') + '/pagefind/pagefind.js').then(function(pf) { pagefind = pf; return pf; });
       }
       function esc(s) { var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
       function doSearch() {

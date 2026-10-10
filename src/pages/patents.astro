@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../lib/registry";
 import Base from "../layouts/Base.astro";
 const year = new Date().getFullYear();
 ---
@@ -12,7 +13,7 @@ const year = new Date().getFullYear();
       </p>
       <p>
         This patent information database is created in accordance with
-        Clause 5.7 of <a href="/cc/cc-dir-10005-2019.html">CC/DIR 10005</a> ("Patent information database").
+        Clause 5.7 of <a href={withBase("/cc/cc-dir-10005-2019.html")}>CC/DIR 10005</a> ("Patent information database").
       </p>
       <blockquote>
         <p>
@@ -37,7 +38,7 @@ const year = new Date().getFullYear();
       <h2>Procedures</h2>
       <p>
         To file a patent information notice, please refer to:
-        <a href="/cc/cc-dir-10005-2019.html">CC/DIR 10005 -- "Guidelines for the implementation of the CalConnect patent policy"</a>.
+        <a href={withBase("/cc/cc-dir-10005-2019.html")}>CC/DIR 10005 -- "Guidelines for the implementation of the CalConnect patent policy"</a>.
       </p>
       <h2>Patent information</h2>
       <p>No patent information has been filed yet.</p>

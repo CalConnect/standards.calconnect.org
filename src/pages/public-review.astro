@@ -1,6 +1,6 @@
 ---
 import Listing from "../layouts/Listing.astro";
-import { docsByStage } from "../lib/registry";
+import { docsByStage , withBase } from "../lib/registry";
 const docs = docsByStage(["public-review"]);
 ---
 <Listing title="Public Review" docs={docs} subtitleHint="documents in public review" description="CalConnect documents currently in public review." />

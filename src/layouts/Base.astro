@@ -2,7 +2,7 @@
 // Base layout: head (meta, fonts, endpoints), header, footer, scripts.
 // Ported from the theme's base layout + instance head/header/footer.
 import "../styles/global.css";
-import { site, categories, branding } from "../lib/registry";
+import { site, categories, branding, base, withBase } from "../lib/registry";
 
 interface Props {
   title?: string;
@@ -11,6 +11,7 @@ interface Props {
 }
 const { title, description, activeSlug } = Astro.props;
 const fullTitle = title ? `${site.title}: ${title}` : site.title;
+const rbJson = JSON.stringify(base);
 const year = new Date().getFullYear();
 ---
 <!DOCTYPE html>
@@ -20,11 +21,11 @@ const year = new Date().getFullYear();
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{fullTitle}</title>
   <meta name="description" content={description ?? site.description ?? site.title} />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
+  <link rel="icon" type="image/png" sizes="96x96" href={withBase("/favicon-96x96.png")} />
+  <link rel="icon" type="image/x-icon" href={withBase("/favicon.ico")} />
+  <link rel="apple-touch-icon" sizes="180x180" href={withBase("/apple-touch-icon.png")} />
+  <link rel="manifest" href={withBase("/site.webmanifest")} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -35,8 +36,8 @@ const year = new Date().getFullYear();
     #nav-header{position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:50!important;height:64px!important}
     main{padding-top:64px!important}
   </style>
-  <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title={site.title} />
-  <link rel="alternate" type="application/atom+xml" title={`${site.title} feed`} href="/feed.xml" />
+  <link rel="search" type="application/opensearchdescription+xml" href={withBase("/opensearch.xml")} title={site.title} />
+  <link rel="alternate" type="application/atom+xml" title={`${site.title} feed`} href={withBase("/feed.xml")} />
   <slot name="head" />
 </head>
 <body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-white">
@@ -46,16 +47,16 @@ const year = new Date().getFullYear();
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center gap-3">
-          <a href="/" class="flex items-center" aria-label={site.publisher}>
-            <img src={branding.logo_light} alt={site.publisher} class="h-8 block dark:hidden" />
-            <img src={branding.logo_dark} alt={site.publisher} class="h-8 hidden dark:block" />
+          <a href={withBase("/")} class="flex items-center" aria-label={site.publisher}>
+            <img src={withBase(branding.logo_light)} alt={site.publisher} class="h-8 block dark:hidden" />
+            <img src={withBase(branding.logo_dark)} alt={site.publisher} class="h-8 hidden dark:block" />
           </a>
           <span class="hidden sm:block text-sm font-medium text-gray-400 dark:text-gray-500">|</span>
-          <a href="/" class="hidden sm:block text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Document Registry</a>
+          <a href={withBase("/")} class="hidden sm:block text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Document Registry</a>
         </div>
         <nav class="hidden lg:flex items-center gap-0.5" aria-label="Main navigation">
           {categories.map((cat) => (
-            <a href={`/${cat.slug}/`} class:list={["nav-link", cat.display_category_slug === activeSlug && "nav-active"]}>{cat.title}</a>
+            <a href={withBase(`/${cat.slug}/`)} class:list={["nav-link", cat.display_category_slug === activeSlug && "nav-active"]}>{cat.title}</a>
           ))}
         </nav>
         <div class="flex items-center gap-2">
@@ -72,9 +73,9 @@ const year = new Date().getFullYear();
     </div>
     <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-200 dark:border-white/10 bg-white dark:bg-gray-950">
       <div class="max-w-7xl mx-auto px-4 py-3 space-y-1">
-        {categories.map((cat) => <a href={`/${cat.slug}/`} class="mobile-nav-link">{cat.title}</a>)}
+        {categories.map((cat) => <a href={withBase(`/${cat.slug}/`)} class="mobile-nav-link">{cat.title}</a>)}
         <div class="mobile-nav-divider"></div>
-        <a href="/patents/" class="mobile-nav-link">Patent DB</a>
+        <a href={withBase("/patents/")} class="mobile-nav-link">Patent DB</a>
       </div>
     </div>
   </header>
@@ -90,9 +91,9 @@ const year = new Date().getFullYear();
           <h4 class="text-sm font-semibold uppercase tracking-wider text-gray-900 dark:text-white mb-4">Documents</h4>
           <ul class="space-y-2">
             {categories.map((cat) => (
-              <li><a href={`/${cat.slug}/`} class="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400">{cat.title}</a></li>
+              <li><a href={withBase(`/${cat.slug}/`)} class="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400">{cat.title}</a></li>
             ))}
-            <li><a href="/public-review/" class="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400">Public Review</a></li>
+            <li><a href={withBase("/public-review/")} class="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400">Public Review</a></li>
           </ul>
         </div>
         <div>
@@ -116,7 +117,8 @@ const year = new Date().getFullYear();
     </div>
   </footer>
 
-  <script is:inline src="/js/theme.js"></script>
-  <script is:inline src="/js/navigation.js"></script>
+  <script is:inline set:html={`window.RB = ${rbJson}`} />
+  <script is:inline src={withBase("/js/theme.js")}></script>
+  <script is:inline src={withBase("/js/navigation.js")}></script>
 </body>
 </html>

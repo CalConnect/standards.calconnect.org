@@ -4,7 +4,7 @@
 // the JS bundle (cards are server-rendered).
 import Base from "./Base.astro";
 import DocumentCard from "../components/DocumentCard.astro";
-import { type Doc } from "../lib/registry";
+import { type Doc , withBase } from "../lib/registry";
 
 interface Props {
   title: string;
@@ -80,5 +80,5 @@ const head = "";
       </div>
     )}
   </div>
-  <script is:inline src="/js/document-list.js"></script>
+  <script is:inline src={withBase("/js/document-list.js")}></script>
 </Base>

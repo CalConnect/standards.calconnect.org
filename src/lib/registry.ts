@@ -93,7 +93,7 @@ const siteConfig = YAML.parse(
   title: string;
   url: string;
   description?: string;
-  registry: { publisher_name: string };
+  registry: { publisher_name: string; base_path?: string };
   branding?: {
     logo_light: string;
     logo_dark: string;
@@ -102,6 +102,14 @@ const siteConfig = YAML.parse(
     footer: { community: { text: string; url: string }[]; resources: { text: string; url: string }[] };
   };
 };
+
+// Mount path for the whole registry ("" = site root). Set
+// registry.base_path (e.g. "/standards") when the registry serves under
+// a path of a larger site, e.g. www.enosema.org/standards/.
+const rawBase = (siteConfig.registry.base_path ?? "").replace(/\/$/, "");
+export const base = rawBase;
+export const withBase = (path: string): string =>
+  path.startsWith("/") ? `${base}${path}` : path;
 
 export const site = {
   url: siteConfig.url,
