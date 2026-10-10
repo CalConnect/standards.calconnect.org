@@ -51,7 +51,7 @@ import { withBase } from "../lib/registry";
       }
       function docFor(url) {
         if (!bySlug) return null;
-        var m = url.match(/^\/docs\/([a-z0-9][a-z0-9._-]*?)(?:\.[a-z]+|\/|$)/i);
+        var m = url.replace(window.RB || '', '').match(/^\/docs\/([a-z0-9][a-z0-9._-]*?)(?:\.[a-z]+|\/|$)/i);
         return m && bySlug[m[1]] || null;
       }
       function ensurePagefind() {
@@ -76,7 +76,7 @@ import { withBase } from "../lib/registry";
                 var doc = docFor(d.url);
                 var fallback = (d.meta && d.meta.title) || d.url.split('/').pop();
                 var title = doc ? doc.id + ' — ' + doc.title : fallback;
-                var href = doc ? doc.url : d.url;
+                var href = (window.RB||'') + (doc ? doc.url : d.url);
                 return '<div class="document" data-search="">' +
                   '<div class="doc-header"><a class="doc-identifier" href="' + href + '">' + esc(title) + '</a></div>' +
                   '<div class="doc-body"><div class="doc-abstract">' + (d.excerpt || '') + '</div></div>' +

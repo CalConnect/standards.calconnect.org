@@ -5,7 +5,7 @@
 import Base from "./Base.astro";
 import fs from "node:fs";
 import type { Doc, Edition } from "../lib/registry";
-import { currentEdition, docs, site } from "../lib/registry";
+import { currentEdition, docs, site, withBase } from "../lib/registry";
 
 type Props = { doc: Doc };
 const { doc } = Astro.props;
@@ -30,10 +30,10 @@ const copyrightRange = doc.copyright?.length
 const ld = {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "@id": `${site.url}${doc.url}`,
+  "@id": `${site.url}${withBase(doc.url)}`,
   identifier: doc.id,
   name: doc.title,
-  url: `${site.url}${doc.url}`,
+  url: `${site.url}${withBase(doc.url)}`,
   datePublished: doc.date,
   ...(doc.language ? { inLanguage: doc.language[0] } : {}),
   ...(doc.license ? { license: doc.license.url ?? doc.license.name } : {}),
@@ -41,7 +41,7 @@ const ld = {
   encoding: doc.files.map((f) => ({
     "@type": "MediaObject",
     encodingFormat: f.media_type,
-    contentUrl: `${site.url}${f.url}`,
+    contentUrl: `${site.url}${withBase(f.url)}`,
     name: f.name,
   })),
 };
@@ -53,7 +53,7 @@ const ld = {
   {(doc.authors ?? []).map((a) => <meta slot="head" name="citation_author" content={a.name} />)}
   <meta slot="head" name="citation_language" content={doc.language?.[0] ?? "en"} />
   <meta slot="head" name="citation_technical_report_institution" content={site.publisher} />
-  {pdf && <meta slot="head" name="citation_pdf_url" content={site.url + pdf.url} />}
+  {pdf && <meta slot="head" name="citation_pdf_url" content={site.url + withBase(pdf.url)} />}
   <div class="hero-section">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
       <div class="hero-content">
@@ -76,7 +76,7 @@ const ld = {
       <div class="no-results" role="note">
         <p class="no-results-text">
           This edition has been superseded.
-          <a href={current.url}>See the current edition</a>.
+          <a href={withBase(current.url)}>See the current edition</a>.
         </p>
       </div>
     )}
@@ -108,9 +108,9 @@ const ld = {
             </dd></div>
           )}
           {doc.urn && <div class="doc-detail-row"><dt>URN</dt><dd><code>{doc.urn}</code></dd></div>}
-          <div class="doc-detail-row"><dt>Canonical URL</dt><dd><code>{site.url}{doc.url}</code></dd></div>
+          <div class="doc-detail-row"><dt>Canonical URL</dt><dd><code>{site.url}{withBase(doc.url)}</code></dd></div>
           <div class="doc-detail-row"><dt>Cite</dt><dd class="doc-cite-links">
-            <a href={`/docs/${doc.slug}.iso690.txt`}>ISO 690</a> · <a href={`/docs/${doc.slug}.bib`}>BibTeX</a> · <a href={`/docs/${doc.slug}.ris`}>RIS</a> · <a href={`/docs/${doc.slug}.csl.json`}>CSL JSON</a>
+            <a href={withBase(`/docs/${doc.slug}.iso690.txt`)}>ISO 690</a> · <a href={withBase(`/docs/${doc.slug}.bib`)}>BibTeX</a> · <a href={withBase(`/docs/${doc.slug}.ris`)}>RIS</a> · <a href={withBase(`/docs/${doc.slug}.csl.json`)}>CSL JSON</a>
           </dd></div>
           {iso690Text && <div class="doc-detail-row"><dt>ISO 690 reference</dt><dd class="doc-iso690">{iso690Text}</dd></div>}
           {doc.provenance.source_repository && (
@@ -128,10 +128,10 @@ const ld = {
       <div class="doc-actions">
         <div class="doc-downloads">
           {doc.files.map((f) => f.format === "rxl" ? null : (
-            <a href={f.url} class={`dl-btn dl-${f.format}`}>{f.format.toUpperCase()}</a>
+            <a href={withBase(f.url)} class={`dl-btn dl-${f.format}`}>{f.format.toUpperCase()}</a>
           ))}
         </div>
-        {rxl && <a href={rxl.url} class="doc-relaton-link" title="Relaton bibliographic data">Relaton</a>}
+        {rxl && <a href={withBase(rxl.url)} class="doc-relaton-link" title="Relaton bibliographic data">Relaton</a>}
       </div>
     </div>
 
@@ -145,7 +145,7 @@ const ld = {
               <li class="doc-edition doc-relation">
                 <span class="doc-relation-type">{rel.type}</span>
                 {target
-                  ? <a class="doc-edition-id" href={target.url}>{rel.id}</a>
+                  ? <a class="doc-edition-id" href={withBase(target.url)}>{rel.id}</a>
                   : <span class="doc-edition-id">{rel.id}</span>}
                 {rel.date && <span class="meta-text">{rel.date}{rel.edition ? ` · ed. ${rel.edition}` : ""}</span>}
               </li>
@@ -163,12 +163,12 @@ const ld = {
             <li class:list={["doc-edition", e.url === doc.url && "current"]}>
               {e.url === doc.url
                 ? <span class="doc-edition-id">{e.edition ?? "1"} ({e.year ?? e.date}) — this edition</span>
-                : <a class="doc-edition-id" href={e.url}>{e.edition ?? "1"} ({e.year ?? e.date})</a>}
+                : <a class="doc-edition-id" href={withBase(e.url)}>{e.edition ?? "1"} ({e.year ?? e.date})</a>}
               <span class="doc-type-badge">{e.stage}</span>
             </li>
           ))}
         </ul>
-        <p><a href={doc.latest_url}>Latest edition of {doc.id.split(":")[0]}</a></p>
+        <p><a href={withBase(doc.latest_url)}>Latest edition of {doc.id.split(":")[0]}</a></p>
       </section>
     )}
   </div>

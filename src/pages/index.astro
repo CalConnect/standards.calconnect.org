@@ -63,7 +63,7 @@ const draftsCount = docs.filter((d) => draftStages.includes(d.stage)).length;
       <h2 class="home-section-title">Recently Published</h2>
       <div class="home-recent-grid">
         {recentDocs.map((doc) => (
-          <a href={doc.url} class="recent-card">
+          <a href={withBase(doc.url)} class="recent-card">
             <div class="recent-card-top">
               <span class="recent-card-id">{doc.id}</span>
               <span class="doc-type-badge" style={`background: var(--color-doctype-${doc.doctype_class})`}>{doc.doctype}</span>

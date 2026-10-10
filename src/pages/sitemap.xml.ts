@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { docs, categories } from "../lib/registry";
+import { docs, categories, withBase } from "../lib/registry";
 
 export const GET: APIRoute = ({ site }) => {
   const base = site!.origin;
@@ -10,10 +10,10 @@ export const GET: APIRoute = ({ site }) => {
     `${base}/drafts/`,
     `${base}/public-review/`,
     `${base}/patents/`,
-    ...categories.map((c) => `${base}/${c.slug}/`),
+    ...categories.map((c) => `${base}${withBase(`/${c.slug}/`)}`),
   ].map((u) => `  <url><loc>${esc(u)}</loc></url>`);
   const docUrls = docs.map(
-    (d) => `  <url><loc>${esc(base + d.url)}</loc>${d.date ? `<lastmod>${d.date}</lastmod>` : ""}</url>`
+    (d) => `  <url><loc>${esc(base + withBase(d.url))}</loc>${d.date ? `<lastmod>${d.date}</lastmod>` : ""}</url>`
   );
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
