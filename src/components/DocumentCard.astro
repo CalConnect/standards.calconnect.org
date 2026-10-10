@@ -2,6 +2,7 @@
 // Listing-page card, ported from the doc-type layout (instance-branded
 // reference renderer markup, certified by registry-conformance).
 import type { Doc } from "../lib/registry";
+import { withBase } from "../lib/registry";
 interface Props { doc: Doc }
 const { doc } = Astro.props;
 const html = doc.files.find((f) => f.format === "html");
@@ -10,7 +11,7 @@ const others = doc.files.filter((f) => !["html", "pdf", "xml", "rxl"].includes(f
 ---
 <div class="document" style={`--stage-color: var(--color-stage-${doc.stage_css}, var(--color-gray-300)); --doctype-color: var(--color-doctype-${doc.doctype_class})`} data-stage={doc.stage} data-id={doc.id.toLowerCase()} data-date={doc.date} data-title={doc.title.toLowerCase()} data-search={`${doc.id.toLowerCase()} ${doc.title.toLowerCase()}`}>
   <div class="doc-header">
-    <a href={doc.url} class="doc-identifier">{doc.id}</a>
+    <a href={withBase(doc.url)} class="doc-identifier">{doc.id}</a>
     <span class="doc-badge" style={`--badge-color: var(--color-stage-${doc.stage_css})`}>
       <span class="badge-dot"></span>
       {(doc.bibliographic as any)?.status?.stage?.abbreviation || doc.stage.charAt(0).toUpperCase() + doc.stage.slice(1)}
@@ -22,7 +23,7 @@ const others = doc.files.filter((f) => !["html", "pdf", "xml", "rxl"].includes(f
     </div>
   </div>
   <div class="doc-body">
-    <a href={doc.url} class="doc-title">{doc.title}</a>
+    <a href={withBase(doc.url)} class="doc-title">{doc.title}</a>
     {doc.authors && doc.authors.length > 0 && (
       <p class="doc-authors">
         {doc.authors.map((a) => a.name).join(", ")}
@@ -40,7 +41,7 @@ const others = doc.files.filter((f) => !["html", "pdf", "xml", "rxl"].includes(f
           pdf: "M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z",
           xml: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4",
         };
-        return <a href={f.url} class={`dl-btn dl-${f.format}`}>
+        return <a href={withBase(f.url)} class={`dl-btn dl-${f.format}`}>
           <svg class="dl-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icons[f.format] ?? "M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"} /></svg> {f.format.toUpperCase()}
         </a>;
       })}
