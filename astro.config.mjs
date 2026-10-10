@@ -9,7 +9,10 @@ import YAML from "yaml";
 
 const siteConfig = YAML.parse(fs.readFileSync("_config.yml", "utf8"));
 
+const basePath = (siteConfig.registry?.base_path ?? "").replace(/\/$/, "");
+
 export default defineConfig({
   site: siteConfig.url,
+  ...(basePath ? { base: basePath } : {}),
   vite: { plugins: [tailwindcss()] },
 });
