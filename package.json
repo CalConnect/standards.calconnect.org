@@ -17,5 +17,8 @@
     "relaton": "^0.1.2",
     "yaml": "^2.9.1"
   },
-  "name": "standards.calconnect.org"
+  "name": "standards.calconnect.org",
+  "overrides": {
+    "postcss-selector-parser": "^7.1.6"
+  }
 }
