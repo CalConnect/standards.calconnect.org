@@ -15,7 +15,7 @@
     function ensureData() {
       if (data || loading) return Promise.resolve(data);
       loading = true;
-      return fetch('/search-index.json')
+      return fetch((window.RB||'') + '/search-index.json')
         .then(function(res) { return res.json(); })
         .then(function(payload) { data = payload.documents || []; return data; })
         .catch(function() { data = []; return data; })

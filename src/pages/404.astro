@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../lib/registry";
 import Base from "../layouts/Base.astro";
 const year = new Date().getFullYear();
 ---
@@ -6,7 +7,7 @@ const year = new Date().getFullYear();
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 prose dark:prose-invert">
     <h1>Page not found</h1>
     <p>The page you were looking does not exist here.</p>
-    <p>Go to the <a href="/">Home</a> page to start again.</p>
+    <p>Go to the <a href={withBase("/")}>Home</a> page to start again.</p>
     <h2>Disclaimer</h2>
     <p>
       Attention is drawn to the possibility that some of the elements of documents

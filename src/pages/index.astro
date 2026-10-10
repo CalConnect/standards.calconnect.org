@@ -1,7 +1,7 @@
 ---
 // Home: hero + search, stats, categories, recently published, about.
 import Base from "../layouts/Base.astro";
-import { site, docs, categories, categoryCount, recent, draftStages } from "../lib/registry";
+import { site, docs, categories, categoryCount, recent, draftStages, withBase } from "../lib/registry";
 const year = new Date().getFullYear();
 const recentDocs = recent(6);
 const counts = new Map(categories.map((c) => [c.slug, categoryCount(c.display_category_slug)]));
@@ -21,10 +21,10 @@ const draftsCount = docs.filter((d) => draftStages.includes(d.stage)).length;
         <kbd class="gs-kbd">/</kbd>
         <div id="global-search-results" class="gs-results hidden"></div>
       </div>
-      <p class="gs-hint">Search titles and identifiers — or <a href="/search/">search the full text of every document</a>.</p>
+      <p class="gs-hint">Search titles and identifiers — or <a href={withBase("/search/")}>search the full text of every document</a>.</p>
       <noscript>
         <p class="gs-noscript">Search requires JavaScript &mdash; browse the document categories below,
-        or fetch the full <a href="/catalog.json">catalog</a>.</p>
+        or fetch the full <a href={withBase("/catalog.json")}>catalog</a>.</p>
       </noscript>
     </div>
   </div>
@@ -95,7 +95,7 @@ const draftsCount = docs.filter((d) => draftStages.includes(d.stage)).length;
         on this site may be the subject of patent rights. CalConnect shall not be held responsible
         for identifying any or all such patent rights. Details of any patent rights
         identified during the development of such documents will be provided in the Introduction
-        of the document and/or on the <a href="/patents/">CalConnect list of patent declarations</a> received.
+        of the document and/or on the <a href={withBase("/patents/")}>CalConnect list of patent declarations</a> received.
       </p>
       <p>
         Any trade name used in documents or pages of this site is information given for the convenience
@@ -103,5 +103,5 @@ const draftsCount = docs.filter((d) => draftStages.includes(d.stage)).length;
       </p>
     </div>
   </div>
-  <script is:inline src="/js/home.js"></script>
+  <script is:inline src={withBase("/js/home.js")}></script>
 </Base>

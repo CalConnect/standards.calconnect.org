@@ -22,6 +22,11 @@ AGGREGATE_OUTPUT_DIR =
   YAML.safe_load_file("metanorma.aggregate.yml")["output_dir"] || "_site/docs"
 
 SITE_DIR = "dist"
+# Registry mount path from _config.yml ("" = own domain root). The
+# whole dist/ tree is deployed under this path by the host, so hrefs
+# carry the prefix but on-disk layout stays registry-relative.
+REGISTRY_BASE =
+  YAML.safe_load_file("_config.yml").dig("registry", "base_path").to_s.sub(%r{/\z}, "")
 
 def invalidate_stale_delta_state
   delta = File.join(".cache", "aggregate", "delta_state")
@@ -220,6 +225,7 @@ task :verify_links do
       target = ref.split("#").first.split("?").first
       next if target.empty?
 
+      target = target.delete_prefix("#{REGISTRY_BASE}/") if REGISTRY_BASE != ""
       resolved = File.join(SITE_DIR, target)
       resolved = File.join(resolved, "index.html") if File.directory?(resolved)
       checked += 1
