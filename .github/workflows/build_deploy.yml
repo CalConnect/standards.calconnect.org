@@ -72,6 +72,14 @@ jobs:
           ls -al dist
           ls dist/docs | head -20
 
+      - name: Sign catalog.json (Sigstore keyless)
+        uses: sigstore/cosign-installer@v3
+
+      - name: Sign and verify catalog.json
+        run: |
+          cosign sign-blob --yes             --output-signature dist/catalog.json.sig             --output-certificate dist/catalog.json.pem             dist/catalog.json
+          cosign verify-blob             --certificate dist/catalog.json.pem             --certificate-identity-regexp "^https://github\.com/CalConnect/standards\.calconnect\.org/"             --certificate-oidc-issuer "https://token.actions.githubusercontent.com"             --signature dist/catalog.json.sig             dist/catalog.json
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
