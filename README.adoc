@@ -70,6 +70,16 @@ The most valuable thing this repository produces is the document catalog:
 * Search description: `https://standards.calconnect.org/opensearch.xml`
 * Sitemap: `https://standards.calconnect.org/sitemap.xml`
 * Catalog checksum: `https://standards.calconnect.org/catalog.json.sha256`
+* Catalog signature: `https://standards.calconnect.org/catalog.json.sig` (+ `catalog.json.pem` certificate) — Sigstore keyless, signed in CI; verify with:
++
+[source,sh]
+----
+cosign verify-blob \
+  --certificate catalog.json.pem \
+  --certificate-identity-regexp "^https://github\.com/CalConnect/standards\.calconnect\.org/" \
+  --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
+  --signature catalog.json.sig catalog.json
+----
 * Per-document citations: `/docs/{slug}.iso690.txt`, `/docs/{slug}.bib`, `/docs/{slug}.ris`, `/docs/{slug}.csl.json`
 
 Stability promise: within schema major version 1, changes are additive only;
