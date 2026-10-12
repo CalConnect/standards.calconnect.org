@@ -128,7 +128,7 @@ const ld = {
       <div class="doc-actions">
         <div class="doc-downloads">
           {doc.files.map((f) => f.format === "rxl" ? null : (
-            <a href={withBase(f.url)} class={`dl-btn dl-${f.format}`}>{f.format.toUpperCase()}</a>
+            <a href={withBase(f.url)} download class={`dl-btn dl-${f.format}`}>{f.format.toUpperCase()}</a>
           ))}
         </div>
         {rxl && <a href={withBase(rxl.url)} class="doc-relaton-link" title="Relaton bibliographic data">Relaton</a>}

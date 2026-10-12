@@ -100,6 +100,14 @@ const siteConfig = YAML.parse(
     copyright_name: string;
     copyright_url: string;
     footer: { community: { text: string; url: string }[]; resources: { text: string; url: string }[] };
+    icons?: {
+      favicon_svg?: string;
+      favicon_ico?: string;
+      favicon_png?: string;
+      apple_touch?: string;
+      manifest_192?: string;
+      manifest_512?: string;
+    };
   };
 };
 
@@ -124,9 +132,21 @@ const fallbackBranding = {
   copyright_name: siteConfig.registry.publisher_name,
   copyright_url: siteConfig.url,
   footer: { community: [] as { text: string; url: string }[], resources: [] as { text: string; url: string }[] },
+  icons: {
+    favicon_svg: "/favicon.svg",
+    favicon_ico: "/favicon.ico",
+    favicon_png: "/favicon-96x96.png",
+    apple_touch: "/apple-touch-icon.png",
+    manifest_192: "/web-app-manifest-192x192.png",
+    manifest_512: "/web-app-manifest-512x512.png",
+  },
 };
 
-export const branding = { ...fallbackBranding, ...(siteConfig.branding ?? {}) };
+export const branding = {
+  ...fallbackBranding,
+  ...(siteConfig.branding ?? {}),
+  icons: { ...fallbackBranding.icons, ...(siteConfig.branding?.icons ?? {}) },
+};
 
 export const bySlug = (slug: string): Doc | undefined =>
   docs.find((d) => d.slug === slug);
