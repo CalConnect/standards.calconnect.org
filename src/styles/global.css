@@ -1211,13 +1211,13 @@ html.dark .recent-card-title { color: var(--color-gray-400); }
   color: var(--color-gray-600);
   font-variant-numeric: tabular-nums;
 }
-html.dark .recent-card-date { color: var(--color-gray-500); }
+html.dark .recent-card-date { color: var(--color-gray-400); }
 .recent-card-authors {
   font-size: 0.6875rem;
   color: var(--color-gray-600);
   line-height: 1.3;
 }
-html.dark .recent-card-authors { color: var(--color-gray-500); }
+html.dark .recent-card-authors { color: var(--color-gray-400); }
 
 @media (max-width: 768px) {
   .home-recent-grid { grid-template-columns: repeat(2, 1fr); }
