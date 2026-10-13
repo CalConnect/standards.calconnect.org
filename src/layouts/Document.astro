@@ -22,6 +22,9 @@ try {
 } catch { /* headless fixture builds may lack citation files */ }
 
 const year = new Date().getFullYear();
+const plainAbstract = doc.abstract
+  ? doc.abstract.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim()
+  : null;
 const owners = (doc.copyright ?? []).map((c) => c.owner).filter(Boolean).join(", ");
 const copyrightRange = doc.copyright?.length
   ? `${doc.copyright[0].from}${doc.copyright[doc.copyright.length - 1].to ? `–${doc.copyright[doc.copyright.length - 1].to}` : ""}`
@@ -46,7 +49,7 @@ const ld = {
   })),
 };
 ---
-<Base title={doc.id} description={doc.abstract ?? undefined}>
+<Base title={doc.id} description={plainAbstract ?? undefined}>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(ld)} />
   <meta slot="head" name="citation_title" content={doc.title} />
   <meta slot="head" name="citation_publication_date" content={doc.date ?? ""} />
