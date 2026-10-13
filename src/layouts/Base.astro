@@ -21,6 +21,16 @@ const year = new Date().getFullYear();
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{fullTitle}</title>
   <meta name="description" content={description ?? site.description ?? site.title} />
+  <meta property="og:site_name" content={site.title} />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description ?? site.description ?? site.title} />
+  <meta property="og:url" content={new URL(Astro.url.pathname, site.url).href} />
+  <meta property="og:image" content={new URL(withBase(branding.icons.apple_touch), site.url).href} />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={description ?? site.description ?? site.title} />
+  <meta name="twitter:image" content={new URL(withBase(branding.icons.apple_touch), site.url).href} />
   <link rel="icon" type="image/svg+xml" href={withBase(branding.icons.favicon_svg)} />
   <link rel="icon" type="image/png" sizes="96x96" href={withBase(branding.icons.favicon_png)} />
   <link rel="icon" type="image/x-icon" href={withBase(branding.icons.favicon_ico)} />
